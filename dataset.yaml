@@ -1,0 +1,37 @@
+
+# ICOD Datasets  python main_for_image.py --config configs/icod_train.py --pretrained --model-name PvtV2B4_ZoomNeXt
+
+
+combined_tr:
+  {
+    root: ".",
+    image: { path: "./data/Train/Imgs", suffix: ".jpg" },
+    mask: { path: "./data/Train/S1_GT", suffix: ".png" },
+    pseudo_mask: { path: "./data/Train/S1_GT", suffix: ".png" },
+    box_json: { path: "./data/Train/box_label", suffix: ".json" },
+
+  }
+cod10k_te:
+  {
+    root: "data/Test/COD10K-TE",
+    image: { path: "Image", suffix: ".jpg" },
+    mask: { path: "Mask", suffix: ".png" },
+  }
+camo_te:
+  {
+    root: "data/Test/CAMO-TE",
+    image: { path: "Image", suffix: ".jpg" },
+    mask: { path: "Mask", suffix: ".png" },
+  }
+chameleon:
+  {
+    root: "data/Test/CHAMELEON",
+    image: { path: "Image", suffix: ".jpg" },
+    mask: { path: "Mask", suffix: ".png" },
+  }
+nc4k:
+  {
+    root: "data/Test/NC4K",
+    image: { path: "Image", suffix: ".jpg" },
+    mask: { path: "Mask", suffix: ".png" },
+  }

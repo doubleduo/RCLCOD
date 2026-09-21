@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+*.png
+# Checkpoints / weights
+*.pth
+*.pt
+*.ckpt
+*.bin
+*.png
+
+# Experiment outputs
+runs/
+ANet_outputs/
+outputs/
+results/
+checkpoints/
+SGT/
+GTbase/
+sam_pseado/
+
+# TensorBoard
+tensorboard/
+
+# Temporary
+tmp/
+temp/
+
+# Dataset
+data/
+datasets/
+
+# Cache
+.cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Secrets
+.env
