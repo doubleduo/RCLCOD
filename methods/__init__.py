@@ -10,8 +10,7 @@ from .zoomnext.zoomnext import (
     ConvNeXtB_ZoomNeXt,
     ConvNeXtB384_ZoomNeXt,
 )
-from  .pnet_baseline import (
-    PvtV2B4_PNet)
+
 
 
 from .fpn_baseline import (
@@ -38,3 +37,9 @@ from .fpn_csr_nc import (
 from .fpn_unvalue_nc import PvtV2B4_FPN_Unvalue
 
 from .zoomnext_unvalue import PvtV2B4_ZoomNeXt_Unvalue
+
+
+from .fpn_nc_regionual import (
+    RegionUALNoisyCODLoss,
+    PvtV2B4_FPN_NC_RegionUAL,
+)
