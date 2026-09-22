@@ -1,0 +1,254 @@
+=== log 2026-09-22 17:08:04.137415 ===
+[basemain.py] base_seed = 112358
+config = 'configs/curablation/csr_mhsiu_nc_continuoussam2.py'
+data_cfg = './dataset.yaml'
+dataset_infos = dict(
+    camo_te=dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='data/Test/CAMO-TE'),
+    chameleon=dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='data/Test/CHAMELEON'),
+    cod10k_te=dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='data/Test/COD10K-TE'),
+    combined_tr=dict(
+        box_json=dict(path='./data/Train/box_label', suffix='.json'),
+        image=dict(path='./data/Train/Imgs', suffix='.jpg'),
+        mask=dict(path='./data/Train/S2_GT', suffix='.png'),
+        pseudo_mask=dict(path='./data/Train/S2_GT', suffix='.png'),
+        root='.'),
+    nc4k=dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='data/Test/NC4K'))
+deterministic = True
+device = 'cuda:0'
+evaluate = False
+exp_name = 'PvtV2B4_ZoomNeXt_BS8'
+has_test = True
+info = None
+load_from = None
+log_interval = 20
+metric_names = [
+    'sm',
+    'wfm',
+    'mae',
+    'em',
+]
+model_name = 'PvtV2B4_ZoomNeXt'
+output_dir = '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/realpool/sam2zoom'
+path = dict(
+    cfg_copy=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/realpool/sam2zoom/PvtV2B4_ZoomNeXt_BS8/exp_0/config.py',
+    excel=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/realpool/sam2zoom/PvtV2B4_ZoomNeXt_BS8/exp_0/results.xlsx',
+    final_full_net=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/realpool/sam2zoom/PvtV2B4_ZoomNeXt_BS8/exp_0/pth/checkpoint_final.pth',
+    final_state_net=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/realpool/sam2zoom/PvtV2B4_ZoomNeXt_BS8/exp_0/pth/state_final.pth',
+    log=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/realpool/sam2zoom/PvtV2B4_ZoomNeXt_BS8/exp_0/log_2026-09-22.txt',
+    output_dir=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/realpool/sam2zoom',
+    pth=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/realpool/sam2zoom/PvtV2B4_ZoomNeXt_BS8/exp_0/pth',
+    pth_log=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/realpool/sam2zoom/PvtV2B4_ZoomNeXt_BS8/exp_0',
+    save=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/realpool/sam2zoom/PvtV2B4_ZoomNeXt_BS8/exp_0/pre',
+    tb=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/realpool/sam2zoom/PvtV2B4_ZoomNeXt_BS8/exp_0/tb',
+    trainer_copy=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/realpool/sam2zoom/PvtV2B4_ZoomNeXt_BS8/exp_0/trainer.txt'
+)
+pretrained = True
+proj_root = '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD'
+save_results = False
+test = dict(
+    batch_size=8,
+    clip_range=None,
+    data=dict(names=[
+        'camo_te',
+        'cod10k_te',
+    ], shape=dict(h=384, w=384)),
+    num_workers=8)
+train = dict(
+    batch_size=8,
+    bn=dict(freeze_affine=True, freeze_encoder=False, freeze_status=True),
+    curriculum=dict(
+        continuous_schedule=dict(
+            clean_weight=1.0,
+            enable=True,
+            final_start_epoch=141,
+            noisy=dict(
+                anneal_end_epoch=140,
+                anneal_start_epoch=91,
+                end_weight=0.4,
+                hold_end_epoch=60,
+                mode='cosine',
+                start_weight=1.0)),
+        enable=True,
+        num_samples_per_epoch=4040,
+        pools=dict(
+            clean='./data/pseudo_pool/sam2/sam2_gt_clean.txt',
+            noisy='./data/pseudo_pool/sam2/sam2_gt_noisy.txt')),
+    data=dict(names=[
+        'combined_tr',
+    ], shape=dict(h=384, w=384)),
+    ema_kd=dict(enable=False, lambda_kd=0.0),
+    epoch_based=True,
+    grad_acc_step=1,
+    lr=0.0001,
+    num_epochs=150,
+    num_iters=None,
+    num_workers=4,
+    optimizer=dict(
+        cfg=dict(diff_factor=0.1, weight_decay=0),
+        group_mode='finetune',
+        mode='adam',
+        set_to_none=False),
+    save_val_ckpt=True,
+    sche_usebatch=True,
+    scheduler=dict(
+        cfg=dict(gamma=0.1, milestones=60600),
+        mode='step',
+        warmup=dict(initial_coef=0.01, mode='linear', num_iters=0)),
+    use_amp=True,
+    val_interval=5,
+    val_start_epoch=30)
+use_checkpoint = False
+use_custom_worker_init = True
+
+[pt_utils.py] We will use a fixed seed 112358
+[pt_utils.py] We will not use `torch.backends.cudnn.benchmark`
+[basemain_continuous.py] class PvtV2B4_ZoomNeXt(PvtV2B2_ZoomNeXt):
+    def set_backbone(self, pretrained: bool, use_checkpoint: bool):
+        self.encoder = pvt_v2_eff_b4(pretrained=pretrained, use_checkpoint=use_checkpoint)
+
+[basemain_continuous.py] Number of Parameters: 65597344
+[basemain.py] Loaded curriculum list: ./data/pseudo_pool/sam2/sam2_gt_clean.txt, samples=1627
+[basemain.py] Length of combined_tr [clean]: 1627
+[basemain.py] Loaded curriculum list: ./data/pseudo_pool/sam2/sam2_gt_noisy.txt, samples=1208
+[basemain.py] Length of combined_tr [noisy]: 1208
+[basemain_continuous.py] Continuous C3 pools: clean=1627, noisy=1208
+[basemain.py] Curriculum stage [C3_broad_1to1]: clean:N=1627,pool_p=1.000; noisy:N=1208,pool_p=1.000; sampled_per_epoch=4040
+[basemain_continuous.py] ================== Epoch 001 Continuous C3 ==================
+[basemain_continuous.py] C3_broad_1to1 | weights C:N=1.0000:1.0000 | expected probs C=50.00%, N=50.00%
+[zoomnext.py] Parameter Groups:{Pretrained: 828, Fixed: 4, ReTrained: 314}
+[basemain_continuous.py] Continuous C3 mode: ENABLED. Saturation detector: OFF. EMA teacher: OFF. EMA-KD: OFF.
+[basemain_continuous.py] Scheduler:
+Scheduler: (
+    num_iters: 75750
+    epoch_length: 505
+    warmup_iter: [0, 0)
+    scheduler_iter: [0, 75749]
+    mode: step
+    scheduler_cfg: {'warmup': {'num_iters': 0, 'initial_coef': 0.01, 'mode': 'linear'}, 'mode': 'step', 'cfg': {'milestones': 60600, 'gamma': 0.1}}
+    initial_lrs: [1e-05, 0.0001]
+    step_by_batch: True
+)
+Optimizer:
+Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 1e-05
+    maximize: False
+    weight_decay: 0
+
+Parameter Group 1
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.0001
+    maximize: False
+    weight_decay: 0
+)
+[basemain_continuous.py] Image Mean: tensor([0.4850, 0.4560, 0.4060], device='cuda:0'), Image Std: tensor([0.2290, 0.2240, 0.2250], device='cuda:0')
+[basemain_continuous.py] Exp_Name: PvtV2B4_ZoomNeXt_BS8
+[basemain.py] Curriculum stage [C3_broad_1to1]: clean:N=1627,pool_p=1.000; noisy:N=1208,pool_p=1.000; sampled_per_epoch=4040
+[basemain_continuous.py] ================== Epoch 001 Continuous C3 ==================
+[basemain_continuous.py] C3_broad_1to1 | weights C:N=1.0000:1.0000 | expected probs C=50.00%, N=50.00%
+[basemain_continuous.py] ETA: 0:00:00(16.5G) | 0:75750 0/505 0/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.60001 powual_0.00000: 0.00000
+[basemain_continuous.py] ETA: 5:44:04(17.3G) | 19:75750 19/505 0/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.45283 powual_0.00000: 0.00000
+[basemain_continuous.py] ETA: 4:54:47(17.3G) | 39:75750 39/505 0/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.40697 powual_0.00000: 0.00000
+[basemain_continuous.py] ETA: 4:52:01(17.3G) | 59:75750 59/505 0/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.36789 powual_0.00000: 0.00000
+[basemain_continuous.py] ETA: 4:53:23(17.3G) | 79:75750 79/505 0/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.36292 powual_0.00000: 0.00000
+[basemain_continuous.py] ETA: 4:55:09(17.3G) | 99:75750 99/505 0/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.35143 powual_0.00000: 0.00000
+[basemain_continuous.py] ETA: 5:03:02(17.3G) | 119:75750 119/505 0/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.34989 powual_0.00001: 0.00000
+[basemain_continuous.py] ETA: 4:52:27(17.3G) | 139:75750 139/505 0/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.33091 powual_0.00001: 0.00001
+[basemain_continuous.py] ETA: 4:52:47(17.3G) | 159:75750 159/505 0/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.31070 powual_0.00001: 0.00001
+[basemain_continuous.py] ETA: 4:53:45(17.3G) | 179:75750 179/505 0/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.32486 powual_0.00001: 0.00001
+[basemain_continuous.py] ETA: 4:50:40(17.3G) | 199:75750 199/505 0/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.31518 powual_0.00002: 0.00001
+[basemain_continuous.py] ETA: 4:53:52(17.3G) | 219:75750 219/505 0/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.28906 powual_0.00002: 0.00001
+[basemain_continuous.py] ETA: 4:47:36(17.3G) | 239:75750 239/505 0/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.28986 powual_0.00002: 0.00002
+[basemain_continuous.py] ETA: 4:53:54(17.3G) | 259:75750 259/505 0/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.28238 powual_0.00003: 0.00002
+[basemain_continuous.py] ETA: 4:50:09(17.3G) | 279:75750 279/505 0/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.26099 powual_0.00003: 0.00002
+[basemain_continuous.py] ETA: 4:47:26(17.3G) | 299:75750 299/505 0/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.28067 powual_0.00004: 0.00002
+[basemain_continuous.py] ETA: 5:37:03(17.3G) | 319:75750 319/505 0/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.24579 powual_0.00004: 0.00003
+[basemain_continuous.py] ETA: 8:51:06(17.3G) | 339:75750 339/505 0/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.25984 powual_0.00005: 0.00003
+[basemain_continuous.py] ETA: 8:49:43(17.3G) | 359:75750 359/505 0/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.24913 powual_0.00006: 0.00003
+[basemain_continuous.py] ETA: 8:50:15(17.3G) | 379:75750 379/505 0/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.24574 powual_0.00006: 0.00004
+[basemain_continuous.py] ETA: 8:50:37(17.3G) | 399:75750 399/505 0/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.23570 powual_0.00007: 0.00004
+[basemain_continuous.py] ETA: 8:50:57(17.3G) | 419:75750 419/505 0/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.23216 powual_0.00008: 0.00004
+[basemain_continuous.py] ETA: 8:49:25(17.3G) | 439:75750 439/505 0/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.22232 powual_0.00008: 0.00005
+[basemain_continuous.py] ETA: 8:49:11(17.3G) | 459:75750 459/505 0/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.22751 powual_0.00009: 0.00005
+[basemain_continuous.py] ETA: 8:48:36(17.3G) | 479:75750 479/505 0/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.19962 powual_0.00010: 0.00005
+[basemain_continuous.py] ETA: 8:49:04(17.3G) | 499:75750 499/505 0/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.21068 powual_0.00011: 0.00006
+[basemain_continuous.py] ETA: 8:48:41(17.3G) | 504:75750 504/505 0/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.21969 powual_0.00011: 0.00006
+[basemain_continuous.py] Epoch 001 | C3_broad_1to1 | C:0.500/N:0.500 | L:0.3001 BCE:0.3001 |  | EMA-KD:OFF
+[basemain_continuous.py] Exp_Name: PvtV2B4_ZoomNeXt_BS8
+[basemain.py] Curriculum stage [C3_broad_1to1]: clean:N=1627,pool_p=1.000; noisy:N=1208,pool_p=1.000; sampled_per_epoch=4040
+[basemain_continuous.py] ================== Epoch 002 Continuous C3 ==================
+[basemain_continuous.py] C3_broad_1to1 | weights C:N=1.0000:1.0000 | expected probs C=50.00%, N=50.00%
+[basemain_continuous.py] ETA: 8:48:07(17.3G) | 505:75750 0/505 1/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.22127 powual_0.00011: 0.00006
+[basemain_continuous.py] ETA: 8:49:05(17.3G) | 519:75750 14/505 1/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.19944 powual_0.00012: 0.00006
+[basemain_continuous.py] ETA: 8:47:36(17.3G) | 539:75750 34/505 1/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.20327 powual_0.00012: 0.00006
+[basemain_continuous.py] ETA: 7:28:02(17.3G) | 559:75750 54/505 1/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.19519 powual_0.00013: 0.00007
+[basemain_continuous.py] ETA: 8:47:52(17.3G) | 579:75750 74/505 1/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.21526 powual_0.00014: 0.00007
+[basemain_continuous.py] ETA: 8:48:46(17.3G) | 599:75750 94/505 1/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.19220 powual_0.00015: 0.00008
+[basemain_continuous.py] ETA: 8:46:21(17.3G) | 619:75750 114/505 1/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.19797 powual_0.00016: 0.00008
+[basemain_continuous.py] ETA: 8:44:08(17.3G) | 639:75750 134/505 1/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.18453 powual_0.00018: 0.00009
+[basemain_continuous.py] ETA: 8:48:58(17.3G) | 659:75750 154/505 1/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.18906 powual_0.00019: 0.00009
+[basemain_continuous.py] ETA: 8:48:12(17.3G) | 679:75750 174/505 1/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.23184 powual_0.00020: 0.00009
+[basemain_continuous.py] ETA: 8:47:58(17.3G) | 699:75750 194/505 1/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.17526 powual_0.00021: 0.00010
+[basemain_continuous.py] ETA: 8:47:48(17.3G) | 719:75750 214/505 1/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.17371 powual_0.00022: 0.00010
+[basemain_continuous.py] ETA: 8:47:20(17.3G) | 739:75750 234/505 1/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.22761 powual_0.00023: 0.00010
+[basemain_continuous.py] ETA: 8:48:02(17.3G) | 759:75750 254/505 1/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.15728 powual_0.00025: 0.00010
+[basemain_continuous.py] ETA: 8:48:22(17.3G) | 779:75750 274/505 1/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.16047 powual_0.00026: 0.00012
+[basemain_continuous.py] ETA: 7:45:47(17.3G) | 799:75750 294/505 1/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.14144 powual_0.00027: 0.00011
+[basemain_continuous.py] ETA: 8:46:54(17.3G) | 819:75750 314/505 1/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.14683 powual_0.00029: 0.00011
+[basemain_continuous.py] ETA: 8:51:43(17.3G) | 839:75750 334/505 1/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.13525 powual_0.00030: 0.00012
+[basemain_continuous.py] ETA: 8:47:16(17.3G) | 859:75750 354/505 1/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.13890 powual_0.00032: 0.00012
+[basemain_continuous.py] ETA: 8:46:58(17.3G) | 879:75750 374/505 1/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.13832 powual_0.00033: 0.00013
+[basemain_continuous.py] ETA: 8:46:43(17.3G) | 899:75750 394/505 1/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.14260 powual_0.00035: 0.00014
+[basemain_continuous.py] ETA: 8:45:47(17.3G) | 919:75750 414/505 1/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.13165 powual_0.00036: 0.00014
+[basemain_continuous.py] ETA: 8:39:32(17.3G) | 939:75750 434/505 1/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.20920 powual_0.00038: 0.00015
+[basemain_continuous.py] ETA: 8:46:57(17.3G) | 959:75750 454/505 1/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.14027 powual_0.00040: 0.00014
+[basemain_continuous.py] ETA: 8:45:16(17.3G) | 979:75750 474/505 1/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.18272 powual_0.00041: 0.00014
+[basemain_continuous.py] ETA: 8:46:01(17.3G) | 999:75750 494/505 1/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.15172 powual_0.00043: 0.00016
+[basemain_continuous.py] ETA: 8:45:49(17.3G) | 1009:75750 504/505 1/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.12754 powual_0.00044: 0.00015
+[basemain_continuous.py] Epoch 002 | C3_broad_1to1 | C:0.500/N:0.500 | L:0.1658 BCE:0.1658 |  | EMA-KD:OFF
+[basemain_continuous.py] Exp_Name: PvtV2B4_ZoomNeXt_BS8
+[basemain.py] Curriculum stage [C3_broad_1to1]: clean:N=1627,pool_p=1.000; noisy:N=1208,pool_p=1.000; sampled_per_epoch=4040
+[basemain_continuous.py] ================== Epoch 003 Continuous C3 ==================
+[basemain_continuous.py] C3_broad_1to1 | weights C:N=1.0000:1.0000 | expected probs C=50.00%, N=50.00%
+[basemain_continuous.py] ETA: 8:45:34(17.3G) | 1010:75750 0/505 2/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.12996 powual_0.00044: 0.00016
+[basemain_continuous.py] ETA: 7:23:33(17.3G) | 1019:75750 9/505 2/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.12927 powual_0.00045: 0.00015
+[basemain_continuous.py] ETA: 8:38:57(17.3G) | 1039:75750 29/505 2/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.11849 powual_0.00046: 0.00015
+[basemain_continuous.py] ETA: 8:45:29(17.3G) | 1059:75750 49/505 2/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.13055 powual_0.00048: 0.00017
+[basemain_continuous.py] ETA: 8:45:42(17.3G) | 1079:75750 69/505 2/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.13587 powual_0.00050: 0.00016
+[basemain_continuous.py] ETA: 8:44:52(17.3G) | 1099:75750 89/505 2/150 | C3_broad_1to1 C:0.500/N:0.500 | LR:1.000e-05,1.000e-04 | bce: 0.12342 powual_0.00052: 0.00017

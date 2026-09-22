@@ -1,23 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-B2: PvtV2B4 FPN + Noisy-COD loss curriculum + CSR/MHSIU residual.
+A1: WS-SAM-style decoder WITHOUT MFG, WITHOUT deep supervision
 
-Recommended command:
-    python basemain_continuous.py \
-        --config configs/curablation/csr_mhsiu_nc_continuous.py \
-        --model-name PvtV2B4_FPN_CSR_NC_Curriculum
-
-Sampling schedule is kept the same as the current continuous baseline so the
-only new architectural variable is CSR/MHSIU residual.
-
-Model-internal schedules (driven by iter_percentage):
-    epoch 1-60   : q=2, CSR alpha 0.15 -> 0.30
-    epoch 61-100 : q=1, CSR alpha 0.30 -> 1.00
-    epoch 101-150: q=1, CSR alpha = 1.00
-
-This config intentionally excludes unvalue for the first CSR ablation.
-After B2 is stable, use the same model with the previously prepared
-Clean/Noisy/Unvalue continuous trainer/config.
+Run:
+python basemain_continuous.py \
+  --config configs/curablation/wssam_a1_nomfg_real.py \
+  --model-name PvtV2B4_WSSAM \
+  --output-dir outputs/realpool/wssam_a1_nomfg
 """
 
 has_test = True
@@ -30,9 +19,18 @@ base_seed = 112358
 __BATCHSIZE = 8
 __NUM_EPOCHS = 150
 __SAMPLES_PER_EPOCH = 4040
+__ITER_PER_EPOCH = __SAMPLES_PER_EPOCH // __BATCHSIZE
 
-__ITER_PER_EPOCH = __SAMPLES_PER_EPOCH // __BATCHSIZE  # 505
-__NUM_ITERS = __NUM_EPOCHS * __ITER_PER_EPOCH          # 75750
+model = dict(
+    channels=64,
+
+    mfg_enable=False,
+    mfg_fine_slots=4,
+    mfg_coarse_slots=2,
+    mfg_iters=3,
+
+    deep_supervision=False,
+)
 
 train = dict(
     batch_size=__BATCHSIZE,
@@ -59,25 +57,25 @@ train = dict(
         enable=True,
 
         pools=dict(
-            clean="./data/pseudo_pool/sam2/sam2_gt_clean.txt",
-            noisy="./data/pseudo_pool/sam2/sam2_gt_noisy.txt",
+            clean="./data/pseudo_pool/real/clean.txt",
+            noisy="./data/pseudo_pool/real/noisy.txt",
         ),
 
         num_samples_per_epoch=__SAMPLES_PER_EPOCH,
 
         continuous_schedule=dict(
             enable=True,
+
             clean_weight=1.0,
 
             noisy=dict(
-                # Keep broad exposure during the early-learning stage.
                 hold_end_epoch=60,
                 start_weight=1.0,
 
-                # Reliability annealing.
-                anneal_start_epoch=91,
+                anneal_start_epoch=61,
                 anneal_end_epoch=140,
                 end_weight=0.4,
+
                 mode="cosine",
             ),
 
@@ -89,23 +87,25 @@ train = dict(
         mode="adam",
         set_to_none=False,
         group_mode="finetune",
+
         cfg=dict(
             weight_decay=0,
-            # PVT backbone 1e-5; FPN/CSR/ZeroConv/head 1e-4.
             diff_factor=0.1,
         ),
     ),
 
     sche_usebatch=True,
+
     scheduler=dict(
         warmup=dict(
             num_iters=0,
             initial_coef=0.01,
             mode="linear",
         ),
+
         mode="step",
+
         cfg=dict(
-            # Do not drop LR at the 60/100 curriculum transitions.
             milestones=__ITER_PER_EPOCH * 120,
             gamma=0.1,
         ),
@@ -127,9 +127,12 @@ test = dict(
     batch_size=__BATCHSIZE,
     num_workers=8,
     clip_range=None,
+
     data=dict(
         shape=dict(h=384, w=384),
-        names=["camo_te", "cod10k_te"],
-        # names=["nc4k", "chameleon"]
+        names=[
+            "camo_te",
+            "cod10k_te",
+        ],
     ),
 )

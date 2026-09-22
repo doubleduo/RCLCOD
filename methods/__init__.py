@@ -43,3 +43,5 @@ from .fpn_nc_regionual import (
     RegionUALNoisyCODLoss,
     PvtV2B4_FPN_NC_RegionUAL,
 )
+
+from .wssam_pvt import PvtV2B4_WSSAM
