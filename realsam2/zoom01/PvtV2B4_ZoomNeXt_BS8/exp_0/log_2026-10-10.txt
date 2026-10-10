@@ -1470,3 +1470,24 @@ Parameter Group 1
 [basemain_continuous.py] ========================= Validation Epoch 40 =========================
 [basemain.py] dataset      |      S |     Fw |      E |    MAE
 [basemain.py] camo_te      |  0.851 |  0.800 |  0.912 |  0.055
+[basemain.py] cod10k_te    |  0.869 |  0.778 |  0.932 |  0.024
+[basemain_continuous.py] Exp_Name: PvtV2B4_ZoomNeXt_BS8
+[basemain.py] Curriculum stage [C3_broad_1to1]: clean:N=1804,pool_p=1.000; sampled_per_epoch=4040
+[basemain_continuous.py] ================== Epoch 041 Continuous C3 ==================
+[basemain_continuous.py] C3_broad_1to1 | weights C:N=1.0000:0.0000 | expected probs C=100.00%, N=0.00%
+[basemain_continuous.py] ETA: 3:14:50(17.9G) | 20200:75750 0/505 40/150 | C3_broad_1to1 C:1.000/N:0.000 | LR:1.000e-05,1.000e-04 | bce: 0.00714 powual_0.16543: 0.00108
+[basemain_continuous.py] ETA: 3:17:08(17.9G) | 20219:75750 19/505 40/150 | C3_broad_1to1 C:1.000/N:0.000 | LR:1.000e-05,1.000e-04 | bce: 0.01367 powual_0.16573: 0.00193
+[basemain_continuous.py] ETA: 3:14:51(17.9G) | 20239:75750 39/505 40/150 | C3_broad_1to1 C:1.000/N:0.000 | LR:1.000e-05,1.000e-04 | bce: 0.01277 powual_0.16604: 0.00187
+[basemain_continuous.py] ETA: 3:14:41(17.9G) | 20259:75750 59/505 40/150 | C3_broad_1to1 C:1.000/N:0.000 | LR:1.000e-05,1.000e-04 | bce: 0.00574 powual_0.16634: 0.00099
+[basemain_continuous.py] ETA: 3:14:48(17.9G) | 20279:75750 79/505 40/150 | C3_broad_1to1 C:1.000/N:0.000 | LR:1.000e-05,1.000e-04 | bce: 0.00910 powual_0.16665: 0.00150
+[basemain_continuous.py] ETA: 3:14:46(17.9G) | 20299:75750 99/505 40/150 | C3_broad_1to1 C:1.000/N:0.000 | LR:1.000e-05,1.000e-04 | bce: 0.00609 powual_0.16696: 0.00106
+[basemain_continuous.py] ETA: 3:14:41(17.9G) | 20319:75750 119/505 40/150 | C3_broad_1to1 C:1.000/N:0.000 | LR:1.000e-05,1.000e-04 | bce: 0.00848 powual_0.16727: 0.00131
+[basemain_continuous.py] ETA: 3:14:28(17.9G) | 20339:75750 139/505 40/150 | C3_broad_1to1 C:1.000/N:0.000 | LR:1.000e-05,1.000e-04 | bce: 0.00600 powual_0.16758: 0.00103
+[basemain_continuous.py] ETA: 3:14:38(17.9G) | 20359:75750 159/505 40/150 | C3_broad_1to1 C:1.000/N:0.000 | LR:1.000e-05,1.000e-04 | bce: 0.00724 powual_0.16789: 0.00122
+[basemain_continuous.py] ETA: 3:14:52(17.9G) | 20379:75750 179/505 40/150 | C3_broad_1to1 C:1.000/N:0.000 | LR:1.000e-05,1.000e-04 | bce: 0.01131 powual_0.16820: 0.00189
+[basemain_continuous.py] ETA: 3:14:06(17.9G) | 20399:75750 199/505 40/150 | C3_broad_1to1 C:1.000/N:0.000 | LR:1.000e-05,1.000e-04 | bce: 0.01134 powual_0.16851: 0.00179
+[basemain_continuous.py] ETA: 3:14:04(17.9G) | 20419:75750 219/505 40/150 | C3_broad_1to1 C:1.000/N:0.000 | LR:1.000e-05,1.000e-04 | bce: 0.00724 powual_0.16882: 0.00125
+[basemain_continuous.py] ETA: 3:14:27(17.9G) | 20439:75750 239/505 40/150 | C3_broad_1to1 C:1.000/N:0.000 | LR:1.000e-05,1.000e-04 | bce: 0.00941 powual_0.16913: 0.00164
+[basemain_continuous.py] ETA: 3:14:16(17.9G) | 20459:75750 259/505 40/150 | C3_broad_1to1 C:1.000/N:0.000 | LR:1.000e-05,1.000e-04 | bce: 0.00716 powual_0.16945: 0.00124
+[basemain_continuous.py] ETA: 3:14:25(17.9G) | 20479:75750 279/505 40/150 | C3_broad_1to1 C:1.000/N:0.000 | LR:1.000e-05,1.000e-04 | bce: 0.00576 powual_0.16976: 0.00123
+[basemain_continuous.py] ETA: 3:14:04(17.9G) | 20499:75750 299/505 40/150 | C3_broad_1to1 C:1.000/N:0.000 | LR:1.000e-05,1.000e-04 | bce: 0.00825 powual_0.17007: 0.00146
