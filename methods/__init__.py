@@ -55,3 +55,5 @@ from .fpn_rfgm import (
 from .fpn_reliable_loss import PvtV2B4_FPN_Reliable
 
 from .fpn_region_ablation import PvtV2B4_FPN_RegionAblation
+
+from .fpn_pool_ual import PvtV2B4_FPN_PoolUAL
