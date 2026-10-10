@@ -45,3 +45,11 @@ from .fpn_nc_regionual import (
 )
 
 from .wssam_pvt import PvtV2B4_WSSAM
+
+
+from .fpn_rfgm import (
+    CODRFGM,
+    PvtV2B4_FPN_RFGM,
+)
+
+from .fpn_reliable_loss import PvtV2B4_FPN_Reliable

@@ -1,0 +1,159 @@
+# -*- coding: utf-8 -*-
+"""
+RFGM-C4 architecture-only ablation.
+
+Same settings as:
+    configs/curablation/csr_mhsiu_nc_real.py
+
+but model itself is:
+    PvtV2B4_FPN_RFGM
+
+The model inherits the baseline BCE loss.
+No NC / UAL / edge loss / cross-stage frequency guidance is added here.
+
+Run:
+python basemain_continuous.py \
+  --config configs/curablation/fpn_rfgm_c4_real.py \
+  --model-name PvtV2B4_FPN_RFGM \
+  --output-dir outputs/realpool/fpn_rfgm_c4
+"""
+
+has_test = True
+deterministic = True
+use_custom_worker_init = True
+
+log_interval = 20
+base_seed = 112358
+
+__BATCHSIZE = 8
+__NUM_EPOCHS = 150
+__SAMPLES_PER_EPOCH = 4040
+
+__ITER_PER_EPOCH = (
+    __SAMPLES_PER_EPOCH // __BATCHSIZE
+)
+
+model = dict(
+    # Match current FPN baseline.
+    fpn_dim=64,
+
+    # Conservative RFGM defaults.
+    rfgm_amplitude_gain=0.5,
+    rfgm_max_phase_ratio=0.25,
+    rfgm_residual_scale_init=0.1,
+)
+
+train = dict(
+    batch_size=__BATCHSIZE,
+    num_workers=4,
+    use_amp=True,
+
+    num_epochs=__NUM_EPOCHS,
+    epoch_based=True,
+    num_iters=None,
+
+    lr=1e-4,
+    grad_acc_step=1,
+
+    val_start_epoch=30,
+    val_interval=5,
+    save_val_ckpt=True,
+
+    ema_kd=dict(
+        enable=False,
+        lambda_kd=0.0,
+    ),
+
+    curriculum=dict(
+        enable=True,
+
+        pools=dict(
+            clean="./data/pseudo_pool/real/clean.txt",
+            noisy="./data/pseudo_pool/real/noisy.txt",
+        ),
+
+        num_samples_per_epoch=__SAMPLES_PER_EPOCH,
+
+        continuous_schedule=dict(
+            enable=True,
+
+            clean_weight=1.0,
+
+            noisy=dict(
+                hold_end_epoch=60,
+                start_weight=1.0,
+
+                anneal_start_epoch=61,
+                anneal_end_epoch=140,
+                end_weight=0.4,
+
+                mode="cosine",
+            ),
+
+            final_start_epoch=141,
+        ),
+    ),
+
+    optimizer=dict(
+        mode="adam",
+        set_to_none=False,
+        group_mode="finetune",
+
+        cfg=dict(
+            weight_decay=0,
+            diff_factor=0.1,
+        ),
+    ),
+
+    sche_usebatch=True,
+
+    scheduler=dict(
+        warmup=dict(
+            num_iters=0,
+            initial_coef=0.01,
+            mode="linear",
+        ),
+
+        mode="step",
+
+        cfg=dict(
+            milestones=__ITER_PER_EPOCH * 120,
+            gamma=0.1,
+        ),
+    ),
+
+    bn=dict(
+        freeze_status=True,
+        freeze_affine=True,
+        freeze_encoder=False,
+    ),
+
+    data=dict(
+        shape=dict(
+            h=384,
+            w=384,
+        ),
+
+        names=[
+            "combined_tr",
+        ],
+    ),
+)
+
+test = dict(
+    batch_size=__BATCHSIZE,
+    num_workers=8,
+    clip_range=None,
+
+    data=dict(
+        shape=dict(
+            h=384,
+            w=384,
+        ),
+
+        names=[
+            "camo_te",
+            "cod10k_te",
+        ],
+    ),
+)

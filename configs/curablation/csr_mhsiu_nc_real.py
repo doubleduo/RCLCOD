@@ -59,8 +59,8 @@ train = dict(
         enable=True,
 
         pools=dict(
-            clean="./data/pseudo_pool/real/clean.txt",
-            noisy="./data/pseudo_pool/real/noisy.txt",
+            clean="./data/pseudo_pool/sam2/sam2_gt_clean.txt",
+            noisy="./data/pseudo_pool/sam2/sam2_gt_noisy.txt",
         ),
 
         num_samples_per_epoch=__SAMPLES_PER_EPOCH,

@@ -1,0 +1,95 @@
+{
+  "Base": {
+    "Smeasure": 0.9047514384865248,
+    "maxE": 0.9677899528221033,
+    "maxF": 0.9089339314977735,
+    "MAE": 0.017403440374608288
+  },
+  "Refine_NoFlip": {
+    "Smeasure": 0.9168165217046073,
+    "maxE": 0.9778583248284194,
+    "maxF": 0.9255653912436218,
+    "MAE": 0.013845361439634512
+  },
+  "Refine_FlipGate": {
+    "Smeasure": 0.917126467396165,
+    "maxE": 0.977933795831286,
+    "maxF": 0.9260659306782075,
+    "MAE": 0.013764908989165039
+  },
+  "RouteBreakdown": {
+    "NORMAL": {
+      "num_images": 2919,
+      "profile": {
+        "Smeasure": 0.9205247426343451,
+        "maxE": 0.9754697377957804,
+        "maxF": 0.9298318185443115,
+        "MAE": 0.01744360196705347
+      }
+    },
+    "SO_CROP": {
+      "num_images": 969,
+      "profile": {
+        "Smeasure": 0.9151117641034037,
+        "maxE": 0.98482381073437,
+        "maxF": 0.9201080959840352,
+        "MAE": 0.0031231863364217234
+      }
+    },
+    "MO_PER_BOX": {
+      "num_images": 152,
+      "profile": {
+        "Smeasure": 0.8647099020700977,
+        "maxE": 0.9813295916507119,
+        "maxF": 0.89172721447752,
+        "MAE": 0.010960464568454068
+      }
+    }
+  },
+  "Diagnostics": {
+    "num_images": 4040,
+    "num_failures": 0,
+    "flip_accepted": 3941,
+    "flip_rejected": 99,
+    "num_cropped_boxes": 1235,
+    "num_added_points": 8494
+  },
+  "MetricNote": "Legacy columns maxE/maxF mean binary E/F at threshold 0.5; not sweep max or adaptive E/F.",
+  "Config": {
+    "sam2_checkpoint": "./sam_pseado/weights/sam2_hiera_large.pt",
+    "sam2_config": "sam2_hiera_l.yaml",
+    "device": "cuda",
+    "img_dir": "./data/Train/Imgs",
+    "scribble_dir": "./data/Train/Scribble",
+    "gt_dir": "./data/Train/GT",
+    "json_dir": "./data/Train/box_label",
+    "out_dir": "./softresult/SAM2_Optimized3",
+    "size": 1024,
+    "seed": 0,
+    "refine_iters": 2,
+    "active_points": true,
+    "active_min_dist": 16,
+    "active_conflict_first": true,
+    "max_initial_per_class": 9,
+    "use_crop": true,
+    "small_box_area_thr": 0.1,
+    "crop_context": 0.35,
+    "crop_min_context": 16,
+    "crop_square": true,
+    "box_prompt_margin": 5,
+    "multi_box_merge_margin": 25,
+    "flip_gate": true,
+    "flip_mode": "gate",
+    "flip_min_iou": 0.75,
+    "flip_max_area_ratio": 1.5,
+    "flip_scribble_tol": 0.015,
+    "flip_boundary_radius": 7,
+    "flip_base_uncertainty": 0.22,
+    "flip_other_confidence": 0.2,
+    "flip_alpha": 0.6,
+    "save_probs": false,
+    "vis_mae_thr": 0.03,
+    "vis_gain_thr": 0.003
+  },
+  "Failures": []
+}

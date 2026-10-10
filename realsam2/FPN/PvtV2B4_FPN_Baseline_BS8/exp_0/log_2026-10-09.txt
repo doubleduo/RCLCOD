@@ -1,0 +1,329 @@
+=== log 2026-10-09 19:33:29.020787 ===
+[basemain.py] base_seed = 112358
+config = 'configs/sam2_real.py'
+data_cfg = './dataset.yaml'
+dataset_infos = dict(
+    camo_te=dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='data/Test/CAMO-TE'),
+    chameleon=dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='data/Test/CHAMELEON'),
+    cod10k_te=dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='data/Test/COD10K-TE'),
+    combined_tr=dict(
+        box_json=dict(path='./data/Train/box_label', suffix='.json'),
+        image=dict(path='./data/Train/Imgs', suffix='.jpg'),
+        mask=dict(
+            path=
+            './data/Train/SGT/SAM2_FinalRefine_OriginalPools/03_Refine_NoFlip',
+            suffix='.png'),
+        root='.'),
+    nc4k=dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='data/Test/NC4K'))
+deterministic = True
+device = 'cuda:0'
+evaluate = False
+exp_name = 'PvtV2B4_FPN_Baseline_BS8'
+has_test = True
+info = None
+load_from = None
+log_interval = 20
+metric_names = [
+    'sm',
+    'wfm',
+    'mae',
+    'em',
+]
+model_name = 'PvtV2B4_FPN_Baseline'
+output_dir = '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/FPN'
+path = dict(
+    cfg_copy=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/FPN/PvtV2B4_FPN_Baseline_BS8/exp_0/config.py',
+    excel=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/FPN/PvtV2B4_FPN_Baseline_BS8/exp_0/results.xlsx',
+    final_full_net=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/FPN/PvtV2B4_FPN_Baseline_BS8/exp_0/pth/checkpoint_final.pth',
+    final_state_net=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/FPN/PvtV2B4_FPN_Baseline_BS8/exp_0/pth/state_final.pth',
+    log=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/FPN/PvtV2B4_FPN_Baseline_BS8/exp_0/log_2026-10-09.txt',
+    output_dir=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/FPN',
+    pth=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/FPN/PvtV2B4_FPN_Baseline_BS8/exp_0/pth',
+    pth_log=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/FPN/PvtV2B4_FPN_Baseline_BS8/exp_0',
+    save=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/FPN/PvtV2B4_FPN_Baseline_BS8/exp_0/pre',
+    tb=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/FPN/PvtV2B4_FPN_Baseline_BS8/exp_0/tb',
+    trainer_copy=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/FPN/PvtV2B4_FPN_Baseline_BS8/exp_0/trainer.txt'
+)
+pretrained = True
+proj_root = '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD'
+save_results = False
+test = dict(
+    batch_size=8,
+    clip_range=None,
+    data=dict(names=[
+        'camo_te',
+        'cod10k_te',
+    ], shape=dict(h=384, w=384)),
+    num_workers=8)
+train = dict(
+    batch_size=8,
+    bn=dict(freeze_affine=True, freeze_encoder=False, freeze_status=True),
+    curriculum=dict(
+        continuous_schedule=dict(
+            clean_weight=1.0,
+            enable=True,
+            final_start_epoch=141,
+            noisy=dict(
+                anneal_end_epoch=140,
+                anneal_start_epoch=61,
+                end_weight=0.4,
+                hold_end_epoch=60,
+                mode='cosine',
+                start_weight=1.0)),
+        enable=True,
+        num_samples_per_epoch=4040,
+        pools=dict(
+            clean='./data/pseudo_pool/sam2refine/high.txt',
+            noisy='./data/pseudo_pool/sam2refine/middle.txt')),
+    data=dict(names=[
+        'combined_tr',
+    ], shape=dict(h=384, w=384)),
+    ema_kd=dict(enable=False, lambda_kd=0.0),
+    epoch_based=True,
+    grad_acc_step=1,
+    lr=0.0001,
+    num_epochs=150,
+    num_iters=None,
+    num_workers=4,
+    optimizer=dict(
+        cfg=dict(diff_factor=0.1, weight_decay=0),
+        group_mode='finetune',
+        mode='adam',
+        set_to_none=False),
+    save_val_ckpt=True,
+    sche_usebatch=True,
+    scheduler=dict(
+        cfg=dict(gamma=0.1, milestones=60600),
+        mode='step',
+        warmup=dict(initial_coef=0.01, mode='linear', num_iters=0)),
+    use_amp=True,
+    val_interval=5,
+    val_start_epoch=30)
+use_checkpoint = False
+use_custom_worker_init = True
+
+[pt_utils.py] We will use a fixed seed 112358
+[pt_utils.py] We will not use `torch.backends.cudnn.benchmark`
+[basemain_continuous.py] class PvtV2B4_FPN_Baseline(nn.Module):
+    """Single-scale PVTv2-B4 encoder with a conventional top-down FPN."""
+
+    def __init__(
+        self,
+        pretrained=True,
+        input_norm=True,
+        fpn_dim=64,
+        use_checkpoint=False,
+        **kwargs,
+    ):
+        super().__init__()
+        del kwargs
+
+        self.encoder = pvt_v2_eff_b4(
+            pretrained=pretrained,
+            use_checkpoint=use_checkpoint,
+        )
+        self.embed_dims = list(self.encoder.embed_dims)
+        self.normalizer = (
+            PixelNormalizer()
+            if input_norm
+            else nn.Identity()
+        )
+
+        self.lateral_2 = nn.Conv2d(
+            self.embed_dims[0],
+            fpn_dim,
+            kernel_size=1,
+            bias=False,
+        )
+        self.lateral_3 = nn.Conv2d(
+            self.embed_dims[1],
+            fpn_dim,
+            kernel_size=1,
+            bias=False,
+        )
+        self.lateral_4 = nn.Conv2d(
+            self.embed_dims[2],
+            fpn_dim,
+            kernel_size=1,
+            bias=False,
+        )
+        self.lateral_5 = nn.Conv2d(
+            self.embed_dims[3],
+            fpn_dim,
+            kernel_size=1,
+            bias=False,
+        )
+
+        self.smooth_5 = ConvBNReLU(
+            fpn_dim,
+            fpn_dim,
+            3,
+            1,
+            1,
+        )
+        self.smooth_4 = ConvBNReLU(
+            fpn_dim,
+            fpn_dim,
+            3,
+            1,
+            1,
+        )
+        self.smooth_3 = ConvBNReLU(
+            fpn_dim,
+            fpn_dim,
+            3,
+            1,
+            1,
+        )
+        self.smooth_2 = ConvBNReLU(
+            fpn_dim,
+            fpn_dim,
+            3,
+            1,
+            1,
+        )
+
+        self.predictor = nn.Sequential(
+            ConvBNReLU(fpn_dim, 32, 3, 1, 1),
+            nn.Conv2d(32, 1, kernel_size=1),
+        )
+
+    def normalize_encoder(self, image):
+        image = self.normalizer(image)
+        features = self.encoder(image)
+        return (
+            features["reduction_2"],
+            features["reduction_3"],
+            features["reduction_4"],
+            features["reduction_5"],
+        )
+
+    @staticmethod
+    def _resize_like(source, target):
+        return F.interpolate(
+            source,
+            size=target.shape[-2:],
+            mode="bilinear",
+            align_corners=False,
+        )
+
+    def body(self, data):
+        image = data["image_m"]
+        c2, c3, c4, c5 = self.normalize_encoder(image)
+
+        p5 = self.smooth_5(self.lateral_5(c5))
+        p4 = self.smooth_4(
+            self.lateral_4(c4)
+            + self._resize_like(p5, c4)
+        )
+        p3 = self.smooth_3(
+            self.lateral_3(c3)
+            + self._resize_like(p4, c3)
+        )
+        p2 = self.smooth_2(
+            self.lateral_2(c2)
+            + self._resize_like(p3, c2)
+        )
+
+        logits = self.predictor(p2)
+        return F.interpolate(
+            logits,
+            size=image.shape[-2:],
+            mode="bilinear",
+            align_corners=False,
+        )
+
+    def forward(
+        self,
+        data,
+        iter_percentage=1,
+        **kwargs,
+    ):
+        del iter_percentage, kwargs
+        logits = self.body(data=data)
+
+        if not self.training:
+            return logits
+
+        mask = data["mask"].float()
+        if mask.shape[-2:] != logits.shape[-2:]:
+            mask = F.interpolate(
+                mask,
+                size=logits.shape[-2:],
+                mode="nearest",
+            )
+
+        bce_loss = F.binary_cross_entropy_with_logits(
+            logits,
+            mask,
+            reduction="mean",
+        )
+
+        return {
+            "logits": logits,
+            "vis": {"sal": logits.sigmoid()},
+            "loss": bce_loss,
+            "loss_items": {
+                "bce": bce_loss.detach(),
+                "total": bce_loss.detach(),
+            },
+            "loss_str": (
+                f"L:{bce_loss.detach().item():.4f} "
+                f"BCE:{bce_loss.detach().item():.4f}"
+            ),
+        }
+
+    def get_grouped_params(self):
+        param_groups = {
+            "pretrained": [],
+            "fixed": [],
+            "retrained": [],
+        }
+
+        for name, param in self.named_parameters():
+            if name.startswith(
+                "encoder.patch_embed1."
+            ):
+                param.requires_grad = False
+                param_groups["fixed"].append(param)
+            elif name.startswith("encoder."):
+                param_groups["pretrained"].append(param)
+            else:
+                param_groups["retrained"].append(param)
+
+        LOGGER.info(
+            "Parameter Groups:{"
+            f"Pretrained: "
+            f"{len(param_groups['pretrained'])}, "
+            f"Fixed: {len(param_groups['fixed'])}, "
+            f"ReTrained: "
+            f"{len(param_groups['retrained'])}"
+            "}"
+        )
+        return param_groups
+
+[basemain_continuous.py] Number of Parameters: 62275105
+[basemain.py] Loaded curriculum list: ./data/pseudo_pool/sam2refine/high.txt, samples=1804

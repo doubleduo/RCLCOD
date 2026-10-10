@@ -306,6 +306,16 @@ class ImageTrainDataset(data.Dataset):
                 (box_mask > 0).astype(np.float32)
             ).unsqueeze(0)
 
+        # Reliability supervision ID used by PvtV2B4_FPN_Reliable.
+        # 0 = Clean, 1 = Noisy, -1 = unknown/all.
+        if self.pool_name in ("clean", "clean_probe"):
+            pool_id = 0
+        elif self.pool_name == "noisy":
+            pool_id = 1
+        else:
+            pool_id = -1
+        sample_data["pool_id"] = torch.tensor(pool_id, dtype=torch.long)
+
         return dict(data=sample_data)
 
     def __len__(self):
