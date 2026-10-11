@@ -1,0 +1,204 @@
+=== log 2026-03-17 17:31:39.821123 ===
+[main_for_image.py] base_seed = 112358
+config = 'configs/icod_train.py'
+data_cfg = './dataset.yaml'
+dataset_infos = dict(
+    camo_te=dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='data/Test/CAMO-TE'),
+    chameleon=dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='data/Test/CHAMELEON'),
+    cod10k_te=dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='data/Test/COD10K-TE'),
+    combined_tr=dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='./data/Train/'),
+    nc4k=dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='GT', suffix='.png'),
+        root='data/Test/NC4K'))
+deterministic = True
+device = 'cuda:0'
+evaluate = True
+exp_name = 'EffB1_ZoomNeXt_BS32_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP'
+has_test = True
+info = None
+load_from = 'outputs/EffB1_ZoomNeXt_BS32_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_0/pth/state_final.pth'
+log_interval = 20
+metric_names = [
+    'sm',
+    'wfm',
+    'mae',
+    'em',
+    'fmeasure',
+]
+model_name = 'EffB1_ZoomNeXt'
+output_dir = '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjw_WS-SAM/ZoomNeXt-main/outputs'
+path = dict(
+    cfg_copy=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjw_WS-SAM/ZoomNeXt-main/outputs/EffB1_ZoomNeXt_BS32_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_3/config.py',
+    excel=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjw_WS-SAM/ZoomNeXt-main/outputs/EffB1_ZoomNeXt_BS32_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_3/results.xlsx',
+    final_full_net=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjw_WS-SAM/ZoomNeXt-main/outputs/EffB1_ZoomNeXt_BS32_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_3/pth/checkpoint_final.pth',
+    final_state_net=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjw_WS-SAM/ZoomNeXt-main/outputs/EffB1_ZoomNeXt_BS32_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_3/pth/state_final.pth',
+    log=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjw_WS-SAM/ZoomNeXt-main/outputs/EffB1_ZoomNeXt_BS32_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_3/log_2026-03-17.txt',
+    output_dir=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjw_WS-SAM/ZoomNeXt-main/outputs',
+    pth=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjw_WS-SAM/ZoomNeXt-main/outputs/EffB1_ZoomNeXt_BS32_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_3/pth',
+    pth_log=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjw_WS-SAM/ZoomNeXt-main/outputs/EffB1_ZoomNeXt_BS32_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_3',
+    save=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjw_WS-SAM/ZoomNeXt-main/outputs/EffB1_ZoomNeXt_BS32_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_3/pre',
+    tb=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjw_WS-SAM/ZoomNeXt-main/outputs/EffB1_ZoomNeXt_BS32_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_3/tb',
+    trainer_copy=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjw_WS-SAM/ZoomNeXt-main/outputs/EffB1_ZoomNeXt_BS32_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_3/trainer.txt'
+)
+pretrained = False
+proj_root = '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjw_WS-SAM/ZoomNeXt-main'
+save_results = False
+test = dict(
+    batch_size=32,
+    clip_range=None,
+    data=dict(
+        names=[
+            'chameleon',
+            'camo_te',
+            'cod10k_te',
+            'nc4k',
+        ],
+        shape=dict(h=384, w=384)),
+    num_workers=2)
+train = dict(
+    batch_size=32,
+    bn=dict(freeze_affine=True, freeze_encoder=False, freeze_status=True),
+    data=dict(names=[
+        'combined_tr',
+    ], shape=dict(h=384, w=384)),
+    epoch_based=True,
+    grad_acc_step=1,
+    lr=0.0001,
+    num_epochs=150,
+    num_iters=None,
+    num_workers=2,
+    optimizer=dict(
+        cfg=dict(diff_factor=0.1, weight_decay=0),
+        group_mode='finetune',
+        mode='adam',
+        set_to_none=False),
+    sche_usebatch=True,
+    scheduler=dict(
+        cfg=dict(gamma=0.1, milestones=12600),
+        mode='step',
+        warmup=dict(initial_coef=0.01, mode='linear', num_iters=0)),
+    use_amp=True)
+use_checkpoint = False
+use_custom_worker_init = True
+
+[pt_utils.py] We will use a fixed seed 112358
+[pt_utils.py] We will not use `torch.backends.cudnn.benchmark`
+[main_for_image.py] class EffB1_ZoomNeXt(_ZoomNeXt_Base):
+    def __init__(self, pretrained, num_frames=1, input_norm=True, mid_dim=64, siu_groups=4, hmu_groups=6, **kwargs):
+        super().__init__()
+        self.set_backbone(pretrained)
+
+        self.tra_5 = SimpleASPP(self.embed_dims[4], out_dim=mid_dim)
+        self.siu_5 = MHSIU(mid_dim, siu_groups)
+        self.hmu_5 = RGPU(mid_dim, hmu_groups, num_frames=num_frames)
+
+        self.tra_4 = ConvBNReLU(self.embed_dims[3], mid_dim, 3, 1, 1)
+        self.siu_4 = MHSIU(mid_dim, siu_groups)
+        self.hmu_4 = RGPU(mid_dim, hmu_groups, num_frames=num_frames)
+
+        self.tra_3 = ConvBNReLU(self.embed_dims[2], mid_dim, 3, 1, 1)
+        self.siu_3 = MHSIU(mid_dim, siu_groups)
+        self.hmu_3 = RGPU(mid_dim, hmu_groups, num_frames=num_frames)
+
+        self.tra_2 = ConvBNReLU(self.embed_dims[1], mid_dim, 3, 1, 1)
+        self.siu_2 = MHSIU(mid_dim, siu_groups)
+        self.hmu_2 = RGPU(mid_dim, hmu_groups, num_frames=num_frames)
+
+        self.tra_1 = ConvBNReLU(self.embed_dims[0], mid_dim, 3, 1, 1)
+        self.siu_1 = MHSIU(mid_dim, siu_groups)
+        self.hmu_1 = RGPU(mid_dim, hmu_groups, num_frames=num_frames)
+
+        self.normalizer = PixelNormalizer() if input_norm else nn.Identity()
+        self.predictor = nn.Sequential(
+            nn.Upsample(scale_factor=2, mode="bilinear", align_corners=False),
+            ConvBNReLU(64, 32, 3, 1, 1),
+            nn.Conv2d(32, 1, 1),
+        )
+
+    def set_backbone(self, pretrained):
+        self.encoder = EfficientNet.from_pretrained("efficientnet-b1", pretrained=pretrained)
+        self.embed_dims = [16, 24, 40, 112, 320]
+
+    def normalize_encoder(self, x):
+        x = self.normalizer(x)
+        features = self.encoder.extract_endpoints(x)
+        c1 = features["reduction_1"]
+        c2 = features["reduction_2"]
+        c3 = features["reduction_3"]
+        c4 = features["reduction_4"]
+        c5 = features["reduction_5"]
+        return c1, c2, c3, c4, c5
+
+    def body(self, data):
+        l_trans_feats = self.normalize_encoder(data["image_l"])
+        m_trans_feats = self.normalize_encoder(data["image_m"])
+        s_trans_feats = self.normalize_encoder(data["image_s"])
+
+        l, m, s = self.tra_5(l_trans_feats[4]), self.tra_5(m_trans_feats[4]), self.tra_5(s_trans_feats[4])
+        lms = self.siu_5(l=l, m=m, s=s)
+        x = self.hmu_5(lms)
+
+        l, m, s = self.tra_4(l_trans_feats[3]), self.tra_4(m_trans_feats[3]), self.tra_4(s_trans_feats[3])
+        lms = self.siu_4(l=l, m=m, s=s)
+        x = self.hmu_4(lms + resize_to(x, tgt_hw=lms.shape[-2:]))
+
+        l, m, s = self.tra_3(l_trans_feats[2]), self.tra_3(m_trans_feats[2]), self.tra_3(s_trans_feats[2])
+        lms = self.siu_3(l=l, m=m, s=s)
+        x = self.hmu_3(lms + resize_to(x, tgt_hw=lms.shape[-2:]))
+
+        l, m, s = self.tra_2(l_trans_feats[1]), self.tra_2(m_trans_feats[1]), self.tra_2(s_trans_feats[1])
+        lms = self.siu_2(l=l, m=m, s=s)
+        x = self.hmu_2(lms + resize_to(x, tgt_hw=lms.shape[-2:]))
+
+        l, m, s = self.tra_1(l_trans_feats[0]), self.tra_1(m_trans_feats[0]), self.tra_1(s_trans_feats[0])
+        lms = self.siu_1(l=l, m=m, s=s)
+        x = self.hmu_1(lms + resize_to(x, tgt_hw=lms.shape[-2:]))
+
+        return self.predictor(x)
+
+[main_for_image.py] Number of Parameters: 10283588
+[main_for_image.py] Testing with testset: chameleon: 76
+[main_for_image.py] (chameleon): {
+    root: data/Test/CHAMELEON
+    image: {'path': 'Image', 'suffix': '.jpg'}
+    mask: {'path': 'Mask', 'suffix': '.png'}
+}
+sm: 0.906, wfm: 0.859, mae: 0.022, avgem: 0.944, adpem: 0.952, maxem: 0.961, avgfmeasure: 0.877, adpfmeasure: 0.871, maxfmeasure: 0.891
+[main_for_image.py] Testing with testset: camo_te: 250
+[main_for_image.py] (camo_te): {
+    root: data/Test/CAMO-TE
+    image: {'path': 'Image', 'suffix': '.jpg'}
+    mask: {'path': 'Mask', 'suffix': '.png'}
+}
+sm: 0.835, wfm: 0.785, mae: 0.059, avgem: 0.891, adpem: 0.906, maxem: 0.910, avgfmeasure: 0.823, adpfmeasure: 0.829, maxfmeasure: 0.833
+[main_for_image.py] Testing with testset: cod10k_te: 2026
+[main_for_image.py] (cod10k_te): {
+    root: data/Test/COD10K-TE
+    image: {'path': 'Image', 'suffix': '.jpg'}
+    mask: {'path': 'Mask', 'suffix': '.png'}
+}
+sm: 0.853, wfm: 0.761, mae: 0.025, avgem: 0.909, adpem: 0.912, maxem: 0.925, avgfmeasure: 0.794, adpfmeasure: 0.770, maxfmeasure: 0.808

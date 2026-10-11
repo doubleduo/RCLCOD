@@ -1,0 +1,464 @@
+=== log 2026-05-14 10:34:05.572603 ===
+[image2.py] base_seed = 112358
+config = 'configs/icod_train.py'
+data_cfg = './dataset1.yaml'
+dataset_infos = dict(
+    camo_te=dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='data/Test/CAMO-TE'),
+    chameleon=dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='data/Test/CHAMELEON'),
+    cod10k_te=dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='data/Test/COD10K-TE'),
+    combined_tr=dict(
+        image=dict(path='Imgs', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='./data/Train/'),
+    nc4k=dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='data/Test/NC4K'))
+deterministic = True
+device = 'cuda:0'
+evaluate = False
+exp_name = 'SwinB_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP'
+has_test = True
+info = None
+load_from = None
+log_interval = 20
+metric_names = [
+    'sm',
+    'wfm',
+    'mae',
+    'em',
+    'fmeasure',
+]
+model_name = 'SwinB_ZoomNeXt'
+output_dir = '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjwbase/hjw_WS-SAM/base/outputs'
+path = dict(
+    cfg_copy=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjwbase/hjw_WS-SAM/base/outputs/SwinB_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_2/config.py',
+    excel=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjwbase/hjw_WS-SAM/base/outputs/SwinB_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_2/results.xlsx',
+    final_full_net=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjwbase/hjw_WS-SAM/base/outputs/SwinB_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_2/pth/checkpoint_final.pth',
+    final_state_net=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjwbase/hjw_WS-SAM/base/outputs/SwinB_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_2/pth/state_final.pth',
+    log=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjwbase/hjw_WS-SAM/base/outputs/SwinB_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_2/log_2026-05-14.txt',
+    output_dir=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjwbase/hjw_WS-SAM/base/outputs',
+    pth=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjwbase/hjw_WS-SAM/base/outputs/SwinB_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_2/pth',
+    pth_log=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjwbase/hjw_WS-SAM/base/outputs/SwinB_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_2',
+    save=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjwbase/hjw_WS-SAM/base/outputs/SwinB_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_2/pre',
+    tb=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjwbase/hjw_WS-SAM/base/outputs/SwinB_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_2/tb',
+    trainer_copy=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjwbase/hjw_WS-SAM/base/outputs/SwinB_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_2/trainer.txt'
+)
+pretrained = True
+proj_root = '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjwbase/hjw_WS-SAM/base'
+save_results = False
+test = dict(
+    batch_size=16,
+    clip_range=None,
+    data=dict(
+        names=[
+            'chameleon',
+            'camo_te',
+            'cod10k_te',
+            'nc4k',
+        ],
+        shape=dict(h=384, w=384)),
+    num_workers=2)
+train = dict(
+    batch_size=16,
+    bn=dict(freeze_affine=True, freeze_encoder=False, freeze_status=True),
+    data=dict(names=[
+        'combined_tr',
+    ], shape=dict(h=384, w=384)),
+    epoch_based=True,
+    grad_acc_step=1,
+    lr=0.0001,
+    num_epochs=150,
+    num_iters=None,
+    num_workers=2,
+    optimizer=dict(
+        cfg=dict(diff_factor=0.1, weight_decay=0),
+        group_mode='finetune',
+        mode='adam',
+        set_to_none=False),
+    sche_usebatch=True,
+    scheduler=dict(
+        cfg=dict(gamma=0.1, milestones=25200),
+        mode='step',
+        warmup=dict(initial_coef=0.01, mode='linear', num_iters=0)),
+    use_amp=True)
+use_checkpoint = False
+use_custom_worker_init = True
+
+[pt_utils.py] We will use a fixed seed 112358
+[pt_utils.py] We will not use `torch.backends.cudnn.benchmark`
+[image2.py] class SwinB_ZoomNeXt(_ZoomNeXt_Base):
+    def __init__(
+            self,
+            pretrained=True,
+            num_frames=1,
+            input_norm=True,
+            mid_dim=64,
+            siu_groups=4,  # 参数保留，防止外部传参报错，内部不再使用
+            hmu_groups=6,  # 参数保留，防止外部传参报错，内部不再使用
+            model_name="swin_base_patch4_window12_384",  # COD 常用 384 输入分辨率
+            **kwargs
+    ):
+        super().__init__()
+
+        # 使用 timm 构建 Swin-Base
+        self.encoder = timm.create_model(
+            model_name=model_name,
+            features_only=True,
+            out_indices=(0, 1, 2, 3),  # Swin 默认输出 4 个尺度的特征
+            pretrained=pretrained
+        )
+
+        # Swin-Base 的通道数通常为 [128, 256, 512, 1024]
+        self.embed_dims = [128, 256, 512, 1024]
+
+        # 🚀 消融实验设置：完全移除多尺度 SIU 和时序/记忆 HMU，只保留基础的特征转换层
+
+        # --- 第 5 层 (对应 Swin 的最后一层，通道 1024, stride 32) ---
+        self.tra_5 = SimpleASPP(self.embed_dims[3], out_dim=mid_dim)
+
+        # --- 第 4 层 (通道 512, stride 16) ---
+        self.tra_4 = ConvBNReLU(self.embed_dims[2], mid_dim, 3, 1, 1)
+
+        # --- 第 3 层 (通道 256, stride 8) ---
+        self.tra_3 = ConvBNReLU(self.embed_dims[1], mid_dim, 3, 1, 1)
+
+        # --- 第 2 层 (通道 128, stride 4) ---
+        self.tra_2 = ConvBNReLU(self.embed_dims[0], mid_dim, 3, 1, 1)
+
+        # --- 第 1 层 (从 stride 4 上采样到 stride 2) ---
+        self.tra_1 = nn.Sequential(
+            nn.Upsample(scale_factor=2, mode="bilinear", align_corners=False),
+            ConvBNReLU(mid_dim, mid_dim, 3, 1, 1)
+        )
+
+        self.normalizer = PixelNormalizer() if input_norm else nn.Identity()
+        self.predictor = nn.Sequential(
+            nn.Upsample(scale_factor=2, mode="bilinear", align_corners=False),  # stride 2 恢复到 stride 1
+            ConvBNReLU(mid_dim, 32, 3, 1, 1),
+            nn.Conv2d(32, 1, 1),
+        )
+
+    def normalize_encoder(self, x):
+        x = self.normalizer(x)
+        features = self.encoder(x)
+
+        formatted_features = []
+        for f in features:
+            # Swin Transformer 提取的特征通常是 NHWC 格式，例如 [16, 12, 12, 1024]
+            # 我们需要把它调整为 PyTorch 标准的 NCHW 格式: [16, 1024, 12, 12]
+            if f.dim() == 4 and f.shape[-1] in self.embed_dims:
+                f = f.permute(0, 3, 1, 2).contiguous()
+            formatted_features.append(f)
+
+        c2, c3, c4, c5 = formatted_features
+        return c2, c3, c4, c5
+
+    def body(self, data):
+        # 依然提取多尺度特征，但消融实验中只用中尺度 (m)
+        m_trans_feats = self.normalize_encoder(data["image_m"])
+
+        # --- 第5层消融 ---
+        # 原代码：lms = self.siu_5(l=l, m=m, s=s); x = self.hmu_5(lms)
+        # 消融后：直接使用中尺度特征，跳过 SIU 和 HMU
+        x = self.tra_5(m_trans_feats[3])
+
+        # --- 第4层消融 ---
+        m_feat_4 = self.tra_4(m_trans_feats[2])
+        x = m_feat_4 + resize_to(x, tgt_hw=m_feat_4.shape[-2:])
+
+        # --- 第3层及以下以此类推 ---
+        m_feat_3 = self.tra_3(m_trans_feats[1])
+        x = m_feat_3 + resize_to(x, tgt_hw=m_feat_3.shape[-2:])
+
+        m_feat_2 = self.tra_2(m_trans_feats[0])
+        x = m_feat_2 + resize_to(x, tgt_hw=m_feat_2.shape[-2:])
+
+        x = self.tra_1(x)
+        return self.predictor(x)
+
+    def get_grouped_params(self):
+        # 针对 Swin 调整冻结策略
+        param_groups = {"pretrained": [], "fixed": [], "retrained": []}
+        for name, param in self.named_parameters():
+            # 冻结 Swin 第一层的 patch embedding（防止前期训练抖动过大）
+            if name.startswith("encoder.patch_embed."):
+                param.requires_grad = False
+                param_groups["fixed"].append(param)
+            elif name.startswith("encoder."):
+                param_groups["pretrained"].append(param)
+            else:
+                if "clip." in name:
+                    param.requires_grad = False
+                    param_groups["fixed"].append(param)
+                else:
+                    param_groups["retrained"].append(param)
+
+        LOGGER.info(
+            f"Parameter Groups:{{"
+            f"Pretrained: {len(param_groups['pretrained'])}, "
+            f"Fixed: {len(param_groups['fixed'])}, "
+            f"ReTrained: {len(param_groups['retrained'])}}}"
+        )
+        return param_groups
+
+[image2.py] Number of Parameters: 87752665
+[image2.py] Length of combined_tr: 4040
+[image2.py] Total Length of Image Trainset: 4040
+[freedge.py] Parameter Groups:{Pretrained: 321, Fixed: 4, ReTrained: 38}
+[image2.py] Image Mean: tensor([0.4850, 0.4560, 0.4060], device='cuda:0'), Image Std: tensor([0.2290, 0.2240, 0.2250], device='cuda:0')
+[image2.py] Exp_Name: SwinB_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP | Start Training...
+[image2.py] Epoch [1/150] Summary - Avg Loss: 0.55338 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [2/150] Summary - Avg Loss: 0.48074 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [3/150] Summary - Avg Loss: 0.43679 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [4/150] Summary - Avg Loss: 0.40346 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [5/150] Summary - Avg Loss: 0.37878 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [6/150] Summary - Avg Loss: 0.36043 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [7/150] Summary - Avg Loss: 0.34716 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [8/150] Summary - Avg Loss: 0.33686 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [9/150] Summary - Avg Loss: 0.32944 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [10/150] Summary - Avg Loss: 0.32414 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [11/150] Summary - Avg Loss: 0.31933 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [12/150] Summary - Avg Loss: 0.31564 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [13/150] Summary - Avg Loss: 0.31286 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [14/150] Summary - Avg Loss: 0.31068 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [15/150] Summary - Avg Loss: 0.30891 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [16/150] Summary - Avg Loss: 0.30729 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [17/150] Summary - Avg Loss: 0.30600 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [18/150] Summary - Avg Loss: 0.30454 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [19/150] Summary - Avg Loss: 0.30376 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [20/150] Summary - Avg Loss: 0.30295 | LR: 1.000e-05,1.000e-04
+[image2.py] --- Triggering Evaluation at Epoch 20 on cod10k_te ---
+[image2.py] Validation Results: sm: 0.851, wfm: 0.744, mae: 0.025, avgem: 0.914, adpem: 0.907, maxem: 0.931, avgfmeasure: 0.783, adpfmeasure: 0.754, maxfmeasure: 0.799
+[image2.py] 🚀 [New Record!] Best S_m updated to 0.8510. Model saved to best_model.pth 🚀
+[image2.py] Epoch [21/150] Summary - Avg Loss: 0.30222 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [22/150] Summary - Avg Loss: 0.30174 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [23/150] Summary - Avg Loss: 0.30106 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [24/150] Summary - Avg Loss: 0.30075 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [25/150] Summary - Avg Loss: 0.30005 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [26/150] Summary - Avg Loss: 0.29993 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [27/150] Summary - Avg Loss: 0.29957 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [28/150] Summary - Avg Loss: 0.29923 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [29/150] Summary - Avg Loss: 0.29898 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [30/150] Summary - Avg Loss: 0.29874 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [31/150] Summary - Avg Loss: 0.29841 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [32/150] Summary - Avg Loss: 0.29825 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [33/150] Summary - Avg Loss: 0.29805 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [34/150] Summary - Avg Loss: 0.29810 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [35/150] Summary - Avg Loss: 0.29783 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [36/150] Summary - Avg Loss: 0.29769 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [37/150] Summary - Avg Loss: 0.29770 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [38/150] Summary - Avg Loss: 0.29730 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [39/150] Summary - Avg Loss: 0.29720 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [40/150] Summary - Avg Loss: 0.29696 | LR: 1.000e-05,1.000e-04
+[image2.py] --- Triggering Evaluation at Epoch 40 on cod10k_te ---
+[image2.py] Validation Results: sm: 0.865, wfm: 0.777, mae: 0.022, avgem: 0.926, adpem: 0.923, maxem: 0.938, avgfmeasure: 0.801, adpfmeasure: 0.773, maxfmeasure: 0.819
+[image2.py] 🚀 [New Record!] Best S_m updated to 0.8650. Model saved to best_model.pth 🚀
+[image2.py] Epoch [41/150] Summary - Avg Loss: 0.29704 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [42/150] Summary - Avg Loss: 0.29712 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [43/150] Summary - Avg Loss: 0.29690 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [44/150] Summary - Avg Loss: 0.29674 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [45/150] Summary - Avg Loss: 0.29738 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [46/150] Summary - Avg Loss: 0.29721 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [47/150] Summary - Avg Loss: 0.29646 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [48/150] Summary - Avg Loss: 0.29640 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [49/150] Summary - Avg Loss: 0.29624 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [50/150] Summary - Avg Loss: 0.29618 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [51/150] Summary - Avg Loss: 0.29614 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [52/150] Summary - Avg Loss: 0.29606 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [53/150] Summary - Avg Loss: 0.29600 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [54/150] Summary - Avg Loss: 0.29595 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [55/150] Summary - Avg Loss: 0.29580 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [56/150] Summary - Avg Loss: 0.29590 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [57/150] Summary - Avg Loss: 0.29573 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [58/150] Summary - Avg Loss: 0.29576 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [59/150] Summary - Avg Loss: 0.29564 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [60/150] Summary - Avg Loss: 0.29554 | LR: 1.000e-05,1.000e-04
+[image2.py] --- Triggering Evaluation at Epoch 60 on cod10k_te ---
+[image2.py] Validation Results: sm: 0.869, wfm: 0.782, mae: 0.022, avgem: 0.929, adpem: 0.918, maxem: 0.941, avgfmeasure: 0.806, adpfmeasure: 0.769, maxfmeasure: 0.826
+[image2.py] 🚀 [New Record!] Best S_m updated to 0.8690. Model saved to best_model.pth 🚀
+[image2.py] Epoch [61/150] Summary - Avg Loss: 0.29547 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [62/150] Summary - Avg Loss: 0.29571 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [63/150] Summary - Avg Loss: 0.29548 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [64/150] Summary - Avg Loss: 0.29528 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [65/150] Summary - Avg Loss: 0.29522 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [66/150] Summary - Avg Loss: 0.29519 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [67/150] Summary - Avg Loss: 0.29519 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [68/150] Summary - Avg Loss: 0.29512 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [69/150] Summary - Avg Loss: 0.29522 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [70/150] Summary - Avg Loss: 0.29506 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [71/150] Summary - Avg Loss: 0.29505 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [72/150] Summary - Avg Loss: 0.29494 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [73/150] Summary - Avg Loss: 0.29478 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [74/150] Summary - Avg Loss: 0.29481 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [75/150] Summary - Avg Loss: 0.29458 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [76/150] Summary - Avg Loss: 0.29476 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [77/150] Summary - Avg Loss: 0.29464 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [78/150] Summary - Avg Loss: 0.29461 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [79/150] Summary - Avg Loss: 0.29453 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [80/150] Summary - Avg Loss: 0.29455 | LR: 1.000e-05,1.000e-04
+[image2.py] --- Triggering Evaluation at Epoch 80 on cod10k_te ---
+[image2.py] Validation Results: sm: 0.873, wfm: 0.787, mae: 0.021, avgem: 0.931, adpem: 0.921, maxem: 0.944, avgfmeasure: 0.811, adpfmeasure: 0.773, maxfmeasure: 0.833
+[image2.py] 🚀 [New Record!] Best S_m updated to 0.8730. Model saved to best_model.pth 🚀
+[image2.py] Epoch [81/150] Summary - Avg Loss: 0.29442 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [82/150] Summary - Avg Loss: 0.29438 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [83/150] Summary - Avg Loss: 0.29448 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [84/150] Summary - Avg Loss: 0.29443 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [85/150] Summary - Avg Loss: 0.29427 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [86/150] Summary - Avg Loss: 0.29412 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [87/150] Summary - Avg Loss: 0.29417 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [88/150] Summary - Avg Loss: 0.29413 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [89/150] Summary - Avg Loss: 0.29411 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [90/150] Summary - Avg Loss: 0.29402 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [91/150] Summary - Avg Loss: 0.29422 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [92/150] Summary - Avg Loss: 0.29395 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [93/150] Summary - Avg Loss: 0.29390 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [94/150] Summary - Avg Loss: 0.29390 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [95/150] Summary - Avg Loss: 0.29391 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [96/150] Summary - Avg Loss: 0.29390 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [97/150] Summary - Avg Loss: 0.29390 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [98/150] Summary - Avg Loss: 0.29386 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [99/150] Summary - Avg Loss: 0.29378 | LR: 1.000e-05,1.000e-04
+[image2.py] Epoch [100/150] Summary - Avg Loss: 0.29375 | LR: 1.000e-06,1.000e-05
+[image2.py] --- Triggering Evaluation at Epoch 100 on cod10k_te ---
+[image2.py] Validation Results: sm: 0.876, wfm: 0.793, mae: 0.020, avgem: 0.933, adpem: 0.925, maxem: 0.947, avgfmeasure: 0.818, adpfmeasure: 0.781, maxfmeasure: 0.837
+[image2.py] 🚀 [New Record!] Best S_m updated to 0.8760. Model saved to best_model.pth 🚀
+[image2.py] Epoch [101/150] Summary - Avg Loss: 0.29346 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [102/150] Summary - Avg Loss: 0.29342 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [103/150] Summary - Avg Loss: 0.29335 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [104/150] Summary - Avg Loss: 0.29331 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [105/150] Summary - Avg Loss: 0.29340 | LR: 1.000e-06,1.000e-05
+[image2.py] --- Triggering Evaluation at Epoch 105 on cod10k_te ---
+[image2.py] Validation Results: sm: 0.876, wfm: 0.795, mae: 0.020, avgem: 0.934, adpem: 0.926, maxem: 0.947, avgfmeasure: 0.820, adpfmeasure: 0.783, maxfmeasure: 0.840
+[image2.py] Epoch [106/150] Summary - Avg Loss: 0.29330 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [107/150] Summary - Avg Loss: 0.29332 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [108/150] Summary - Avg Loss: 0.29330 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [109/150] Summary - Avg Loss: 0.29333 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [110/150] Summary - Avg Loss: 0.29332 | LR: 1.000e-06,1.000e-05
+[image2.py] --- Triggering Evaluation at Epoch 110 on cod10k_te ---
+[image2.py] Validation Results: sm: 0.877, wfm: 0.796, mae: 0.020, avgem: 0.934, adpem: 0.926, maxem: 0.948, avgfmeasure: 0.820, adpfmeasure: 0.783, maxfmeasure: 0.840
+[image2.py] 🚀 [New Record!] Best S_m updated to 0.8770. Model saved to best_model.pth 🚀
+[image2.py] Epoch [111/150] Summary - Avg Loss: 0.29325 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [112/150] Summary - Avg Loss: 0.29319 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [113/150] Summary - Avg Loss: 0.29331 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [114/150] Summary - Avg Loss: 0.29322 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [115/150] Summary - Avg Loss: 0.29318 | LR: 1.000e-06,1.000e-05
+[image2.py] --- Triggering Evaluation at Epoch 115 on cod10k_te ---
+[image2.py] Validation Results: sm: 0.877, wfm: 0.795, mae: 0.020, avgem: 0.935, adpem: 0.925, maxem: 0.948, avgfmeasure: 0.819, adpfmeasure: 0.781, maxfmeasure: 0.839
+[image2.py] Epoch [116/150] Summary - Avg Loss: 0.29324 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [117/150] Summary - Avg Loss: 0.29324 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [118/150] Summary - Avg Loss: 0.29322 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [119/150] Summary - Avg Loss: 0.29333 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [120/150] Summary - Avg Loss: 0.29314 | LR: 1.000e-06,1.000e-05
+[image2.py] --- Triggering Evaluation at Epoch 120 on cod10k_te ---
+[image2.py] Validation Results: sm: 0.877, wfm: 0.795, mae: 0.020, avgem: 0.935, adpem: 0.925, maxem: 0.947, avgfmeasure: 0.819, adpfmeasure: 0.781, maxfmeasure: 0.840
+[image2.py] Epoch [121/150] Summary - Avg Loss: 0.29317 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [122/150] Summary - Avg Loss: 0.29323 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [123/150] Summary - Avg Loss: 0.29311 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [124/150] Summary - Avg Loss: 0.29312 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [125/150] Summary - Avg Loss: 0.29315 | LR: 1.000e-06,1.000e-05
+[image2.py] --- Triggering Evaluation at Epoch 125 on cod10k_te ---
+[image2.py] Validation Results: sm: 0.878, wfm: 0.796, mae: 0.020, avgem: 0.935, adpem: 0.925, maxem: 0.948, avgfmeasure: 0.820, adpfmeasure: 0.782, maxfmeasure: 0.840
+[image2.py] 🚀 [New Record!] Best S_m updated to 0.8780. Model saved to best_model.pth 🚀
+[image2.py] Epoch [126/150] Summary - Avg Loss: 0.29319 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [127/150] Summary - Avg Loss: 0.29308 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [128/150] Summary - Avg Loss: 0.29303 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [129/150] Summary - Avg Loss: 0.29306 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [130/150] Summary - Avg Loss: 0.29304 | LR: 1.000e-06,1.000e-05
+[image2.py] --- Triggering Evaluation at Epoch 130 on cod10k_te ---
+[image2.py] Validation Results: sm: 0.877, wfm: 0.796, mae: 0.020, avgem: 0.935, adpem: 0.925, maxem: 0.947, avgfmeasure: 0.820, adpfmeasure: 0.782, maxfmeasure: 0.840
+[image2.py] Epoch [131/150] Summary - Avg Loss: 0.29312 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [132/150] Summary - Avg Loss: 0.29307 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [133/150] Summary - Avg Loss: 0.29306 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [134/150] Summary - Avg Loss: 0.29304 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [135/150] Summary - Avg Loss: 0.29309 | LR: 1.000e-06,1.000e-05
+[image2.py] --- Triggering Evaluation at Epoch 135 on cod10k_te ---
+[image2.py] Validation Results: sm: 0.877, wfm: 0.797, mae: 0.020, avgem: 0.935, adpem: 0.927, maxem: 0.948, avgfmeasure: 0.821, adpfmeasure: 0.785, maxfmeasure: 0.840
+[image2.py] Epoch [136/150] Summary - Avg Loss: 0.29301 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [137/150] Summary - Avg Loss: 0.29306 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [138/150] Summary - Avg Loss: 0.29299 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [139/150] Summary - Avg Loss: 0.29300 | LR: 1.000e-06,1.000e-05
+[image2.py] Epoch [140/150] Summary - Avg Loss: 0.29311 | LR: 1.000e-06,1.000e-05
+[image2.py] --- Triggering Evaluation at Epoch 140 on cod10k_te ---
+[image2.py] Validation Results: sm: 0.877, wfm: 0.796, mae: 0.020, avgem: 0.935, adpem: 0.926, maxem: 0.947, avgfmeasure: 0.819, adpfmeasure: 0.782, maxfmeasure: 0.840
+[image2.py] Epoch [141/150] Summary - Avg Loss: 0.29300 | LR: 1.000e-06,1.000e-05
+[image2.py] --- Triggering Evaluation at Epoch 141 on cod10k_te ---
+[image2.py] Validation Results: sm: 0.878, wfm: 0.796, mae: 0.020, avgem: 0.935, adpem: 0.926, maxem: 0.947, avgfmeasure: 0.820, adpfmeasure: 0.783, maxfmeasure: 0.840
+[image2.py] Epoch [142/150] Summary - Avg Loss: 0.29299 | LR: 1.000e-06,1.000e-05
+[image2.py] --- Triggering Evaluation at Epoch 142 on cod10k_te ---
+[image2.py] Validation Results: sm: 0.878, wfm: 0.795, mae: 0.020, avgem: 0.935, adpem: 0.924, maxem: 0.946, avgfmeasure: 0.818, adpfmeasure: 0.780, maxfmeasure: 0.839
+[image2.py] Epoch [143/150] Summary - Avg Loss: 0.29301 | LR: 1.000e-06,1.000e-05
+[image2.py] --- Triggering Evaluation at Epoch 143 on cod10k_te ---
+[image2.py] Validation Results: sm: 0.877, wfm: 0.796, mae: 0.020, avgem: 0.934, adpem: 0.925, maxem: 0.946, avgfmeasure: 0.820, adpfmeasure: 0.783, maxfmeasure: 0.840
+[image2.py] Epoch [144/150] Summary - Avg Loss: 0.29299 | LR: 1.000e-06,1.000e-05
+[image2.py] --- Triggering Evaluation at Epoch 144 on cod10k_te ---
+[image2.py] Validation Results: sm: 0.877, wfm: 0.796, mae: 0.020, avgem: 0.935, adpem: 0.925, maxem: 0.947, avgfmeasure: 0.819, adpfmeasure: 0.782, maxfmeasure: 0.840
+[image2.py] Epoch [145/150] Summary - Avg Loss: 0.29301 | LR: 1.000e-06,1.000e-05
+[image2.py] --- Triggering Evaluation at Epoch 145 on cod10k_te ---
+[image2.py] Validation Results: sm: 0.878, wfm: 0.796, mae: 0.020, avgem: 0.934, adpem: 0.925, maxem: 0.947, avgfmeasure: 0.820, adpfmeasure: 0.783, maxfmeasure: 0.839
+[image2.py] Epoch [146/150] Summary - Avg Loss: 0.29294 | LR: 1.000e-06,1.000e-05
+[image2.py] --- Triggering Evaluation at Epoch 146 on cod10k_te ---
+[image2.py] Validation Results: sm: 0.877, wfm: 0.795, mae: 0.020, avgem: 0.934, adpem: 0.924, maxem: 0.947, avgfmeasure: 0.819, adpfmeasure: 0.781, maxfmeasure: 0.839
+[image2.py] Epoch [147/150] Summary - Avg Loss: 0.29299 | LR: 1.000e-06,1.000e-05
+[image2.py] --- Triggering Evaluation at Epoch 147 on cod10k_te ---
+[image2.py] Validation Results: sm: 0.877, wfm: 0.797, mae: 0.020, avgem: 0.934, adpem: 0.927, maxem: 0.946, avgfmeasure: 0.821, adpfmeasure: 0.784, maxfmeasure: 0.840
+[image2.py] Epoch [148/150] Summary - Avg Loss: 0.29295 | LR: 1.000e-06,1.000e-05
+[image2.py] --- Triggering Evaluation at Epoch 148 on cod10k_te ---
+[image2.py] Validation Results: sm: 0.878, wfm: 0.796, mae: 0.020, avgem: 0.935, adpem: 0.925, maxem: 0.948, avgfmeasure: 0.820, adpfmeasure: 0.782, maxfmeasure: 0.840
+[image2.py] Epoch [149/150] Summary - Avg Loss: 0.29299 | LR: 1.000e-06,1.000e-05
+[image2.py] --- Triggering Evaluation at Epoch 149 on cod10k_te ---
+[image2.py] Validation Results: sm: 0.878, wfm: 0.797, mae: 0.020, avgem: 0.935, adpem: 0.925, maxem: 0.947, avgfmeasure: 0.821, adpfmeasure: 0.784, maxfmeasure: 0.840
+[image2.py] Epoch [150/150] Summary - Avg Loss: 0.29303 | LR: 1.000e-06,1.000e-05
+[image2.py] --- Triggering Evaluation at Epoch 150 on cod10k_te ---
+[image2.py] Validation Results: sm: 0.878, wfm: 0.797, mae: 0.020, avgem: 0.935, adpem: 0.925, maxem: 0.947, avgfmeasure: 0.820, adpfmeasure: 0.783, maxfmeasure: 0.840
+[image2.py] Training Completed. Best S_m: 0.8780 achieved at Epoch 125.
+[image2.py] Total Training Time: 3:49:58
+[image2.py] Testing with testset: chameleon: 76
+[image2.py] (chameleon): {
+    root: data/Test/CHAMELEON
+    image: {'path': 'Image', 'suffix': '.jpg'}
+    mask: {'path': 'Mask', 'suffix': '.png'}
+}
+sm: 0.900, wfm: 0.851, mae: 0.021, avgem: 0.944, adpem: 0.944, maxem: 0.967, avgfmeasure: 0.864, adpfmeasure: 0.848, maxfmeasure: 0.876
+[image2.py] Testing with testset: camo_te: 250
+[image2.py] (camo_te): {
+    root: data/Test/CAMO-TE
+    image: {'path': 'Image', 'suffix': '.jpg'}
+    mask: {'path': 'Mask', 'suffix': '.png'}
+}
+sm: 0.885, wfm: 0.852, mae: 0.038, avgem: 0.943, adpem: 0.944, maxem: 0.948, avgfmeasure: 0.872, adpfmeasure: 0.864, maxfmeasure: 0.888
+[image2.py] Testing with testset: cod10k_te: 2026
+[image2.py] (cod10k_te): {
+    root: data/Test/COD10K-TE
+    image: {'path': 'Image', 'suffix': '.jpg'}
+    mask: {'path': 'Mask', 'suffix': '.png'}
+}
+sm: 0.878, wfm: 0.797, mae: 0.020, avgem: 0.935, adpem: 0.925, maxem: 0.947, avgfmeasure: 0.820, adpfmeasure: 0.783, maxfmeasure: 0.840
+[image2.py] Testing with testset: nc4k: 4121
+[image2.py] (nc4k): {
+    root: data/Test/NC4K
+    image: {'path': 'Image', 'suffix': '.jpg'}
+    mask: {'path': 'Mask', 'suffix': '.png'}
+}
+sm: 0.896, wfm: 0.854, mae: 0.028, avgem: 0.941, adpem: 0.944, maxem: 0.949, avgfmeasure: 0.874, adpfmeasure: 0.863, maxfmeasure: 0.887
+[image2.py] End training...

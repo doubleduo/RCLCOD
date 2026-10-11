@@ -1,0 +1,335 @@
+=== log 2026-05-22 14:27:41.086354 ===
+[main_for_image.py] base_seed = 112358
+config = 'configs/icod_train.py'
+data_cfg = './dataset.yaml'
+dataset_infos = dict(
+    camo_te=dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='data/Test/CAMO-TE'),
+    chameleon=dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='data/Test/CHAMELEON'),
+    cod10k_te=dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='data/Test/COD10K-TE'),
+    combined_tr=dict(
+        image=dict(path='Imgs', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='./data/Train/'),
+    nc4k=dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='data/Test/NC4K'))
+deterministic = True
+device = 'cuda:0'
+evaluate = False
+exp_name = 'RN50_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP'
+has_test = True
+info = None
+load_from = None
+log_interval = 20
+metric_names = [
+    'sm',
+    'wfm',
+    'mae',
+    'em',
+    'fmeasure',
+]
+model_name = 'RN50_ZoomNeXt'
+output_dir = '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjwbase/hjw_WS-SAM/ZoomNeXt-main/outputs'
+path = dict(
+    cfg_copy=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjwbase/hjw_WS-SAM/ZoomNeXt-main/outputs/RN50_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_0/config.py',
+    excel=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjwbase/hjw_WS-SAM/ZoomNeXt-main/outputs/RN50_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_0/results.xlsx',
+    final_full_net=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjwbase/hjw_WS-SAM/ZoomNeXt-main/outputs/RN50_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_0/pth/checkpoint_final.pth',
+    final_state_net=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjwbase/hjw_WS-SAM/ZoomNeXt-main/outputs/RN50_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_0/pth/state_final.pth',
+    log=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjwbase/hjw_WS-SAM/ZoomNeXt-main/outputs/RN50_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_0/log_2026-05-22.txt',
+    output_dir=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjwbase/hjw_WS-SAM/ZoomNeXt-main/outputs',
+    pth=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjwbase/hjw_WS-SAM/ZoomNeXt-main/outputs/RN50_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_0/pth',
+    pth_log=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjwbase/hjw_WS-SAM/ZoomNeXt-main/outputs/RN50_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_0',
+    save=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjwbase/hjw_WS-SAM/ZoomNeXt-main/outputs/RN50_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_0/pre',
+    tb=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjwbase/hjw_WS-SAM/ZoomNeXt-main/outputs/RN50_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_0/tb',
+    trainer_copy=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjwbase/hjw_WS-SAM/ZoomNeXt-main/outputs/RN50_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP/exp_0/trainer.txt'
+)
+pretrained = True
+proj_root = '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/hjwbase/hjw_WS-SAM/ZoomNeXt-main'
+save_results = False
+test = dict(
+    batch_size=16,
+    clip_range=None,
+    data=dict(
+        names=[
+            'chameleon',
+            'camo_te',
+            'cod10k_te',
+            'nc4k',
+        ],
+        shape=dict(h=384, w=384)),
+    num_workers=2)
+train = dict(
+    batch_size=16,
+    bn=dict(freeze_affine=True, freeze_encoder=False, freeze_status=True),
+    data=dict(names=[
+        'combined_tr',
+    ], shape=dict(h=384, w=384)),
+    epoch_based=True,
+    grad_acc_step=1,
+    lr=0.0001,
+    num_epochs=150,
+    num_iters=None,
+    num_workers=2,
+    optimizer=dict(
+        cfg=dict(diff_factor=0.1, weight_decay=0),
+        group_mode='finetune',
+        mode='adam',
+        set_to_none=False),
+    sche_usebatch=True,
+    scheduler=dict(
+        cfg=dict(gamma=0.1, milestones=25200),
+        mode='step',
+        warmup=dict(initial_coef=0.01, mode='linear', num_iters=0)),
+    use_amp=True)
+use_checkpoint = False
+use_custom_worker_init = True
+
+[pt_utils.py] We will use a fixed seed 112358
+[pt_utils.py] We will not use `torch.backends.cudnn.benchmark`
+[main_for_image.py] class RN50_ZoomNeXt(_ZoomNeXt_Base):
+    def __init__(
+        self, pretrained=True, num_frames=1, input_norm=True, mid_dim=64, siu_groups=4, hmu_groups=6, **kwargs
+    ):
+        super().__init__()
+        self.encoder = timm.create_model(
+            model_name="resnet50", features_only=True, out_indices=range(5), pretrained=False
+        )
+        if pretrained:
+            params = torch.hub.load_state_dict_from_url(
+                url="https://github.com/lartpang/Archieve/releases/download/pretrained-model/resnet50-timm.pth",
+                map_location="cpu",
+            )
+            self.encoder.load_state_dict(params, strict=False)
+
+        self.tra_5 = SimpleASPP(in_dim=2048, out_dim=mid_dim)
+        self.siu_5 = MGRFIU(mid_dim, siu_groups)
+        self.hmu_5 = RGPU(mid_dim, hmu_groups, num_frames=num_frames)
+
+        self.tra_4 = ConvBNReLU(1024, mid_dim, 3, 1, 1)
+        self.siu_4 = MGRFIU(mid_dim, siu_groups)
+        self.hmu_4 = RGPU(mid_dim, hmu_groups, num_frames=num_frames)
+
+        self.tra_3 = ConvBNReLU(512, mid_dim, 3, 1, 1)
+        self.siu_3 = MGRFIU(mid_dim, siu_groups)
+        self.hmu_3 = RGPU(mid_dim, hmu_groups, num_frames=num_frames)
+
+        self.tra_2 = ConvBNReLU(256, mid_dim, 3, 1, 1)
+        self.siu_2 = MGRFIU(mid_dim, siu_groups)
+        self.hmu_2 = RGPU(mid_dim, hmu_groups, num_frames=num_frames)
+
+        self.tra_1 = ConvBNReLU(64, mid_dim, 3, 1, 1)
+        self.siu_1 = MGRFIU(mid_dim, siu_groups)
+        self.hmu_1 = RGPU(mid_dim, hmu_groups, num_frames=num_frames)
+
+        self.normalizer = PixelNormalizer() if input_norm else nn.Identity()
+        self.predictor = nn.Sequential(
+            nn.Upsample(scale_factor=2, mode="bilinear", align_corners=False),
+            ConvBNReLU(64, 32, 3, 1, 1),
+            nn.Conv2d(32, 1, 1),
+        )
+
+    def normalize_encoder(self, x):
+        x = self.normalizer(x)
+        c1, c2, c3, c4, c5 = self.encoder(x)
+        return c1, c2, c3, c4, c5
+
+    def body(self, data):
+        trans_feats = self.normalize_encoder(data["image_m"])
+
+        feat = self.tra_5(trans_feats[4])
+        lms = self.siu_5(feat)
+        x = self.hmu_5(lms)
+
+        feat = self.tra_4(trans_feats[3])
+        lms = self.siu_4(feat)
+        x = self.hmu_4(lms + resize_to(x, tgt_hw=lms.shape[-2:]))
+
+        feat = self.tra_3(trans_feats[2])
+        lms = self.siu_3(feat)
+        x = self.hmu_3(lms + resize_to(x, tgt_hw=lms.shape[-2:]))
+
+        feat = self.tra_2(trans_feats[1])
+        lms = self.siu_2(feat)
+        x = self.hmu_2(lms + resize_to(x, tgt_hw=lms.shape[-2:]))
+
+        feat = self.tra_1(trans_feats[0])
+        lms = self.siu_1(feat)
+        x = self.hmu_1(lms + resize_to(x, tgt_hw=lms.shape[-2:]))
+
+        return self.predictor(x)
+
+[main_for_image.py] Number of Parameters: 28849124
+[main_for_image.py] Length of combined_tr: 4040
+[main_for_image.py] Total Length of Image Trainset: 4040
+[zoomnext.py] Parameter Groups:{Pretrained: 159, Fixed: 0, ReTrained: 383}
+[main_for_image.py] Scheduler:
+Scheduler: (
+    num_iters: 37800
+    epoch_length: 252
+    warmup_iter: [0, 0)
+    scheduler_iter: [0, 37799]
+    mode: step
+    scheduler_cfg: {'warmup': {'num_iters': 0, 'initial_coef': 0.01, 'mode': 'linear'}, 'mode': 'step', 'cfg': {'milestones': 25200, 'gamma': 0.1}}
+    initial_lrs: [1e-05, 0.0001]
+    step_by_batch: True
+)
+Optimizer:
+Adam (
+Parameter Group 0
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 1e-05
+    maximize: False
+    weight_decay: 0
+
+Parameter Group 1
+    amsgrad: False
+    betas: (0.9, 0.999)
+    capturable: False
+    differentiable: False
+    eps: 1e-08
+    foreach: None
+    fused: None
+    lr: 0.0001
+    maximize: False
+    weight_decay: 0
+)
+[main_for_image.py] Image Mean: tensor([0.4850, 0.4560, 0.4060], device='cuda:0'), Image Std: tensor([0.2290, 0.2240, 0.2250], device='cuda:0')
+[main_for_image.py] Exp_Name: RN50_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP
+[main_for_image.py] ETA: 0:00:00(13.5G) | 0:37800 0/252 0/150 | LR: 1.000e-05,1.000e-04 | bce: 0.77936 powual_0.00000: 0.00000 (M:0.77936/C:0.77936) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 5:29:28(14G) | 19:37800 19/252 0/150 | LR: 1.000e-05,1.000e-04 | bce: 0.54904 powual_0.00000: 0.00000 (M:0.65764/C:0.54904) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:30:41(14G) | 39:37800 39/252 0/150 | LR: 1.000e-05,1.000e-04 | bce: 0.50587 powual_0.00000: 0.00000 (M:0.58956/C:0.50587) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 5:12:41(14G) | 59:37800 59/252 0/150 | LR: 1.000e-05,1.000e-04 | bce: 0.47187 powual_0.00001: 0.00001 (M:0.55579/C:0.47187) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:48:05(14G) | 79:37800 79/252 0/150 | LR: 1.000e-05,1.000e-04 | bce: 0.44721 powual_0.00001: 0.00001 (M:0.53175/C:0.44722) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:56:28(14G) | 99:37800 99/252 0/150 | LR: 1.000e-05,1.000e-04 | bce: 0.42928 powual_0.00002: 0.00001 (M:0.51259/C:0.42929) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:59:37(14G) | 119:37800 119/252 0/150 | LR: 1.000e-05,1.000e-04 | bce: 0.42596 powual_0.00002: 0.00002 (M:0.49964/C:0.42598) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:31:15(14G) | 139:37800 139/252 0/150 | LR: 1.000e-05,1.000e-04 | bce: 0.42804 powual_0.00003: 0.00003 (M:0.48943/C:0.42807) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:30:48(14G) | 159:37800 159/252 0/150 | LR: 1.000e-05,1.000e-04 | bce: 0.42370 powual_0.00004: 0.00004 (M:0.48055/C:0.42374) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:30:56(14G) | 179:37800 179/252 0/150 | LR: 1.000e-05,1.000e-04 | bce: 0.40211 powual_0.00006: 0.00005 (M:0.47265/C:0.40215) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:31:04(14G) | 199:37800 199/252 0/150 | LR: 1.000e-05,1.000e-04 | bce: 0.40811 powual_0.00007: 0.00006 (M:0.46629/C:0.40816) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:30:16(14G) | 219:37800 219/252 0/150 | LR: 1.000e-05,1.000e-04 | bce: 0.38930 powual_0.00008: 0.00007 (M:0.46013/C:0.38936) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:30:09(14G) | 239:37800 239/252 0/150 | LR: 1.000e-05,1.000e-04 | bce: 0.41316 powual_0.00010: 0.00008 (M:0.45502/C:0.41324) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:30:25(14G) | 251:37800 251/252 0/150 | LR: 1.000e-05,1.000e-04 | bce: 0.39113 powual_0.00011: 0.00009 (M:0.45180/C:0.39121) | (16, 1, 384, 384)
+[main_for_image.py] Exp_Name: RN50_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP
+[main_for_image.py] ETA: 4:30:25(14G) | 252:37800 0/252 1/150 | LR: 1.000e-05,1.000e-04 | bce: 0.37571 powual_0.00011: 0.00009 (M:0.45150/C:0.37580) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:30:27(14G) | 259:37800 7/252 1/150 | LR: 1.000e-05,1.000e-04 | bce: 0.36821 powual_0.00012: 0.00009 (M:0.44943/C:0.36831) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:29:42(14G) | 279:37800 27/252 1/150 | LR: 1.000e-05,1.000e-04 | bce: 0.35595 powual_0.00013: 0.00011 (M:0.44415/C:0.35605) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:31:29(14G) | 299:37800 47/252 1/150 | LR: 1.000e-05,1.000e-04 | bce: 0.37221 powual_0.00015: 0.00012 (M:0.43929/C:0.37233) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:29:50(14G) | 319:37800 67/252 1/150 | LR: 1.000e-05,1.000e-04 | bce: 0.36046 powual_0.00018: 0.00014 (M:0.43448/C:0.36060) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:29:05(14G) | 339:37800 87/252 1/150 | LR: 1.000e-05,1.000e-04 | bce: 0.34396 powual_0.00020: 0.00015 (M:0.43008/C:0.34412) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:29:30(14G) | 359:37800 107/252 1/150 | LR: 1.000e-05,1.000e-04 | bce: 0.32767 powual_0.00022: 0.00017 (M:0.42582/C:0.32784) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:28:50(14G) | 379:37800 127/252 1/150 | LR: 1.000e-05,1.000e-04 | bce: 0.33750 powual_0.00025: 0.00019 (M:0.42158/C:0.33769) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:28:55(14G) | 399:37800 147/252 1/150 | LR: 1.000e-05,1.000e-04 | bce: 0.33303 powual_0.00027: 0.00020 (M:0.41787/C:0.33323) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:29:10(14G) | 419:37800 167/252 1/150 | LR: 1.000e-05,1.000e-04 | bce: 0.34237 powual_0.00030: 0.00023 (M:0.41449/C:0.34260) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:28:26(14G) | 439:37800 187/252 1/150 | LR: 1.000e-05,1.000e-04 | bce: 0.31993 powual_0.00033: 0.00024 (M:0.41112/C:0.32017) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:28:41(14G) | 459:37800 207/252 1/150 | LR: 1.000e-05,1.000e-04 | bce: 0.33029 powual_0.00036: 0.00026 (M:0.40763/C:0.33055) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:28:26(14G) | 479:37800 227/252 1/150 | LR: 1.000e-05,1.000e-04 | bce: 0.33191 powual_0.00040: 0.00029 (M:0.40424/C:0.33220) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:28:14(14G) | 499:37800 247/252 1/150 | LR: 1.000e-05,1.000e-04 | bce: 0.34960 powual_0.00043: 0.00031 (M:0.40122/C:0.34990) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:28:06(14G) | 503:37800 251/252 1/150 | LR: 1.000e-05,1.000e-04 | bce: 0.30435 powual_0.00044: 0.00031 (M:0.40054/C:0.30467) | (16, 1, 384, 384)
+[main_for_image.py] Exp_Name: RN50_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP
+[main_for_image.py] ETA: 4:28:08(14G) | 504:37800 0/252 2/150 | LR: 1.000e-05,1.000e-04 | bce: 0.31673 powual_0.00044: 0.00031 (M:0.40037/C:0.31704) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:28:35(14G) | 519:37800 15/252 2/150 | LR: 1.000e-05,1.000e-04 | bce: 0.30215 powual_0.00047: 0.00033 (M:0.39800/C:0.30248) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:27:51(14G) | 539:37800 35/252 2/150 | LR: 1.000e-05,1.000e-04 | bce: 0.30108 powual_0.00050: 0.00035 (M:0.39477/C:0.30144) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:27:58(14G) | 559:37800 55/252 2/150 | LR: 1.000e-05,1.000e-04 | bce: 0.29494 powual_0.00054: 0.00038 (M:0.39164/C:0.29532) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:27:51(14G) | 579:37800 75/252 2/150 | LR: 1.000e-05,1.000e-04 | bce: 0.29206 powual_0.00058: 0.00040 (M:0.38854/C:0.29246) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:27:59(14G) | 599:37800 95/252 2/150 | LR: 1.000e-05,1.000e-04 | bce: 0.33252 powual_0.00062: 0.00041 (M:0.38557/C:0.33293) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:27:10(14G) | 619:37800 115/252 2/150 | LR: 1.000e-05,1.000e-04 | bce: 0.28591 powual_0.00066: 0.00044 (M:0.38270/C:0.28636) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:26:56(14G) | 639:37800 135/252 2/150 | LR: 1.000e-05,1.000e-04 | bce: 0.31614 powual_0.00070: 0.00047 (M:0.37989/C:0.31661) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:27:23(14G) | 659:37800 155/252 2/150 | LR: 1.000e-05,1.000e-04 | bce: 0.27953 powual_0.00075: 0.00049 (M:0.37741/C:0.28003) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:26:42(14G) | 679:37800 175/252 2/150 | LR: 1.000e-05,1.000e-04 | bce: 0.28510 powual_0.00080: 0.00050 (M:0.37457/C:0.28560) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:26:44(14G) | 699:37800 195/252 2/150 | LR: 1.000e-05,1.000e-04 | bce: 0.27340 powual_0.00084: 0.00053 (M:0.37176/C:0.27393) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:26:53(14G) | 719:37800 215/252 2/150 | LR: 1.000e-05,1.000e-04 | bce: 0.28788 powual_0.00089: 0.00057 (M:0.36917/C:0.28845) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:26:25(14G) | 739:37800 235/252 2/150 | LR: 1.000e-05,1.000e-04 | bce: 0.26436 powual_0.00094: 0.00061 (M:0.36674/C:0.26497) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:26:28(14G) | 755:37800 251/252 2/150 | LR: 1.000e-05,1.000e-04 | bce: 0.25589 powual_0.00098: 0.00061 (M:0.36475/C:0.25650) | (16, 1, 384, 384)
+[main_for_image.py] Exp_Name: RN50_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP
+[main_for_image.py] ETA: 4:26:42(14G) | 756:37800 0/252 3/150 | LR: 1.000e-05,1.000e-04 | bce: 0.26421 powual_0.00099: 0.00059 (M:0.36462/C:0.26479) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:26:40(14G) | 759:37800 3/252 3/150 | LR: 1.000e-05,1.000e-04 | bce: 0.25664 powual_0.00099: 0.00061 (M:0.36421/C:0.25725) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:26:08(14G) | 779:37800 23/252 3/150 | LR: 1.000e-05,1.000e-04 | bce: 0.27386 powual_0.00105: 0.00065 (M:0.36176/C:0.27451) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 5:17:12(14G) | 799:37800 43/252 3/150 | LR: 1.000e-05,1.000e-04 | bce: 0.25272 powual_0.00110: 0.00067 (M:0.35922/C:0.25338) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:29:06(14G) | 819:37800 63/252 3/150 | LR: 1.000e-05,1.000e-04 | bce: 0.27544 powual_0.00116: 0.00070 (M:0.35675/C:0.27614) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:24:22(14G) | 839:37800 83/252 3/150 | LR: 1.000e-05,1.000e-04 | bce: 0.24902 powual_0.00122: 0.00074 (M:0.35431/C:0.24976) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:27:49(14G) | 859:37800 103/252 3/150 | LR: 1.000e-05,1.000e-04 | bce: 0.26676 powual_0.00127: 0.00071 (M:0.35187/C:0.26747) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:32:44(14G) | 879:37800 123/252 3/150 | LR: 1.000e-05,1.000e-04 | bce: 0.22224 powual_0.00133: 0.00078 (M:0.34949/C:0.22302) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:25:05(14G) | 899:37800 143/252 3/150 | LR: 1.000e-05,1.000e-04 | bce: 0.25091 powual_0.00139: 0.00081 (M:0.34714/C:0.25172) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:25:04(14G) | 919:37800 163/252 3/150 | LR: 1.000e-05,1.000e-04 | bce: 0.23422 powual_0.00146: 0.00081 (M:0.34491/C:0.23502) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:25:10(14G) | 939:37800 183/252 3/150 | LR: 1.000e-05,1.000e-04 | bce: 0.23296 powual_0.00152: 0.00086 (M:0.34269/C:0.23382) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:24:37(14G) | 959:37800 203/252 3/150 | LR: 1.000e-05,1.000e-04 | bce: 0.25687 powual_0.00159: 0.00086 (M:0.34047/C:0.25772) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:24:25(14G) | 979:37800 223/252 3/150 | LR: 1.000e-05,1.000e-04 | bce: 0.22611 powual_0.00165: 0.00090 (M:0.33834/C:0.22701) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:24:48(14G) | 999:37800 243/252 3/150 | LR: 1.000e-05,1.000e-04 | bce: 0.20307 powual_0.00172: 0.00091 (M:0.33616/C:0.20398) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:24:32(14G) | 1007:37800 251/252 3/150 | LR: 1.000e-05,1.000e-04 | bce: 0.25776 powual_0.00175: 0.00098 (M:0.33541/C:0.25874) | (16, 1, 384, 384)
+[main_for_image.py] Exp_Name: RN50_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP
+[main_for_image.py] ETA: 4:24:24(14G) | 1008:37800 0/252 4/150 | LR: 1.000e-05,1.000e-04 | bce: 0.21508 powual_0.00175: 0.00096 (M:0.33529/C:0.21604) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:24:30(14G) | 1019:37800 11/252 4/150 | LR: 1.000e-05,1.000e-04 | bce: 0.19932 powual_0.00179: 0.00095 (M:0.33410/C:0.20027) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:24:31(14G) | 1039:37800 31/252 4/150 | LR: 1.000e-05,1.000e-04 | bce: 0.22804 powual_0.00186: 0.00100 (M:0.33207/C:0.22903) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:23:55(14G) | 1059:37800 51/252 4/150 | LR: 1.000e-05,1.000e-04 | bce: 0.21598 powual_0.00194: 0.00098 (M:0.32992/C:0.21697) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:23:53(14G) | 1079:37800 71/252 4/150 | LR: 1.000e-05,1.000e-04 | bce: 0.21073 powual_0.00201: 0.00105 (M:0.32792/C:0.21178) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:24:06(14G) | 1099:37800 91/252 4/150 | LR: 1.000e-05,1.000e-04 | bce: 0.24872 powual_0.00208: 0.00106 (M:0.32600/C:0.24978) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:23:40(14G) | 1119:37800 111/252 4/150 | LR: 1.000e-05,1.000e-04 | bce: 0.19895 powual_0.00216: 0.00108 (M:0.32407/C:0.20003) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:23:30(14G) | 1139:37800 131/252 4/150 | LR: 1.000e-05,1.000e-04 | bce: 0.20324 powual_0.00224: 0.00110 (M:0.32210/C:0.20434) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:23:38(14G) | 1159:37800 151/252 4/150 | LR: 1.000e-05,1.000e-04 | bce: 0.21276 powual_0.00232: 0.00112 (M:0.32010/C:0.21388) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:23:14(14G) | 1179:37800 171/252 4/150 | LR: 1.000e-05,1.000e-04 | bce: 0.21146 powual_0.00240: 0.00119 (M:0.31819/C:0.21265) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:23:04(14G) | 1199:37800 191/252 4/150 | LR: 1.000e-05,1.000e-04 | bce: 0.19076 powual_0.00248: 0.00117 (M:0.31634/C:0.19193) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:22:52(14G) | 1219:37800 211/252 4/150 | LR: 1.000e-05,1.000e-04 | bce: 0.20814 powual_0.00256: 0.00118 (M:0.31456/C:0.20932) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:22:54(14G) | 1239:37800 231/252 4/150 | LR: 1.000e-05,1.000e-04 | bce: 0.20362 powual_0.00265: 0.00121 (M:0.31266/C:0.20483) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:22:38(14G) | 1259:37800 251/252 4/150 | LR: 1.000e-05,1.000e-04 | bce: 0.19747 powual_0.00273: 0.00122 (M:0.31091/C:0.19869) | (16, 1, 384, 384)
+[main_for_image.py] Exp_Name: RN50_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP
+[main_for_image.py] ETA: 4:22:35(14G) | 1260:37800 0/252 5/150 | LR: 1.000e-05,1.000e-04 | bce: 0.18481 powual_0.00274: 0.00123 (M:0.31081/C:0.18604) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:22:47(14G) | 1279:37800 19/252 5/150 | LR: 1.000e-05,1.000e-04 | bce: 0.20334 powual_0.00282: 0.00129 (M:0.30906/C:0.20464) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:22:22(14G) | 1299:37800 39/252 5/150 | LR: 1.000e-05,1.000e-04 | bce: 0.17065 powual_0.00291: 0.00121 (M:0.30725/C:0.17186) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:22:13(14G) | 1319:37800 59/252 5/150 | LR: 1.000e-05,1.000e-04 | bce: 0.17748 powual_0.00300: 0.00129 (M:0.30546/C:0.17877) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:22:08(14G) | 1339:37800 79/252 5/150 | LR: 1.000e-05,1.000e-04 | bce: 0.18976 powual_0.00309: 0.00131 (M:0.30366/C:0.19108) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:21:40(14G) | 1359:37800 99/252 5/150 | LR: 1.000e-05,1.000e-04 | bce: 0.16246 powual_0.00319: 0.00135 (M:0.30188/C:0.16381) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:21:55(14G) | 1379:37800 119/252 5/150 | LR: 1.000e-05,1.000e-04 | bce: 0.16288 powual_0.00328: 0.00136 (M:0.30017/C:0.16424) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:21:47(14G) | 1399:37800 139/252 5/150 | LR: 1.000e-05,1.000e-04 | bce: 0.18553 powual_0.00338: 0.00148 (M:0.29846/C:0.18700) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:32:43(14G) | 1419:37800 159/252 5/150 | LR: 1.000e-05,1.000e-04 | bce: 0.24549 powual_0.00347: 0.00143 (M:0.29691/C:0.24692) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:40:24(14G) | 1439:37800 179/252 5/150 | LR: 1.000e-05,1.000e-04 | bce: 0.15591 powual_0.00357: 0.00150 (M:0.29536/C:0.15740) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:45:42(14G) | 1459:37800 199/252 5/150 | LR: 1.000e-05,1.000e-04 | bce: 0.23150 powual_0.00367: 0.00154 (M:0.29396/C:0.23304) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:37:59(14G) | 1479:37800 219/252 5/150 | LR: 1.000e-05,1.000e-04 | bce: 0.19752 powual_0.00377: 0.00155 (M:0.29257/C:0.19907) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:29:35(14G) | 1499:37800 239/252 5/150 | LR: 1.000e-05,1.000e-04 | bce: 0.16261 powual_0.00388: 0.00153 (M:0.29110/C:0.16414) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:28:01(14G) | 1511:37800 251/252 5/150 | LR: 1.000e-05,1.000e-04 | bce: 0.17094 powual_0.00394: 0.00162 (M:0.29016/C:0.17256) | (16, 1, 384, 384)
+[main_for_image.py] Exp_Name: RN50_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP
+[main_for_image.py] ETA: 4:27:35(14G) | 1512:37800 0/252 6/150 | LR: 1.000e-05,1.000e-04 | bce: 0.14895 powual_0.00394: 0.00154 (M:0.29006/C:0.15049) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:25:23(14G) | 1519:37800 7/252 6/150 | LR: 1.000e-05,1.000e-04 | bce: 0.15468 powual_0.00398: 0.00153 (M:0.28950/C:0.15622) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:26:26(14G) | 1539:37800 27/252 6/150 | LR: 1.000e-05,1.000e-04 | bce: 0.15322 powual_0.00408: 0.00152 (M:0.28796/C:0.15474) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:22:12(14G) | 1559:37800 47/252 6/150 | LR: 1.000e-05,1.000e-04 | bce: 0.14529 powual_0.00419: 0.00153 (M:0.28641/C:0.14682) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:24:28(14G) | 1579:37800 67/252 6/150 | LR: 1.000e-05,1.000e-04 | bce: 0.17031 powual_0.00430: 0.00152 (M:0.28493/C:0.17183) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:24:08(14G) | 1599:37800 87/252 6/150 | LR: 1.000e-05,1.000e-04 | bce: 0.20624 powual_0.00441: 0.00159 (M:0.28345/C:0.20783) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:28:28(14G) | 1619:37800 107/252 6/150 | LR: 1.000e-05,1.000e-04 | bce: 0.15095 powual_0.00452: 0.00162 (M:0.28200/C:0.15257) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:21:41(14G) | 1639:37800 127/252 6/150 | LR: 1.000e-05,1.000e-04 | bce: 0.16381 powual_0.00463: 0.00165 (M:0.28056/C:0.16546) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:24:03(14G) | 1659:37800 147/252 6/150 | LR: 1.000e-05,1.000e-04 | bce: 0.21873 powual_0.00475: 0.00164 (M:0.27908/C:0.22037) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:24:21(14G) | 1679:37800 167/252 6/150 | LR: 1.000e-05,1.000e-04 | bce: 0.16358 powual_0.00486: 0.00173 (M:0.27770/C:0.16531) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:20:32(14G) | 1699:37800 187/252 6/150 | LR: 1.000e-05,1.000e-04 | bce: 0.15084 powual_0.00498: 0.00175 (M:0.27630/C:0.15258) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:19:42(14G) | 1719:37800 207/252 6/150 | LR: 1.000e-05,1.000e-04 | bce: 0.17032 powual_0.00509: 0.00182 (M:0.27498/C:0.17214) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:18:51(14G) | 1739:37800 227/252 6/150 | LR: 1.000e-05,1.000e-04 | bce: 0.16775 powual_0.00521: 0.00184 (M:0.27370/C:0.16959) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:20:15(14G) | 1759:37800 247/252 6/150 | LR: 1.000e-05,1.000e-04 | bce: 0.15829 powual_0.00533: 0.00180 (M:0.27240/C:0.16009) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:19:43(14G) | 1763:37800 251/252 6/150 | LR: 1.000e-05,1.000e-04 | bce: 0.14050 powual_0.00536: 0.00174 (M:0.27212/C:0.14223) | (16, 1, 384, 384)
+[main_for_image.py] Exp_Name: RN50_ZoomNeXt_BS16_LR0.0001_E150_H384_W384_OPMadam_OPGMfinetune_SCstep_AMP
+[main_for_image.py] ETA: 4:18:39(14G) | 1764:37800 0/252 7/150 | LR: 1.000e-05,1.000e-04 | bce: 0.14033 powual_0.00536: 0.00172 (M:0.27205/C:0.14205) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:20:50(14G) | 1779:37800 15/252 7/150 | LR: 1.000e-05,1.000e-04 | bce: 0.13781 powual_0.00546: 0.00174 (M:0.27102/C:0.13955) | (16, 1, 384, 384)
+[main_for_image.py] ETA: 4:19:32(14G) | 1799:37800 35/252 7/150 | LR: 1.000e-05,1.000e-04 | bce: 0.15717 powual_0.00558: 0.00190 (M:0.26970/C:0.15907) | (16, 1, 384, 384)
