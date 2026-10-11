@@ -35,7 +35,7 @@ from collections import defaultdict
 
 import torch
 
-import basemain as core
+import basema as core
 
 
 LOGGER = core.LOGGER

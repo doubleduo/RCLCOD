@@ -118,7 +118,7 @@ train = dict(
     ),
 
     data=dict(
-        shape=dict(h=384, w=384),
+        shape=dict(h=576, w=576),
         names=["combined_tr"],
     ),
 )
@@ -128,7 +128,7 @@ test = dict(
     num_workers=8,
     clip_range=None,
     data=dict(
-        shape=dict(h=384, w=384),
+        shape=dict(h=576, w=576),
         names=["camo_te", "cod10k_te"],
     ),
 )

@@ -1,5 +1,5 @@
 base_seed = 112358
-config = 'configs/sam2_real.py'
+config = 'configs/zoom/fpn_zoom_384.py'
 data_cfg = './dataset.yaml'
 dataset_infos = dict(
     camo_te=dict(
@@ -18,8 +18,7 @@ dataset_infos = dict(
         box_json=dict(path='./data/Train/box_label', suffix='.json'),
         image=dict(path='./data/Train/Imgs', suffix='.jpg'),
         mask=dict(
-            path=
-            './data/Train/SGT/SAM2_FinalRefine_OriginalPools/03_Refine_NoFlip',
+            path='./SGT/SAM2_FinalRefine_OriginalPools/03_Refine_NoFlip',
             suffix='.png'),
         root='.'),
     nc4k=dict(
@@ -29,7 +28,7 @@ dataset_infos = dict(
 deterministic = True
 device = 'cuda:0'
 evaluate = False
-exp_name = 'PvtV2B4_FPN_Baseline_BS8'
+exp_name = 'PvtV2B4_FPN_ZoomMini_BS4'
 has_test = True
 info = None
 load_from = None
@@ -40,69 +39,74 @@ metric_names = [
     'mae',
     'em',
 ]
-model_name = 'PvtV2B4_FPN_Baseline'
-output_dir = '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/FPN'
+model = dict(q_switch_ratio=0.4)
+model_name = 'PvtV2B4_FPN_ZoomMini'
+output_dir = '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/Stageout'
 path = dict(
     cfg_copy=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/FPN/PvtV2B4_FPN_Baseline_BS8/exp_0/config.py',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/Stageout/PvtV2B4_FPN_ZoomMini_BS4/exp_0/config.py',
     excel=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/FPN/PvtV2B4_FPN_Baseline_BS8/exp_0/results.xlsx',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/Stageout/PvtV2B4_FPN_ZoomMini_BS4/exp_0/results.xlsx',
     final_full_net=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/FPN/PvtV2B4_FPN_Baseline_BS8/exp_0/pth/checkpoint_final.pth',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/Stageout/PvtV2B4_FPN_ZoomMini_BS4/exp_0/pth/checkpoint_final.pth',
     final_state_net=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/FPN/PvtV2B4_FPN_Baseline_BS8/exp_0/pth/state_final.pth',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/Stageout/PvtV2B4_FPN_ZoomMini_BS4/exp_0/pth/state_final.pth',
     log=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/FPN/PvtV2B4_FPN_Baseline_BS8/exp_0/log_2026-10-09.txt',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/Stageout/PvtV2B4_FPN_ZoomMini_BS4/exp_0/log_2026-10-10.txt',
     output_dir=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/FPN',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/Stageout',
     pth=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/FPN/PvtV2B4_FPN_Baseline_BS8/exp_0/pth',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/Stageout/PvtV2B4_FPN_ZoomMini_BS4/exp_0/pth',
     pth_log=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/FPN/PvtV2B4_FPN_Baseline_BS8/exp_0',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/Stageout/PvtV2B4_FPN_ZoomMini_BS4/exp_0',
     save=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/FPN/PvtV2B4_FPN_Baseline_BS8/exp_0/pre',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/Stageout/PvtV2B4_FPN_ZoomMini_BS4/exp_0/pre',
     tb=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/FPN/PvtV2B4_FPN_Baseline_BS8/exp_0/tb',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/Stageout/PvtV2B4_FPN_ZoomMini_BS4/exp_0/tb',
     trainer_copy=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/FPN/PvtV2B4_FPN_Baseline_BS8/exp_0/trainer.txt'
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/Stageout/PvtV2B4_FPN_ZoomMini_BS4/exp_0/trainer.txt'
 )
 pretrained = True
 proj_root = '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD'
 save_results = False
 test = dict(
-    batch_size=8,
+    batch_size=4,
     clip_range=None,
-    data=dict(names=[
-        'camo_te',
-        'cod10k_te',
-    ], shape=dict(h=384, w=384)),
+    data=dict(
+        names=[
+            'camo_te',
+            'cod10k_te',
+            'nc4k',
+            'chameleon',
+        ],
+        shape=dict(h=384, w=384)),
     num_workers=8)
 train = dict(
-    batch_size=8,
+    batch_size=4,
     bn=dict(freeze_affine=True, freeze_encoder=False, freeze_status=True),
     curriculum=dict(
         continuous_schedule=dict(
             clean_weight=1.0,
             enable=True,
-            final_start_epoch=141,
+            final_start_epoch=131,
             noisy=dict(
-                anneal_end_epoch=140,
+                anneal_end_epoch=130,
                 anneal_start_epoch=61,
-                end_weight=0.4,
+                end_weight=0.0,
                 hold_end_epoch=60,
                 mode='cosine',
                 start_weight=1.0)),
         enable=True,
         num_samples_per_epoch=4040,
         pools=dict(
-            clean='./data/pseudo_pool/sam2refine/high.txt',
-            noisy='./data/pseudo_pool/sam2refine/middle.txt')),
+            clean='./data/pseudo_pool/shape/clean.txt',
+            noisy='./data/pseudo_pool/shape/noisy.txt')),
     data=dict(names=[
         'combined_tr',
     ], shape=dict(h=384, w=384)),
     ema_kd=dict(enable=False, lambda_kd=0.0),
     epoch_based=True,
-    grad_acc_step=1,
+    grad_acc_step=2,
     lr=0.0001,
     num_epochs=150,
     num_iters=None,
@@ -115,7 +119,7 @@ train = dict(
     save_val_ckpt=True,
     sche_usebatch=True,
     scheduler=dict(
-        cfg=dict(gamma=0.1, milestones=60600),
+        cfg=dict(gamma=0.1, milestones=121200),
         mode='step',
         warmup=dict(initial_coef=0.01, mode='linear', num_iters=0)),
     use_amp=True,
