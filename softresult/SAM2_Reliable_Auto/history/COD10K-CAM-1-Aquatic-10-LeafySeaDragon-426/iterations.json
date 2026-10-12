@@ -1,0 +1,140 @@
+{
+  "iterations": [
+    {
+      "view": "box0_global",
+      "step": 0,
+      "status": "accepted",
+      "source": "initial",
+      "reason": "initial_candidate",
+      "area": 115137,
+      "iou_previous": 1.0,
+      "fg_conflict_rate": 0.048966467615985304,
+      "bg_conflict_rate": 0.0,
+      "fg_miss": 533,
+      "bg_false": 0,
+      "fg_total": 10885,
+      "bg_total": 2310,
+      "candidate": 1,
+      "sam_score": 0.5,
+      "region": [
+        0,
+        0,
+        1024,
+        768
+      ]
+    },
+    {
+      "view": "box0_global",
+      "step": 1,
+      "status": "accepted",
+      "source": "human_conflict",
+      "reason": "human_improvement",
+      "area": 122864,
+      "iou_previous": 0.8399155986064495,
+      "fg_conflict_rate": 0.006430868167202572,
+      "bg_conflict_rate": 0.0,
+      "fg_miss": 70,
+      "bg_false": 0,
+      "fg_total": 10885,
+      "bg_total": 2310,
+      "candidate": 1,
+      "sam_score": 0.76953125,
+      "region": [
+        0,
+        0,
+        1024,
+        768
+      ],
+      "point": {
+        "x": 227.0,
+        "y": 541.0,
+        "label": 1,
+        "source": "human_conflict"
+      }
+    },
+    {
+      "view": "box0_global",
+      "step": 2,
+      "status": "accepted",
+      "source": "human_conflict",
+      "reason": "human_improvement",
+      "area": 130475,
+      "iou_previous": 0.9385115868107153,
+      "fg_conflict_rate": 0.0043178686265502985,
+      "bg_conflict_rate": 0.0,
+      "fg_miss": 47,
+      "bg_false": 0,
+      "fg_total": 10885,
+      "bg_total": 2310,
+      "candidate": 1,
+      "sam_score": 0.81640625,
+      "region": [
+        0,
+        0,
+        1024,
+        768
+      ],
+      "point": {
+        "x": 653.0,
+        "y": 298.0,
+        "label": 1,
+        "source": "human_conflict"
+      }
+    },
+    {
+      "view": "box0_global",
+      "step": 3,
+      "status": "accepted",
+      "source": "human_conflict",
+      "reason": "human_improvement",
+      "area": 144994,
+      "iou_previous": 0.8990524046588811,
+      "fg_conflict_rate": 0.003307303628847037,
+      "bg_conflict_rate": 0.0,
+      "fg_miss": 36,
+      "bg_false": 0,
+      "fg_total": 10885,
+      "bg_total": 2310,
+      "candidate": 1,
+      "sam_score": 0.82421875,
+      "region": [
+        0,
+        0,
+        1024,
+        768
+      ],
+      "point": {
+        "x": 684.0,
+        "y": 255.0,
+        "label": 1,
+        "source": "human_conflict"
+      }
+    }
+  ],
+  "decisions": [
+    {
+      "box": 0,
+      "selected_view": "box0_global",
+      "views": [
+        {
+          "view": "box0_global",
+          "selected_step": 3,
+          "stop_reason": "max_iterations",
+          "conflicts": {
+            "fg_miss": 36,
+            "bg_false": 0,
+            "fg_total": 10885,
+            "bg_total": 2310
+          },
+          "region": [
+            0,
+            0,
+            1024,
+            768
+          ]
+        }
+      ],
+      "selection_reason": "human_improvement_else_global"
+    }
+  ]
+}

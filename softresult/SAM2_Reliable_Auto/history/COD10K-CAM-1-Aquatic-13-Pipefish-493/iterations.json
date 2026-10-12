@@ -1,0 +1,662 @@
+{
+  "iterations": [
+    {
+      "view": "box0_global",
+      "step": 0,
+      "status": "accepted",
+      "source": "initial",
+      "reason": "initial_candidate",
+      "area": 87978,
+      "iou_previous": 1.0,
+      "fg_conflict_rate": 0.0,
+      "bg_conflict_rate": 0.03688989784335982,
+      "fg_miss": 0,
+      "bg_false": 65,
+      "fg_total": 615,
+      "bg_total": 1762,
+      "candidate": 2,
+      "sam_score": 0.10107421875,
+      "region": [
+        0,
+        0,
+        1599,
+        1066
+      ]
+    },
+    {
+      "view": "box0_global",
+      "step": 1,
+      "status": "accepted",
+      "source": "human_conflict",
+      "reason": "human_improvement",
+      "area": 31037,
+      "iou_previous": 0.3502406177380103,
+      "fg_conflict_rate": 0.0,
+      "bg_conflict_rate": 0.0,
+      "fg_miss": 0,
+      "bg_false": 0,
+      "fg_total": 615,
+      "bg_total": 1762,
+      "candidate": 2,
+      "sam_score": 0.7890625,
+      "region": [
+        0,
+        0,
+        1599,
+        1066
+      ],
+      "point": {
+        "x": 361.0,
+        "y": 661.0,
+        "label": 0,
+        "source": "human_conflict"
+      }
+    },
+    {
+      "view": "box1_global",
+      "step": 0,
+      "status": "accepted",
+      "source": "initial",
+      "reason": "initial_candidate",
+      "area": 362220,
+      "iou_previous": 1.0,
+      "fg_conflict_rate": 0.010884353741496598,
+      "bg_conflict_rate": 0.2508513053348468,
+      "fg_miss": 8,
+      "bg_false": 442,
+      "fg_total": 735,
+      "bg_total": 1762,
+      "candidate": 2,
+      "sam_score": 0.0927734375,
+      "region": [
+        0,
+        0,
+        1599,
+        1066
+      ]
+    },
+    {
+      "view": "box1_global",
+      "step": 1,
+      "status": "rejected",
+      "source": "human_conflict",
+      "reason": "human_conflict_increased",
+      "area": 274956,
+      "iou_previous": 0.7601005245341573,
+      "fg_conflict_rate": 0.013605442176870748,
+      "bg_conflict_rate": 0.11237230419977298,
+      "fg_miss": 10,
+      "bg_false": 198,
+      "fg_total": 735,
+      "bg_total": 1762,
+      "candidate": 2,
+      "sam_score": 0.06298828125,
+      "region": [
+        0,
+        0,
+        1599,
+        1066
+      ]
+    },
+    {
+      "view": "box1_global",
+      "step": 2,
+      "status": "rejected",
+      "source": "human_conflict",
+      "reason": "human_conflict_increased",
+      "area": 196353,
+      "iou_previous": 0.5440422848863727,
+      "fg_conflict_rate": 0.01904761904761905,
+      "bg_conflict_rate": 0.04086265607264472,
+      "fg_miss": 14,
+      "bg_false": 72,
+      "fg_total": 735,
+      "bg_total": 1762,
+      "candidate": 2,
+      "sam_score": 0.0439453125,
+      "region": [
+        0,
+        0,
+        1599,
+        1066
+      ]
+    },
+    {
+      "view": "box1_global",
+      "step": 3,
+      "status": "rejected",
+      "source": "human_conflict",
+      "reason": "human_conflict_increased",
+      "area": 139420,
+      "iou_previous": 0.3863597742578862,
+      "fg_conflict_rate": 0.027210884353741496,
+      "bg_conflict_rate": 0.01021566401816118,
+      "fg_miss": 20,
+      "bg_false": 18,
+      "fg_total": 735,
+      "bg_total": 1762,
+      "candidate": 2,
+      "sam_score": 0.0306396484375,
+      "region": [
+        0,
+        0,
+        1599,
+        1066
+      ]
+    },
+    {
+      "view": "box2_global",
+      "step": 0,
+      "status": "accepted",
+      "source": "initial",
+      "reason": "initial_candidate",
+      "area": 362220,
+      "iou_previous": 1.0,
+      "fg_conflict_rate": 0.010884353741496598,
+      "bg_conflict_rate": 0.2508513053348468,
+      "fg_miss": 8,
+      "bg_false": 442,
+      "fg_total": 735,
+      "bg_total": 1762,
+      "candidate": 2,
+      "sam_score": 0.0927734375,
+      "region": [
+        0,
+        0,
+        1599,
+        1066
+      ]
+    },
+    {
+      "view": "box2_global",
+      "step": 1,
+      "status": "rejected",
+      "source": "human_conflict",
+      "reason": "human_conflict_increased",
+      "area": 274956,
+      "iou_previous": 0.7601005245341573,
+      "fg_conflict_rate": 0.013605442176870748,
+      "bg_conflict_rate": 0.11237230419977298,
+      "fg_miss": 10,
+      "bg_false": 198,
+      "fg_total": 735,
+      "bg_total": 1762,
+      "candidate": 2,
+      "sam_score": 0.06298828125,
+      "region": [
+        0,
+        0,
+        1599,
+        1066
+      ]
+    },
+    {
+      "view": "box2_global",
+      "step": 2,
+      "status": "rejected",
+      "source": "human_conflict",
+      "reason": "human_conflict_increased",
+      "area": 196353,
+      "iou_previous": 0.5440422848863727,
+      "fg_conflict_rate": 0.01904761904761905,
+      "bg_conflict_rate": 0.04086265607264472,
+      "fg_miss": 14,
+      "bg_false": 72,
+      "fg_total": 735,
+      "bg_total": 1762,
+      "candidate": 2,
+      "sam_score": 0.0439453125,
+      "region": [
+        0,
+        0,
+        1599,
+        1066
+      ]
+    },
+    {
+      "view": "box2_global",
+      "step": 3,
+      "status": "rejected",
+      "source": "human_conflict",
+      "reason": "human_conflict_increased",
+      "area": 139420,
+      "iou_previous": 0.3863597742578862,
+      "fg_conflict_rate": 0.027210884353741496,
+      "bg_conflict_rate": 0.01021566401816118,
+      "fg_miss": 20,
+      "bg_false": 18,
+      "fg_total": 735,
+      "bg_total": 1762,
+      "candidate": 2,
+      "sam_score": 0.0306396484375,
+      "region": [
+        0,
+        0,
+        1599,
+        1066
+      ]
+    },
+    {
+      "view": "box3_global",
+      "step": 0,
+      "status": "accepted",
+      "source": "initial",
+      "reason": "initial_candidate",
+      "area": 362220,
+      "iou_previous": 1.0,
+      "fg_conflict_rate": 0.010884353741496598,
+      "bg_conflict_rate": 0.2508513053348468,
+      "fg_miss": 8,
+      "bg_false": 442,
+      "fg_total": 735,
+      "bg_total": 1762,
+      "candidate": 2,
+      "sam_score": 0.0927734375,
+      "region": [
+        0,
+        0,
+        1599,
+        1066
+      ]
+    },
+    {
+      "view": "box3_global",
+      "step": 1,
+      "status": "rejected",
+      "source": "human_conflict",
+      "reason": "human_conflict_increased",
+      "area": 274956,
+      "iou_previous": 0.7601005245341573,
+      "fg_conflict_rate": 0.013605442176870748,
+      "bg_conflict_rate": 0.11237230419977298,
+      "fg_miss": 10,
+      "bg_false": 198,
+      "fg_total": 735,
+      "bg_total": 1762,
+      "candidate": 2,
+      "sam_score": 0.06298828125,
+      "region": [
+        0,
+        0,
+        1599,
+        1066
+      ]
+    },
+    {
+      "view": "box3_global",
+      "step": 2,
+      "status": "rejected",
+      "source": "human_conflict",
+      "reason": "human_conflict_increased",
+      "area": 196353,
+      "iou_previous": 0.5440422848863727,
+      "fg_conflict_rate": 0.01904761904761905,
+      "bg_conflict_rate": 0.04086265607264472,
+      "fg_miss": 14,
+      "bg_false": 72,
+      "fg_total": 735,
+      "bg_total": 1762,
+      "candidate": 2,
+      "sam_score": 0.0439453125,
+      "region": [
+        0,
+        0,
+        1599,
+        1066
+      ]
+    },
+    {
+      "view": "box3_global",
+      "step": 3,
+      "status": "rejected",
+      "source": "human_conflict",
+      "reason": "human_conflict_increased",
+      "area": 139420,
+      "iou_previous": 0.3863597742578862,
+      "fg_conflict_rate": 0.027210884353741496,
+      "bg_conflict_rate": 0.01021566401816118,
+      "fg_miss": 20,
+      "bg_false": 18,
+      "fg_total": 735,
+      "bg_total": 1762,
+      "candidate": 2,
+      "sam_score": 0.0306396484375,
+      "region": [
+        0,
+        0,
+        1599,
+        1066
+      ]
+    },
+    {
+      "view": "box4_global",
+      "step": 0,
+      "status": "accepted",
+      "source": "initial",
+      "reason": "initial_candidate",
+      "area": 362220,
+      "iou_previous": 1.0,
+      "fg_conflict_rate": 0.010884353741496598,
+      "bg_conflict_rate": 0.2508513053348468,
+      "fg_miss": 8,
+      "bg_false": 442,
+      "fg_total": 735,
+      "bg_total": 1762,
+      "candidate": 2,
+      "sam_score": 0.0927734375,
+      "region": [
+        0,
+        0,
+        1599,
+        1066
+      ]
+    },
+    {
+      "view": "box4_global",
+      "step": 1,
+      "status": "rejected",
+      "source": "human_conflict",
+      "reason": "human_conflict_increased",
+      "area": 274956,
+      "iou_previous": 0.7601005245341573,
+      "fg_conflict_rate": 0.013605442176870748,
+      "bg_conflict_rate": 0.11237230419977298,
+      "fg_miss": 10,
+      "bg_false": 198,
+      "fg_total": 735,
+      "bg_total": 1762,
+      "candidate": 2,
+      "sam_score": 0.06298828125,
+      "region": [
+        0,
+        0,
+        1599,
+        1066
+      ]
+    },
+    {
+      "view": "box4_global",
+      "step": 2,
+      "status": "rejected",
+      "source": "human_conflict",
+      "reason": "human_conflict_increased",
+      "area": 196353,
+      "iou_previous": 0.5440422848863727,
+      "fg_conflict_rate": 0.01904761904761905,
+      "bg_conflict_rate": 0.04086265607264472,
+      "fg_miss": 14,
+      "bg_false": 72,
+      "fg_total": 735,
+      "bg_total": 1762,
+      "candidate": 2,
+      "sam_score": 0.0439453125,
+      "region": [
+        0,
+        0,
+        1599,
+        1066
+      ]
+    },
+    {
+      "view": "box4_global",
+      "step": 3,
+      "status": "rejected",
+      "source": "human_conflict",
+      "reason": "human_conflict_increased",
+      "area": 139420,
+      "iou_previous": 0.3863597742578862,
+      "fg_conflict_rate": 0.027210884353741496,
+      "bg_conflict_rate": 0.01021566401816118,
+      "fg_miss": 20,
+      "bg_false": 18,
+      "fg_total": 735,
+      "bg_total": 1762,
+      "candidate": 2,
+      "sam_score": 0.0306396484375,
+      "region": [
+        0,
+        0,
+        1599,
+        1066
+      ]
+    },
+    {
+      "view": "box5_global",
+      "step": 0,
+      "status": "accepted",
+      "source": "initial",
+      "reason": "initial_candidate",
+      "area": 362220,
+      "iou_previous": 1.0,
+      "fg_conflict_rate": 0.010884353741496598,
+      "bg_conflict_rate": 0.2508513053348468,
+      "fg_miss": 8,
+      "bg_false": 442,
+      "fg_total": 735,
+      "bg_total": 1762,
+      "candidate": 2,
+      "sam_score": 0.0927734375,
+      "region": [
+        0,
+        0,
+        1599,
+        1066
+      ]
+    },
+    {
+      "view": "box5_global",
+      "step": 1,
+      "status": "rejected",
+      "source": "human_conflict",
+      "reason": "human_conflict_increased",
+      "area": 274956,
+      "iou_previous": 0.7601005245341573,
+      "fg_conflict_rate": 0.013605442176870748,
+      "bg_conflict_rate": 0.11237230419977298,
+      "fg_miss": 10,
+      "bg_false": 198,
+      "fg_total": 735,
+      "bg_total": 1762,
+      "candidate": 2,
+      "sam_score": 0.06298828125,
+      "region": [
+        0,
+        0,
+        1599,
+        1066
+      ]
+    },
+    {
+      "view": "box5_global",
+      "step": 2,
+      "status": "rejected",
+      "source": "human_conflict",
+      "reason": "human_conflict_increased",
+      "area": 196353,
+      "iou_previous": 0.5440422848863727,
+      "fg_conflict_rate": 0.01904761904761905,
+      "bg_conflict_rate": 0.04086265607264472,
+      "fg_miss": 14,
+      "bg_false": 72,
+      "fg_total": 735,
+      "bg_total": 1762,
+      "candidate": 2,
+      "sam_score": 0.0439453125,
+      "region": [
+        0,
+        0,
+        1599,
+        1066
+      ]
+    },
+    {
+      "view": "box5_global",
+      "step": 3,
+      "status": "rejected",
+      "source": "human_conflict",
+      "reason": "human_conflict_increased",
+      "area": 139420,
+      "iou_previous": 0.3863597742578862,
+      "fg_conflict_rate": 0.027210884353741496,
+      "bg_conflict_rate": 0.01021566401816118,
+      "fg_miss": 20,
+      "bg_false": 18,
+      "fg_total": 735,
+      "bg_total": 1762,
+      "candidate": 2,
+      "sam_score": 0.0306396484375,
+      "region": [
+        0,
+        0,
+        1599,
+        1066
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "box": 0,
+      "selected_view": "box0_global",
+      "views": [
+        {
+          "view": "box0_global",
+          "selected_step": 1,
+          "stop_reason": "no_new_corrective_information",
+          "conflicts": {
+            "fg_miss": 0,
+            "bg_false": 0,
+            "fg_total": 615,
+            "bg_total": 1762
+          },
+          "region": [
+            0,
+            0,
+            1599,
+            1066
+          ]
+        }
+      ],
+      "selection_reason": "human_improvement_else_global"
+    },
+    {
+      "box": 1,
+      "selected_view": "box1_global",
+      "views": [
+        {
+          "view": "box1_global",
+          "selected_step": 0,
+          "stop_reason": "max_iterations",
+          "conflicts": {
+            "fg_miss": 8,
+            "bg_false": 442,
+            "fg_total": 735,
+            "bg_total": 1762
+          },
+          "region": [
+            0,
+            0,
+            1599,
+            1066
+          ]
+        }
+      ],
+      "selection_reason": "human_improvement_else_global"
+    },
+    {
+      "box": 2,
+      "selected_view": "box2_global",
+      "views": [
+        {
+          "view": "box2_global",
+          "selected_step": 0,
+          "stop_reason": "max_iterations",
+          "conflicts": {
+            "fg_miss": 8,
+            "bg_false": 442,
+            "fg_total": 735,
+            "bg_total": 1762
+          },
+          "region": [
+            0,
+            0,
+            1599,
+            1066
+          ]
+        }
+      ],
+      "selection_reason": "human_improvement_else_global"
+    },
+    {
+      "box": 3,
+      "selected_view": "box3_global",
+      "views": [
+        {
+          "view": "box3_global",
+          "selected_step": 0,
+          "stop_reason": "max_iterations",
+          "conflicts": {
+            "fg_miss": 8,
+            "bg_false": 442,
+            "fg_total": 735,
+            "bg_total": 1762
+          },
+          "region": [
+            0,
+            0,
+            1599,
+            1066
+          ]
+        }
+      ],
+      "selection_reason": "human_improvement_else_global"
+    },
+    {
+      "box": 4,
+      "selected_view": "box4_global",
+      "views": [
+        {
+          "view": "box4_global",
+          "selected_step": 0,
+          "stop_reason": "max_iterations",
+          "conflicts": {
+            "fg_miss": 8,
+            "bg_false": 442,
+            "fg_total": 735,
+            "bg_total": 1762
+          },
+          "region": [
+            0,
+            0,
+            1599,
+            1066
+          ]
+        }
+      ],
+      "selection_reason": "human_improvement_else_global"
+    },
+    {
+      "box": 5,
+      "selected_view": "box5_global",
+      "views": [
+        {
+          "view": "box5_global",
+          "selected_step": 0,
+          "stop_reason": "max_iterations",
+          "conflicts": {
+            "fg_miss": 8,
+            "bg_false": 442,
+            "fg_total": 735,
+            "bg_total": 1762
+          },
+          "region": [
+            0,
+            0,
+            1599,
+            1066
+          ]
+        }
+      ],
+      "selection_reason": "human_improvement_else_global"
+    }
+  ]
+}

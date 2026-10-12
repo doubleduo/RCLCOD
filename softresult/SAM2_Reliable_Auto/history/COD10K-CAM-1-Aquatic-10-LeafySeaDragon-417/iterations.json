@@ -1,0 +1,140 @@
+{
+  "iterations": [
+    {
+      "view": "box0_global",
+      "step": 0,
+      "status": "accepted",
+      "source": "initial",
+      "reason": "initial_candidate",
+      "area": 28742,
+      "iou_previous": 1.0,
+      "fg_conflict_rate": 0.03147180929422794,
+      "bg_conflict_rate": 0.0,
+      "fg_miss": 235,
+      "bg_false": 0,
+      "fg_total": 7467,
+      "bg_total": 6387,
+      "candidate": 2,
+      "sam_score": 0.8671875,
+      "region": [
+        0,
+        0,
+        1024,
+        562
+      ]
+    },
+    {
+      "view": "box0_global",
+      "step": 1,
+      "status": "accepted",
+      "source": "human_conflict",
+      "reason": "human_improvement",
+      "area": 30289,
+      "iou_previous": 0.936566492711895,
+      "fg_conflict_rate": 0.026248828177313513,
+      "bg_conflict_rate": 0.0,
+      "fg_miss": 196,
+      "bg_false": 0,
+      "fg_total": 7467,
+      "bg_total": 6387,
+      "candidate": 1,
+      "sam_score": 0.8671875,
+      "region": [
+        0,
+        0,
+        1024,
+        562
+      ],
+      "point": {
+        "x": 622.0,
+        "y": 401.0,
+        "label": 1,
+        "source": "human_conflict"
+      }
+    },
+    {
+      "view": "box0_global",
+      "step": 2,
+      "status": "accepted",
+      "source": "human_conflict",
+      "reason": "human_improvement",
+      "area": 31636,
+      "iou_previous": 0.9501105583195135,
+      "fg_conflict_rate": 0.0016070711128967456,
+      "bg_conflict_rate": 0.0,
+      "fg_miss": 12,
+      "bg_false": 0,
+      "fg_total": 7467,
+      "bg_total": 6387,
+      "candidate": 1,
+      "sam_score": 0.86328125,
+      "region": [
+        0,
+        0,
+        1024,
+        562
+      ],
+      "point": {
+        "x": 630.0,
+        "y": 378.0,
+        "label": 1,
+        "source": "human_conflict"
+      }
+    },
+    {
+      "view": "box0_global",
+      "step": 3,
+      "status": "accepted",
+      "source": "human_conflict",
+      "reason": "fixed_view_supported",
+      "area": 31952,
+      "iou_previous": 0.9859425358293904,
+      "fg_conflict_rate": 0.0016070711128967456,
+      "bg_conflict_rate": 0.0,
+      "fg_miss": 12,
+      "bg_false": 0,
+      "fg_total": 7467,
+      "bg_total": 6387,
+      "candidate": 1,
+      "sam_score": 0.87890625,
+      "region": [
+        0,
+        0,
+        1024,
+        562
+      ],
+      "point": {
+        "x": 330.0,
+        "y": 255.0,
+        "label": 1,
+        "source": "human_conflict"
+      }
+    }
+  ],
+  "decisions": [
+    {
+      "box": 0,
+      "selected_view": "box0_global",
+      "views": [
+        {
+          "view": "box0_global",
+          "selected_step": 2,
+          "stop_reason": "max_iterations",
+          "conflicts": {
+            "fg_miss": 12,
+            "bg_false": 0,
+            "fg_total": 7467,
+            "bg_total": 6387
+          },
+          "region": [
+            0,
+            0,
+            1024,
+            562
+          ]
+        }
+      ],
+      "selection_reason": "human_improvement_else_global"
+    }
+  ]
+}

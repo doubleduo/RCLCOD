@@ -19,6 +19,18 @@ from .fpn_baseline import (
     PvtV2B4_FPN_NC_Curriculum,
     ConvNeXtB384_FPN_Baseline,
 )
+from .fpn_zoomnext import (
+    PvtV2B4_FPN_ZoomNeXt,
+    PvtV2B4_FPN_ZoomNeXt_MHSIU,
+    PvtV2B4_FPN_ZoomNeXt_RGPU,
+)
+
+
+
+
+
+
+
 
 from .fpn_csr_curriculum import (
     PvtV2B4_FPN_CSR_BCE,

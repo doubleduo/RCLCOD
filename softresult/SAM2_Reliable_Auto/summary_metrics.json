@@ -1,0 +1,49 @@
+{
+  "config": {
+    "sam2_checkpoint": "./sam_pseado/weights/sam2_hiera_large.pt",
+    "sam2_config": "sam2_hiera_l.yaml",
+    "device": "cuda",
+    "img_dir": "./data/Train/Imgs",
+    "scribble_dir": "./data/Train/Scribble",
+    "gt_dir": "./data/Train/GT",
+    "json_dir": "./data/Train/box_label",
+    "out_dir": "./softresult/SAM2_Reliable_Auto",
+    "size": 1024,
+    "seed": 0,
+    "refine_iters": 3,
+    "active_min_dist": 16,
+    "max_initial_per_class": 9,
+    "use_crop": true,
+    "small_box_area_thr": 0.1,
+    "crop_context": 0.35,
+    "crop_min_context": 16,
+    "crop_square": true,
+    "box_prompt_margin": 5,
+    "auto_points": true,
+    "use_features": true,
+    "stable_iou": 0.995,
+    "feature_margin": 0.1,
+    "save_probs": true
+  },
+  "num_images": 100,
+  "failures": [],
+  "metric_note": "Inherited maxF/maxE are binary F/E at 0.5, not threshold-sweep maxima.",
+  "base": {
+    "Smeasure": 0.8956442908613194,
+    "maxE": 0.9702715504169465,
+    "maxF": 0.9117114419332952,
+    "MAE": 0.01955049962620251
+  },
+  "perbox": {
+    "Smeasure": 0.8969977379118168,
+    "maxE": 0.9703061693906784,
+    "maxF": 0.912257523970615,
+    "MAE": 0.019182362587889655
+  },
+  "final": {
+    "Smeasure": 0.9008779383851255,
+    "maxE": 0.9738822886347771,
+    "maxF": 0.9155833928868463,
+    "MAE": 0.01757305472972803
+  }
+}

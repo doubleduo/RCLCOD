@@ -47,7 +47,7 @@ train = dict(
     grad_acc_step=1,
 
     val_start_epoch=30,
-    val_interval=5,
+    val_interval=10,
     save_val_ckpt=True,
 
     ema_kd=dict(
@@ -76,7 +76,7 @@ train = dict(
 
                 # Reliability annealing.
                 anneal_start_epoch=61,
-                anneal_end_epoch=140,
+                anneal_end_epoch=130,
                 end_weight=0.4,
                 mode="cosine",
             ),
@@ -118,7 +118,7 @@ train = dict(
     ),
 
     data=dict(
-        shape=dict(h=576, w=576),
+        shape=dict(h=384, w=384),
         names=["combined_tr"],
     ),
 )
@@ -128,7 +128,7 @@ test = dict(
     num_workers=8,
     clip_range=None,
     data=dict(
-        shape=dict(h=576, w=576),
-        names=["camo_te", "cod10k_te"],
+        shape=dict(h=384, w=384),
+        names=["camo_te", "cod10k_te", "chameleon", "NC4K"],
     ),
 )

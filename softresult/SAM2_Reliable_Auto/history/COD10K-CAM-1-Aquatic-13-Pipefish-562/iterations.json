@@ -1,0 +1,158 @@
+{
+  "iterations": [
+    {
+      "view": "box0_global",
+      "step": 0,
+      "status": "accepted",
+      "source": "initial",
+      "reason": "initial_candidate",
+      "area": 35351,
+      "iou_previous": 1.0,
+      "fg_conflict_rate": 0.000779423226812159,
+      "bg_conflict_rate": 0.0,
+      "fg_miss": 4,
+      "bg_false": 0,
+      "fg_total": 5132,
+      "bg_total": 4973,
+      "candidate": 1,
+      "sam_score": 0.8046875,
+      "region": [
+        0,
+        0,
+        1022,
+        638
+      ]
+    },
+    {
+      "view": "box0_global",
+      "step": 1,
+      "status": "accepted",
+      "source": "human_conflict",
+      "reason": "human_improvement",
+      "area": 36052,
+      "iou_previous": 0.971423664777606,
+      "fg_conflict_rate": 0.0,
+      "bg_conflict_rate": 0.0,
+      "fg_miss": 0,
+      "bg_false": 0,
+      "fg_total": 5132,
+      "bg_total": 4973,
+      "candidate": 2,
+      "sam_score": 0.93359375,
+      "region": [
+        0,
+        0,
+        1022,
+        638
+      ],
+      "point": {
+        "x": 638.0,
+        "y": 546.0,
+        "label": 1,
+        "source": "human_conflict"
+      }
+    },
+    {
+      "view": "box1_global",
+      "step": 0,
+      "status": "accepted",
+      "source": "initial",
+      "reason": "initial_candidate",
+      "area": 25861,
+      "iou_previous": 1.0,
+      "fg_conflict_rate": 0.004433606739082243,
+      "bg_conflict_rate": 0.0,
+      "fg_miss": 20,
+      "bg_false": 0,
+      "fg_total": 4511,
+      "bg_total": 4973,
+      "candidate": 2,
+      "sam_score": 0.75390625,
+      "region": [
+        0,
+        0,
+        1022,
+        638
+      ]
+    },
+    {
+      "view": "box1_global",
+      "step": 1,
+      "status": "accepted",
+      "source": "human_conflict",
+      "reason": "human_improvement",
+      "area": 27420,
+      "iou_previous": 0.9307789340901924,
+      "fg_conflict_rate": 0.0,
+      "bg_conflict_rate": 0.0,
+      "fg_miss": 0,
+      "bg_false": 0,
+      "fg_total": 4511,
+      "bg_total": 4973,
+      "candidate": 2,
+      "sam_score": 0.91015625,
+      "region": [
+        0,
+        0,
+        1022,
+        638
+      ],
+      "point": {
+        "x": 581.0,
+        "y": 587.0,
+        "label": 1,
+        "source": "human_conflict"
+      }
+    }
+  ],
+  "decisions": [
+    {
+      "box": 0,
+      "selected_view": "box0_global",
+      "views": [
+        {
+          "view": "box0_global",
+          "selected_step": 1,
+          "stop_reason": "no_new_corrective_information",
+          "conflicts": {
+            "fg_miss": 0,
+            "bg_false": 0,
+            "fg_total": 5132,
+            "bg_total": 4973
+          },
+          "region": [
+            0,
+            0,
+            1022,
+            638
+          ]
+        }
+      ],
+      "selection_reason": "human_improvement_else_global"
+    },
+    {
+      "box": 1,
+      "selected_view": "box1_global",
+      "views": [
+        {
+          "view": "box1_global",
+          "selected_step": 1,
+          "stop_reason": "no_new_corrective_information",
+          "conflicts": {
+            "fg_miss": 0,
+            "bg_false": 0,
+            "fg_total": 4511,
+            "bg_total": 4973
+          },
+          "region": [
+            0,
+            0,
+            1022,
+            638
+          ]
+        }
+      ],
+      "selection_reason": "human_improvement_else_global"
+    }
+  ]
+}

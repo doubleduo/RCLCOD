@@ -1,0 +1,111 @@
+{
+  "iterations": [
+    {
+      "view": "box0_global",
+      "step": 0,
+      "status": "accepted",
+      "source": "initial",
+      "reason": "initial_candidate",
+      "area": 172972,
+      "iou_previous": 1.0,
+      "fg_conflict_rate": 0.015721210533211058,
+      "bg_conflict_rate": 0.0,
+      "fg_miss": 120,
+      "bg_false": 0,
+      "fg_total": 7633,
+      "bg_total": 4888,
+      "candidate": 1,
+      "sam_score": 0.3828125,
+      "region": [
+        0,
+        0,
+        768,
+        1024
+      ]
+    },
+    {
+      "view": "box0_global",
+      "step": 1,
+      "status": "accepted",
+      "source": "human_conflict",
+      "reason": "human_improvement",
+      "area": 74443,
+      "iou_previous": 0.3817441096875928,
+      "fg_conflict_rate": 0.007074544739944975,
+      "bg_conflict_rate": 0.0,
+      "fg_miss": 54,
+      "bg_false": 0,
+      "fg_total": 7633,
+      "bg_total": 4888,
+      "candidate": 0,
+      "sam_score": 0.81640625,
+      "region": [
+        0,
+        0,
+        768,
+        1024
+      ],
+      "point": {
+        "x": 509.0,
+        "y": 369.0,
+        "label": 1,
+        "source": "human_conflict"
+      }
+    },
+    {
+      "view": "box0_global",
+      "step": 2,
+      "status": "accepted",
+      "source": "human_conflict",
+      "reason": "human_improvement",
+      "area": 46563,
+      "iou_previous": 0.5310136586935739,
+      "fg_conflict_rate": 0.0,
+      "bg_conflict_rate": 0.0,
+      "fg_miss": 0,
+      "bg_false": 0,
+      "fg_total": 7633,
+      "bg_total": 4888,
+      "candidate": 2,
+      "sam_score": 0.7734375,
+      "region": [
+        0,
+        0,
+        768,
+        1024
+      ],
+      "point": {
+        "x": 291.0,
+        "y": 831.0,
+        "label": 1,
+        "source": "human_conflict"
+      }
+    }
+  ],
+  "decisions": [
+    {
+      "box": 0,
+      "selected_view": "box0_global",
+      "views": [
+        {
+          "view": "box0_global",
+          "selected_step": 2,
+          "stop_reason": "no_new_corrective_information",
+          "conflicts": {
+            "fg_miss": 0,
+            "bg_false": 0,
+            "fg_total": 7633,
+            "bg_total": 4888
+          },
+          "region": [
+            0,
+            0,
+            768,
+            1024
+          ]
+        }
+      ],
+      "selection_reason": "human_improvement_else_global"
+    }
+  ]
+}

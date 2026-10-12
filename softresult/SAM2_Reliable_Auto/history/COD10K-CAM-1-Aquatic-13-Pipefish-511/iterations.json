@@ -1,0 +1,147 @@
+{
+  "iterations": [
+    {
+      "view": "box0_global",
+      "step": 0,
+      "status": "accepted",
+      "source": "initial",
+      "reason": "initial_candidate",
+      "area": 22520,
+      "iou_previous": 1.0,
+      "fg_conflict_rate": 0.0,
+      "bg_conflict_rate": 0.0,
+      "fg_miss": 0,
+      "bg_false": 0,
+      "fg_total": 2747,
+      "bg_total": 6332,
+      "candidate": 2,
+      "sam_score": 0.8828125,
+      "region": [
+        0,
+        0,
+        1014,
+        642
+      ]
+    },
+    {
+      "view": "box1_global",
+      "step": 0,
+      "status": "accepted",
+      "source": "initial",
+      "reason": "initial_candidate",
+      "area": 26948,
+      "iou_previous": 1.0,
+      "fg_conflict_rate": 0.0,
+      "bg_conflict_rate": 0.0,
+      "fg_miss": 0,
+      "bg_false": 0,
+      "fg_total": 4762,
+      "bg_total": 6332,
+      "candidate": 2,
+      "sam_score": 0.9609375,
+      "region": [
+        0,
+        0,
+        1014,
+        642
+      ]
+    },
+    {
+      "view": "box2_global",
+      "step": 0,
+      "status": "accepted",
+      "source": "initial",
+      "reason": "initial_candidate",
+      "area": 29924,
+      "iou_previous": 1.0,
+      "fg_conflict_rate": 0.0,
+      "bg_conflict_rate": 0.0,
+      "fg_miss": 0,
+      "bg_false": 0,
+      "fg_total": 5148,
+      "bg_total": 6332,
+      "candidate": 2,
+      "sam_score": 0.9375,
+      "region": [
+        0,
+        0,
+        1014,
+        642
+      ]
+    }
+  ],
+  "decisions": [
+    {
+      "box": 0,
+      "selected_view": "box0_global",
+      "views": [
+        {
+          "view": "box0_global",
+          "selected_step": 0,
+          "stop_reason": "no_new_corrective_information",
+          "conflicts": {
+            "fg_miss": 0,
+            "bg_false": 0,
+            "fg_total": 2747,
+            "bg_total": 6332
+          },
+          "region": [
+            0,
+            0,
+            1014,
+            642
+          ]
+        }
+      ],
+      "selection_reason": "human_improvement_else_global"
+    },
+    {
+      "box": 1,
+      "selected_view": "box1_global",
+      "views": [
+        {
+          "view": "box1_global",
+          "selected_step": 0,
+          "stop_reason": "no_new_corrective_information",
+          "conflicts": {
+            "fg_miss": 0,
+            "bg_false": 0,
+            "fg_total": 4762,
+            "bg_total": 6332
+          },
+          "region": [
+            0,
+            0,
+            1014,
+            642
+          ]
+        }
+      ],
+      "selection_reason": "human_improvement_else_global"
+    },
+    {
+      "box": 2,
+      "selected_view": "box2_global",
+      "views": [
+        {
+          "view": "box2_global",
+          "selected_step": 0,
+          "stop_reason": "no_new_corrective_information",
+          "conflicts": {
+            "fg_miss": 0,
+            "bg_false": 0,
+            "fg_total": 5148,
+            "bg_total": 6332
+          },
+          "region": [
+            0,
+            0,
+            1014,
+            642
+          ]
+        }
+      ],
+      "selection_reason": "human_improvement_else_global"
+    }
+  ]
+}

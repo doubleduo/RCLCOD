@@ -1,0 +1,82 @@
+{
+  "iterations": [
+    {
+      "view": "box0_global",
+      "step": 0,
+      "status": "accepted",
+      "source": "initial",
+      "reason": "initial_candidate",
+      "area": 80776,
+      "iou_previous": 1.0,
+      "fg_conflict_rate": 0.019197952218430035,
+      "bg_conflict_rate": 0.0,
+      "fg_miss": 180,
+      "bg_false": 0,
+      "fg_total": 9376,
+      "bg_total": 5754,
+      "candidate": 1,
+      "sam_score": 0.94140625,
+      "region": [
+        0,
+        0,
+        1018,
+        594
+      ]
+    },
+    {
+      "view": "box0_global",
+      "step": 1,
+      "status": "accepted",
+      "source": "human_conflict",
+      "reason": "human_improvement",
+      "area": 82687,
+      "iou_previous": 0.9749526224848113,
+      "fg_conflict_rate": 0.0,
+      "bg_conflict_rate": 0.0,
+      "fg_miss": 0,
+      "bg_false": 0,
+      "fg_total": 9376,
+      "bg_total": 5754,
+      "candidate": 2,
+      "sam_score": 0.96875,
+      "region": [
+        0,
+        0,
+        1018,
+        594
+      ],
+      "point": {
+        "x": 526.0,
+        "y": 230.0,
+        "label": 1,
+        "source": "human_conflict"
+      }
+    }
+  ],
+  "decisions": [
+    {
+      "box": 0,
+      "selected_view": "box0_global",
+      "views": [
+        {
+          "view": "box0_global",
+          "selected_step": 1,
+          "stop_reason": "no_new_corrective_information",
+          "conflicts": {
+            "fg_miss": 0,
+            "bg_false": 0,
+            "fg_total": 9376,
+            "bg_total": 5754
+          },
+          "region": [
+            0,
+            0,
+            1018,
+            594
+          ]
+        }
+      ],
+      "selection_reason": "human_improvement_else_global"
+    }
+  ]
+}
