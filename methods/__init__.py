@@ -72,3 +72,13 @@ from .fpn_pool_ual import PvtV2B4_FPN_PoolUAL
 
 
 from .fpn_zoom_min import PvtV2B4_FPN_ZoomMini
+
+# BSCRF controlled architectural ablations, basemain_continuous real baseline
+from .fpn_bscrf_real import (
+    PvtV2B4_FPN_BSCRF_A0,
+    PvtV2B4_FPN_BSCRF_A0M,
+    PvtV2B4_FPN_BSCRF_A1,
+    PvtV2B4_FPN_BSCRF_A1P,
+    PvtV2B4_FPN_BSCRF_A2,
+    PvtV2B4_FPN_BSCRF_A3,
+)

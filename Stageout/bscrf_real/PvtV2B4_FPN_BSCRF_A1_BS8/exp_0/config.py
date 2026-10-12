@@ -1,5 +1,5 @@
 base_seed = 112358
-config = 'configs/sam2_real.py'
+config = 'configs/curablation/csr_mhsiu_nc_real_bscrf.py'
 data_cfg = './dataset.yaml'
 dataset_infos = dict(
     camo_te=dict(
@@ -28,7 +28,7 @@ dataset_infos = dict(
 deterministic = True
 device = 'cuda:0'
 evaluate = False
-exp_name = 'PvtV2B4_FPN_ZoomNeXt_BS8'
+exp_name = 'PvtV2B4_FPN_BSCRF_A1_BS8'
 has_test = True
 info = None
 load_from = None
@@ -39,31 +39,31 @@ metric_names = [
     'mae',
     'em',
 ]
-model_name = 'PvtV2B4_FPN_ZoomNeXt'
-output_dir = '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/zoompvt'
+model_name = 'PvtV2B4_FPN_BSCRF_A1'
+output_dir = '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/Stageout/bscrf_real'
 path = dict(
     cfg_copy=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/zoompvt/PvtV2B4_FPN_ZoomNeXt_BS8/exp_0/config.py',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/Stageout/bscrf_real/PvtV2B4_FPN_BSCRF_A1_BS8/exp_0/config.py',
     excel=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/zoompvt/PvtV2B4_FPN_ZoomNeXt_BS8/exp_0/results.xlsx',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/Stageout/bscrf_real/PvtV2B4_FPN_BSCRF_A1_BS8/exp_0/results.xlsx',
     final_full_net=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/zoompvt/PvtV2B4_FPN_ZoomNeXt_BS8/exp_0/pth/checkpoint_final.pth',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/Stageout/bscrf_real/PvtV2B4_FPN_BSCRF_A1_BS8/exp_0/pth/checkpoint_final.pth',
     final_state_net=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/zoompvt/PvtV2B4_FPN_ZoomNeXt_BS8/exp_0/pth/state_final.pth',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/Stageout/bscrf_real/PvtV2B4_FPN_BSCRF_A1_BS8/exp_0/pth/state_final.pth',
     log=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/zoompvt/PvtV2B4_FPN_ZoomNeXt_BS8/exp_0/log_2026-10-12.txt',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/Stageout/bscrf_real/PvtV2B4_FPN_BSCRF_A1_BS8/exp_0/log_2026-10-12.txt',
     output_dir=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/zoompvt',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/Stageout/bscrf_real',
     pth=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/zoompvt/PvtV2B4_FPN_ZoomNeXt_BS8/exp_0/pth',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/Stageout/bscrf_real/PvtV2B4_FPN_BSCRF_A1_BS8/exp_0/pth',
     pth_log=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/zoompvt/PvtV2B4_FPN_ZoomNeXt_BS8/exp_0',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/Stageout/bscrf_real/PvtV2B4_FPN_BSCRF_A1_BS8/exp_0',
     save=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/zoompvt/PvtV2B4_FPN_ZoomNeXt_BS8/exp_0/pre',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/Stageout/bscrf_real/PvtV2B4_FPN_BSCRF_A1_BS8/exp_0/pre',
     tb=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/zoompvt/PvtV2B4_FPN_ZoomNeXt_BS8/exp_0/tb',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/Stageout/bscrf_real/PvtV2B4_FPN_BSCRF_A1_BS8/exp_0/tb',
     trainer_copy=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/zoompvt/PvtV2B4_FPN_ZoomNeXt_BS8/exp_0/trainer.txt'
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/Stageout/bscrf_real/PvtV2B4_FPN_BSCRF_A1_BS8/exp_0/trainer.txt'
 )
 pretrained = True
 proj_root = '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD'
@@ -71,14 +71,10 @@ save_results = False
 test = dict(
     batch_size=8,
     clip_range=None,
-    data=dict(
-        names=[
-            'camo_te',
-            'cod10k_te',
-            'chameleon',
-            'NC4K',
-        ],
-        shape=dict(h=384, w=384)),
+    data=dict(names=[
+        'camo_te',
+        'cod10k_te',
+    ], shape=dict(h=384, w=384)),
     num_workers=8)
 train = dict(
     batch_size=8,
@@ -89,7 +85,7 @@ train = dict(
             enable=True,
             final_start_epoch=141,
             noisy=dict(
-                anneal_end_epoch=130,
+                anneal_end_epoch=140,
                 anneal_start_epoch=61,
                 end_weight=0.4,
                 hold_end_epoch=60,
@@ -98,11 +94,11 @@ train = dict(
         enable=True,
         num_samples_per_epoch=4040,
         pools=dict(
-            clean='./data/pseudo_pool/sam2refine/high.txt',
-            noisy='./data/pseudo_pool/sam2refine/middle.txt')),
+            clean='./data/pseudo_pool/sam2/sam2_gt_clean.txt',
+            noisy='./data/pseudo_pool/sam2/sam2_gt_noisy.txt')),
     data=dict(names=[
         'combined_tr',
-    ], shape=dict(h=384, w=384)),
+    ], shape=dict(h=384, w=384), use_box=True),
     ema_kd=dict(enable=False, lambda_kd=0.0),
     epoch_based=True,
     grad_acc_step=1,
@@ -122,7 +118,7 @@ train = dict(
         mode='step',
         warmup=dict(initial_coef=0.01, mode='linear', num_iters=0)),
     use_amp=True,
-    val_interval=10,
+    val_interval=5,
     val_start_epoch=30)
 use_checkpoint = False
 use_custom_worker_init = True

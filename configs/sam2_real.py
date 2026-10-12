@@ -129,6 +129,6 @@ test = dict(
     clip_range=None,
     data=dict(
         shape=dict(h=384, w=384),
-        names=["camo_te", "cod10k_te", "chameleon", "NC4K"],
+        names=["chameleon", "camo_te", "cod10k_te", "nc4k"],
     ),
 )
