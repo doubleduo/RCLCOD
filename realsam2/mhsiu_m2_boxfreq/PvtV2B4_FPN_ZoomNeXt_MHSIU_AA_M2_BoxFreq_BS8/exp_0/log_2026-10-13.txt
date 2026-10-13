@@ -3154,3 +3154,119 @@ Parameter Group 1
 [basemain.py] chameleon    |  0.906 |  0.854 |  0.965 |  0.023
 [basemain.py] camo_te      |  0.875 |  0.829 |  0.935 |  0.049
 [basemain.py] cod10k_te    |  0.886 |  0.801 |  0.950 |  0.021
+[basemain.py] nc4k         |  0.899 |  0.851 |  0.949 |  0.030
+[basemain_continuous.py] Exp_Name: PvtV2B4_FPN_ZoomNeXt_MHSIU_AA_M2_BoxFreq_BS8
+[basemain.py] Curriculum stage [C3_anneal]: clean:N=1804,pool_p=1.000; noisy:N=1851,pool_p=0.761; sampled_per_epoch=4040
+[basemain_continuous.py] ================== Epoch 091 Continuous C3 ==================
+[basemain_continuous.py] C3_anneal | weights C:N=1.0000:0.7610 | expected probs C=56.78%, N=43.22%
+[basemain_continuous.py] ETA: 1:37:23(16.7G) | 45450:75750 0/505 90/150 | C3_anneal C:0.568/N:0.432 | LR:1.000e-05,1.000e-04 | L:0.0092 BCE:0.0092 Box:0.2490
+[basemain_continuous.py] ETA: 1:38:35(16.7G) | 45459:75750 9/505 90/150 | C3_anneal C:0.568/N:0.432 | LR:1.000e-05,1.000e-04 | L:0.0120 BCE:0.0120 Box:0.3090
+[basemain_continuous.py] ETA: 1:37:49(16.7G) | 45479:75750 29/505 90/150 | C3_anneal C:0.568/N:0.432 | LR:1.000e-05,1.000e-04 | L:0.0101 BCE:0.0101 Box:0.2535
+[basemain_continuous.py] ETA: 1:37:46(16.7G) | 45499:75750 49/505 90/150 | C3_anneal C:0.568/N:0.432 | LR:1.000e-05,1.000e-04 | L:0.0147 BCE:0.0147 Box:0.2674
+[basemain_continuous.py] ETA: 1:37:55(16.7G) | 45519:75750 69/505 90/150 | C3_anneal C:0.568/N:0.432 | LR:1.000e-05,1.000e-04 | L:0.0087 BCE:0.0087 Box:0.2047
+[basemain_continuous.py] ETA: 1:37:48(16.7G) | 45539:75750 89/505 90/150 | C3_anneal C:0.568/N:0.432 | LR:1.000e-05,1.000e-04 | L:0.0159 BCE:0.0159 Box:0.2483
+[basemain_continuous.py] ETA: 1:37:50(16.7G) | 45559:75750 109/505 90/150 | C3_anneal C:0.568/N:0.432 | LR:1.000e-05,1.000e-04 | L:0.0080 BCE:0.0080 Box:0.2833
+[basemain_continuous.py] ETA: 1:37:44(16.7G) | 45579:75750 129/505 90/150 | C3_anneal C:0.568/N:0.432 | LR:1.000e-05,1.000e-04 | L:0.0154 BCE:0.0154 Box:0.3374
+[basemain_continuous.py] ETA: 1:37:36(16.7G) | 45599:75750 149/505 90/150 | C3_anneal C:0.568/N:0.432 | LR:1.000e-05,1.000e-04 | L:0.0146 BCE:0.0146 Box:0.2499
+[basemain_continuous.py] ETA: 1:37:36(16.7G) | 45619:75750 169/505 90/150 | C3_anneal C:0.568/N:0.432 | LR:1.000e-05,1.000e-04 | L:0.0172 BCE:0.0172 Box:0.3724
+[basemain_continuous.py] ETA: 1:37:23(16.7G) | 45639:75750 189/505 90/150 | C3_anneal C:0.568/N:0.432 | LR:1.000e-05,1.000e-04 | L:0.0220 BCE:0.0220 Box:0.2791
+[basemain_continuous.py] ETA: 1:37:23(16.7G) | 45659:75750 209/505 90/150 | C3_anneal C:0.568/N:0.432 | LR:1.000e-05,1.000e-04 | L:0.0124 BCE:0.0124 Box:0.2583
+[basemain_continuous.py] ETA: 1:37:23(16.7G) | 45679:75750 229/505 90/150 | C3_anneal C:0.568/N:0.432 | LR:1.000e-05,1.000e-04 | L:0.0082 BCE:0.0082 Box:0.2149
+[basemain_continuous.py] ETA: 1:37:21(16.7G) | 45699:75750 249/505 90/150 | C3_anneal C:0.568/N:0.432 | LR:1.000e-05,1.000e-04 | L:0.0104 BCE:0.0104 Box:0.1839
+[basemain_continuous.py] ETA: 1:37:16(16.7G) | 45719:75750 269/505 90/150 | C3_anneal C:0.568/N:0.432 | LR:1.000e-05,1.000e-04 | L:0.0062 BCE:0.0062 Box:0.1754
+[basemain_continuous.py] ETA: 1:37:24(16.7G) | 45739:75750 289/505 90/150 | C3_anneal C:0.568/N:0.432 | LR:1.000e-05,1.000e-04 | L:0.0144 BCE:0.0144 Box:0.2375
+[basemain_continuous.py] ETA: 1:37:25(16.7G) | 45759:75750 309/505 90/150 | C3_anneal C:0.568/N:0.432 | LR:1.000e-05,1.000e-04 | L:0.0130 BCE:0.0130 Box:0.2800
+[basemain_continuous.py] ETA: 1:37:08(16.7G) | 45779:75750 329/505 90/150 | C3_anneal C:0.568/N:0.432 | LR:1.000e-05,1.000e-04 | L:0.0087 BCE:0.0087 Box:0.2500
+[basemain_continuous.py] ETA: 1:36:58(16.7G) | 45799:75750 349/505 90/150 | C3_anneal C:0.568/N:0.432 | LR:1.000e-05,1.000e-04 | L:0.0074 BCE:0.0074 Box:0.2952
+[basemain_continuous.py] ETA: 1:36:56(16.7G) | 45819:75750 369/505 90/150 | C3_anneal C:0.568/N:0.432 | LR:1.000e-05,1.000e-04 | L:0.0081 BCE:0.0081 Box:0.2058
+[basemain_continuous.py] ETA: 1:36:46(16.7G) | 45839:75750 389/505 90/150 | C3_anneal C:0.568/N:0.432 | LR:1.000e-05,1.000e-04 | L:0.0083 BCE:0.0083 Box:0.2000
+[basemain_continuous.py] ETA: 1:36:46(16.7G) | 45859:75750 409/505 90/150 | C3_anneal C:0.568/N:0.432 | LR:1.000e-05,1.000e-04 | L:0.0165 BCE:0.0165 Box:0.2711
+[basemain_continuous.py] ETA: 1:36:51(16.7G) | 45879:75750 429/505 90/150 | C3_anneal C:0.568/N:0.432 | LR:1.000e-05,1.000e-04 | L:0.0163 BCE:0.0163 Box:0.2429
+[basemain_continuous.py] ETA: 1:36:37(16.7G) | 45899:75750 449/505 90/150 | C3_anneal C:0.568/N:0.432 | LR:1.000e-05,1.000e-04 | L:0.0055 BCE:0.0055 Box:0.2980
+[basemain_continuous.py] ETA: 1:36:25(16.7G) | 45919:75750 469/505 90/150 | C3_anneal C:0.568/N:0.432 | LR:1.000e-05,1.000e-04 | L:0.0085 BCE:0.0085 Box:0.2507
+[basemain_continuous.py] ETA: 1:36:32(16.7G) | 45939:75750 489/505 90/150 | C3_anneal C:0.568/N:0.432 | LR:1.000e-05,1.000e-04 | L:0.0220 BCE:0.0220 Box:0.2185
+[basemain_continuous.py] ETA: 1:38:25(16.7G) | 45954:75750 504/505 90/150 | C3_anneal C:0.568/N:0.432 | LR:1.000e-05,1.000e-04 | L:0.0163 BCE:0.0163 Box:0.2620
+[basemain_continuous.py] Epoch 091 | C3_anneal | C:0.568/N:0.432 | L:0.0383 BCE:0.0121 |  | EMA-KD:OFF
+[basemain_continuous.py] Exp_Name: PvtV2B4_FPN_ZoomNeXt_MHSIU_AA_M2_BoxFreq_BS8
+[basemain.py] Curriculum stage [C3_anneal]: clean:N=1804,pool_p=1.000; noisy:N=1851,pool_p=0.748; sampled_per_epoch=4040
+[basemain_continuous.py] ================== Epoch 092 Continuous C3 ==================
+[basemain_continuous.py] C3_anneal | weights C:N=1.0000:0.7476 | expected probs C=57.22%, N=42.78%
+[basemain_continuous.py] ETA: 1:38:34(16.7G) | 45955:75750 0/505 91/150 | C3_anneal C:0.572/N:0.428 | LR:1.000e-05,1.000e-04 | L:0.0078 BCE:0.0078 Box:0.1763
+[basemain_continuous.py] ETA: 1:39:37(16.7G) | 45959:75750 4/505 91/150 | C3_anneal C:0.572/N:0.428 | LR:1.000e-05,1.000e-04 | L:0.0117 BCE:0.0117 Box:0.2704
+[basemain_continuous.py] ETA: 1:36:30(16.7G) | 45979:75750 24/505 91/150 | C3_anneal C:0.572/N:0.428 | LR:1.000e-05,1.000e-04 | L:0.0223 BCE:0.0223 Box:0.2808
+[basemain_continuous.py] ETA: 1:36:13(16.7G) | 45999:75750 44/505 91/150 | C3_anneal C:0.572/N:0.428 | LR:1.000e-05,1.000e-04 | L:0.0139 BCE:0.0139 Box:0.3168
+[basemain_continuous.py] ETA: 1:36:06(16.7G) | 46019:75750 64/505 91/150 | C3_anneal C:0.572/N:0.428 | LR:1.000e-05,1.000e-04 | L:0.0073 BCE:0.0073 Box:0.2832
+[basemain_continuous.py] ETA: 1:35:59(16.7G) | 46039:75750 84/505 91/150 | C3_anneal C:0.572/N:0.428 | LR:1.000e-05,1.000e-04 | L:0.0126 BCE:0.0126 Box:0.3166
+[basemain_continuous.py] ETA: 1:36:05(16.7G) | 46059:75750 104/505 91/150 | C3_anneal C:0.572/N:0.428 | LR:1.000e-05,1.000e-04 | L:0.0092 BCE:0.0092 Box:0.2810
+[basemain_continuous.py] ETA: 1:35:55(16.7G) | 46079:75750 124/505 91/150 | C3_anneal C:0.572/N:0.428 | LR:1.000e-05,1.000e-04 | L:0.0074 BCE:0.0074 Box:0.2048
+[basemain_continuous.py] ETA: 1:35:51(16.7G) | 46099:75750 144/505 91/150 | C3_anneal C:0.572/N:0.428 | LR:1.000e-05,1.000e-04 | L:0.0140 BCE:0.0140 Box:0.2223
+[basemain_continuous.py] ETA: 1:35:46(16.7G) | 46119:75750 164/505 91/150 | C3_anneal C:0.572/N:0.428 | LR:1.000e-05,1.000e-04 | L:0.0114 BCE:0.0114 Box:0.2469
+[basemain_continuous.py] ETA: 1:35:32(16.7G) | 46139:75750 184/505 91/150 | C3_anneal C:0.572/N:0.428 | LR:1.000e-05,1.000e-04 | L:0.0103 BCE:0.0103 Box:0.2726
+[basemain_continuous.py] ETA: 1:35:55(16.7G) | 46159:75750 204/505 91/150 | C3_anneal C:0.572/N:0.428 | LR:1.000e-05,1.000e-04 | L:0.0119 BCE:0.0119 Box:0.2697
+[basemain_continuous.py] ETA: 1:35:49(16.7G) | 46179:75750 224/505 91/150 | C3_anneal C:0.572/N:0.428 | LR:1.000e-05,1.000e-04 | L:0.0103 BCE:0.0103 Box:0.2440
+[basemain_continuous.py] ETA: 1:35:44(16.7G) | 46199:75750 244/505 91/150 | C3_anneal C:0.572/N:0.428 | LR:1.000e-05,1.000e-04 | L:0.0157 BCE:0.0157 Box:0.4050
+[basemain_continuous.py] ETA: 1:35:35(16.7G) | 46219:75750 264/505 91/150 | C3_anneal C:0.572/N:0.428 | LR:1.000e-05,1.000e-04 | L:0.0168 BCE:0.0168 Box:0.2790
+[basemain_continuous.py] ETA: 1:35:34(16.7G) | 46239:75750 284/505 91/150 | C3_anneal C:0.572/N:0.428 | LR:1.000e-05,1.000e-04 | L:0.0127 BCE:0.0127 Box:0.3892
+[basemain_continuous.py] ETA: 1:35:35(16.7G) | 46259:75750 304/505 91/150 | C3_anneal C:0.572/N:0.428 | LR:1.000e-05,1.000e-04 | L:0.0096 BCE:0.0096 Box:0.2476
+[basemain_continuous.py] ETA: 1:35:37(16.7G) | 46279:75750 324/505 91/150 | C3_anneal C:0.572/N:0.428 | LR:1.000e-05,1.000e-04 | L:0.0098 BCE:0.0098 Box:0.2475
+[basemain_continuous.py] ETA: 1:35:31(16.7G) | 46299:75750 344/505 91/150 | C3_anneal C:0.572/N:0.428 | LR:1.000e-05,1.000e-04 | L:0.0165 BCE:0.0165 Box:0.3385
+[basemain_continuous.py] ETA: 1:35:24(16.7G) | 46319:75750 364/505 91/150 | C3_anneal C:0.572/N:0.428 | LR:1.000e-05,1.000e-04 | L:0.0137 BCE:0.0137 Box:0.3936
+[basemain_continuous.py] ETA: 1:35:37(16.7G) | 46339:75750 384/505 91/150 | C3_anneal C:0.572/N:0.428 | LR:1.000e-05,1.000e-04 | L:0.0147 BCE:0.0147 Box:0.2779
+[basemain_continuous.py] ETA: 1:35:12(16.7G) | 46359:75750 404/505 91/150 | C3_anneal C:0.572/N:0.428 | LR:1.000e-05,1.000e-04 | L:0.0148 BCE:0.0148 Box:0.1531
+[basemain_continuous.py] ETA: 1:35:08(16.7G) | 46379:75750 424/505 91/150 | C3_anneal C:0.572/N:0.428 | LR:1.000e-05,1.000e-04 | L:0.0096 BCE:0.0096 Box:0.2733
+[basemain_continuous.py] ETA: 1:34:58(16.7G) | 46399:75750 444/505 91/150 | C3_anneal C:0.572/N:0.428 | LR:1.000e-05,1.000e-04 | L:0.0126 BCE:0.0126 Box:0.2718
+[basemain_continuous.py] ETA: 1:34:56(16.7G) | 46419:75750 464/505 91/150 | C3_anneal C:0.572/N:0.428 | LR:1.000e-05,1.000e-04 | L:0.0113 BCE:0.0113 Box:0.2430
+[basemain_continuous.py] ETA: 1:34:52(16.7G) | 46439:75750 484/505 91/150 | C3_anneal C:0.572/N:0.428 | LR:1.000e-05,1.000e-04 | L:0.0104 BCE:0.0104 Box:0.2996
+[basemain_continuous.py] ETA: 1:34:26(16.7G) | 46459:75750 504/505 91/150 | C3_anneal C:0.572/N:0.428 | LR:1.000e-05,1.000e-04 | L:0.0087 BCE:0.0087 Box:0.1856
+[basemain_continuous.py] Epoch 092 | C3_anneal | C:0.572/N:0.428 | L:0.0387 BCE:0.0122 |  | EMA-KD:OFF
+[basemain_continuous.py] Exp_Name: PvtV2B4_FPN_ZoomNeXt_MHSIU_AA_M2_BoxFreq_BS8
+[basemain.py] Curriculum stage [C3_anneal]: clean:N=1804,pool_p=1.000; noisy:N=1851,pool_p=0.734; sampled_per_epoch=4040
+[basemain_continuous.py] ================== Epoch 093 Continuous C3 ==================
+[basemain_continuous.py] C3_anneal | weights C:N=1.0000:0.7341 | expected probs C=57.67%, N=42.33%
+[basemain_continuous.py] ETA: 1:34:22(16.7G) | 46460:75750 0/505 92/150 | C3_anneal C:0.577/N:0.423 | LR:1.000e-05,1.000e-04 | L:0.0078 BCE:0.0078 Box:0.2527
+[basemain_continuous.py] ETA: 1:35:44(16.7G) | 46479:75750 19/505 92/150 | C3_anneal C:0.577/N:0.423 | LR:1.000e-05,1.000e-04 | L:0.0097 BCE:0.0097 Box:0.2770
+[basemain_continuous.py] ETA: 1:34:32(16.7G) | 46499:75750 39/505 92/150 | C3_anneal C:0.577/N:0.423 | LR:1.000e-05,1.000e-04 | L:0.0089 BCE:0.0089 Box:0.1719
+[basemain_continuous.py] ETA: 1:34:32(16.7G) | 46519:75750 59/505 92/150 | C3_anneal C:0.577/N:0.423 | LR:1.000e-05,1.000e-04 | L:0.0074 BCE:0.0074 Box:0.2204
+[basemain_continuous.py] ETA: 1:34:31(16.7G) | 46539:75750 79/505 92/150 | C3_anneal C:0.577/N:0.423 | LR:1.000e-05,1.000e-04 | L:0.0127 BCE:0.0127 Box:0.2616
+[basemain_continuous.py] ETA: 1:37:01(16.7G) | 46559:75750 99/505 92/150 | C3_anneal C:0.577/N:0.423 | LR:1.000e-05,1.000e-04 | L:0.0168 BCE:0.0168 Box:0.2458
+[basemain_continuous.py] ETA: 1:34:18(16.7G) | 46579:75750 119/505 92/150 | C3_anneal C:0.577/N:0.423 | LR:1.000e-05,1.000e-04 | L:0.0132 BCE:0.0132 Box:0.2558
+[basemain_continuous.py] ETA: 1:34:18(16.7G) | 46599:75750 139/505 92/150 | C3_anneal C:0.577/N:0.423 | LR:1.000e-05,1.000e-04 | L:0.0112 BCE:0.0112 Box:0.1978
+[basemain_continuous.py] ETA: 1:34:06(16.7G) | 46619:75750 159/505 92/150 | C3_anneal C:0.577/N:0.423 | LR:1.000e-05,1.000e-04 | L:0.0090 BCE:0.0090 Box:0.2592
+[basemain_continuous.py] ETA: 1:34:05(16.7G) | 46639:75750 179/505 92/150 | C3_anneal C:0.577/N:0.423 | LR:1.000e-05,1.000e-04 | L:0.0103 BCE:0.0103 Box:0.1944
+[basemain_continuous.py] ETA: 1:33:54(16.7G) | 46659:75750 199/505 92/150 | C3_anneal C:0.577/N:0.423 | LR:1.000e-05,1.000e-04 | L:0.0118 BCE:0.0118 Box:0.2956
+[basemain_continuous.py] ETA: 1:33:55(16.7G) | 46679:75750 219/505 92/150 | C3_anneal C:0.577/N:0.423 | LR:1.000e-05,1.000e-04 | L:0.0107 BCE:0.0107 Box:0.3533
+[basemain_continuous.py] ETA: 1:33:48(16.7G) | 46699:75750 239/505 92/150 | C3_anneal C:0.577/N:0.423 | LR:1.000e-05,1.000e-04 | L:0.0099 BCE:0.0099 Box:0.2922
+[basemain_continuous.py] ETA: 1:33:45(16.7G) | 46719:75750 259/505 92/150 | C3_anneal C:0.577/N:0.423 | LR:1.000e-05,1.000e-04 | L:0.0112 BCE:0.0112 Box:0.2425
+[basemain_continuous.py] ETA: 1:33:40(16.7G) | 46739:75750 279/505 92/150 | C3_anneal C:0.577/N:0.423 | LR:1.000e-05,1.000e-04 | L:0.0113 BCE:0.0113 Box:0.1972
+[basemain_continuous.py] ETA: 1:33:34(16.7G) | 46759:75750 299/505 92/150 | C3_anneal C:0.577/N:0.423 | LR:1.000e-05,1.000e-04 | L:0.0139 BCE:0.0139 Box:0.2583
+[basemain_continuous.py] ETA: 1:33:38(16.7G) | 46779:75750 319/505 92/150 | C3_anneal C:0.577/N:0.423 | LR:1.000e-05,1.000e-04 | L:0.0131 BCE:0.0131 Box:0.2891
+[basemain_continuous.py] ETA: 1:33:33(16.7G) | 46799:75750 339/505 92/150 | C3_anneal C:0.577/N:0.423 | LR:1.000e-05,1.000e-04 | L:0.0189 BCE:0.0189 Box:0.2795
+[basemain_continuous.py] ETA: 1:33:27(16.7G) | 46819:75750 359/505 92/150 | C3_anneal C:0.577/N:0.423 | LR:1.000e-05,1.000e-04 | L:0.0137 BCE:0.0137 Box:0.3087
+[basemain_continuous.py] ETA: 1:33:25(16.7G) | 46839:75750 379/505 92/150 | C3_anneal C:0.577/N:0.423 | LR:1.000e-05,1.000e-04 | L:0.0102 BCE:0.0102 Box:0.1748
+[basemain_continuous.py] ETA: 1:33:24(16.7G) | 46859:75750 399/505 92/150 | C3_anneal C:0.577/N:0.423 | LR:1.000e-05,1.000e-04 | L:0.0118 BCE:0.0118 Box:0.2788
+[basemain_continuous.py] ETA: 1:33:34(16.7G) | 46879:75750 419/505 92/150 | C3_anneal C:0.577/N:0.423 | LR:1.000e-05,1.000e-04 | L:0.0119 BCE:0.0119 Box:0.3861
+[basemain_continuous.py] ETA: 1:33:11(16.7G) | 46899:75750 439/505 92/150 | C3_anneal C:0.577/N:0.423 | LR:1.000e-05,1.000e-04 | L:0.0167 BCE:0.0167 Box:0.2695
+[basemain_continuous.py] ETA: 1:33:09(16.7G) | 46919:75750 459/505 92/150 | C3_anneal C:0.577/N:0.423 | LR:1.000e-05,1.000e-04 | L:0.0103 BCE:0.0103 Box:0.3241
+[basemain_continuous.py] ETA: 1:33:12(16.7G) | 46939:75750 479/505 92/150 | C3_anneal C:0.577/N:0.423 | LR:1.000e-05,1.000e-04 | L:0.0114 BCE:0.0114 Box:0.2050
+[basemain_continuous.py] ETA: 1:32:53(16.7G) | 46959:75750 499/505 92/150 | C3_anneal C:0.577/N:0.423 | LR:1.000e-05,1.000e-04 | L:0.0213 BCE:0.0213 Box:0.3340
+[basemain_continuous.py] ETA: 1:32:37(16.7G) | 46964:75750 504/505 92/150 | C3_anneal C:0.577/N:0.423 | LR:1.000e-05,1.000e-04 | L:0.0064 BCE:0.0064 Box:0.2512
+[basemain_continuous.py] Epoch 093 | C3_anneal | C:0.577/N:0.423 | L:0.0383 BCE:0.0120 |  | EMA-KD:OFF
+[basemain_continuous.py] Exp_Name: PvtV2B4_FPN_ZoomNeXt_MHSIU_AA_M2_BoxFreq_BS8
+[basemain.py] Curriculum stage [C3_anneal]: clean:N=1804,pool_p=1.000; noisy:N=1851,pool_p=0.720; sampled_per_epoch=4040
+[basemain_continuous.py] ================== Epoch 094 Continuous C3 ==================
+[basemain_continuous.py] C3_anneal | weights C:N=1.0000:0.7205 | expected probs C=58.12%, N=41.88%
+[basemain_continuous.py] ETA: 1:32:34(16.7G) | 46965:75750 0/505 93/150 | C3_anneal C:0.581/N:0.419 | LR:1.000e-05,1.000e-04 | L:0.0096 BCE:0.0096 Box:0.2273
+[basemain_continuous.py] ETA: 1:34:12(16.7G) | 46979:75750 14/505 93/150 | C3_anneal C:0.581/N:0.419 | LR:1.000e-05,1.000e-04 | L:0.0081 BCE:0.0081 Box:0.2039
+[basemain_continuous.py] ETA: 1:33:08(16.7G) | 46999:75750 34/505 93/150 | C3_anneal C:0.581/N:0.419 | LR:1.000e-05,1.000e-04 | L:0.0132 BCE:0.0132 Box:0.3100
+[basemain_continuous.py] ETA: 1:33:07(16.7G) | 47019:75750 54/505 93/150 | C3_anneal C:0.581/N:0.419 | LR:1.000e-05,1.000e-04 | L:0.0113 BCE:0.0113 Box:0.2852
+[basemain_continuous.py] ETA: 1:33:22(16.7G) | 47039:75750 74/505 93/150 | C3_anneal C:0.581/N:0.419 | LR:1.000e-05,1.000e-04 | L:0.0120 BCE:0.0120 Box:0.2560
+[basemain_continuous.py] ETA: 1:32:57(16.7G) | 47059:75750 94/505 93/150 | C3_anneal C:0.581/N:0.419 | LR:1.000e-05,1.000e-04 | L:0.0097 BCE:0.0097 Box:0.2929
+[basemain_continuous.py] ETA: 1:33:24(16.7G) | 47079:75750 114/505 93/150 | C3_anneal C:0.581/N:0.419 | LR:1.000e-05,1.000e-04 | L:0.0095 BCE:0.0095 Box:0.3203
+[basemain_continuous.py] ETA: 1:33:04(16.7G) | 47099:75750 134/505 93/150 | C3_anneal C:0.581/N:0.419 | LR:1.000e-05,1.000e-04 | L:0.0085 BCE:0.0085 Box:0.2403
+[basemain_continuous.py] ETA: 1:32:41(16.7G) | 47119:75750 154/505 93/150 | C3_anneal C:0.581/N:0.419 | LR:1.000e-05,1.000e-04 | L:0.0066 BCE:0.0066 Box:0.1894
+[basemain_continuous.py] ETA: 1:32:35(16.7G) | 47139:75750 174/505 93/150 | C3_anneal C:0.581/N:0.419 | LR:1.000e-05,1.000e-04 | L:0.0107 BCE:0.0107 Box:0.2610
+[basemain_continuous.py] ETA: 1:32:29(16.7G) | 47159:75750 194/505 93/150 | C3_anneal C:0.581/N:0.419 | LR:1.000e-05,1.000e-04 | L:0.0109 BCE:0.0109 Box:0.2991
+[basemain_continuous.py] ETA: 1:32:20(16.7G) | 47179:75750 214/505 93/150 | C3_anneal C:0.581/N:0.419 | LR:1.000e-05,1.000e-04 | L:0.0079 BCE:0.0079 Box:0.2069
+[basemain_continuous.py] ETA: 1:32:27(16.7G) | 47199:75750 234/505 93/150 | C3_anneal C:0.581/N:0.419 | LR:1.000e-05,1.000e-04 | L:0.0099 BCE:0.0099 Box:0.3016
+[basemain_continuous.py] ETA: 1:32:23(16.7G) | 47219:75750 254/505 93/150 | C3_anneal C:0.581/N:0.419 | LR:1.000e-05,1.000e-04 | L:0.0080 BCE:0.0080 Box:0.2014
+[basemain_continuous.py] ETA: 1:32:14(16.7G) | 47239:75750 274/505 93/150 | C3_anneal C:0.581/N:0.419 | LR:1.000e-05,1.000e-04 | L:0.0098 BCE:0.0098 Box:0.2994
