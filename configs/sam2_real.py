@@ -33,6 +33,7 @@ __SAMPLES_PER_EPOCH = 4040
 
 __ITER_PER_EPOCH = __SAMPLES_PER_EPOCH // __BATCHSIZE  # 505
 __NUM_ITERS = __NUM_EPOCHS * __ITER_PER_EPOCH          # 75750
+use_box=True,
 
 train = dict(
     batch_size=__BATCHSIZE,
@@ -46,8 +47,8 @@ train = dict(
     lr=1e-4,
     grad_acc_step=1,
 
-    val_start_epoch=30,
-    val_interval=10,
+    val_start_epoch=20,
+    val_interval=5,
     save_val_ckpt=True,
 
     ema_kd=dict(

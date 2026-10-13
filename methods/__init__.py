@@ -82,3 +82,12 @@ from .fpn_bscrf_real import (
     PvtV2B4_FPN_BSCRF_A2,
     PvtV2B4_FPN_BSCRF_A3,
 )
+from .fpn_mhsiu_aa import (
+    PvtV2B4_FPN_ZoomNeXt_MHSIU_AA_M1,
+    PvtV2B4_FPN_ZoomNeXt_MHSIU_AA_M2,
+)
+from .fpn_mhsiu_m2_boxfreq import (
+     PvtV2B4_FPN_ZoomNeXt_MHSIU_AA_M2_BoxHead,
+     PvtV2B4_FPN_ZoomNeXt_MHSIU_AA_M2_BoxFreq,
+     PvtV2B4_FPN_ZoomNeXt_MHSIU_AA_M2_BoxContrast,
+     )
