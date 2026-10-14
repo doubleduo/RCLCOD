@@ -11,6 +11,7 @@ The NEW branch is applied AFTER MHSIU2 fusion only at P2/P3:
 The Box Prior Head predicts box support from RGB/PVT features at ALL times.
 Ground-truth box masks are auxiliary loss TARGETS only (never input to body).
 
+
 B1: M2 + weak box auxiliary head, zero frequency changes.
 B2: B1 + local Haar high-frequency residual at P2/P3.
 B3: B2 + ROI/ring spectral-energy difference as extra gate evidence.
