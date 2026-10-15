@@ -170,6 +170,8 @@ class ImageTrainDataset(data.Dataset):
         pool_name="all",
         augment=True,
         use_box=False,
+        augment_cfg=None,
+        sbft_cfg=None,
     ):
         super().__init__()
         self.shape = shape
@@ -232,20 +234,20 @@ class ImageTrainDataset(data.Dataset):
             LOGGER.info(f"Length of {dataset_name} [{self.pool_name}]: {len(data_paths)}")
             self.total_data_paths.extend(data_paths)
 
-        transforms = [
-                A.HorizontalFlip(p=0.5),
-                A.Rotate(limit=90, p=0.5, interpolation=cv2.INTER_LINEAR, border_mode=cv2.BORDER_REPLICATE),
-                A.RandomBrightnessContrast(brightness_limit=0.1, contrast_limit=0.1, p=0.5),
-                A.HueSaturationValue(hue_shift_limit=5, sat_shift_limit=10, val_shift_limit=10, p=0.5),
-            ]
-        self.trains = A.Compose(
-            transforms,
-            additional_targets=(
-                {"box_mask": "mask"}
-                if self.use_box
-                else {}
-            ),
+        from utils.augmentation_ablation import build_train_augmentations
+
+        self.trains = build_train_augmentations(
+            augment_cfg=augment_cfg,
+            use_box=self.use_box,
         )
+
+        from utils.sbft_clean import parse_sbft_config
+        self.sbft_cfg = parse_sbft_config(sbft_cfg)
+        self.current_epoch = 1
+
+    def set_epoch(self, epoch):
+        # Set epoch before starting DataLoader workers (inclusive from 60).
+        self.current_epoch = int(epoch)
 
     def __getitem__(self, index):
         image_path, mask_path, box_path = self.total_data_paths[index]
@@ -282,6 +284,14 @@ class ImageTrainDataset(data.Dataset):
         base_w = self.shape["w"]
 
         image = ops.resize(image, height=base_h, width=base_w)
+
+        # SBFT happens AFTER all original/A0-A7 Albumentations and Resize.
+        # It changes only RGB; mask and box_mask are untouched.
+        if self.augment and self.sbft_cfg["enable"] and self.pool_name == "clean" and self.current_epoch >= self.sbft_cfg["start_epoch"]:
+            from utils.sbft_clean import sbft_lowpass
+            if np.random.random() < self.sbft_cfg["p"]:
+                image = sbft_lowpass(image, r=self.sbft_cfg["r"])
+
         images = ops.ms_resize(image, scales=(0.5, 1.0, 1.5), base_h=base_h, base_w=base_w)
         image_s = torch.from_numpy(images[0]).div(255).permute(2, 0, 1)
         image_m = torch.from_numpy(images[1]).div(255).permute(2, 0, 1)
@@ -556,6 +566,8 @@ def _build_train_subset(
         pool_name=pool_name,
         augment=augment,
         use_box=bool(cfg.train.data.get("use_box", False)),
+        augment_cfg=cfg.train.get("augment", None),
+        sbft_cfg=cfg.train.get("sbft", None),
     )
     if max_samples is not None and len(dataset) > int(max_samples):
         dataset.total_data_paths = dataset.total_data_paths[: int(max_samples)]

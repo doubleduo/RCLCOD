@@ -130,6 +130,7 @@ test = dict(
     clip_range=None,
     data=dict(
         shape=dict(h=384, w=384),
+        # names=["camo_te",],
         names=["chameleon", "camo_te", "cod10k_te", "nc4k"],
     ),
 )

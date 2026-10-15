@@ -91,3 +91,18 @@ from .fpn_mhsiu_m2_boxfreq import (
      PvtV2B4_FPN_ZoomNeXt_MHSIU_AA_M2_BoxFreq,
      PvtV2B4_FPN_ZoomNeXt_MHSIU_AA_M2_BoxContrast,
      )
+
+
+from .fpn_rcdi import (
+    RCDIBlock,
+    PvtV2B4_FPN_RCDI_R1,
+    PvtV2B4_FPN_RCDI_R2,
+    PvtV2B4_FPN_RCDI_R3,
+    PvtV2B4_FPN_RCDI,
+)
+from .fpn_sarnet import (
+    PvtV2B4_FPN_SARPlain,
+    PvtV2B4_FPN_OAA,
+    PvtV2B4_FPN_FGC,
+    PvtV2B4_FPN_OAA_FGC,
+)

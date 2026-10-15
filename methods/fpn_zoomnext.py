@@ -1,21 +1,21 @@
 # -*- coding: utf-8 -*-
-"""FPN baseline + native ZoomNeXt MHSIU2 / RGPU modules.
+"""PVTv2-B4 FPN + ZoomNeXt MHSIU2 / RGPU.
 
-Built for RCLCOD commit b37a6b52359ae2f5d2c9a8ff99d1c47442bbc18e.
+Optional Clean-only 1.5x training branch, on top of the original
+RCLCOD fpn_zoomnext.py (commit d8f96615a1be05ab44d3792b5c32d981e65b8e9d).
 
-Unchanged from PvtV2B4_FPN_Baseline:
-  - PVTv2-B4 encoder and its normalization
-  - four 1x1 lateral projections and four 3x3 FPN smooth operators
-  - the top-down FPN addition, prediction head, BCE training objective
-  - forward() output contract and optimizer parameter grouping
+With clean_only_highres=True:
+  - Train / pool_id == 0 (Clean): image_m 1.0x + image_l 1.5x + MHSIU2.
+  - Train / pool_id == 1 (Noisy): image_m 1.0x only, bypass MHSIU2.
+  - Eval / inference: all samples use 1.0x + 1.5x + MHSIU2.
+  - Both pools use the same FPN, optional RGPU, prediction head and BCE.
 
-Inserted:
-  - ZoomNeXt MHSIU2: 1.5x/1.0x feature fusion at each FPN level
-  - ZoomNeXt RGPU: progressive residual grouping after each FPN fusion
-
-The two modules can be ablated independently without touching the trainer.
+The original behavior is preserved when clean_only_highres=False (default).
+No trainer or dataset changes are needed when using RCLCOD's existing
+basemain_continuous.py and its ImageTrainDataset (which supplies pool_id).
 """
 
+import torch
 import torch.nn.functional as F
 
 from .fpn_baseline import PvtV2B4_FPN_Baseline
@@ -23,15 +23,7 @@ from .zoomnext.layers import MHSIU2, RGPU
 
 
 class PvtV2B4_FPN_ZoomNeXt(PvtV2B4_FPN_Baseline):
-    """Dual-scale MHSIU2 + FPN top-down aggregation + RGPU refinement.
-
-    The default is the full version. For ablations, set ``use_mhsiu`` or
-    ``use_rgpu`` to False. ``image_l`` is already emitted by the RCLCOD
-    dataset pipeline at 1.5x resolution; when absent, a bilinear fallback
-    is synthesized from ``image_m`` (which is less informative).
-
-    All training/inference interfaces are inherited from the FPN baseline.
-    """
+    """Dual-scale MHSIU2 + FPN top-down + RGPU, optionally quality-routed."""
 
     def __init__(
         self,
@@ -44,6 +36,7 @@ class PvtV2B4_FPN_ZoomNeXt(PvtV2B4_FPN_Baseline):
         hmu_groups=6,
         use_mhsiu=True,
         use_rgpu=True,
+        clean_only_highres=False,
         **kwargs,
     ):
         super().__init__(
@@ -55,6 +48,10 @@ class PvtV2B4_FPN_ZoomNeXt(PvtV2B4_FPN_Baseline):
         )
         self.use_mhsiu = bool(use_mhsiu)
         self.use_rgpu = bool(use_rgpu)
+        self.clean_only_highres = bool(clean_only_highres)
+
+        if self.clean_only_highres and not self.use_mhsiu:
+            raise ValueError("clean_only_highres=True requires use_mhsiu=True")
 
         if self.use_mhsiu:
             if siu_groups < 1 or fpn_dim % siu_groups != 0:
@@ -75,35 +72,79 @@ class PvtV2B4_FPN_ZoomNeXt(PvtV2B4_FPN_Baseline):
             self.hmu_4 = RGPU(fpn_dim, hmu_groups, num_frames=num_frames)
             self.hmu_5 = RGPU(fpn_dim, hmu_groups, num_frames=num_frames)
 
+    def _large_image(self, data, image_m):
+        """Reuse dataset's genuine 1.5x image, with original fallback."""
+        image_l = data.get("image_l")
+        if image_l is None:
+            image_l = F.interpolate(
+                image_m, scale_factor=1.5, mode="bilinear", align_corners=False
+            )
+        return image_l
+
+    def _fuse_large_subset(self, z_feats, image_l, indices):
+        """Run the 1.5x encoder and MHSIU ONLY on Clean rows.
+
+        index_copy restores the fused rows to their original mixed-batch
+        positions, and remains differentiable for both feature branches.
+        Every Noisy row remains identical to the original 1.0x lateral feature.
+        """
+        large = image_l.index_select(0, indices)
+        l_feats = self.normalize_encoder(large)
+        sius = (self.siu_2, self.siu_3, self.siu_4, self.siu_5)
+        lateral = (self.lateral_2, self.lateral_3, self.lateral_4, self.lateral_5)
+
+        result = []
+        for z, lf, siu, lateral_layer in zip(z_feats, l_feats, sius, lateral):
+            zm = z.index_select(0, indices)
+            fused = siu(l=lateral_layer(lf), m=zm)
+            # AMP 下保持回填特征 dtype 一致
+            fused = fused.to(dtype=z.dtype)
+            result.append(z.index_copy(0, indices, fused))
+        return tuple(result)
+
     def body(self, data):
         image_m = data["image_m"]
-        # Reuses baseline normalization, encoder weights and PVT stage mapping.
+        # Original full-batch 1.0x backbone and FPN lateral projections.
         m2, m3, m4, m5 = self.normalize_encoder(image_m)
-
-        # Original FPN lateral projections (1x1), shared across scales.
         z2 = self.lateral_2(m2)
         z3 = self.lateral_3(m3)
         z4 = self.lateral_4(m4)
         z5 = self.lateral_5(m5)
 
         if self.use_mhsiu:
-            image_l = data.get("image_l")
-            if image_l is None:
-                image_l = F.interpolate(
-                    image_m,
-                    scale_factor=1.5,
-                    mode="bilinear",
-                    align_corners=False,
-                )
+            if self.training and self.clean_only_highres:
+                # The provided trainer's dataset already supplies pool_id:
+                # Clean=0, Noisy=1. Do not route by data["pool_id"][0].
+                pool_id = data.get("pool_id")
+                if pool_id is None:
+                    raise KeyError(
+                        "clean_only_highres=True requires data['pool_id'] "
+                        "during training (0=Clean, 1=Noisy)."
+                    )
+                pool_id = pool_id.reshape(-1).to(device=image_m.device)
+                if pool_id.numel() != image_m.shape[0]:
+                    raise ValueError("pool_id must have one value per batch sample")
+                if not torch.all((pool_id == 0) | (pool_id == 1)):
+                    raise ValueError("Training pool_id must contain only 0 (Clean) or 1 (Noisy)")
 
-            l2, l3, l4, l5 = self.normalize_encoder(image_l)
-            z2 = self.siu_2(l=self.lateral_2(l2), m=z2)
-            z3 = self.siu_3(l=self.lateral_3(l3), m=z3)
-            z4 = self.siu_4(l=self.lateral_4(l4), m=z4)
-            z5 = self.siu_5(l=self.lateral_5(l5), m=z5)
+                clean_indices = torch.nonzero(pool_id == 0, as_tuple=True)[0]
+                if clean_indices.numel() > 0:
+                    image_l = self._large_image(data, image_m)
+                    z2, z3, z4, z5 = self._fuse_large_subset(
+                        (z2, z3, z4, z5), image_l, clean_indices
+                    )
+                # If batch is Noisy-only, bypass MHSIU completely.
+            else:
+                # Original behavior for normal models and all inference,
+                # independent of pool_id (test loader has no pool_id).
+                image_l = self._large_image(data, image_m)
+                l2, l3, l4, l5 = self.normalize_encoder(image_l)
+                z2 = self.siu_2(l=self.lateral_2(l2), m=z2)
+                z3 = self.siu_3(l=self.lateral_3(l3), m=z3)
+                z4 = self.siu_4(l=self.lateral_4(l4), m=z4)
+                z5 = self.siu_5(l=self.lateral_5(l5), m=z5)
 
-        # Preserve the baseline FPN top-down structure. RGPU is an optional
-        # post-fusion refinement, matching ZoomNeXt's decode-stage ordering.
+        # Original FPN top-down + optional RGPU: no changes for either pool.
         p5 = self.smooth_5(z5)
         if self.use_rgpu:
             p5 = self.hmu_5(p5)
@@ -130,7 +171,7 @@ class PvtV2B4_FPN_ZoomNeXt(PvtV2B4_FPN_Baseline):
 
 
 class PvtV2B4_FPN_ZoomNeXt_MHSIU(PvtV2B4_FPN_ZoomNeXt):
-    """Ablation: FPN + 2-scale MHSIU2, but no RGPU."""
+    """Ablation: FPN + MHSIU2, without RGPU; supports clean_only_highres."""
 
     def __init__(self, **kwargs):
         kwargs.pop("use_mhsiu", None)
@@ -139,7 +180,7 @@ class PvtV2B4_FPN_ZoomNeXt_MHSIU(PvtV2B4_FPN_ZoomNeXt):
 
 
 class PvtV2B4_FPN_ZoomNeXt_RGPU(PvtV2B4_FPN_ZoomNeXt):
-    """Ablation: single-scale FPN + RGPU, but no MHSIU2."""
+    """Ablation: single-scale FPN + RGPU, without MHSIU2."""
 
     def __init__(self, **kwargs):
         kwargs.pop("use_mhsiu", None)
