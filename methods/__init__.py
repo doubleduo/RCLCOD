@@ -106,3 +106,8 @@ from .fpn_sarnet import (
     PvtV2B4_FPN_FGC,
     PvtV2B4_FPN_OAA_FGC,
 )
+from .fpn_edge_region_ual import (
+    PvtV2B4_FPN_UAL,
+    PvtV2B4_FPN_EdgeRegionUAL,
+    PvtV2B4_FPN_RegionUAL,
+)

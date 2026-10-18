@@ -75,9 +75,9 @@ train = dict(
                 start_weight=1.0,
 
                 # Reliability annealing.
-                anneal_start_epoch=91,
+                anneal_start_epoch=61,
                 anneal_end_epoch=140,
-                end_weight=0.0,
+                end_weight=1.0,
                 mode="cosine",
             ),
 

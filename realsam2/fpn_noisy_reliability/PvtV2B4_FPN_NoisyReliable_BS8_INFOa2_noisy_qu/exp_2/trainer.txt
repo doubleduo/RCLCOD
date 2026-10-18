@@ -1,0 +1,108 @@
+"""Ready-to-run entry for FPN reliability on the Noisy pool only."""
+import argparse
+from functools import partial
+from pathlib import Path
+import shutil
+import sys
+
+import basemain_continuous as continuous
+from methods.fpn_noisy_reliability import MODES, PvtV2B4_FPN_NoisyReliable
+from utils.data_noisy_reliability import NoisyReliabilityDataset
+
+
+# This file must be placed in the RCLCOD project root.
+PROJECT_ROOT = Path(__file__).resolve().parent
+CONFIG_PATH = PROJECT_ROOT / "configs/curablation/fpn_noisy_reliable.py"
+DATA_CONFIG_PATH = PROJECT_ROOT / "dataset.yaml"
+PROBABILITY_DIR = PROJECT_ROOT / "SGT/SAM2_RefineReliable_Box/Prob_48x48_FP16"
+OUTPUT_DIR = "realsam2/fpn_noisy_reliability"
+MODEL_NAME = "PvtV2B4_FPN_NoisyReliable"
+
+
+def apply_default_args(arguments, mode):
+    defaults = {
+        "--config": str(CONFIG_PATH),
+        "--data-cfg": str(DATA_CONFIG_PATH),
+        "--model-name": MODEL_NAME,
+        "--output-dir": OUTPUT_DIR,
+        "--info": {
+            "none": "A0_baseline",
+            "image": "A1_noisy_q",
+            "both": "A2_noisy_qU",
+            "pixel": "A3_noisy_U",
+        }[mode],
+    }
+    result = list(arguments)
+    for option, value in defaults.items():
+        if not any(x == option or x.startswith(option + "=") for x in result):
+            result.extend([option, value])
+    return result
+
+
+def main():
+    parser = argparse.ArgumentParser(add_help=False)
+    parser.add_argument("--reliability-mode", choices=MODES, default="both")
+    parser.add_argument("--prob-dir", default=str(PROBABILITY_DIR))
+    own_args, remaining = parser.parse_known_args()
+    sys.argv = [sys.argv[0], *apply_default_args(remaining, own_args.reliability_mode)]
+
+    core = continuous.core
+    # Register before parse_cfg() builds argparse model choices.
+    core.model_zoo.PvtV2B4_FPN_NoisyReliable = PvtV2B4_FPN_NoisyReliable
+    cfg = core.parse_cfg()
+    if cfg.model_name != MODEL_NAME:
+        raise ValueError(f"Use --model-name {MODEL_NAME}")
+
+    probability_dir = Path(own_args.prob_dir)
+    if not probability_dir.is_absolute():
+        probability_dir = PROJECT_ROOT / probability_dir
+    cfg.reliability = dict(
+        mode=own_args.reliability_mode,
+        probability_dir=str(probability_dir),
+    )
+    cfg.model = dict(cfg.get("model", {}))
+    cfg.model["reliability_mode"] = own_args.reliability_mode
+
+
+    core.ImageTrainDataset = partial(
+        NoisyReliabilityDataset,
+        probability_dir=probability_dir,
+        reliability_enabled=own_args.reliability_mode != "none",
+    )
+
+    shutil.copy(__file__, cfg.path.trainer_copy)
+    for path in (
+        PROJECT_ROOT / "methods/fpn_noisy_reliability.py",
+        PROJECT_ROOT / "utils/data_noisy_reliability.py",
+        CONFIG_PATH,
+    ):
+        shutil.copy(path, Path(cfg.path.pth_log) / path.name)
+
+    core.pt_utils.initialize_seed_cudnn(
+        seed=cfg.base_seed,
+        deterministic=cfg.deterministic,
+    )
+    model = PvtV2B4_FPN_NoisyReliable(
+        num_frames=1,
+        pretrained=cfg.pretrained,
+        use_checkpoint=cfg.use_checkpoint,
+        **dict(cfg.model),
+    ).to(cfg.device)
+    if cfg.load_from:
+        core.io.load_weight(model=model, load_path=cfg.load_from, strict=True)
+
+    core.LOGGER.info(
+        f"model=methods/fpn_noisy_reliability.py::{MODEL_NAME} | "
+        f"config={CONFIG_PATH} | Clean=original BCE | "
+        f"Noisy={own_args.reliability_mode} | probabilities={probability_dir}"
+    )
+    if not cfg.evaluate:
+        continuous.train(model=model, cfg=cfg)
+    if cfg.evaluate or cfg.has_test:
+        core.io.save_weight(model=model, save_path=cfg.path.final_state_net)
+        core.test(model=model, cfg=cfg)
+    core.LOGGER.info("End FPN Noisy reliability experiment")
+
+
+if __name__ == "__main__":
+    main()
