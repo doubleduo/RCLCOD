@@ -235,6 +235,17 @@ def _build_epoch_loader(
         ),
     )
 
+    # Each epoch reconstructs the DataLoader, so new worker processes
+    # inherit the current epoch from these existing dataset objects.
+    for dataset in pool_datasets.values():
+        dataset.set_epoch(epoch)
+    if cfg.train.get("sbft", {}).get("enable", False):
+        s = cfg.train.sbft
+        LOGGER.info(
+            f"SBFT clean-only epoch={epoch} active={epoch >= s.get('start_epoch', 60)} "
+            f"r={s.get('r', 0.95)} p={s.get('p', 0.5)}"
+        )
+
     loader = core._build_curriculum_loader(
         cfg=cfg,
         pool_datasets=pool_datasets,

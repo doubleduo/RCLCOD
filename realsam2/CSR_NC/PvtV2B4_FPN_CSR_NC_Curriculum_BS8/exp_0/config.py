@@ -28,7 +28,7 @@ dataset_infos = dict(
 deterministic = True
 device = 'cuda:0'
 evaluate = False
-exp_name = 'PvtV2B4_FPN_ZoomNeXt_MHSIU_AA_M2_BoxHead_BS8'
+exp_name = 'PvtV2B4_FPN_CSR_NC_Curriculum_BS8'
 has_test = True
 info = None
 load_from = None
@@ -39,31 +39,31 @@ metric_names = [
     'mae',
     'em',
 ]
-model_name = 'PvtV2B4_FPN_ZoomNeXt_MHSIU_AA_M2_BoxHead'
-output_dir = '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/mhsiu_m2_boxfreq'
+model_name = 'PvtV2B4_FPN_CSR_NC_Curriculum'
+output_dir = '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/CSR_NC'
 path = dict(
     cfg_copy=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/mhsiu_m2_boxfreq/PvtV2B4_FPN_ZoomNeXt_MHSIU_AA_M2_BoxHead_BS8/exp_0/config.py',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/CSR_NC/PvtV2B4_FPN_CSR_NC_Curriculum_BS8/exp_0/config.py',
     excel=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/mhsiu_m2_boxfreq/PvtV2B4_FPN_ZoomNeXt_MHSIU_AA_M2_BoxHead_BS8/exp_0/results.xlsx',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/CSR_NC/PvtV2B4_FPN_CSR_NC_Curriculum_BS8/exp_0/results.xlsx',
     final_full_net=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/mhsiu_m2_boxfreq/PvtV2B4_FPN_ZoomNeXt_MHSIU_AA_M2_BoxHead_BS8/exp_0/pth/checkpoint_final.pth',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/CSR_NC/PvtV2B4_FPN_CSR_NC_Curriculum_BS8/exp_0/pth/checkpoint_final.pth',
     final_state_net=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/mhsiu_m2_boxfreq/PvtV2B4_FPN_ZoomNeXt_MHSIU_AA_M2_BoxHead_BS8/exp_0/pth/state_final.pth',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/CSR_NC/PvtV2B4_FPN_CSR_NC_Curriculum_BS8/exp_0/pth/state_final.pth',
     log=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/mhsiu_m2_boxfreq/PvtV2B4_FPN_ZoomNeXt_MHSIU_AA_M2_BoxHead_BS8/exp_0/log_2026-10-13.txt',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/CSR_NC/PvtV2B4_FPN_CSR_NC_Curriculum_BS8/exp_0/log_2026-10-18.txt',
     output_dir=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/mhsiu_m2_boxfreq',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/CSR_NC',
     pth=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/mhsiu_m2_boxfreq/PvtV2B4_FPN_ZoomNeXt_MHSIU_AA_M2_BoxHead_BS8/exp_0/pth',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/CSR_NC/PvtV2B4_FPN_CSR_NC_Curriculum_BS8/exp_0/pth',
     pth_log=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/mhsiu_m2_boxfreq/PvtV2B4_FPN_ZoomNeXt_MHSIU_AA_M2_BoxHead_BS8/exp_0',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/CSR_NC/PvtV2B4_FPN_CSR_NC_Curriculum_BS8/exp_0',
     save=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/mhsiu_m2_boxfreq/PvtV2B4_FPN_ZoomNeXt_MHSIU_AA_M2_BoxHead_BS8/exp_0/pre',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/CSR_NC/PvtV2B4_FPN_CSR_NC_Curriculum_BS8/exp_0/pre',
     tb=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/mhsiu_m2_boxfreq/PvtV2B4_FPN_ZoomNeXt_MHSIU_AA_M2_BoxHead_BS8/exp_0/tb',
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/CSR_NC/PvtV2B4_FPN_CSR_NC_Curriculum_BS8/exp_0/tb',
     trainer_copy=
-    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/mhsiu_m2_boxfreq/PvtV2B4_FPN_ZoomNeXt_MHSIU_AA_M2_BoxHead_BS8/exp_0/trainer.txt'
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/realsam2/CSR_NC/PvtV2B4_FPN_CSR_NC_Curriculum_BS8/exp_0/trainer.txt'
 )
 pretrained = True
 proj_root = '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD'
@@ -123,7 +123,7 @@ train = dict(
         warmup=dict(initial_coef=0.01, mode='linear', num_iters=0)),
     use_amp=True,
     val_interval=5,
-    val_start_epoch=30)
+    val_start_epoch=20)
 use_box = (True, )
 use_checkpoint = False
 use_custom_worker_init = True
