@@ -1,0 +1,100 @@
+{
+  "num_images": 400,
+  "num_failures": 0,
+  "num_flagged": 379,
+  "grades": {
+    "low": 76,
+    "middle": 210,
+    "high": 114
+  },
+  "ablation": [
+    "base",
+    "crop",
+    "perbox",
+    "pos",
+    "neg",
+    "posneg",
+    "posneg_memory",
+    "geometry",
+    "full_nomemory",
+    "full"
+  ],
+  "failures": [],
+  "config": {
+    "sam2_checkpoint": "./sam_pseado/weights/sam2_hiera_large.pt",
+    "sam2_config": "sam2_hiera_l.yaml",
+    "img_dir": "./data/Train/Imgs",
+    "json_dir": "./data/Train/box_label",
+    "gt_dir": "./data/Train/GT",
+    "output_dir": "./softresult/SAM2_SelectiveRefine_ALL",
+    "device": "cuda",
+    "size": 1024,
+    "limit": 400,
+    "seed": 0,
+    "ablation": "all",
+    "sim_low": 0.6,
+    "sim_high": 0.9,
+    "score_min": 0.97,
+    "stability_min": 0.96,
+    "stability_offset": 1.0,
+    "pos_thr": 0.9,
+    "neg_thr": 0.1,
+    "small_area": 0.1,
+    "crop_context": 0.35,
+    "refine_iters": 1,
+    "accept_ratio_min": 0.5,
+    "accept_ratio_max": 2.0,
+    "save_probs": true,
+    "self_test": false
+  },
+  "base": {
+    "iou": 0.8278232511027536,
+    "binary_fbeta": 0.9073256920506089,
+    "binary_mae": 0.019095514451892254
+  },
+  "crop": {
+    "iou": 0.8290020570712869,
+    "binary_fbeta": 0.9088546243088476,
+    "binary_mae": 0.019081837154737623
+  },
+  "perbox": {
+    "iou": 0.8394327772680807,
+    "binary_fbeta": 0.9157850056010736,
+    "binary_mae": 0.017519903112022627
+  },
+  "pos": {
+    "iou": 0.8292251962650758,
+    "binary_fbeta": 0.9089168608810594,
+    "binary_mae": 0.01889223323425373
+  },
+  "neg": {
+    "iou": 0.8297717405362759,
+    "binary_fbeta": 0.9098910790102493,
+    "binary_mae": 0.017745292858988994
+  },
+  "posneg": {
+    "iou": 0.8271074257820663,
+    "binary_fbeta": 0.9087896968715541,
+    "binary_mae": 0.018091648078667158
+  },
+  "posneg_memory": {
+    "iou": 0.8334329916053307,
+    "binary_fbeta": 0.9154163748740197,
+    "binary_mae": 0.01733464045769567
+  },
+  "geometry": {
+    "iou": 0.840518442148275,
+    "binary_fbeta": 0.9175465509565683,
+    "binary_mae": 0.017495685212021068
+  },
+  "full_nomemory": {
+    "iou": 0.8406728945123548,
+    "binary_fbeta": 0.9199984221861908,
+    "binary_mae": 0.01681578217928459
+  },
+  "full": {
+    "iou": 0.8435041780320824,
+    "binary_fbeta": 0.9233246109693038,
+    "binary_mae": 0.016550531661167756
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "config": {
+    "sam2_checkpoint": "./sam_pseado/weights/sam2_hiera_large.pt",
+    "sam2_config": "sam2_hiera_l.yaml",
+    "device": "cuda",
+    "img_dir": "./data/Train/Imgs",
+    "scribble_dir": "./data/Train/Scribble",
+    "gt_dir": "./data/Train/GT",
+    "json_dir": "./data/Train/box_label",
+    "out_dir": "./softresult/SAM2_ImprovedOnly",
+    "size": 1024,
+    "seed": 2026,
+    "limit": 400,
+    "topk_each": 20,
+    "min_gain": 0.005,
+    "max_initial_per_class": 9,
+    "active_min_dist": 16,
+    "active_pos": 3,
+    "active_neg": 3,
+    "small_box_area_thr": 0.1,
+    "crop_context": 0.35,
+    "crop_min_context": 16,
+    "crop_square": true,
+    "box_prompt_margin": 5,
+    "per_box_merge_margin": 25,
+    "vis_size": 320
+  },
+  "effects": {
+    "Crop_effect": {
+      "num_saved": 1,
+      "best_gain": 0.013427376747131348,
+      "mean_gain_saved": 0.013427376747131348,
+      "folder": "./softresult/SAM2_ImprovedOnly/Crop_effect"
+    },
+    "PerBox_effect": {
+      "num_saved": 5,
+      "best_gain": 0.03485235571861267,
+      "mean_gain_saved": 0.022120858170092107,
+      "folder": "./softresult/SAM2_ImprovedOnly/PerBox_effect"
+    },
+    "Pos_effect": {
+      "num_saved": 20,
+      "best_gain": 0.06957599613815546,
+      "mean_gain_saved": 0.015189576102420688,
+      "folder": "./softresult/SAM2_ImprovedOnly/Pos_effect"
+    },
+    "Neg_effect": {
+      "num_saved": 17,
+      "best_gain": 0.12225424498319626,
+      "mean_gain_saved": 0.023745401269372773,
+      "folder": "./softresult/SAM2_ImprovedOnly/Neg_effect"
+    },
+    "Logits_effect": {
+      "num_saved": 20,
+      "best_gain": 0.04911551624536514,
+      "mean_gain_saved": 0.018667805939912796,
+      "folder": "./softresult/SAM2_ImprovedOnly/Logits_effect"
+    },
+    "PosNegLogits": {
+      "num_saved": 20,
+      "best_gain": 0.06874792650341988,
+      "mean_gain_saved": 0.025779200065881015,
+      "folder": "./softresult/SAM2_ImprovedOnly/PosNegLogits"
+    }
+  },
+  "failures": [
+    {
+      "image": "./data/Train/Imgs/COD10K-CAM-2-Terrestrial-45-Spider-2569.jpg",
+      "error": "ValueError('zero-dimensional arrays cannot be concatenated')"
+    }
+  ]
+}

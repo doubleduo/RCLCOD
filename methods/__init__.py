@@ -11,7 +11,14 @@ from .zoomnext.zoomnext import (
     ConvNeXtB384_ZoomNeXt,
 )
 
-
+from .zoomnext.zoomnext_edge_residual import (
+    PvtV2B4_Zoom_BCE_Control,
+    PvtV2B4_Zoom_FullUAL_Control,
+    PvtV2B4_Zoom_EdgeUAL,
+    PvtV2B4_Zoom_EdgeRes_BCE,
+    PvtV2B4_Zoom_EdgeRes_FullUAL,
+    PvtV2B4_Zoom_EdgeRes_EdgeUAL,
+)
 
 from .fpn_baseline import (
     PvtV2B4_FPN_Baseline,
@@ -110,4 +117,21 @@ from .fpn_edge_region_ual import (
     PvtV2B4_FPN_UAL,
     PvtV2B4_FPN_EdgeRegionUAL,
     PvtV2B4_FPN_RegionUAL,
+)
+from .fpn_esc_lite import PvtV2B4_FPN_ESC_Lite
+
+
+
+from .fpn_aspp_ablation import (
+    PvtV2B4_PVT_Only,
+    PvtV2B4_ASPP_Baseline,
+    PvtV2B4_ASPP_FPN,
+)
+
+
+from .acdnet.fpn_zoomnext_gfm_hps import (
+    PvtV2B4_FPN_ZoomNeXt_MHSIU_FullRefine,
+    PvtV2B4_FPN_ZoomNeXt_MHSIU_GFM_All,
+    PvtV2B4_FPN_ZoomNeXt_MHSIU_HPS,
+    PvtV2B4_FPN_ZoomNeXt_MHSIU_GFM_HPS,
 )

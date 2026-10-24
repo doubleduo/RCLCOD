@@ -1,0 +1,126 @@
+{
+  "Base": {
+    "Smeasure": 0.9104160365993951,
+    "maxE": 0.9727955304897657,
+    "maxF": 0.9106926074013331,
+    "MAE": 0.015109795652264581
+  },
+  "ActiveSecondRound": {
+    "Smeasure": 0.9118556232460441,
+    "maxE": 0.9735283583771475,
+    "maxF": 0.9112140556164549,
+    "MAE": 0.014716888829054081
+  },
+  "Final": {
+    "Smeasure": 0.9118556232460441,
+    "maxE": 0.9735283583771475,
+    "maxF": 0.9112140556164549,
+    "MAE": 0.014716888829054081
+  },
+  "RouteBreakdown": {
+    "ACTIVE_S0": {
+      "num_images": 0,
+      "profile": {
+        "Smeasure": null,
+        "maxE": null,
+        "maxF": null,
+        "MAE": null
+      }
+    },
+    "ACTIVE_S1": {
+      "num_images": 0,
+      "profile": {
+        "Smeasure": null,
+        "maxE": null,
+        "maxF": null,
+        "MAE": null
+      }
+    },
+    "ACTIVE_S2": {
+      "num_images": 0,
+      "profile": {
+        "Smeasure": null,
+        "maxE": null,
+        "maxF": null,
+        "MAE": null
+      }
+    },
+    "ACTIVE_S3": {
+      "num_images": 0,
+      "profile": {
+        "Smeasure": null,
+        "maxE": null,
+        "maxF": null,
+        "MAE": null
+      }
+    },
+    "ACTIVE_S4": {
+      "num_images": 0,
+      "profile": {
+        "Smeasure": null,
+        "maxE": null,
+        "maxF": null,
+        "MAE": null
+      }
+    },
+    "ACTIVE_S5": {
+      "num_images": 4040,
+      "profile": {
+        "Smeasure": 0.9118556232460441,
+        "maxE": 0.9735283583771475,
+        "maxF": 0.9112140556164549,
+        "MAE": 0.014716888829054081
+      }
+    }
+  },
+  "Diagnostics": {
+    "num_images": 4040,
+    "num_failures": 0,
+    "flip_accepted": 0,
+    "flip_rejected": 0,
+    "num_cropped_boxes": 0,
+    "num_added_points": 24221
+  },
+  "MetricNote": "Legacy maxE/maxF columns here are binary E/F at threshold 0.5, NOT true max metrics. Base=one box+scribble pass. Refine=initial three candidates + second active-point/memory pass.",
+  "Config": {
+    "sam2_checkpoint": "./sam_pseado/weights/sam2_hiera_large.pt",
+    "sam2_config": "sam2_hiera_l.yaml",
+    "device": "cuda",
+    "img_dir": "./data/Train/Imgs",
+    "scribble_dir": "./data/Train/Scribble",
+    "gt_dir": "./data/Train/GT",
+    "json_dir": "./data/Train/box_label",
+    "out_dir": "./softresult/SAM2_Optimized3/S5",
+    "size": 1024,
+    "seed": 0,
+    "refine_iters": 1,
+    "active_pos": 3,
+    "active_neg": 3,
+    "ablation": "S5",
+    "vis_points": true,
+    "active_points": true,
+    "active_min_dist": 16,
+    "active_conflict_first": true,
+    "max_initial_per_class": 9,
+    "use_crop": false,
+    "small_box_area_thr": 0.1,
+    "crop_context": 0.35,
+    "crop_min_context": 16,
+    "crop_square": true,
+    "box_prompt_margin": 5,
+    "multi_box_merge_margin": 25,
+    "flip_gate": false,
+    "flip_mode": "gate",
+    "flip_min_iou": 0.75,
+    "flip_max_area_ratio": 1.5,
+    "flip_scribble_tol": 0.015,
+    "flip_boundary_radius": 7,
+    "flip_base_uncertainty": 0.22,
+    "flip_other_confidence": 0.2,
+    "flip_alpha": 0.6,
+    "save_probs": false,
+    "vis_mae_thr": 0.03,
+    "vis_gain_thr": 0.003
+  },
+  "Failures": []
+}

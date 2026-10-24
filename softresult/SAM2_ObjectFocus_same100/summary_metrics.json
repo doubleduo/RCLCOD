@@ -1,0 +1,109 @@
+{
+  "metrics": {
+    "A00_LegacyUnion": {
+      "Smeasure": 0.879346988154346,
+      "E_binary_0p5": 0.9351552296802401,
+      "F_binary_0p5": 0.8729485591439732,
+      "MAE": 0.0350355004199082,
+      "IoU": 0.8060481689236587
+    },
+    "A0_PerBox": {
+      "Smeasure": 0.8901267265617158,
+      "E_binary_0p5": 0.9444953710958361,
+      "F_binary_0p5": 0.8904295087056201,
+      "MAE": 0.03227960530028213,
+      "IoU": 0.8273705057547612
+    },
+    "A1_FGBG": {
+      "Smeasure": 0.8890881301946884,
+      "E_binary_0p5": 0.9430163630843162,
+      "F_binary_0p5": 0.8882503472972219,
+      "MAE": 0.03309686738124583,
+      "IoU": 0.8255030878239923
+    },
+    "A2_ObjectGate": {
+      "Smeasure": 0.8887299974868997,
+      "E_binary_0p5": 0.9428369800746441,
+      "F_binary_0p5": 0.8887626580716592,
+      "MAE": 0.033112858794338534,
+      "IoU": 0.8247917710922167
+    },
+    "A3_MultiScale": {
+      "Smeasure": 0.8887306375493921,
+      "E_binary_0p5": 0.9428365510329604,
+      "F_binary_0p5": 0.8887573990531676,
+      "MAE": 0.03311282788024982,
+      "IoU": 0.8248003210890869
+    }
+  },
+  "delta_vs_base": {
+    "A1_FGBG": {
+      "Smeasure": -0.0010385963670274112,
+      "E_binary_0p5": -0.0014790080115199,
+      "F_binary_0p5": -0.0021791614083982447,
+      "MAE": 0.0008172620809637002,
+      "IoU": -0.0018674179307689442
+    },
+    "A2_ObjectGate": {
+      "Smeasure": -0.0013967290748160277,
+      "E_binary_0p5": -0.0016583910211920294,
+      "F_binary_0p5": -0.0016668506339608813,
+      "MAE": 0.000833253494056406,
+      "IoU": -0.002578734662544546
+    },
+    "A3_MultiScale": {
+      "Smeasure": -0.0013960890123236869,
+      "E_binary_0p5": -0.0016588200628757654,
+      "F_binary_0p5": -0.0016721096524524581,
+      "MAE": 0.0008332225799676934,
+      "IoU": -0.00257018466567438
+    }
+  },
+  "counts": {
+    "valid_pool": 4040,
+    "sampled": 100,
+    "completed": 100,
+    "with_gt": 100,
+    "failed": 0
+  },
+  "method": "Box-only FG/BG-separated attention + object gate + multi-level high-res masked local pooling (training-free; not FocSAM weights)",
+  "metric_note": "E_binary_0p5 / F_binary_0p5 are single-threshold binary scores, NOT maxE/maxF.",
+  "comparison_note": "Improved modes are compared to A0_PerBox using identical per-box prompts and gating. A00_LegacyUnion reproduces the previous union-box baseline and is NOT the paired control.",
+  "args": {
+    "sam2_checkpoint": "./sam_pseado/weights/sam2_hiera_large.pt",
+    "sam2_config": "sam2_hiera_l.yaml",
+    "img_dir": "./data/Train/Imgs",
+    "json_dir": "./data/Train/box_label",
+    "gt_dir": "./data/Train/GT",
+    "output_dir": "./softresult/SAM2_ObjectFocus_same100",
+    "model_size": 1024,
+    "device": "cuda",
+    "limit": 100,
+    "seed": 42,
+    "window_size": 8,
+    "passes": 2,
+    "alpha": 0.08,
+    "high_alpha": 0.025,
+    "context": 0.15,
+    "fg_thr": 0.85,
+    "bg_thr": 0.1,
+    "support_thr": 0.22,
+    "support_radius": 3,
+    "min_gate": 0.1,
+    "temperature": 4.0,
+    "contrast": 5.0,
+    "prior_weight": 0.6,
+    "delta_cap": 0.4,
+    "high_kernel": 5,
+    "box_margin": 5.0,
+    "merge_margin": 25.0,
+    "modes": "fgbg,object,multi",
+    "legacy_base": true,
+    "sample_list": "./softresult/SAM2_WindowFocus_100/sampled_images.txt",
+    "debug_first": 10,
+    "save_probs": false,
+    "save_vis": true,
+    "self_test": false
+  },
+  "failures": []
+}

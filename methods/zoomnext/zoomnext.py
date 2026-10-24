@@ -194,19 +194,19 @@ class PvtV2B2_ZoomNeXt(_ZoomNeXt_Base):
 
         self.embed_dims = self.encoder.embed_dims
         self.tra_5 = SimpleASPP(self.embed_dims[3], out_dim=mid_dim)
-        self.siu_5 = MHSIU2(mid_dim, siu_groups)
+        self.siu_5 = MHSIU(mid_dim, siu_groups)
         self.hmu_5 = RGPU(mid_dim, hmu_groups, num_frames=num_frames)
 
         self.tra_4 = ConvBNReLU(self.embed_dims[2], mid_dim, 3, 1, 1)
-        self.siu_4 = MHSIU2(mid_dim, siu_groups)
+        self.siu_4 = MHSIU(mid_dim, siu_groups)
         self.hmu_4 = RGPU(mid_dim, hmu_groups, num_frames=num_frames)
 
         self.tra_3 = ConvBNReLU(self.embed_dims[1], mid_dim, 3, 1, 1)
-        self.siu_3 = MHSIU2(mid_dim, siu_groups)
+        self.siu_3 = MHSIU(mid_dim, siu_groups)
         self.hmu_3 = RGPU(mid_dim, hmu_groups, num_frames=num_frames)
 
         self.tra_2 = ConvBNReLU(self.embed_dims[0], mid_dim, 3, 1, 1)
-        self.siu_2 = MHSIU2(mid_dim, siu_groups)
+        self.siu_2 = MHSIU(mid_dim, siu_groups)
         self.hmu_2 = RGPU(mid_dim, hmu_groups, num_frames=num_frames)
 
         self.tra_1 = nn.Sequential(
@@ -233,29 +233,29 @@ class PvtV2B2_ZoomNeXt(_ZoomNeXt_Base):
         return c2, c3, c4, c5
 
     def body(self, data):
+  
         l_trans_feats = self.normalize_encoder(data["image_l"])
         m_trans_feats = self.normalize_encoder(data["image_m"])
+        s_trans_feats = self.normalize_encoder(data["image_s"])
 
-
-        l, m,= self.tra_5(l_trans_feats[3]), self.tra_5(m_trans_feats[3])
-        lms = self.siu_5(l=l, m=m)
+        l, m, s = self.tra_5(l_trans_feats[3]), self.tra_5(m_trans_feats[3]), self.tra_5(s_trans_feats[3])
+        lms = self.siu_5(l=l, m=m, s=s)
         x = self.hmu_5(lms)
 
-        l, m= self.tra_4(l_trans_feats[2]), self.tra_4(m_trans_feats[2])
-        lms = self.siu_4(l=l, m=m)
+        l, m, s = self.tra_4(l_trans_feats[2]), self.tra_4(m_trans_feats[2]), self.tra_4(s_trans_feats[2])
+        lms = self.siu_4(l=l, m=m, s=s)
         x = self.hmu_4(lms + resize_to(x, tgt_hw=lms.shape[-2:]))
 
-        l, m= self.tra_3(l_trans_feats[1]), self.tra_3(m_trans_feats[1])
-        lms = self.siu_3(l=l, m=m)
+        l, m, s = self.tra_3(l_trans_feats[1]), self.tra_3(m_trans_feats[1]), self.tra_3(s_trans_feats[1])
+        lms = self.siu_3(l=l, m=m, s=s)
         x = self.hmu_3(lms + resize_to(x, tgt_hw=lms.shape[-2:]))
 
-        l, m,= self.tra_2(l_trans_feats[0]), self.tra_2(m_trans_feats[0])
-        lms = self.siu_2(l=l, m=m)
+        l, m, s = self.tra_2(l_trans_feats[0]), self.tra_2(m_trans_feats[0]), self.tra_2(s_trans_feats[0])
+        lms = self.siu_2(l=l, m=m, s=s)
         x = self.hmu_2(lms + resize_to(x, tgt_hw=lms.shape[-2:]))
 
         x = self.tra_1(x)
-        return self.predictor(x)  
-
+        return self.predictor(x)
 
 
 

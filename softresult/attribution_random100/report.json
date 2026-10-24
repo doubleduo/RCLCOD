@@ -1,0 +1,160 @@
+{
+  "sample_count": 100,
+  "evaluated": 100,
+  "seed": 2026,
+  "notes": [
+    "Crop contrast includes changed model input scale",
+    "Per-box contrast valid only for multi-box images",
+    "All prompts originate from Scribble, predicted mask, or box geometry; GT used only for evaluation",
+    "P0 Repeat performs two decodings, no memory, no new points",
+    "The cropped and per-box branches may use different SAM2 embeddings",
+    "Binary MAE is pixel error rate at threshold 0.5"
+  ],
+  "effects": {
+    "Crop_effect": {
+      "baseline": "G0_Box",
+      "variant": "G1_Crop",
+      "mean_gain_mae": 0.00011518253905829884,
+      "improved": 15,
+      "worsened": 11,
+      "equal": 74,
+      "gain_gt_0_003": 1,
+      "gain_gt_0_01": 1,
+      "gain_gt_0_05": 0,
+      "hurt_gt_0_01": 0
+    },
+    "PerBox_effect": {
+      "baseline": "G0_Box",
+      "variant": "G2_PerBox",
+      "mean_gain_mae": -0.0004577599080403646,
+      "improved": 0,
+      "worsened": 3,
+      "equal": 97,
+      "gain_gt_0_003": 0,
+      "gain_gt_0_01": 0,
+      "gain_gt_0_05": 0,
+      "hurt_gt_0_01": 2
+    },
+    "Crop_after_PerBox": {
+      "baseline": "G2_PerBox",
+      "variant": "G3_PerBoxCrop",
+      "mean_gain_mae": 0.0001351334057575176,
+      "improved": 16,
+      "worsened": 11,
+      "equal": 73,
+      "gain_gt_0_003": 1,
+      "gain_gt_0_01": 1,
+      "gain_gt_0_05": 0,
+      "hurt_gt_0_01": 0
+    },
+    "PerBox_after_Crop": {
+      "baseline": "G1_Crop",
+      "variant": "G3_PerBoxCrop",
+      "mean_gain_mae": -0.00043780904134114583,
+      "improved": 1,
+      "worsened": 2,
+      "equal": 97,
+      "gain_gt_0_003": 0,
+      "gain_gt_0_01": 0,
+      "gain_gt_0_05": 0,
+      "hurt_gt_0_01": 2
+    },
+    "Repeat_effect": {
+      "baseline": "G3_PerBoxCrop",
+      "variant": "P0_Repeat",
+      "mean_gain_mae": -0.0009543493332432863,
+      "improved": 47,
+      "worsened": 53,
+      "equal": 0,
+      "gain_gt_0_003": 10,
+      "gain_gt_0_01": 3,
+      "gain_gt_0_05": 0,
+      "hurt_gt_0_01": 2
+    },
+    "Pos_effect": {
+      "baseline": "P0_Repeat",
+      "variant": "P1_Pos",
+      "mean_gain_mae": 0.0,
+      "improved": 0,
+      "worsened": 0,
+      "equal": 100,
+      "gain_gt_0_003": 0,
+      "gain_gt_0_01": 0,
+      "gain_gt_0_05": 0,
+      "hurt_gt_0_01": 0
+    },
+    "Neg_effect": {
+      "baseline": "P0_Repeat",
+      "variant": "P2_Neg",
+      "mean_gain_mae": -0.0007072609011248873,
+      "improved": 41,
+      "worsened": 59,
+      "equal": 0,
+      "gain_gt_0_003": 8,
+      "gain_gt_0_01": 4,
+      "gain_gt_0_05": 0,
+      "hurt_gt_0_01": 5
+    },
+    "PosNeg_effect": {
+      "baseline": "P0_Repeat",
+      "variant": "P3_PosNeg",
+      "mean_gain_mae": -0.002295179430081684,
+      "improved": 30,
+      "worsened": 69,
+      "equal": 1,
+      "gain_gt_0_003": 5,
+      "gain_gt_0_01": 1,
+      "gain_gt_0_05": 0,
+      "hurt_gt_0_01": 6
+    },
+    "Memory_effect": {
+      "baseline": "P0_Repeat",
+      "variant": "M0_Memory",
+      "mean_gain_mae": 0.0032310879147948897,
+      "improved": 72,
+      "worsened": 28,
+      "equal": 0,
+      "gain_gt_0_003": 15,
+      "gain_gt_0_01": 5,
+      "gain_gt_0_05": 2,
+      "hurt_gt_0_01": 2
+    },
+    "Memory_on_PosNeg": {
+      "baseline": "P3_PosNeg",
+      "variant": "M1_PosNegMemory",
+      "mean_gain_mae": 0.00684045174186736,
+      "improved": 78,
+      "worsened": 22,
+      "equal": 0,
+      "gain_gt_0_003": 24,
+      "gain_gt_0_01": 13,
+      "gain_gt_0_05": 3,
+      "hurt_gt_0_01": 0
+    },
+    "Points_on_Memory": {
+      "baseline": "M0_Memory",
+      "variant": "M1_PosNegMemory",
+      "mean_gain_mae": 0.0013141843969907854,
+      "improved": 40,
+      "worsened": 60,
+      "equal": 0,
+      "gain_gt_0_003": 9,
+      "gain_gt_0_01": 4,
+      "gain_gt_0_05": 0,
+      "hurt_gt_0_01": 1
+    },
+    "Overall": {
+      "baseline": "G0_Box",
+      "variant": "M1_PosNegMemory",
+      "mean_gain_mae": 0.003268296476259542,
+      "improved": 79,
+      "worsened": 21,
+      "equal": 0,
+      "gain_gt_0_003": 20,
+      "gain_gt_0_01": 9,
+      "gain_gt_0_05": 1,
+      "hurt_gt_0_01": 0
+    }
+  },
+  "failures": []
+}
