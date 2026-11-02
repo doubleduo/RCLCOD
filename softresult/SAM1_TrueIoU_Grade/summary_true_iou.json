@@ -1,0 +1,92 @@
+{
+  "total_evaluated": 4040,
+  "thresholds": {
+    "clean_min": 0.95,
+    "noisy_min": 0.8
+  },
+  "pools": {
+    "Clean": {
+      "count": 359,
+      "percent": 8.886138613861386,
+      "true_iou_mean": 0.9601372311041206,
+      "true_iou_median": 0.9584023546641831,
+      "true_mae_mean": 0.007676270394128933,
+      "profile_Smeasure_mean": 0.9667317227149247,
+      "profile_MAE_mean": 0.007676270406778829,
+      "candidate_iou_mean": 0.9697690840213342
+    },
+    "Noisy": {
+      "count": 2456,
+      "percent": 60.79207920792079,
+      "true_iou_mean": 0.8885973602802584,
+      "true_iou_median": 0.8960146560204758,
+      "true_mae_mean": 0.012027570822634203,
+      "profile_Smeasure_mean": 0.9330521390065176,
+      "profile_MAE_mean": 0.012027570835659245,
+      "candidate_iou_mean": 0.9401545596544449
+    },
+    "Reject": {
+      "count": 1225,
+      "percent": 30.321782178217823,
+      "true_iou_mean": 0.6295778092429707,
+      "true_iou_median": 0.6822296617675759,
+      "true_mae_mean": 0.043057268330167785,
+      "profile_Smeasure_mean": 0.7908275004600079,
+      "profile_MAE_mean": 0.043057268342414245,
+      "candidate_iou_mean": 0.7781362117302715
+    }
+  },
+  "cross_tab": {
+    "Clean": {
+      "Clean": 311,
+      "Noisy": 1514,
+      "Reject": 152
+    },
+    "Noisy": {
+      "Clean": 43,
+      "Noisy": 847,
+      "Reject": 539
+    },
+    "Reject": {
+      "Clean": 5,
+      "Noisy": 95,
+      "Reject": 534
+    }
+  },
+  "quality_by_candidate_pool": {
+    "Clean": {
+      "count": 1977,
+      "true_iou_mean": 0.8948375203307318,
+      "true_mae_mean": 0.010267720722562847
+    },
+    "Noisy": {
+      "count": 1429,
+      "true_iou_mean": 0.7997579071977237,
+      "true_mae_mean": 0.02203680860883145
+    },
+    "Reject": {
+      "count": 634,
+      "true_iou_mean": 0.6094154133405822,
+      "true_mae_mean": 0.052446002122729575
+    }
+  },
+  "iou_ranges": {
+    "[0,.50)": 240,
+    "[.50,.70)": 435,
+    "[.70,.80)": 550,
+    "[.80,.90)": 1305,
+    "[.90,.95)": 1151,
+    "[.95,1]": 359
+  },
+  "overall": {
+    "true_iou_mean": 0.81641514830132,
+    "true_mae_mean": 0.021049665523845903,
+    "candidate_iou_mean": 0.8936592967932077
+  },
+  "candidate_clean_but_true_reject": 152,
+  "total_input_rows": 4040,
+  "missing_or_failed": 0,
+  "mask_pred_dir": "softresult/SAM1_Optimized3/02_SoftLogits_SO_MO",
+  "mask_gt_dir": "data/Train/GT",
+  "oracle_warning": "True IoU uses training GT; analysis only, never used to generate weak-supervision pools."
+}

@@ -135,3 +135,10 @@ from .acdnet.fpn_zoomnext_gfm_hps import (
     PvtV2B4_FPN_ZoomNeXt_MHSIU_HPS,
     PvtV2B4_FPN_ZoomNeXt_MHSIU_GFM_HPS,
 )
+
+
+from .fpn_zoomnext_sndr import (
+    PvtV2B4_FPN_ZoomNeXt_PUH,
+    PvtV2B4_FPN_ZoomNeXt_SNDR_Single,
+    PvtV2B4_FPN_ZoomNeXt_SNDR,
+)

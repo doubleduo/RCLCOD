@@ -1,0 +1,34 @@
+{
+  "image": "camourflage_01061",
+  "kind": "points",
+  "before": "repeat",
+  "after": "point_only",
+  "before_mae": 0.13464285714285715,
+  "after_mae": 0.12061507936507937,
+  "gain": 0.014027777777777778,
+  "boxes": [
+    [
+      82.0,
+      46.0,
+      177.0,
+      205.0
+    ]
+  ],
+  "active_points": [
+    {
+      "x": 127.7763671875,
+      "y": 190.3984375,
+      "label": 1,
+      "reason": "scribble_conflict",
+      "step": 1
+    },
+    {
+      "x": 124.7001953125,
+      "y": 106.9609375,
+      "label": 1,
+      "reason": "scribble_conflict",
+      "step": 2
+    }
+  ],
+  "note": "No flip. Paired SAM2 controlled comparison; GT for ranking only."
+}

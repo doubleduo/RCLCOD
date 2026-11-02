@@ -1,0 +1,34 @@
+{
+  "image": "COD10K-CAM-3-Flying-59-Grasshopper-3765",
+  "kind": "points",
+  "before": "repeat",
+  "after": "point_only",
+  "before_mae": 0.03137515168669094,
+  "after_mae": 0.028082777826577785,
+  "gain": 0.003292373860113152,
+  "boxes": [
+    [
+      97.0,
+      54.0,
+      657.0,
+      439.0
+    ]
+  ],
+  "active_points": [
+    {
+      "x": 572.95947265625,
+      "y": 236.14990234375,
+      "label": 1,
+      "reason": "scribble_conflict",
+      "step": 1
+    },
+    {
+      "x": 246.24072265625,
+      "y": 291.70556640625,
+      "label": 1,
+      "reason": "scribble_conflict",
+      "step": 2
+    }
+  ],
+  "note": "No flip. Paired SAM2 controlled comparison; GT for ranking only."
+}

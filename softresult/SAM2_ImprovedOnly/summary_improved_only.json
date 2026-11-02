@@ -7,12 +7,12 @@
     "scribble_dir": "./data/Train/Scribble",
     "gt_dir": "./data/Train/GT",
     "json_dir": "./data/Train/box_label",
-    "out_dir": "./softresult/SAM2_ImprovedOnly",
+    "out_dir": "softresult/SAM2_ImprovedOnly",
     "size": 1024,
     "seed": 2026,
-    "limit": 400,
+    "limit": 200,
     "topk_each": 20,
-    "min_gain": 0.005,
+    "min_gain": 0.003,
     "max_initial_per_class": 9,
     "active_min_dist": 16,
     "active_pos": 3,
@@ -27,46 +27,41 @@
   },
   "effects": {
     "Crop_effect": {
-      "num_saved": 1,
+      "num_saved": 3,
       "best_gain": 0.013427376747131348,
-      "mean_gain_saved": 0.013427376747131348,
-      "folder": "./softresult/SAM2_ImprovedOnly/Crop_effect"
+      "mean_gain_saved": 0.006565985347454746,
+      "folder": "softresult/SAM2_ImprovedOnly/Crop_effect"
     },
     "PerBox_effect": {
-      "num_saved": 5,
+      "num_saved": 3,
       "best_gain": 0.03485235571861267,
-      "mean_gain_saved": 0.022120858170092107,
-      "folder": "./softresult/SAM2_ImprovedOnly/PerBox_effect"
+      "mean_gain_saved": 0.023782290518283844,
+      "folder": "softresult/SAM2_ImprovedOnly/PerBox_effect"
     },
     "Pos_effect": {
-      "num_saved": 20,
-      "best_gain": 0.06957599613815546,
-      "mean_gain_saved": 0.015189576102420688,
-      "folder": "./softresult/SAM2_ImprovedOnly/Pos_effect"
+      "num_saved": 16,
+      "best_gain": 0.021461039781570435,
+      "mean_gain_saved": 0.0073654054722283036,
+      "folder": "softresult/SAM2_ImprovedOnly/Pos_effect"
     },
     "Neg_effect": {
-      "num_saved": 17,
+      "num_saved": 11,
       "best_gain": 0.12225424498319626,
-      "mean_gain_saved": 0.023745401269372773,
-      "folder": "./softresult/SAM2_ImprovedOnly/Neg_effect"
+      "mean_gain_saved": 0.022848818281834774,
+      "folder": "softresult/SAM2_ImprovedOnly/Neg_effect"
     },
     "Logits_effect": {
       "num_saved": 20,
-      "best_gain": 0.04911551624536514,
-      "mean_gain_saved": 0.018667805939912796,
-      "folder": "./softresult/SAM2_ImprovedOnly/Logits_effect"
+      "best_gain": 0.04581308364868164,
+      "mean_gain_saved": 0.01230698130093515,
+      "folder": "softresult/SAM2_ImprovedOnly/Logits_effect"
     },
     "PosNegLogits": {
       "num_saved": 20,
-      "best_gain": 0.06874792650341988,
-      "mean_gain_saved": 0.025779200065881015,
-      "folder": "./softresult/SAM2_ImprovedOnly/PosNegLogits"
+      "best_gain": 0.045096009969711304,
+      "mean_gain_saved": 0.014782580779865384,
+      "folder": "softresult/SAM2_ImprovedOnly/PosNegLogits"
     }
   },
-  "failures": [
-    {
-      "image": "./data/Train/Imgs/COD10K-CAM-2-Terrestrial-45-Spider-2569.jpg",
-      "error": "ValueError('zero-dimensional arrays cannot be concatenated')"
-    }
-  ]
+  "failures": []
 }

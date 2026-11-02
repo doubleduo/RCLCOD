@@ -6,7 +6,10 @@ combined_tr:
   {
     root: ".",
     image: { path: "./data/Train/Imgs", suffix: ".jpg" },
-    mask: { path: "./SGT/SAM2_FinalRefine_OriginalPools/03_Refine_NoFlip", suffix: ".png" },
+    
+    mask:   {path: 'softresult/SAM1_Optimized3/03_Refine_NoFlip', suffix: '.png'},
+    #mask:   {path: './data/Train/S1_GT', suffix: '.png'},
+    # mask1: { path: "./SGT/SAM2_FinalRefine_OriginalPools/03_Refine_NoFlip", suffix: ".png" },
     #pseudo_mask: { path: "./data/Train/S2_GT", suffix: ".png" },
     box_json: { path: "./data/Train/box_label", suffix: ".json" },
 

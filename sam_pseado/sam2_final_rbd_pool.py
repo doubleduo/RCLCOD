@@ -1,0 +1,514 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""SAM2 NoFlip final-selected-three RBD + reliability pools.
+
+RBD is recorded from each selected decoder iteration, WITHOUT a new decoder.
+By default original SIM still controls selection/pools for controlled comparisons.
+Use --rbd-for-pools to use 1-RBD in selection/pool logic; old thresholds are uncalibrated.
+NEVER use --resume with old non-RBD output unless willing to recompute those images.
+
+Requires the adjacent modified sam2_refine_crop_flipgate.py and existing
+sam2_pool_from_refined.py from RCLCOD (commit 9e05c95).  Per-instance SIM,
+SAM scores, and masks correspond to each instance's SELECTED accepted decoder
+iteration. GT never enters prompt generation, acceptance, or pool assignment.
+"""
+from __future__ import annotations
+import argparse
+import json
+import math
+import random
+from collections import Counter
+from pathlib import Path
+
+import cv2
+import numpy as np
+import torch
+from tqdm import tqdm
+
+import sam2_refine_crop as ref
+import sam2_pool_from_refined as quality
+
+
+
+# ===== Actual final selected three-candidate RBD (not the old SIM) =====
+_RBD_CONFIG = dict(alpha=0.5, boundary_ratio=0.02, boundary_min=1, boundary_max=32, for_pools=False)
+_ORIGINAL_CONSENSUS = ref.consensus  # preserves legacy pairwise IoU/SSIM/SIM
+
+
+def _inner_band(mask, width):
+    m = np.asarray(mask, dtype=bool)
+    if not m.any():
+        return m.copy()
+    padded = np.pad(m.astype(np.uint8), 1)
+    dist = cv2.distanceTransform(padded, cv2.DIST_L2, cv2.DIST_MASK_PRECISE)[1:-1, 1:-1]
+    return m & (dist <= float(width) + 1e-5)
+
+
+def _mask_iou(a, b):
+    union = int(np.count_nonzero(a | b))
+    return float(np.count_nonzero(a & b) / union) if union else 1.0
+
+
+def rbd_consensus(masks):
+    """Called INSIDE SAM2Engine.predict_three on each actual SAM2 3-mask output.
+
+    Last-selected iteration carries its own quality dict to per_box_quality.
+    No need to monkey-patch nonexistent FinalQualityEngine.
+    """
+    m = np.asarray(masks, dtype=bool)
+    if m.ndim != 3 or m.shape[0] != 3:
+        raise ValueError(f'RBD expects 3 masks (3,H,W), received {m.shape}')
+    alpha = _RBD_CONFIG['alpha']
+    ratio = _RBD_CONFIG['boundary_ratio']
+    union = np.any(m, axis=0)
+    if union.any():
+        yy, xx = np.where(union)
+        longside = max(int(xx.max() - xx.min() + 1), int(yy.max() - yy.min() + 1))
+    else:
+        longside = 0
+    width = int(np.clip(round(longside * ratio), _RBD_CONFIG['boundary_min'], _RBD_CONFIG['boundary_max']))
+    bands = [_inner_band(mm, width) for mm in m]
+    out = dict(_ORIGINAL_CONSENSUS(m))  # genuine legacy SSIM retained
+    reg, bnd, rbd = [], [], []
+    for i, j, suffix in ((0,1,'12'),(0,2,'13'),(1,2,'23')):
+        riou = _mask_iou(m[i], m[j])
+        biou = _mask_iou(bands[i], bands[j])
+        disagreement = float(alpha * (1-riou) + (1-alpha) * (1-biou))
+        reg.append(riou); bnd.append(biou); rbd.append(disagreement)
+        out.update({f'candidate_region_iou_{suffix}':riou,
+                    f'candidate_boundary_iou_{suffix}':biou,
+                    f'candidate_rbd_{suffix}':disagreement})
+    out.update(rbd=float(np.mean(rbd)), rbd_region=float(1-np.mean(reg)),
+               rbd_boundary=float(1-np.mean(bnd)),
+               region_iou_mean=float(np.mean(reg)),
+               boundary_iou_mean=float(np.mean(bnd)),
+               rbd_alpha=float(alpha),
+               rbd_boundary_width=int(width),
+               rbd_boundary_ratio=float(ratio),
+               legacy_candidate_consensus_s=float(out['candidate_consensus_s']),
+               rbd_agreement=float(1-np.mean(rbd)),
+               rbd_for_pools=int(_RBD_CONFIG['for_pools']))
+    if _RBD_CONFIG['for_pools']:
+        # Old pool routine reads this one field; thresholds need recalibration.
+        out['candidate_consensus_s'] = out['rbd_agreement']
+    return out
+
+
+def assert_rbd_record(record):
+    required = ('rbd','rbd_region','rbd_boundary',
+                'candidate_boundary_iou_12','candidate_boundary_iou_13',
+                'candidate_boundary_iou_23','legacy_candidate_consensus_s')
+    missing = [key for key in required if key not in record]
+    if missing:
+        raise ValueError('MISSING TRUE RBD in selected decoder record: ' + ', '.join(missing))
+    if abs(float(record['rbd']) + float(record['rbd_agreement']) - 1.0) > 1e-5:
+        raise ValueError('RBD consistency check failed')
+
+
+def rbd_self_test():
+    x = np.zeros((3,40,40), dtype=bool)
+    x[:,8:28,9:30] = True
+    a = rbd_consensus(x)
+    assert abs(a['rbd']) < 1e-8 and a['rbd_agreement'] == 1.0
+    x[2,8:28,9:14] = False
+    b = rbd_consensus(x)
+    assert 0 < b['rbd'] < 1 and b['candidate_boundary_iou_13'] < 1
+    assert abs(b['candidate_consensus_s'] - b['legacy_candidate_consensus_s']) < 1e-8 or _RBD_CONFIG['for_pools']
+    assert_rbd_record(b)
+    print('RBD TEST PASS: identical, truncated, SSIM-preserved, required fields')
+
+def etc_info(mask,box,border_tolerance=4):
+    """Count actual image-edge activations, not edges of artificial crop window."""
+    m=np.asarray(mask,bool)
+    h,w=m.shape
+    hit=[bool(m[0,:].any()),bool(m[-1,:].any()),bool(m[:,0].any()),bool(m[:,-1].any())]
+    box_near=[box[1]<=border_tolerance,box[3]>=h-1-border_tolerance,
+              box[0]<=border_tolerance,box[2]>=w-1-border_tolerance]
+    return {'etc':int(sum(hit)),
+            'etc_suspicious':int(sum(hh and not bn for hh,bn in zip(hit,box_near))),
+            'etc_top':int(hit[0]),'etc_bottom':int(hit[1]),
+            'etc_left':int(hit[2]),'etc_right':int(hit[3])}
+
+
+def compute_region_quality(prob, hard_mask, bmask, all_boxes_mask, valid_region, score,stability,similarity):
+    """Original RCLCOD weights with outside-of-box confidence restricted to measured pixels.
+
+    For Crop, caller supplies real global prediction as probability fallback
+    outside crop. Background for one object excludes ALL annotated boxes.
+    This avoids treating unobserved zero fill / other annotated objects as easy BG.
+    """
+    p=np.asarray(prob,np.float32)
+    m=np.asarray(hard_mask,bool)
+    valid=np.asarray(valid_region,bool)
+    core=quality.erode_mask(m, quality.CORE_ERODE_RADIUS)
+    if not core.any():core=m.copy()
+    fg=p[core & valid]
+    fg_mean=float(np.clip(fg.mean(),0,1)) if fg.size else 0.0
+    fg_p10=float(np.clip(np.quantile(fg,.10),0,1)) if fg.size else 0.0
+    ring=quality.dilate_mask(m,quality.BACKGROUND_RING_RADIUS) & ~m & valid & ~all_boxes_mask
+    ring_val=1.0-p[ring]
+    ring_bg=float(np.clip(ring_val.mean(),0,1)) if ring_val.size else float('nan')
+    outside=(~all_boxes_mask)&(~m)&valid
+    hardval=p[outside]
+    hard_bg=float(np.clip(1.0-np.quantile(hardval,.95),0,1)) if hardval.size else float('nan')
+    parts=[];weights=[]
+    if np.isfinite(ring_bg):parts.append(ring_bg);weights.append(.7)
+    if np.isfinite(hard_bg):parts.append(hard_bg);weights.append(.3)
+    bg=float(np.average(parts,weights=weights)) if parts else 0.0
+    ring_q=ring_bg if np.isfinite(ring_bg) else bg
+    hard_q=hard_bg if np.isfinite(hard_bg) else bg
+    rw=quality.REGION_Q_WEIGHTS;sw=quality.SHAPE_Q_WEIGHTS
+    qr=float(np.clip(rw['fg_mean']*fg_mean+rw['fg_p10']*fg_p10+
+                    rw['ring_bg']*ring_q+rw['hard_outside_bg']*hard_q,0,1))
+    qs=float(np.clip(sw['sam_score']*score+sw['sam_stability']*stability+
+                    sw['candidate_consensus_s']*similarity,0,1))
+    fail_fg=int(fg_mean<quality.MIN_FG_CONFIDENCE)
+    fail_bg=int(bg<quality.MIN_BG_CONFIDENCE)
+    fail_score=int(score<quality.MIN_SAM_SCORE)
+    fail_stability=int(stability<quality.MIN_SAM_STABILITY)
+    return dict(q_region=qr,q_shape=qs,q_dual=float(math.sqrt(qr*qs)),q_total=float(math.sqrt(qr*qs)),
+                fg_mean_confidence=fg_mean,fg_p10_confidence=fg_p10,fg_confidence=fg_mean,
+                bg_confidence=bg,ring_bg_confidence=ring_bg,
+                hard_outside_bg_confidence=hard_bg,
+                sam_score_selected=float(score),sam_stability_selected=float(stability),
+                fail_fg_gate=fail_fg,fail_bg_gate=fail_bg,
+                fail_score_gate=fail_score,fail_stability_gate=fail_stability,
+                fails_quality_gate=int(bool(fail_fg or fail_bg or fail_score or fail_stability)),
+                quality_valid_background_ratio=float(outside.mean()))
+
+
+def evaluate_final_pool(pipeline,base_record,cfg,out,use_gt):
+    name=base_record['base_name'];h=int(base_record['image_height']);w=int(base_record['image_width'])
+    final_prob=np.load(str(Path(cfg.out_dir)/'refine_prob'/f'{name}.npy'),allow_pickle=False)
+    if final_prob.shape!=(h,w) or final_prob.dtype!=np.float32:
+        raise ValueError(f'Expected full-resolution FP32 probability: {name}: {final_prob.shape}/{final_prob.dtype}')
+    final_mask=quality.read_gray_mask(Path(cfg.refine_dir)/f'{name}.png',(h,w))
+    disagreement=float(np.mean((final_prob>=.5)!=final_mask))
+    if disagreement:
+        raise ValueError(f'Hard mask != saved FP32 prob at {disagreement:.3%} pixels: {name}')
+    boxes=[np.asarray(o['box'],np.float32) for o in pipeline.last_objects]
+    if len(boxes)!=base_record['num_boxes']:
+        raise ValueError(f'Object mismatch {name}')
+    all_boxmask=np.zeros((h,w),bool)
+    for box in boxes:all_boxmask|=ref.box_mask(box,h,w)
+    scored=[]
+    for item in pipeline.last_objects:
+        record=dict(item['record']);box=item['box']
+        assert_rbd_record(record)
+        prob=np.asarray(item['prob'],np.float32)
+        mask=prob>=.5
+        # Original full-image BG from a selected global refinement is preferable
+        # to unobserved zeros outside crop. The generator saves this as quality_prob.
+        qprob=np.asarray(item.get('quality_prob',prob),np.float32)
+        qvalid=np.asarray(item.get('quality_valid_region',item['valid_region']),bool)
+        score=record['sam_score_selected']
+        stability=record['sam_stability_selected']
+        s=record['candidate_consensus_s']
+        q=compute_region_quality(qprob,mask,ref.box_mask(box,h,w),all_boxmask,qvalid,score,stability,s)
+        geom=quality.compute_v_violation(mask,ref.box_mask(box,h,w),box)
+        anomalies=quality.compute_bad_response_flags(mask,ref.box_mask(box,h,w),box,h,w,
+                                                     bool(box[0]<=quality.OV_BORDER_DELTA or
+                                                          box[1]<=quality.OV_BORDER_DELTA or
+                                                          box[2]>=w-quality.OV_BORDER_DELTA or
+                                                          box[3]>=h-quality.OV_BORDER_DELTA))
+        edge=etc_info(mask,box)
+        score_grade=quality.candidate_grade_from_s(s)
+        hard=int(bool(record.get('invalid_fallback',0)) or score_grade=='low' or q['fails_quality_gate'] or anomalies['is_bad_response'])
+        if hard:pool='unvalue'
+        elif score_grade=='middle' or anomalies['is_refinable_risk'] or edge['etc_suspicious']:
+            pool='middle'
+        else:pool='high'
+        scored.append({**record,**q,**anomalies,**geom,**edge,
+                       'candidate_s_grade':score_grade,'force_unvalue':hard,'recommended_pool':pool})
+    (out/'per_box_quality').mkdir(parents=True,exist_ok=True)
+    per_box_path=out/'per_box_quality'/f'{name}.json'
+    ref.write_json(per_box_path, scored)
+    return aggregate_from_saved_quality(scored,base_record,cfg,out,final_prob,final_mask,use_gt,per_box_path)
+
+def aggregate_from_saved_quality(scored,base_record,cfg,out,final_prob,final_mask,use_gt,per_box_path):
+    """Identical image-level pool logic for live inference and offline recovery.
+
+    All per-instance quality measurements were generated by the same selected
+    decoder state as the saved mask. No SAM2 inference is needed here.
+    """
+    name=base_record['base_name'];h=int(base_record['image_height']);w=int(base_record['image_width'])
+    if not scored: raise ValueError('Empty per-box quality: '+name)
+    for rec in scored: assert_rbd_record(rec)
+    # Image-level conservative aggregate: ANY invalid object => image unvalue.
+    grades=[p['recommended_pool'] for p in scored]
+    final_grade='unvalue' if 'unvalue' in grades else 'middle' if 'middle' in grades else 'high'
+    boxes=[np.asarray(o['box'],np.float32) for o in scored]
+    all_boxmask=np.zeros((h,w),bool)
+    for box in boxes: all_boxmask |= ref.box_mask(box,h,w)
+    sim=min(p['candidate_consensus_s'] for p in scored)
+    image_rbd=max(float(p['rbd']) for p in scored)
+    score=min(p['sam_score_selected'] for p in scored)
+    stab=min(p['sam_stability_selected'] for p in scored)
+    qr=min(p['q_region'] for p in scored)
+    qs=min(p['q_shape'] for p in scored)
+    qdual=float(math.sqrt(qr*qs))
+    # Image-level boundary ambiguity from *actual* final probability.
+    boundary=quality.compute_boundary_uncertainty(final_prob,final_mask)
+    union=ref.union_box(boxes)
+    struct=quality.compute_structure_info(union,h,w,len(boxes))
+    # Explicitly avoid treating multiple known objects as fragmentation noise.
+    merged_geom=quality.compute_v_violation(final_mask,all_boxmask,union)
+    merged_etc=etc_info(final_mask,union)
+    aggregate=dict(image=name,hard_mask_path=str(Path(cfg.refine_dir)/f'{name}.png'),
+                   full_prob_path=str(Path(cfg.out_dir)/'refine_prob'/f'{name}.npy'),
+                   per_box_quality_path=str(per_box_path),
+                   # Image-level RBD: conservative worst instance. These fields were
+                   # previously calculated but omitted from the output dictionary.
+                   rbd=image_rbd,
+                   rbd_region=max(float(p['rbd_region']) for p in scored),
+                   rbd_boundary=max(float(p['rbd_boundary']) for p in scored),
+                   rbd_agreement=1.0-image_rbd,
+                   rbd_alpha=float(scored[0]['rbd_alpha']),
+                   rbd_boundary_ratio=float(scored[0]['rbd_boundary_ratio']),
+                   rbd_for_pools=int(scored[0]['rbd_for_pools']),
+                   legacy_candidate_consensus_s=min(float(p['legacy_candidate_consensus_s']) for p in scored),
+                   candidate_consensus_s=sim,sam_score_selected=score,
+                   sam_stability_selected=stab,
+                   candidate_s_grade=quality.candidate_grade_from_s(sim),
+                   q_region=qr,q_shape=qs,q_dual=qdual,q_total=qdual,
+                   recommended_pool=final_grade,
+                   force_unvalue=int(final_grade=='unvalue'),
+                   fails_quality_gate=int(any(p['fails_quality_gate'] for p in scored)),
+                   is_bad_response=int(any(p['is_bad_response'] for p in scored)),
+                   is_refinable_risk=int(any(p['is_refinable_risk'] for p in scored)),
+                   is_fragmented_response=int(any(p['is_fragmented_response'] for p in scored)),
+                   is_severe_fragmented_response=int(any(p['is_severe_fragmented_response'] for p in scored)),
+                   is_reversal_response=int(any(p['is_reversal_response'] for p in scored)),
+                   outside_pixel_count=merged_geom['outside_pixel_count'],
+                   v_outside=merged_geom['v_outside'],v_total=merged_geom['v_total'],
+                   etc=merged_etc['etc'],etc_suspicious=merged_etc['etc_suspicious'],
+                   num_high_objects=sum(p=='high' for p in grades),
+                   num_middle_objects=sum(p=='middle' for p in grades),
+                   num_unvalue_objects=sum(p=='unvalue' for p in grades),
+                   num_invalid_fallback_objects=sum(int(p.get('invalid_fallback',0)) for p in scored),
+                   has_invalid_fallback=int(any(p.get('invalid_fallback',0) for p in scored)),
+                   quality_source='selected_decoder_with_explicit_invalid_fallback',
+                   multi_box_quality_aggregation='worst_object_conservative',
+                   source_mask='ReliabilityControlled_NoFlip',
+                   q_region_rank_global=-1,q_shape_rank_global=-1,
+                   q_dual_rank_global=-1,q_region_rank_within_pool=-1,
+                   q_shape_rank_within_pool=-1,q_dual_rank_within_pool=-1,
+                   q_rank_global=-1,q_rank_within_pool=-1,
+                   is_BA=0,ba_threshold=float('nan'))
+    aggregate={**base_record,**struct,**boundary,**aggregate}
+    prob48=out/'Prob_48x48_FP16';prob48.mkdir(parents=True,exist_ok=True)
+    path=prob48/f'{name}.npy'
+    np.save(path,cv2.resize(final_prob,(48,48),interpolation=cv2.INTER_AREA).astype(np.float16),allow_pickle=False)
+    aggregate['prob_48_path']=str(path)
+    if use_gt:
+        aggregate.update(quality.calc_metrics(final_mask,Path(cfg.gt_dir)/f'{name}.png',(h,w)))
+    else:
+        aggregate.update(has_gt=0,IoU=float('nan'),MAE=float('nan'))
+    return aggregate
+
+
+def cached_row(image_path,cfg,out,use_gt):
+    """Recover a complete previously successful image without loading SAM2.
+
+    Reconstructs image-level quality and rank inputs from persisted FP32
+    probability, exact PNG, and per-box quality JSON of v2.1/v2.2.
+    """
+    name=Path(image_path).stem
+    pq=out/'per_box_quality'/f'{name}.json'
+    pro=out/'refine_prob'/f'{name}.npy'
+    png=out/'03_Refine_NoFlip'/f'{name}.png'
+    history=out/'per_box_history'/f'{name}.json'
+    if not all(x.is_file() for x in (pq,pro,png,history)):
+        return None
+    try:
+        scored=json.loads(pq.read_text(encoding='utf-8'))
+        if not isinstance(scored,list) or not scored:raise ValueError('per-box JSON empty')
+        for item in scored: assert_rbd_record(item)
+        if any(abs(float(item['rbd_alpha']) - _RBD_CONFIG['alpha']) > 1e-9 or
+               abs(float(item['rbd_boundary_ratio']) - _RBD_CONFIG['boundary_ratio']) > 1e-9 or
+               int(item['rbd_for_pools']) != int(_RBD_CONFIG['for_pools']) for item in scored):
+            raise ValueError('RBD scoring configuration mismatch; cache not reusable')
+        prob=np.load(str(pro),allow_pickle=False)
+        if prob.ndim!=2 or prob.dtype!=np.float32: raise ValueError('invalid probability cache')
+        h,w=prob.shape
+        hard=quality.read_gray_mask(png,(h,w))
+        if np.any((prob>=.5)!=hard):raise ValueError('probability/PNG mismatch')
+        boxes=[np.asarray(r['box'],np.float32) for r in scored]
+        if not all(b.shape==(4,) and np.isfinite(b).all() for b in boxes):raise ValueError('corrupt cached boxes')
+        if any('q_region' not in r or 'q_shape' not in r or 'recommended_pool' not in r for r in scored):
+            raise ValueError('incomplete per-box scores')
+        ub=ref.union_box(boxes)
+        base=dict(image_name=Path(image_path).name,base_name=name,
+                  image_height=h,image_width=w,num_boxes=len(scored),
+                  route_type='MULTI_BOX' if len(scored)>1 else scored[0]['route'],
+                  crop_count=sum(int(r.get('route')=='CROP') for r in scored),
+                  accepted_steps=sum(int(r['selected_step']) for r in scored),
+                  auto_pos=sum(int(r.get('num_auto_positive',0)) for r in scored),
+                  auto_neg=sum(int(r.get('num_auto_negative',0)) for r in scored),
+                  prompt_mode=cfg.prompt_mode,refine_iters=cfg.refine_iters,
+                  per_box_history_path=str(history),
+                  box_area_ratio=float((ub[2]-ub[0])*(ub[3]-ub[1])/(h*w)),
+                  hard_mask_path=str(png),full_prob_path=str(pro))
+        return aggregate_from_saved_quality(scored,base,cfg,out,prob,hard,use_gt,pq)
+    except (ValueError,KeyError,IndexError,TypeError,RuntimeError,UnicodeError,OSError) as exc:
+        tqdm.write(f'[CACHE INVALID] {name}: {exc}. Will recompute if permitted.')
+        return None
+
+
+def _self_test():
+    m=np.zeros((24,32),bool)
+    m[:3,4:8]=True
+    assert etc_info(m,np.array([3,0,12,11]))['etc']==1
+    assert etc_info(m,np.array([3,10,12,20]))['etc_suspicious']==1
+    prob=np.full((24,32),.05,np.float32)
+    prob[10:17,8:20]=.92
+    hard=prob>=.5
+    b=ref.box_mask([7,9,21,18],24,32)
+    q=compute_region_quality(prob,hard,b,b,np.ones_like(b),.95,.95,.95)
+    assert 0<=q['q_region']<=1 and 0<=q['q_dual']<=1
+    print('SELF TEST PASS: ETC, full-prob region quality, gate fields')
+
+
+def main(argv=None):
+    ap=argparse.ArgumentParser(description=__doc__)
+    ap.add_argument('--sam2-checkpoint',default=ref.Config.sam2_checkpoint)
+    ap.add_argument('--sam2-config',default=ref.Config.sam2_config)
+    ap.add_argument('--img-dir',default=ref.Config.img_dir)
+    ap.add_argument('--scribble-dir',default=ref.Config.scribble_dir)
+    ap.add_argument('--json-dir',default=ref.Config.json_dir)
+    ap.add_argument('--gt-dir',default=ref.Config.gt_dir)
+    ap.add_argument('--output-dir',default='./SGT/SAM2_FinalRefine_OriginalPools')
+    ap.add_argument('--device',default=ref.Config.device)
+    ap.add_argument('--prompt-mode',choices=['box','scribble'],default='scribble')
+    ap.add_argument('--refine-iters',type=int,default=2)
+    ap.add_argument('--no-active',action='store_true')
+    ap.add_argument('--no-auto-points',action='store_true')
+    ap.add_argument('--no-crop',action='store_true')
+    ap.add_argument('--small-box-area-thr',type=float,default=.10)
+    ap.add_argument('--crop-context',type=float,default=.35)
+    ap.add_argument('--eval-gt',action='store_true')
+    ap.add_argument('--limit',type=int,default=0)
+    ap.add_argument('--allow-partial',action='store_true')
+    ap.add_argument('--save-iterations',action='store_true')
+    ap.add_argument('--resume',action='store_true',help='Reuse all completed images, run SAM2 only for missing images')
+    ap.add_argument('--recover-only',action='store_true',help='Recover cached pool CSV/TXT without loading SAM2; incomplete coverage is reported')
+    ap.add_argument('--self-test',action='store_true')
+    ap.add_argument('--rbd-alpha',type=float,default=0.5)
+    ap.add_argument('--boundary-ratio',type=float,default=0.02)
+    ap.add_argument('--boundary-min',type=int,default=1)
+    ap.add_argument('--boundary-max',type=int,default=32)
+    ap.add_argument('--rbd-for-pools',action='store_true',
+                    help='Use 1-RBD instead of legacy SIM for existing pool gating (thresholds uncalibrated)')
+    args=ap.parse_args(argv)
+    if not (0 <= args.rbd_alpha <= 1 and 0 < args.boundary_ratio <= 1):
+        ap.error('RBD alpha must be [0,1], boundary ratio must be (0,1]')
+    if not (1 <= args.boundary_min <= args.boundary_max):
+        ap.error('Require 1 <= boundary-min <= boundary-max')
+    _RBD_CONFIG.update(alpha=args.rbd_alpha,boundary_ratio=args.boundary_ratio,
+                       boundary_min=args.boundary_min,boundary_max=args.boundary_max,
+                       for_pools=args.rbd_for_pools)
+    ref.consensus = rbd_consensus   # sam2_refine_crop.SAM2Engine.predict_three actually calls this
+    if args.self_test:_self_test();rbd_self_test();return
+    if args.refine_iters<0:ap.error('refine-iters must be >=0')
+    if args.resume and args.recover_only:ap.error('--resume and --recover-only are mutually exclusive')
+    if not 0<=args.small_box_area_thr<=1:ap.error('small-box-area-thr must be [0,1]')
+    random.seed(0);np.random.seed(0);torch.manual_seed(0)
+    out=Path(args.output_dir)
+    # Refuse to overwrite older, non-RBD runs. Their final masks may be useful
+    # but lack the three final candidate arrays needed for exact RBD recovery.
+    old_json_dir = out / 'per_box_quality'
+    if old_json_dir.is_dir() and not args.recover_only:
+        old_files = sorted(old_json_dir.glob('*.json'))
+        for old_file in old_files[:3]:
+            try:
+                old_items = json.loads(old_file.read_text(encoding='utf-8'))
+                if not old_items or 'rbd' not in old_items[0]:
+                    ap.error(f'Output folder already contains OLD non-RBD cache: {old_file}. '
+                             'Use a NEW --output-dir, preserving all existing results.')
+            except (ValueError, OSError, TypeError, IndexError):
+                ap.error(f'Cannot safely inspect cache {old_file}; use a new output directory')
+    cfg=ref.Config(sam2_checkpoint=args.sam2_checkpoint,sam2_config=args.sam2_config,
+                   device=args.device,img_dir=args.img_dir,scribble_dir=args.scribble_dir,
+                   json_dir=args.json_dir,gt_dir=args.gt_dir,out_dir=str(out),
+                   prompt_mode=args.prompt_mode,refine_iters=args.refine_iters,
+                   active_points=not args.no_active,auto_points=not args.no_auto_points,
+                   use_crop=not args.no_crop,small_box_area_thr=args.small_box_area_thr,
+                   crop_context=args.crop_context,save_probs=True,
+                   save_iterations=args.save_iterations)
+    images=ref.DataLoader.list_images(cfg.img_dir)
+    if args.limit:images=images[:args.limit]
+    rows=[];errors=[]
+    pipe=None
+    restored=0;computed=0
+    for img in tqdm(images,desc='SAM2 resume/recovery NoFlip + pools'):
+        name=Path(img).stem
+        try:
+            cached=cached_row(img,cfg,out,args.eval_gt) if (args.resume or args.recover_only) else None
+            if cached is not None:
+                rows.append(cached);restored+=1
+                continue
+            if args.recover_only:
+                errors.append({'image':str(img),'error':'No complete cached result; SAM2 not run in recover-only mode'})
+                continue
+            if pipe is None:
+                pipe=ref.Pipeline(cfg)  # lazy: --recover-only never builds SAM2
+            basic=pipe.process_image(img)
+            if not pipe.last_objects: raise RuntimeError('No selected SAM2 object records')
+            for item in pipe.last_objects: assert_rbd_record(item['record'])
+            rows.append(evaluate_final_pool(pipe,basic,cfg,out,args.eval_gt))
+            computed+=1
+        except Exception as exc:
+            errors.append({'image':str(img),'error':repr(exc)})
+            if len(errors)<=15:tqdm.write(f'[ERROR] {Path(img).name}: {exc}')
+    out.mkdir(parents=True,exist_ok=True)
+    # Preserve error diagnostics from the expensive previous run before
+    # --resume / --recover-only writes the current missing-image list.
+    import shutil
+    old_errors=out/'errors.json'
+    previous_errors=out/'errors_previous_run.json'
+    if old_errors.is_file() and not previous_errors.exists():
+        shutil.copy2(old_errors,previous_errors)
+    ref.write_json(out/'errors.json', errors)
+    if not rows:
+        raise RuntimeError('No complete cached images found and no SAM2 images succeeded')
+    if errors:
+        tqdm.write(f'[INCOMPLETE] {len(errors)} / {len(images)} images missing. '
+                   f'CSV/TXT WILL be written with complete=false; see {out/"errors.json"}.')
+    rows.sort(key=lambda r:r['image'])
+    bvals=np.array([quality.safe_float(r['boundary_uncertainty']) for r in rows],np.float32)
+    bvals=bvals[np.isfinite(bvals)]
+    bthr=float(np.quantile(bvals,1-quality.BA_TOP_RATIO)) if bvals.size else float('nan')
+    for row in rows:
+        val=quality.safe_float(row['boundary_uncertainty'])
+        row['ba_threshold']=bthr
+        row['is_BA']=int(np.isfinite(bthr) and np.isfinite(val) and val>=bthr)
+    quality.assign_q_ranks(rows)
+    (out/'csv').mkdir(exist_ok=True,parents=True)
+    for pool in ('high','middle','unvalue'):
+        sub=[r for r in rows if r['recommended_pool']==pool]
+        ranked=sorted(sub,key=lambda r:(-r['q_dual'],r['image']))
+        # Preserve old alphabetically sorted lists for loaders expecting their format.
+        (out/f'{pool}.txt').write_text(''.join(r['image']+'\n' for r in sub),encoding='utf-8')
+        (out/f'{pool}_masks.txt').write_text(''.join(r['hard_mask_path']+'\n' for r in sub),encoding='utf-8')
+        (out/f'{pool}_ranked.txt').write_text(''.join(r['image']+'\n' for r in ranked),encoding='utf-8')
+        quality.save_csv(out/'csv'/f'{pool}.csv',sub)
+    quality.save_csv(out/'csv'/'image_level_metrics.csv',rows)
+    groups=Counter(r['recommended_pool'] for r in rows)
+    summary=dict(images=len(rows),expected_images=len(images),failed=len(errors),
+                 invalid_fallback_images=sum(bool(r.get('has_invalid_fallback',0)) for r in rows),
+                 complete=(len(errors)==0 and len(rows)==len(images)),
+                 restored_from_cache=restored,inferred_this_run=computed,
+                 high=groups['high'],middle=groups['middle'],unvalue=groups['unvalue'],
+                 prompt_mode=cfg.prompt_mode,flip=False,
+                 source='reliability-controlled selected decoder + per-box quality',
+                 high_middle_unvalue='worst object conservatively',
+                 gt_used_for_selection=False)
+    ref.write_json(out/'summary.json', summary)
+    print('Pool result:',summary)
+    print('CSV:',out/'csv'/'image_level_metrics.csv')
+    verified = all('rbd' in r and np.isfinite(float(r['rbd'])) for r in rows)
+    if not verified:
+        raise RuntimeError('Missing image-level RBD: refusing to report success')
+    print('RBD verified:', verified, '; routing:', '1-RBD' if args.rbd_for_pools else 'Original SIM')
+
+if __name__=='__main__':main()

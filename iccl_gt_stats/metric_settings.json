@@ -1,0 +1,18 @@
+{
+  "rgb_dir": "/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/data/Train/Imgs",
+  "gt_dir": "/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/data/Train/GT",
+  "image_count": 4040,
+  "gt_count": 4040,
+  "resize": 384,
+  "gt_threshold": 127,
+  "canny_low": 100,
+  "canny_high": 200,
+  "blur": 3,
+  "hist_bins": 8,
+  "metrics": [
+    "S_obj",
+    "D_bound",
+    "Sim_FB"
+  ],
+  "purpose": "GT-only posthoc analysis; not weak-supervision training"
+}

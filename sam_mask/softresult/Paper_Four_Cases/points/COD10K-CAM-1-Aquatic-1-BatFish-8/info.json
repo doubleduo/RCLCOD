@@ -1,0 +1,34 @@
+{
+  "image": "COD10K-CAM-1-Aquatic-1-BatFish-8",
+  "kind": "points",
+  "before": "repeat",
+  "after": "point_only",
+  "before_mae": 0.03563744145199063,
+  "after_mae": 0.03182450234192037,
+  "gain": 0.0038129391100702598,
+  "boxes": [
+    [
+      70.0,
+      40.0,
+      384.0,
+      598.0
+    ]
+  ],
+  "active_points": [
+    {
+      "x": 277.42529296875,
+      "y": 70.4375,
+      "label": 1,
+      "reason": "scribble_conflict",
+      "step": 1
+    },
+    {
+      "x": 200.69873046875,
+      "y": 135.4375,
+      "label": 1,
+      "reason": "scribble_conflict",
+      "step": 2
+    }
+  ],
+  "note": "No flip. Paired SAM2 controlled comparison; GT for ranking only."
+}

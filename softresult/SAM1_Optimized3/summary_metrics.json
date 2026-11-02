@@ -1,0 +1,112 @@
+{
+  "Base": {
+    "Smeasure": 0.869633713808392,
+    "maxE": 0.9409866783952359,
+    "maxF": 0.8496184843718984,
+    "MAE": 0.029491479181456046
+  },
+  "Refine_NoFlip": {
+    "Smeasure": 0.8922028355934339,
+    "maxE": 0.9588482296038973,
+    "maxF": 0.8903019459713248,
+    "MAE": 0.02126493429974235
+  },
+  "Refine_FlipGate": {
+    "Smeasure": 0.892919908395588,
+    "maxE": 0.9592031461103718,
+    "maxF": 0.891450730343388,
+    "MAE": 0.021049665536601522
+  },
+  "RouteBreakdown": {
+    "NORMAL": {
+      "num_images": 2919,
+      "profile": {
+        "Smeasure": 0.8948675633485328,
+        "maxE": 0.9554839618567859,
+        "maxF": 0.8956898315027172,
+        "MAE": 0.02667336215518106
+      }
+    },
+    "SO_CROP": {
+      "num_images": 969,
+      "profile": {
+        "Smeasure": 0.8955836864900756,
+        "maxE": 0.9711768872290081,
+        "maxF": 0.8854679419363134,
+        "MAE": 0.004440354804918785
+      }
+    },
+    "MO_PER_BOX": {
+      "num_images": 152,
+      "profile": {
+        "Smeasure": 0.8385356598350304,
+        "maxE": 0.9542935651383901,
+        "maxF": 0.8481835308853164,
+        "MAE": 0.018936847571910078
+      }
+    }
+  },
+  "Diagnostics": {
+    "num_images": 4040,
+    "num_attempted": 4040,
+    "num_failures": 0,
+    "num_skipped_missing_inputs": 0,
+    "flip_accepted": 3751,
+    "flip_rejected": 289,
+    "num_cropped_boxes": 1235,
+    "num_added_points": 8493
+  },
+  "MetricNote": "Legacy columns maxE/maxF mean binary E/F at threshold 0.5; not sweep max or adaptive E/F.",
+  "Config": {
+    "sam_checkpoint": "./sam_mask/weights/sam_vit_h_4b8939.pth",
+    "sam_model_type": "vit_h",
+    "device": "cuda",
+    "img_dir": "./data/Train/Imgs",
+    "scribble_dir": "./data/Train/Scribble",
+    "gt_dir": "./data/Train/GT",
+    "json_dir": "./data/Train/box_label",
+    "out_dir": "./softresult/SAM1_Optimized3",
+    "size": 1024,
+    "seed": 0,
+    "refine_iters": 2,
+    "active_points": true,
+    "use_mask_memory": true,
+    "active_min_dist": 16,
+    "active_conflict_first": true,
+    "max_initial_per_class": 9,
+    "use_crop": true,
+    "small_box_area_thr": 0.1,
+    "crop_context": 0.35,
+    "crop_min_context": 16,
+    "crop_square": true,
+    "box_prompt_margin": 5,
+    "multi_box_merge_margin": 25,
+    "flip_gate": true,
+    "flip_mode": "gate",
+    "flip_min_iou": 0.75,
+    "flip_max_area_ratio": 1.5,
+    "flip_scribble_tol": 0.015,
+    "flip_boundary_radius": 7,
+    "flip_base_uncertainty": 0.22,
+    "flip_other_confidence": 0.2,
+    "flip_alpha": 0.6,
+    "save_probs": false,
+    "candidate_quality": true,
+    "vis_mae_thr": 0.03,
+    "vis_gain_thr": 0.003
+  },
+  "SAMVersion": "SAM1",
+  "PromptNote": "Box + human scribble; GT is evaluation only; NOT box-only supervision.",
+  "IterationNote": "refine_iters=N gives N extra SAM1 decoder calls after the initial call.",
+  "MaskMemory": true,
+  "CandidateQualityNote": "Extra multimask_output=True SAM1 call using EXACT last non-flip refinement points/box/input-mask-memory. Saved single-mask and FlipGate outputs are UNCHANGED; 3 diagnostic candidates may differ from the saved single-mask token. Multi-box image-level scores aggregate using per-box MIN (conservative).",
+  "CandidateQualitySummary": {
+    "candidate_iou_mean": 0.8936592967932077,
+    "candidate_ssim_mean": 0.9666293836601397,
+    "candidate_sim_mean": 0.9301708189689605,
+    "sam_score_selected": 0.9671328201889992,
+    "sam_stability_selected": 0.8962054836994277
+  },
+  "Failures": [],
+  "Skipped": []
+}

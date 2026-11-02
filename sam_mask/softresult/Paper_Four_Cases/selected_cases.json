@@ -1,0 +1,710 @@
+{
+  "selected": {
+    "small": [],
+    "multi": [
+      {
+        "rank": 1,
+        "name": "COD10K-CAM-1-Aquatic-7-Flounder-271",
+        "gain_mae": 0.026978,
+        "original_size": [
+          1023,
+          682
+        ],
+        "aspect_ratio": 1.5,
+        "fg_fraction": 0.0717,
+        "comparison": [
+          "base",
+          "geometry"
+        ],
+        "output_dir": "sam_mask/softresult/Paper_Four_Cases/multi/COD10K-CAM-1-Aquatic-7-Flounder-271"
+      },
+      {
+        "rank": 2,
+        "name": "COD10K-CAM-3-Flying-60-Heron-3919",
+        "gain_mae": 0.005333,
+        "original_size": [
+          1024,
+          698
+        ],
+        "aspect_ratio": 1.467,
+        "fg_fraction": 0.0132,
+        "comparison": [
+          "base",
+          "geometry"
+        ],
+        "output_dir": "sam_mask/softresult/Paper_Four_Cases/multi/COD10K-CAM-3-Flying-60-Heron-3919"
+      }
+    ],
+    "points": [
+      {
+        "rank": 1,
+        "name": "COD10K-CAM-1-Aquatic-14-ScorpionFish-875",
+        "gain_mae": 0.039676,
+        "original_size": [
+          1024,
+          767
+        ],
+        "aspect_ratio": 1.335,
+        "fg_fraction": 0.2563,
+        "comparison": [
+          "repeat",
+          "point_only"
+        ],
+        "output_dir": "sam_mask/softresult/Paper_Four_Cases/points/COD10K-CAM-1-Aquatic-14-ScorpionFish-875"
+      },
+      {
+        "rank": 2,
+        "name": "camourflage_00123",
+        "gain_mae": 0.015813,
+        "original_size": [
+          399,
+          527
+        ],
+        "aspect_ratio": 0.757,
+        "fg_fraction": 0.2326,
+        "comparison": [
+          "repeat",
+          "point_only"
+        ],
+        "output_dir": "sam_mask/softresult/Paper_Four_Cases/points/camourflage_00123"
+      },
+      {
+        "rank": 3,
+        "name": "camourflage_01061",
+        "gain_mae": 0.014028,
+        "original_size": [
+          210,
+          240
+        ],
+        "aspect_ratio": 0.875,
+        "fg_fraction": 0.2151,
+        "comparison": [
+          "repeat",
+          "point_only"
+        ],
+        "output_dir": "sam_mask/softresult/Paper_Four_Cases/points/camourflage_01061"
+      },
+      {
+        "rank": 4,
+        "name": "COD10K-CAM-1-Aquatic-3-Crab-44",
+        "gain_mae": 0.013437,
+        "original_size": [
+          1024,
+          766
+        ],
+        "aspect_ratio": 1.337,
+        "fg_fraction": 0.2984,
+        "comparison": [
+          "repeat",
+          "point_only"
+        ],
+        "output_dir": "sam_mask/softresult/Paper_Four_Cases/points/COD10K-CAM-1-Aquatic-3-Crab-44"
+      },
+      {
+        "rank": 5,
+        "name": "COD10K-CAM-1-Aquatic-5-CrocodileFish-128",
+        "gain_mae": 0.013098,
+        "original_size": [
+          1024,
+          768
+        ],
+        "aspect_ratio": 1.333,
+        "fg_fraction": 0.228,
+        "comparison": [
+          "repeat",
+          "point_only"
+        ],
+        "output_dir": "sam_mask/softresult/Paper_Four_Cases/points/COD10K-CAM-1-Aquatic-5-CrocodileFish-128"
+      },
+      {
+        "rank": 6,
+        "name": "camourflage_00840",
+        "gain_mae": 0.005205,
+        "original_size": [
+          1024,
+          692
+        ],
+        "aspect_ratio": 1.48,
+        "fg_fraction": 0.2043,
+        "comparison": [
+          "repeat",
+          "point_only"
+        ],
+        "output_dir": "sam_mask/softresult/Paper_Four_Cases/points/camourflage_00840"
+      },
+      {
+        "rank": 7,
+        "name": "COD10K-CAM-1-Aquatic-13-Pipefish-595",
+        "gain_mae": 0.003934,
+        "original_size": [
+          1024,
+          768
+        ],
+        "aspect_ratio": 1.333,
+        "fg_fraction": 0.0265,
+        "comparison": [
+          "repeat",
+          "point_only"
+        ],
+        "output_dir": "sam_mask/softresult/Paper_Four_Cases/points/COD10K-CAM-1-Aquatic-13-Pipefish-595"
+      },
+      {
+        "rank": 8,
+        "name": "COD10K-CAM-1-Aquatic-1-BatFish-8",
+        "gain_mae": 0.003813,
+        "original_size": [
+          427,
+          640
+        ],
+        "aspect_ratio": 0.667,
+        "fg_fraction": 0.2504,
+        "comparison": [
+          "repeat",
+          "point_only"
+        ],
+        "output_dir": "sam_mask/softresult/Paper_Four_Cases/points/COD10K-CAM-1-Aquatic-1-BatFish-8"
+      },
+      {
+        "rank": 9,
+        "name": "COD10K-CAM-3-Flying-59-Grasshopper-3765",
+        "gain_mae": 0.003292,
+        "original_size": [
+          697,
+          441
+        ],
+        "aspect_ratio": 1.58,
+        "fg_fraction": 0.3073,
+        "comparison": [
+          "repeat",
+          "point_only"
+        ],
+        "output_dir": "sam_mask/softresult/Paper_Four_Cases/points/COD10K-CAM-3-Flying-59-Grasshopper-3765"
+      },
+      {
+        "rank": 10,
+        "name": "camourflage_00495",
+        "gain_mae": 0.003205,
+        "original_size": [
+          822,
+          618
+        ],
+        "aspect_ratio": 1.33,
+        "fg_fraction": 0.0948,
+        "comparison": [
+          "repeat",
+          "point_only"
+        ],
+        "output_dir": "sam_mask/softresult/Paper_Four_Cases/points/camourflage_00495"
+      }
+    ],
+    "memory": [
+      {
+        "rank": 1,
+        "name": "camourflage_01061",
+        "gain_mae": 0.043313,
+        "original_size": [
+          210,
+          240
+        ],
+        "aspect_ratio": 0.875,
+        "fg_fraction": 0.2151,
+        "comparison": [
+          "repeat",
+          "memory_only"
+        ],
+        "output_dir": "sam_mask/softresult/Paper_Four_Cases/memory/camourflage_01061"
+      },
+      {
+        "rank": 2,
+        "name": "COD10K-CAM-1-Aquatic-14-ScorpionFish-875",
+        "gain_mae": 0.015927,
+        "original_size": [
+          1024,
+          767
+        ],
+        "aspect_ratio": 1.335,
+        "fg_fraction": 0.2563,
+        "comparison": [
+          "repeat",
+          "memory_only"
+        ],
+        "output_dir": "sam_mask/softresult/Paper_Four_Cases/memory/COD10K-CAM-1-Aquatic-14-ScorpionFish-875"
+      },
+      {
+        "rank": 3,
+        "name": "COD10K-CAM-3-Flying-59-Grasshopper-3765",
+        "gain_mae": 0.01354,
+        "original_size": [
+          697,
+          441
+        ],
+        "aspect_ratio": 1.58,
+        "fg_fraction": 0.3073,
+        "comparison": [
+          "repeat",
+          "memory_only"
+        ],
+        "output_dir": "sam_mask/softresult/Paper_Four_Cases/memory/COD10K-CAM-3-Flying-59-Grasshopper-3765"
+      },
+      {
+        "rank": 4,
+        "name": "COD10K-CAM-1-Aquatic-18-StarFish-1156",
+        "gain_mae": 0.011213,
+        "original_size": [
+          1024,
+          683
+        ],
+        "aspect_ratio": 1.499,
+        "fg_fraction": 0.436,
+        "comparison": [
+          "repeat",
+          "memory_only"
+        ],
+        "output_dir": "sam_mask/softresult/Paper_Four_Cases/memory/COD10K-CAM-1-Aquatic-18-StarFish-1156"
+      },
+      {
+        "rank": 5,
+        "name": "COD10K-CAM-2-Terrestrial-45-Spider-2664",
+        "gain_mae": 0.008248,
+        "original_size": [
+          1021,
+          657
+        ],
+        "aspect_ratio": 1.554,
+        "fg_fraction": 0.046,
+        "comparison": [
+          "repeat",
+          "memory_only"
+        ],
+        "output_dir": "sam_mask/softresult/Paper_Four_Cases/memory/COD10K-CAM-2-Terrestrial-45-Spider-2664"
+      },
+      {
+        "rank": 6,
+        "name": "COD10K-CAM-3-Flying-56-Cicada-3459",
+        "gain_mae": 0.007479,
+        "original_size": [
+          639,
+          1024
+        ],
+        "aspect_ratio": 0.624,
+        "fg_fraction": 0.3552,
+        "comparison": [
+          "repeat",
+          "memory_only"
+        ],
+        "output_dir": "sam_mask/softresult/Paper_Four_Cases/memory/COD10K-CAM-3-Flying-56-Cicada-3459"
+      },
+      {
+        "rank": 7,
+        "name": "COD10K-CAM-2-Terrestrial-23-Cat-1355",
+        "gain_mae": 0.006827,
+        "original_size": [
+          550,
+          367
+        ],
+        "aspect_ratio": 1.499,
+        "fg_fraction": 0.4255,
+        "comparison": [
+          "repeat",
+          "memory_only"
+        ],
+        "output_dir": "sam_mask/softresult/Paper_Four_Cases/memory/COD10K-CAM-2-Terrestrial-23-Cat-1355"
+      },
+      {
+        "rank": 8,
+        "name": "COD10K-CAM-1-Aquatic-5-CrocodileFish-128",
+        "gain_mae": 0.006589,
+        "original_size": [
+          1024,
+          768
+        ],
+        "aspect_ratio": 1.333,
+        "fg_fraction": 0.228,
+        "comparison": [
+          "repeat",
+          "memory_only"
+        ],
+        "output_dir": "sam_mask/softresult/Paper_Four_Cases/memory/COD10K-CAM-1-Aquatic-5-CrocodileFish-128"
+      },
+      {
+        "rank": 9,
+        "name": "COD10K-CAM-1-Aquatic-15-SeaHorse-1005",
+        "gain_mae": 0.006376,
+        "original_size": [
+          1024,
+          683
+        ],
+        "aspect_ratio": 1.499,
+        "fg_fraction": 0.2538,
+        "comparison": [
+          "repeat",
+          "memory_only"
+        ],
+        "output_dir": "sam_mask/softresult/Paper_Four_Cases/memory/COD10K-CAM-1-Aquatic-15-SeaHorse-1005"
+      },
+      {
+        "rank": 10,
+        "name": "COD10K-CAM-3-Flying-61-Katydid-4123",
+        "gain_mae": 0.006349,
+        "original_size": [
+          1024,
+          768
+        ],
+        "aspect_ratio": 1.333,
+        "fg_fraction": 0.2777,
+        "comparison": [
+          "repeat",
+          "memory_only"
+        ],
+        "output_dir": "sam_mask/softresult/Paper_Four_Cases/memory/COD10K-CAM-3-Flying-61-Katydid-4123"
+      }
+    ]
+  },
+  "candidate_counts": {
+    "small": 0,
+    "multi": 2,
+    "points": 10,
+    "memory": 21
+  },
+  "topk_each": 10,
+  "ranking": {
+    "small": [],
+    "multi": [
+      {
+        "name": "COD10K-CAM-1-Aquatic-7-Flounder-271",
+        "path": "./data/Train/Imgs/COD10K-CAM-1-Aquatic-7-Flounder-271.jpg",
+        "gain": 0.026977752169313987,
+        "aspect": 1.5,
+        "foreground": 0.07165974378158656,
+        "width": 1023,
+        "height": 682,
+        "box_fraction": 0.14582204446196556
+      },
+      {
+        "name": "COD10K-CAM-3-Flying-60-Heron-3919",
+        "path": "./data/Train/Imgs/COD10K-CAM-3-Flying-60-Heron-3919.jpg",
+        "gain": 0.00533331840974212,
+        "aspect": 1.4670487106017192,
+        "foreground": 0.013158410189828081,
+        "width": 1024,
+        "height": 698,
+        "box_fraction": 0.04402957344427705
+      }
+    ],
+    "points": [
+      {
+        "name": "COD10K-CAM-1-Aquatic-14-ScorpionFish-875",
+        "path": "./data/Train/Imgs/COD10K-CAM-1-Aquatic-14-ScorpionFish-875.jpg",
+        "gain": 0.039676193774445895,
+        "aspect": 1.3350717079530638,
+        "foreground": 0.2562655333279009,
+        "width": 1024,
+        "height": 767,
+        "box_fraction": 0.47425541281700134
+      },
+      {
+        "name": "camourflage_00123",
+        "path": "./data/Train/Imgs/camourflage_00123.jpg",
+        "gain": 0.01581277672359266,
+        "aspect": 0.7571157495256167,
+        "foreground": 0.2325786002006915,
+        "width": 399,
+        "height": 527,
+        "box_fraction": 0.530610203742981
+      },
+      {
+        "name": "camourflage_01061",
+        "path": "./data/Train/Imgs/camourflage_01061.jpg",
+        "gain": 0.014027777777777778,
+        "aspect": 0.875,
+        "foreground": 0.21511904761904763,
+        "width": 210,
+        "height": 240,
+        "box_fraction": 0.29970237612724304
+      },
+      {
+        "name": "COD10K-CAM-1-Aquatic-3-Crab-44",
+        "path": "./data/Train/Imgs/COD10K-CAM-1-Aquatic-3-Crab-44.jpg",
+        "gain": 0.013437296018276756,
+        "aspect": 1.3368146214099217,
+        "foreground": 0.29843163552545693,
+        "width": 1024,
+        "height": 766,
+        "box_fraction": 0.7407902479171753
+      },
+      {
+        "name": "COD10K-CAM-1-Aquatic-5-CrocodileFish-128",
+        "path": "./data/Train/Imgs/COD10K-CAM-1-Aquatic-5-CrocodileFish-128.jpg",
+        "gain": 0.013098398844401043,
+        "aspect": 1.3333333333333333,
+        "foreground": 0.2280426025390625,
+        "width": 1024,
+        "height": 768,
+        "box_fraction": 0.4973602294921875
+      },
+      {
+        "name": "camourflage_00840",
+        "path": "./data/Train/Imgs/camourflage_00840.jpg",
+        "gain": 0.005204570086705202,
+        "aspect": 1.4797687861271676,
+        "foreground": 0.20432030121026012,
+        "width": 1024,
+        "height": 692,
+        "box_fraction": 0.28088027238845825
+      },
+      {
+        "name": "COD10K-CAM-1-Aquatic-13-Pipefish-595",
+        "path": "./data/Train/Imgs/COD10K-CAM-1-Aquatic-13-Pipefish-595.jpg",
+        "gain": 0.003934224446614583,
+        "aspect": 1.3333333333333333,
+        "foreground": 0.026475270589192707,
+        "width": 1024,
+        "height": 768,
+        "box_fraction": 0.20692698657512665
+      },
+      {
+        "name": "COD10K-CAM-1-Aquatic-1-BatFish-8",
+        "path": "./data/Train/Imgs/COD10K-CAM-1-Aquatic-1-BatFish-8.jpg",
+        "gain": 0.0038129391100702598,
+        "aspect": 0.6671875,
+        "foreground": 0.2503915398126464,
+        "width": 427,
+        "height": 640,
+        "box_fraction": 0.6411446332931519
+      },
+      {
+        "name": "COD10K-CAM-3-Flying-59-Grasshopper-3765",
+        "path": "./data/Train/Imgs/COD10K-CAM-3-Flying-59-Grasshopper-3765.jpg",
+        "gain": 0.003292373860113152,
+        "aspect": 1.5804988662131518,
+        "foreground": 0.307339195840938,
+        "width": 697,
+        "height": 441,
+        "box_fraction": 0.7014187574386597
+      },
+      {
+        "name": "camourflage_00495",
+        "path": "./data/Train/Imgs/camourflage_00495.jpg",
+        "gain": 0.0032047496436979836,
+        "aspect": 1.3300970873786409,
+        "foreground": 0.09477436830211261,
+        "width": 822,
+        "height": 618,
+        "box_fraction": 0.2439054697751999
+      }
+    ],
+    "memory": [
+      {
+        "name": "camourflage_01061",
+        "path": "./data/Train/Imgs/camourflage_01061.jpg",
+        "gain": 0.04331349206349207,
+        "aspect": 0.875,
+        "foreground": 0.21511904761904763,
+        "width": 210,
+        "height": 240,
+        "box_fraction": 0.29970237612724304
+      },
+      {
+        "name": "COD10K-CAM-1-Aquatic-14-ScorpionFish-875",
+        "path": "./data/Train/Imgs/COD10K-CAM-1-Aquatic-14-ScorpionFish-875.jpg",
+        "gain": 0.01592675399282921,
+        "aspect": 1.3350717079530638,
+        "foreground": 0.2562655333279009,
+        "width": 1024,
+        "height": 767,
+        "box_fraction": 0.47425541281700134
+      },
+      {
+        "name": "COD10K-CAM-3-Flying-59-Grasshopper-3765",
+        "path": "./data/Train/Imgs/COD10K-CAM-3-Flying-59-Grasshopper-3765.jpg",
+        "gain": 0.013540375499793415,
+        "aspect": 1.5804988662131518,
+        "foreground": 0.307339195840938,
+        "width": 697,
+        "height": 441,
+        "box_fraction": 0.7014187574386597
+      },
+      {
+        "name": "COD10K-CAM-1-Aquatic-18-StarFish-1156",
+        "path": "./data/Train/Imgs/COD10K-CAM-1-Aquatic-18-StarFish-1156.jpg",
+        "gain": 0.011212596083455345,
+        "aspect": 1.499267935578331,
+        "foreground": 0.4360272922767203,
+        "width": 1024,
+        "height": 683,
+        "box_fraction": 0.9712321758270264
+      },
+      {
+        "name": "COD10K-CAM-2-Terrestrial-45-Spider-2664",
+        "path": "./data/Train/Imgs/COD10K-CAM-2-Terrestrial-45-Spider-2664.jpg",
+        "gain": 0.00824839705603931,
+        "aspect": 1.5540334855403348,
+        "foreground": 0.04601392075396878,
+        "width": 1021,
+        "height": 657,
+        "box_fraction": 0.2186056226491928
+      },
+      {
+        "name": "COD10K-CAM-3-Flying-56-Cicada-3459",
+        "path": "./data/Train/Imgs/COD10K-CAM-3-Flying-56-Cicada-3459.jpg",
+        "gain": 0.007479337832550861,
+        "aspect": 0.6240234375,
+        "foreground": 0.3552013033059468,
+        "width": 639,
+        "height": 1024,
+        "box_fraction": 0.5372438430786133
+      },
+      {
+        "name": "COD10K-CAM-2-Terrestrial-23-Cat-1355",
+        "path": "./data/Train/Imgs/COD10K-CAM-2-Terrestrial-23-Cat-1355.jpg",
+        "gain": 0.006826851622491952,
+        "aspect": 1.4986376021798364,
+        "foreground": 0.4255437205845925,
+        "width": 550,
+        "height": 367,
+        "box_fraction": 0.8727124333381653
+      },
+      {
+        "name": "COD10K-CAM-1-Aquatic-5-CrocodileFish-128",
+        "path": "./data/Train/Imgs/COD10K-CAM-1-Aquatic-5-CrocodileFish-128.jpg",
+        "gain": 0.006589253743489586,
+        "aspect": 1.3333333333333333,
+        "foreground": 0.2280426025390625,
+        "width": 1024,
+        "height": 768,
+        "box_fraction": 0.4973602294921875
+      },
+      {
+        "name": "COD10K-CAM-1-Aquatic-15-SeaHorse-1005",
+        "path": "./data/Train/Imgs/COD10K-CAM-1-Aquatic-15-SeaHorse-1005.jpg",
+        "gain": 0.006375537609809665,
+        "aspect": 1.499267935578331,
+        "foreground": 0.25381474194729137,
+        "width": 1024,
+        "height": 683,
+        "box_fraction": 0.578353762626648
+      },
+      {
+        "name": "COD10K-CAM-3-Flying-61-Katydid-4123",
+        "path": "./data/Train/Imgs/COD10K-CAM-3-Flying-61-Katydid-4123.jpg",
+        "gain": 0.006348927815755204,
+        "aspect": 1.3333333333333333,
+        "foreground": 0.2776679992675781,
+        "width": 1024,
+        "height": 768,
+        "box_fraction": 0.7392705082893372
+      },
+      {
+        "name": "camourflage_00840",
+        "path": "./data/Train/Imgs/camourflage_00840.jpg",
+        "gain": 0.005383794707369943,
+        "aspect": 1.4797687861271676,
+        "foreground": 0.20432030121026012,
+        "width": 1024,
+        "height": 692,
+        "box_fraction": 0.28088027238845825
+      },
+      {
+        "name": "COD10K-CAM-2-Terrestrial-45-Spider-2564",
+        "path": "./data/Train/Imgs/COD10K-CAM-2-Terrestrial-45-Spider-2564.jpg",
+        "gain": 0.00519056957708049,
+        "aspect": 1.3969986357435198,
+        "foreground": 0.21213655354706684,
+        "width": 1024,
+        "height": 733,
+        "box_fraction": 0.7360749840736389
+      },
+      {
+        "name": "COD10K-CAM-3-Flying-61-Katydid-4011",
+        "path": "./data/Train/Imgs/COD10K-CAM-3-Flying-61-Katydid-4011.jpg",
+        "gain": 0.004831949869791668,
+        "aspect": 1.3333333333333333,
+        "foreground": 0.10117085774739583,
+        "width": 1024,
+        "height": 768,
+        "box_fraction": 0.9698295593261719
+      },
+      {
+        "name": "camourflage_00465",
+        "path": "./data/Train/Imgs/camourflage_00465.jpg",
+        "gain": 0.004654493376297888,
+        "aspect": 1.719298245614035,
+        "foreground": 0.1260890321040697,
+        "width": 294,
+        "height": 171,
+        "box_fraction": 0.17376774549484253
+      },
+      {
+        "name": "COD10K-CAM-1-Aquatic-13-Pipefish-595",
+        "path": "./data/Train/Imgs/COD10K-CAM-1-Aquatic-13-Pipefish-595.jpg",
+        "gain": 0.004407246907552083,
+        "aspect": 1.3333333333333333,
+        "foreground": 0.026475270589192707,
+        "width": 1024,
+        "height": 768,
+        "box_fraction": 0.20692698657512665
+      },
+      {
+        "name": "COD10K-CAM-2-Terrestrial-47-Tiger-2875",
+        "path": "./data/Train/Imgs/COD10K-CAM-2-Terrestrial-47-Tiger-2875.jpg",
+        "gain": 0.004204799107142859,
+        "aspect": 1.4285714285714286,
+        "foreground": 0.24934709821428572,
+        "width": 1600,
+        "height": 1120,
+        "box_fraction": 0.5907812714576721
+      },
+      {
+        "name": "camourflage_00716",
+        "path": "./data/Train/Imgs/camourflage_00716.jpg",
+        "gain": 0.004097510373443983,
+        "aspect": 1.6597510373443984,
+        "foreground": 0.25432572614107885,
+        "width": 400,
+        "height": 241,
+        "box_fraction": 0.4025726020336151
+      },
+      {
+        "name": "COD10K-CAM-3-Flying-62-Mantis-4277",
+        "path": "./data/Train/Imgs/COD10K-CAM-3-Flying-62-Mantis-4277.jpg",
+        "gain": 0.003965517241379311,
+        "aspect": 1.471264367816092,
+        "foreground": 0.15329022988505747,
+        "width": 1280,
+        "height": 870,
+        "box_fraction": 0.5253142714500427
+      },
+      {
+        "name": "COD10K-CAM-2-Terrestrial-45-Spider-2622",
+        "path": "./data/Train/Imgs/COD10K-CAM-2-Terrestrial-45-Spider-2622.jpg",
+        "gain": 0.0035630284316976128,
+        "aspect": 1.3580901856763925,
+        "foreground": 0.07542067307692307,
+        "width": 1024,
+        "height": 754,
+        "box_fraction": 0.4024525582790375
+      },
+      {
+        "name": "COD10K-CAM-2-Terrestrial-45-Spider-2611",
+        "path": "./data/Train/Imgs/COD10K-CAM-2-Terrestrial-45-Spider-2611.jpg",
+        "gain": 0.003086090087890625,
+        "aspect": 1.3333333333333333,
+        "foreground": 0.079345703125,
+        "width": 1024,
+        "height": 768,
+        "box_fraction": 0.5107612609863281
+      },
+      {
+        "name": "COD10K-CAM-1-Aquatic-1-BatFish-8",
+        "path": "./data/Train/Imgs/COD10K-CAM-1-Aquatic-1-BatFish-8.jpg",
+        "gain": 0.0030408372365339567,
+        "aspect": 0.6671875,
+        "foreground": 0.2503915398126464,
+        "width": 427,
+        "height": 640,
+        "box_fraction": 0.6411446332931519
+      }
+    ]
+  },
+  "errors": []
+}

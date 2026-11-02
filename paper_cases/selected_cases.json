@@ -1,0 +1,34 @@
+[
+  {
+    "label": "A_Small_Object",
+    "effect": "Crop_effect",
+    "description": "Small object / crop",
+    "image": "COD10K-CAM-2-Terrestrial-38-Lizard-2259",
+    "gain_mae": 0.013427,
+    "source": "softresult/SAM2_ImprovedOnly/Crop_effect/separate/COD10K-CAM-2-Terrestrial-38-Lizard-2259"
+  },
+  {
+    "label": "B_Multi_Object",
+    "effect": "PerBox_effect",
+    "description": "Multiple objects / per-box",
+    "image": "COD10K-CAM-1-Aquatic-13-Pipefish-802",
+    "gain_mae": 0.034852,
+    "source": "softresult/SAM2_ImprovedOnly/PerBox_effect/separate/COD10K-CAM-1-Aquatic-13-Pipefish-802"
+  },
+  {
+    "label": "C_PosNeg_Prompts",
+    "effect": "PosNegLogits",
+    "description": "Positive & negative prompts (+memory)",
+    "image": "camourflage_00588",
+    "gain_mae": 0.068748,
+    "source": "softresult/SAM2_ImprovedOnly/PosNegLogits/separate/camourflage_00588"
+  },
+  {
+    "label": "D_Memory_Logits",
+    "effect": "Logits_effect",
+    "description": "Mask-logits memory",
+    "image": "COD10K-CAM-2-Terrestrial-24-Caterpillar-1601",
+    "gain_mae": 0.049116,
+    "source": "softresult/SAM2_ImprovedOnly/Logits_effect/separate/COD10K-CAM-2-Terrestrial-24-Caterpillar-1601"
+  }
+]
