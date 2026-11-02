@@ -1,0 +1,18 @@
+{
+  "epoch": 150,
+  "controller": {
+    "p_noisy": 0.6,
+    "last_action": "ADVANCE",
+    "ema": {
+      "clean_loss": 0.03973062299744331,
+      "clean_dice": 0.9671257033899101,
+      "consistency": 0.9837615487246044,
+      "fg_area_ratio": 1.0001000374944513
+    },
+    "previous": null,
+    "best_dice": 0.9671257033899101,
+    "plateau_count": 0,
+    "bad_count": 0,
+    "cooldown": 0
+  }
+}
