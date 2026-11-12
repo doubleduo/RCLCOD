@@ -1,0 +1,16 @@
+{
+  "seed": 112358,
+  "size": 3365,
+  "draws_per_epoch": 4040,
+  "images_with_gt": 4040,
+  "base_config": "/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/configs/sam1/sam1candidate.py",
+  "gt_dir": "/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/data/Train/GT",
+  "pseudo_dir": "/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/softresult/SAM1_Optimized3/03_Refine_NoFlip",
+  "sam_lists": [],
+  "groups": {
+    "full_gt": 4040,
+    "random_gt": 3365,
+    "random_pseudo": 3365
+  },
+  "overlap_random_selected": null
+}

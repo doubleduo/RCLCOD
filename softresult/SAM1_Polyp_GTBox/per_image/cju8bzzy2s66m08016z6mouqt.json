@@ -1,0 +1,75 @@
+{
+  "image": "cju8bzzy2s66m08016z6mouqt",
+  "objects": [
+    {
+      "object_idx": 0,
+      "cropped": 1,
+      "num_candidates": 3,
+      "initial_selected_index": 1,
+      "initial_sam_score": 0.9841647148132324,
+      "candidate_iou": 0.9620323261100804,
+      "steps": [
+        {
+          "step": 1,
+          "called_sam": 1,
+          "num_new_pos": 1,
+          "num_new_neg": 1,
+          "points_xy_frame": [
+            [
+              137.0,
+              113.0
+            ],
+            [
+              43.0,
+              35.0
+            ]
+          ],
+          "points_xy_global": [
+            [
+              463.0,
+              197.0
+            ],
+            [
+              369.0,
+              119.0
+            ]
+          ],
+          "point_labels": [
+            1,
+            0
+          ]
+        },
+        {
+          "step": 2,
+          "called_sam": 1,
+          "num_new_pos": 1,
+          "num_new_neg": 1,
+          "points_xy_frame": [
+            [
+              183.0,
+              173.0
+            ],
+            [
+              261.0,
+              35.0
+            ]
+          ],
+          "points_xy_global": [
+            [
+              509.0,
+              257.0
+            ],
+            [
+              587.0,
+              119.0
+            ]
+          ],
+          "point_labels": [
+            1,
+            0
+          ]
+        }
+      ]
+    }
+  ]
+}

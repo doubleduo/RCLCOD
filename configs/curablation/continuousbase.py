@@ -137,7 +137,7 @@ train = dict(
 
     data=dict(
         shape=dict(h=384, w=384),
-        names=["combined_tr"],
+        names=["combined_trs1"],
     ),
 )
 

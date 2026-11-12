@@ -1,0 +1,2526 @@
+[
+  {
+    "stem": "COD10K-CAM-2-Terrestrial-23-Cat-1454",
+    "base_mae": 0.09490671897877014,
+    "refined_mae": 0.011437076775256223,
+    "refined_iou": 0.9101397501572751,
+    "relative_gain": 0.8794913900899408,
+    "gain": 0.08346964220351391,
+    "change": 0.08591462298682284,
+    "annotation_box_count": 1,
+    "case_stats": {
+      "box_count": 1,
+      "area_ratios": [
+        0.6015453422401171
+      ],
+      "max_area_ratio": 0.6015453422401171,
+      "mean_area_ratio": 0.6015453422401171,
+      "center_dists": [
+        0.051087709171336114
+      ],
+      "mean_center_dist": 0.051087709171336114,
+      "min_center_dist": 0.051087709171336114,
+      "max_center_dist": 0.051087709171336114
+    },
+    "is_small": false,
+    "is_offcenter": false,
+    "is_multi": false,
+    "is_normal": true,
+    "box_annotation_file": "data/Train/box_label/COD10K-CAM-2-Terrestrial-23-Cat-1454.json",
+    "selection_category": "normal",
+    "rank": 1,
+    "box_coordinates": [
+      [
+        183,
+        62,
+        965,
+        600
+      ]
+    ],
+    "boxes": 1,
+    "route_type": "NORMAL",
+    "mask_point_strategy": {
+      "positive_from": "One confidence-guided, interior Base_Mask foreground point per box",
+      "negative_from": "background outside all annotation boxes",
+      "positive_per_box": 1,
+      "pos_min_confidence": 0.85,
+      "pos_interior_margin": 0.08,
+      "mask_neg_total": 4,
+      "mask_positive_points": [
+        [
+          710,
+          190
+        ]
+      ],
+      "mask_negative_points": [
+        [
+          182,
+          350
+        ],
+        [
+          1023,
+          0
+        ],
+        [
+          814,
+          682
+        ],
+        [
+          530,
+          0
+        ]
+      ],
+      "per_box_positive_stats": [
+        {
+          "box_index": 1,
+          "count": 1,
+          "points_xy": [
+            [
+              710,
+              190
+            ]
+          ],
+          "distance_to_mask_or_box_edge_px": 44.54109191894531,
+          "confidence": 0.99462890625
+        }
+      ]
+    },
+    "first_step_candidate_sets": [],
+    "candidate_sets": [
+      {
+        "object": 1,
+        "crop_xyxy": [
+          0,
+          0,
+          1024,
+          683
+        ],
+        "scores": [
+          0.841935932636261,
+          0.8856562376022339,
+          0.9076874256134033
+        ],
+        "note": "Refine-stage multimask diagnostic."
+      }
+    ],
+    "initial_points_drawn": 15,
+    "active_points_drawn": 1,
+    "negative_points_inside_boxes_hidden": 1,
+    "point_decoder_audit": [
+      {
+        "box_index": 1,
+        "initial_points": 16,
+        "final_points": 17,
+        "decoder_calls": 2
+      }
+    ],
+    "no_points_boxes": [],
+    "notes": [
+      "RGB_Boxes.png, RGB_PositivePoints.png, and RGB_NegativePoints.png are saved separately.",
+      "Cases are selected as a mixed set: ordinary plus optional small, off-center, and multi-object examples.",
+      "RGB_Boxes_MaskPoints.png uses one high-confidence interior Base_Mask positive per box and negatives only outside all annotation boxes. These are illustrative points, not necessarily SAM inputs.",
+      "FirstStep_Logits contains base-stage multimask diagnostic logits when available.",
+      "GT used only for post-hoc case ranking and correction visualization."
+    ]
+  },
+  {
+    "stem": "COD10K-CAM-3-Flying-56-Cicada-3481",
+    "base_mae": 0.26783166904422256,
+    "refined_mae": 0.004094318384450785,
+    "refined_iou": 0.9021246836286133,
+    "relative_gain": 0.9847130908788282,
+    "gain": 0.2637373506597718,
+    "change": 0.26829278486091296,
+    "annotation_box_count": 4,
+    "case_stats": {
+      "box_count": 4,
+      "area_ratios": [
+        0.05456490727532097,
+        0.022710302246790298,
+        0.023019570256776034,
+        0.012914029065620542
+      ],
+      "max_area_ratio": 0.05456490727532097,
+      "mean_area_ratio": 0.02830220221112696,
+      "center_dists": [
+        0.16062195145716815,
+        0.17332068266609962,
+        0.2131726103524899,
+        0.36215042841827744
+      ],
+      "mean_center_dist": 0.2273164182235088,
+      "min_center_dist": 0.16062195145716815,
+      "max_center_dist": 0.36215042841827744
+    },
+    "is_small": true,
+    "is_offcenter": true,
+    "is_multi": true,
+    "is_normal": false,
+    "box_annotation_file": "data/Train/box_label/COD10K-CAM-3-Flying-56-Cicada-3481.json",
+    "selection_category": "small",
+    "rank": 2,
+    "box_coordinates": [
+      [
+        611,
+        128,
+        764,
+        384
+      ],
+      [
+        449,
+        494,
+        563,
+        637
+      ],
+      [
+        200,
+        417,
+        353,
+        525
+      ],
+      [
+        32,
+        170,
+        135,
+        260
+      ]
+    ],
+    "boxes": 4,
+    "route_type": "MO_PER_BOX",
+    "mask_point_strategy": {
+      "positive_from": "One confidence-guided, interior Base_Mask foreground point per box",
+      "negative_from": "background outside all annotation boxes",
+      "positive_per_box": 1,
+      "pos_min_confidence": 0.85,
+      "pos_interior_margin": 0.08,
+      "mask_neg_total": 4,
+      "mask_positive_points": [
+        [
+          652,
+          195
+        ],
+        [
+          508,
+          578
+        ],
+        [
+          242,
+          471
+        ],
+        [
+          85,
+          206
+        ]
+      ],
+      "mask_negative_points": [
+        [
+          576,
+          342
+        ],
+        [
+          0,
+          700
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1023,
+          700
+        ]
+      ],
+      "per_box_positive_stats": [
+        {
+          "box_index": 1,
+          "count": 1,
+          "points_xy": [
+            [
+              652,
+              195
+            ]
+          ],
+          "distance_to_mask_or_box_edge_px": 22.18449592590332,
+          "confidence": 0.85205078125
+        },
+        {
+          "box_index": 2,
+          "count": 1,
+          "points_xy": [
+            [
+              508,
+              578
+            ]
+          ],
+          "distance_to_mask_or_box_edge_px": 19.9844970703125,
+          "confidence": 0.8515625
+        },
+        {
+          "box_index": 3,
+          "count": 1,
+          "points_xy": [
+            [
+              242,
+              471
+            ]
+          ],
+          "distance_to_mask_or_box_edge_px": 27.5906982421875,
+          "confidence": 0.90771484375
+        },
+        {
+          "box_index": 4,
+          "count": 1,
+          "points_xy": [
+            [
+              85,
+              206
+            ]
+          ],
+          "distance_to_mask_or_box_edge_px": 34.78759765625,
+          "confidence": 0.853515625
+        }
+      ]
+    },
+    "first_step_candidate_sets": [],
+    "candidate_sets": [
+      {
+        "object": 1,
+        "crop_xyxy": [
+          469,
+          38,
+          905,
+          474
+        ],
+        "scores": [
+          0.9534161686897278,
+          0.9873740673065186,
+          0.9706737995147705
+        ],
+        "note": "Refine-stage multimask diagnostic."
+      },
+      {
+        "object": 2,
+        "crop_xyxy": [
+          385,
+          444,
+          628,
+          687
+        ],
+        "scores": [
+          0.9545057415962219,
+          0.9898076057434082,
+          0.9706457853317261
+        ],
+        "note": "Refine-stage multimask diagnostic."
+      },
+      {
+        "object": 3,
+        "crop_xyxy": [
+          146,
+          341,
+          407,
+          602
+        ],
+        "scores": [
+          0.9312819242477417,
+          0.9425534009933472,
+          0.9243656396865845
+        ],
+        "note": "Refine-stage multimask diagnostic."
+      },
+      {
+        "object": 4,
+        "crop_xyxy": [
+          0,
+          128,
+          175,
+          303
+        ],
+        "scores": [
+          0.8710816502571106,
+          0.9001879692077637,
+          0.9101778268814087
+        ],
+        "note": "Refine-stage multimask diagnostic."
+      }
+    ],
+    "initial_points_drawn": 32,
+    "active_points_drawn": 4,
+    "negative_points_inside_boxes_hidden": 0,
+    "point_decoder_audit": [
+      {
+        "box_index": 1,
+        "initial_points": 11,
+        "final_points": 12,
+        "decoder_calls": 2
+      },
+      {
+        "box_index": 2,
+        "initial_points": 7,
+        "final_points": 8,
+        "decoder_calls": 2
+      },
+      {
+        "box_index": 3,
+        "initial_points": 7,
+        "final_points": 8,
+        "decoder_calls": 2
+      },
+      {
+        "box_index": 4,
+        "initial_points": 7,
+        "final_points": 8,
+        "decoder_calls": 2
+      }
+    ],
+    "no_points_boxes": [],
+    "notes": [
+      "RGB_Boxes.png, RGB_PositivePoints.png, and RGB_NegativePoints.png are saved separately.",
+      "Cases are selected as a mixed set: ordinary plus optional small, off-center, and multi-object examples.",
+      "RGB_Boxes_MaskPoints.png uses one high-confidence interior Base_Mask positive per box and negatives only outside all annotation boxes. These are illustrative points, not necessarily SAM inputs.",
+      "FirstStep_Logits contains base-stage multimask diagnostic logits when available.",
+      "GT used only for post-hoc case ranking and correction visualization."
+    ]
+  },
+  {
+    "stem": "COD10K-CAM-3-Flying-50-Bat-2969",
+    "base_mae": 0.18099434937774525,
+    "refined_mae": 0.0033600613103953146,
+    "refined_iou": 0.9323371051798105,
+    "relative_gain": 0.9814355457949536,
+    "gain": 0.17763428806734993,
+    "change": 0.17932432741581258,
+    "annotation_box_count": 2,
+    "case_stats": {
+      "box_count": 2,
+      "area_ratios": [
+        0.06984924048316252,
+        0.04539657302342606
+      ],
+      "max_area_ratio": 0.06984924048316252,
+      "mean_area_ratio": 0.05762290675329429,
+      "center_dists": [
+        0.20276891448095788,
+        0.315983466625981
+      ],
+      "mean_center_dist": 0.25937619055346944,
+      "min_center_dist": 0.20276891448095788,
+      "max_center_dist": 0.315983466625981
+    },
+    "is_small": true,
+    "is_offcenter": true,
+    "is_multi": true,
+    "is_normal": false,
+    "box_annotation_file": "data/Train/box_label/COD10K-CAM-3-Flying-50-Bat-2969.json",
+    "selection_category": "offcenter",
+    "rank": 3,
+    "box_coordinates": [
+      [
+        203,
+        96,
+        341,
+        450
+      ],
+      [
+        805,
+        372,
+        932,
+        622
+      ]
+    ],
+    "boxes": 2,
+    "route_type": "MO_PER_BOX",
+    "mask_point_strategy": {
+      "positive_from": "One confidence-guided, interior Base_Mask foreground point per box",
+      "negative_from": "background outside all annotation boxes",
+      "positive_per_box": 1,
+      "pos_min_confidence": 0.85,
+      "pos_interior_margin": 0.08,
+      "mask_neg_total": 4,
+      "mask_positive_points": [
+        [
+          314,
+          170
+        ],
+        [
+          869,
+          550
+        ]
+      ],
+      "mask_negative_points": [
+        [
+          479,
+          331
+        ],
+        [
+          1023,
+          682
+        ],
+        [
+          1023,
+          0
+        ],
+        [
+          0,
+          682
+        ]
+      ],
+      "per_box_positive_stats": [
+        {
+          "box_index": 1,
+          "count": 1,
+          "points_xy": [
+            [
+              314,
+              170
+            ]
+          ],
+          "distance_to_mask_or_box_edge_px": 12.793798446655273,
+          "confidence": 0.85888671875
+        },
+        {
+          "box_index": 2,
+          "count": 1,
+          "points_xy": [
+            [
+              869,
+              550
+            ]
+          ],
+          "distance_to_mask_or_box_edge_px": 48.78759765625,
+          "confidence": 0.880859375
+        }
+      ]
+    },
+    "first_step_candidate_sets": [],
+    "candidate_sets": [
+      {
+        "object": 1,
+        "crop_xyxy": [
+          0,
+          0,
+          601,
+          601
+        ],
+        "scores": [
+          0.9514760375022888,
+          0.9988613128662109,
+          0.98387610912323
+        ],
+        "note": "Refine-stage multimask diagnostic."
+      },
+      {
+        "object": 2,
+        "crop_xyxy": [
+          600,
+          259,
+          1024,
+          683
+        ],
+        "scores": [
+          0.9610187411308289,
+          0.9843991994857788,
+          0.9483518600463867
+        ],
+        "note": "Refine-stage multimask diagnostic."
+      }
+    ],
+    "initial_points_drawn": 19,
+    "active_points_drawn": 2,
+    "negative_points_inside_boxes_hidden": 0,
+    "point_decoder_audit": [
+      {
+        "box_index": 1,
+        "initial_points": 13,
+        "final_points": 14,
+        "decoder_calls": 2
+      },
+      {
+        "box_index": 2,
+        "initial_points": 6,
+        "final_points": 7,
+        "decoder_calls": 2
+      }
+    ],
+    "no_points_boxes": [],
+    "notes": [
+      "RGB_Boxes.png, RGB_PositivePoints.png, and RGB_NegativePoints.png are saved separately.",
+      "Cases are selected as a mixed set: ordinary plus optional small, off-center, and multi-object examples.",
+      "RGB_Boxes_MaskPoints.png uses one high-confidence interior Base_Mask positive per box and negatives only outside all annotation boxes. These are illustrative points, not necessarily SAM inputs.",
+      "FirstStep_Logits contains base-stage multimask diagnostic logits when available.",
+      "GT used only for post-hoc case ranking and correction visualization."
+    ]
+  },
+  {
+    "stem": "camourflage_01049",
+    "base_mae": 0.13053164530451536,
+    "refined_mae": 0.007390361899974868,
+    "refined_iou": 0.9027222605099932,
+    "relative_gain": 0.9433826036381139,
+    "gain": 0.12314128340454049,
+    "change": 0.12923054368769374,
+    "annotation_box_count": 3,
+    "case_stats": {
+      "box_count": 3,
+      "area_ratios": [
+        0.0070683588841417445,
+        0.06021194605009634,
+        0.07382246376811594
+      ],
+      "max_area_ratio": 0.07382246376811594,
+      "mean_area_ratio": 0.047034256234118006,
+      "center_dists": [
+        0.08427609461184497,
+        0.1827269692077666,
+        0.3079422271555357
+      ],
+      "mean_center_dist": 0.1916484303250491,
+      "min_center_dist": 0.08427609461184497,
+      "max_center_dist": 0.3079422271555357
+    },
+    "is_small": true,
+    "is_offcenter": true,
+    "is_multi": true,
+    "is_normal": false,
+    "box_annotation_file": "data/Train/box_label/camourflage_01049.json",
+    "selection_category": "multi",
+    "rank": 4,
+    "box_coordinates": [
+      [
+        360,
+        155,
+        405,
+        215
+      ],
+      [
+        475,
+        155,
+        590,
+        355
+      ],
+      [
+        495,
+        355,
+        668,
+        518
+      ]
+    ],
+    "boxes": 3,
+    "route_type": "MO_PER_BOX",
+    "mask_point_strategy": {
+      "positive_from": "One confidence-guided, interior Base_Mask foreground point per box",
+      "negative_from": "background outside all annotation boxes",
+      "positive_per_box": 1,
+      "pos_min_confidence": 0.85,
+      "pos_interior_margin": 0.08,
+      "mask_neg_total": 4,
+      "mask_positive_points": [
+        [
+          366,
+          186
+        ],
+        [
+          547,
+          218
+        ],
+        [
+          575,
+          477
+        ]
+      ],
+      "mask_negative_points": [
+        [
+          309,
+          236
+        ],
+        [
+          735,
+          509
+        ],
+        [
+          735,
+          0
+        ],
+        [
+          0,
+          518
+        ]
+      ],
+      "per_box_positive_stats": [
+        {
+          "box_index": 1,
+          "count": 1,
+          "points_xy": [
+            [
+              366,
+              186
+            ]
+          ],
+          "distance_to_mask_or_box_edge_px": 2.196899890899658,
+          "confidence": 0.82666015625
+        },
+        {
+          "box_index": 2,
+          "count": 1,
+          "points_xy": [
+            [
+              547,
+              218
+            ]
+          ],
+          "distance_to_mask_or_box_edge_px": 30.368993759155273,
+          "confidence": 0.912109375
+        },
+        {
+          "box_index": 3,
+          "count": 1,
+          "points_xy": [
+            [
+              575,
+              477
+            ]
+          ],
+          "distance_to_mask_or_box_edge_px": 39.35039138793945,
+          "confidence": 0.85791015625
+        }
+      ]
+    },
+    "first_step_candidate_sets": [],
+    "candidate_sets": [
+      {
+        "object": 1,
+        "crop_xyxy": [
+          332,
+          134,
+          434,
+          236
+        ],
+        "scores": [
+          0.9457611441612244,
+          0.953283429145813,
+          0.9496628046035767
+        ],
+        "note": "Refine-stage multimask diagnostic."
+      },
+      {
+        "object": 2,
+        "crop_xyxy": [
+          362,
+          85,
+          702,
+          425
+        ],
+        "scores": [
+          0.9400270581245422,
+          0.9741041660308838,
+          0.9754780530929565
+        ],
+        "note": "Refine-stage multimask diagnostic."
+      },
+      {
+        "object": 3,
+        "crop_xyxy": [
+          434,
+          224,
+          729,
+          519
+        ],
+        "scores": [
+          0.9245811700820923,
+          0.9382476806640625,
+          0.9075552225112915
+        ],
+        "note": "Refine-stage multimask diagnostic."
+      }
+    ],
+    "initial_points_drawn": 36,
+    "active_points_drawn": 3,
+    "negative_points_inside_boxes_hidden": 0,
+    "point_decoder_audit": [
+      {
+        "box_index": 1,
+        "initial_points": 8,
+        "final_points": 9,
+        "decoder_calls": 2
+      },
+      {
+        "box_index": 2,
+        "initial_points": 14,
+        "final_points": 15,
+        "decoder_calls": 2
+      },
+      {
+        "box_index": 3,
+        "initial_points": 14,
+        "final_points": 15,
+        "decoder_calls": 2
+      }
+    ],
+    "no_points_boxes": [],
+    "notes": [
+      "RGB_Boxes.png, RGB_PositivePoints.png, and RGB_NegativePoints.png are saved separately.",
+      "Cases are selected as a mixed set: ordinary plus optional small, off-center, and multi-object examples.",
+      "RGB_Boxes_MaskPoints.png uses one high-confidence interior Base_Mask positive per box and negatives only outside all annotation boxes. These are illustrative points, not necessarily SAM inputs.",
+      "FirstStep_Logits contains base-stage multimask diagnostic logits when available.",
+      "GT used only for post-hoc case ranking and correction visualization."
+    ]
+  },
+  {
+    "stem": "camourflage_00082",
+    "base_mae": 0.10443521594684385,
+    "refined_mae": 0.0058554817275747505,
+    "refined_iou": 0.9447881588221474,
+    "relative_gain": 0.9439319230157468,
+    "gain": 0.0985797342192691,
+    "change": 0.10381229235880399,
+    "annotation_box_count": 2,
+    "case_stats": {
+      "box_count": 2,
+      "area_ratios": [
+        0.11855481727574751,
+        0.08465116279069768
+      ],
+      "max_area_ratio": 0.11855481727574751,
+      "mean_area_ratio": 0.1016029900332226,
+      "center_dists": [
+        0.2378277210338594,
+        0.22442797403858397
+      ],
+      "mean_center_dist": 0.23112784753622168,
+      "min_center_dist": 0.22442797403858397,
+      "max_center_dist": 0.2378277210338594
+    },
+    "is_small": true,
+    "is_offcenter": true,
+    "is_multi": true,
+    "is_normal": false,
+    "box_annotation_file": "data/Train/box_label/camourflage_00082.json",
+    "selection_category": "best_remaining",
+    "rank": 5,
+    "box_coordinates": [
+      [
+        23,
+        101,
+        140,
+        223
+      ],
+      [
+        252,
+        59,
+        356,
+        157
+      ]
+    ],
+    "boxes": 2,
+    "route_type": "MO_PER_BOX",
+    "mask_point_strategy": {
+      "positive_from": "One confidence-guided, interior Base_Mask foreground point per box",
+      "negative_from": "background outside all annotation boxes",
+      "positive_per_box": 1,
+      "pos_min_confidence": 0.85,
+      "pos_interior_margin": 0.08,
+      "mask_neg_total": 4,
+      "mask_positive_points": [
+        [
+          81,
+          152
+        ],
+        [
+          300,
+          105
+        ]
+      ],
+      "mask_negative_points": [
+        [
+          200,
+          149
+        ],
+        [
+          0,
+          300
+        ],
+        [
+          399,
+          300
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "per_box_positive_stats": [
+        {
+          "box_index": 1,
+          "count": 1,
+          "points_xy": [
+            [
+              81,
+              152
+            ]
+          ],
+          "distance_to_mask_or_box_edge_px": 40.75039291381836,
+          "confidence": 0.99365234375
+        },
+        {
+          "box_index": 2,
+          "count": 1,
+          "points_xy": [
+            [
+              300,
+              105
+            ]
+          ],
+          "distance_to_mask_or_box_edge_px": 35.756595611572266,
+          "confidence": 0.99853515625
+        }
+      ]
+    },
+    "first_step_candidate_sets": [],
+    "candidate_sets": [
+      {
+        "object": 1,
+        "crop_xyxy": [
+          0,
+          0,
+          400,
+          301
+        ],
+        "scores": [
+          0.9644097685813904,
+          0.9931035041809082,
+          0.9737199544906616
+        ],
+        "note": "Refine-stage multimask diagnostic."
+      },
+      {
+        "object": 2,
+        "crop_xyxy": [
+          216,
+          20,
+          393,
+          197
+        ],
+        "scores": [
+          0.9827893376350403,
+          0.9930555820465088,
+          0.979069709777832
+        ],
+        "note": "Refine-stage multimask diagnostic."
+      }
+    ],
+    "initial_points_drawn": 20,
+    "active_points_drawn": 2,
+    "negative_points_inside_boxes_hidden": 0,
+    "point_decoder_audit": [
+      {
+        "box_index": 1,
+        "initial_points": 12,
+        "final_points": 13,
+        "decoder_calls": 2
+      },
+      {
+        "box_index": 2,
+        "initial_points": 8,
+        "final_points": 9,
+        "decoder_calls": 2
+      }
+    ],
+    "no_points_boxes": [],
+    "notes": [
+      "RGB_Boxes.png, RGB_PositivePoints.png, and RGB_NegativePoints.png are saved separately.",
+      "Cases are selected as a mixed set: ordinary plus optional small, off-center, and multi-object examples.",
+      "RGB_Boxes_MaskPoints.png uses one high-confidence interior Base_Mask positive per box and negatives only outside all annotation boxes. These are illustrative points, not necessarily SAM inputs.",
+      "FirstStep_Logits contains base-stage multimask diagnostic logits when available.",
+      "GT used only for post-hoc case ranking and correction visualization."
+    ]
+  },
+  {
+    "stem": "COD10K-CAM-1-Aquatic-15-SeaHorse-1021",
+    "base_mae": 0.0897534688313802,
+    "refined_mae": 0.005083719889322917,
+    "refined_iou": 0.9271647446758121,
+    "relative_gain": 0.9433590706240702,
+    "gain": 0.08466974894205728,
+    "change": 0.08598709106445312,
+    "annotation_box_count": 2,
+    "case_stats": {
+      "box_count": 2,
+      "area_ratios": [
+        0.11682510375976562,
+        0.09560775756835938
+      ],
+      "max_area_ratio": 0.11682510375976562,
+      "mean_area_ratio": 0.1062164306640625,
+      "center_dists": [
+        0.1732869912822548,
+        0.242019220771112
+      ],
+      "mean_center_dist": 0.2076531060266834,
+      "min_center_dist": 0.1732869912822548,
+      "max_center_dist": 0.242019220771112
+    },
+    "is_small": true,
+    "is_offcenter": true,
+    "is_multi": true,
+    "is_normal": false,
+    "box_annotation_file": "data/Train/box_label/COD10K-CAM-1-Aquatic-15-SeaHorse-1021.json",
+    "selection_category": "best_remaining",
+    "rank": 6,
+    "box_coordinates": [
+      [
+        137,
+        380,
+        512,
+        625
+      ],
+      [
+        500,
+        15,
+        853,
+        228
+      ]
+    ],
+    "boxes": 2,
+    "route_type": "MO_PER_BOX",
+    "mask_point_strategy": {
+      "positive_from": "One confidence-guided, interior Base_Mask foreground point per box",
+      "negative_from": "background outside all annotation boxes",
+      "positive_per_box": 1,
+      "pos_min_confidence": 0.85,
+      "pos_interior_margin": 0.08,
+      "mask_neg_total": 4,
+      "mask_positive_points": [
+        [
+          213,
+          440
+        ],
+        [
+          710,
+          146
+        ]
+      ],
+      "mask_negative_points": [
+        [
+          532,
+          419
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1023,
+          0
+        ],
+        [
+          0,
+          767
+        ]
+      ],
+      "per_box_positive_stats": [
+        {
+          "box_index": 1,
+          "count": 1,
+          "points_xy": [
+            [
+              213,
+              440
+            ]
+          ],
+          "distance_to_mask_or_box_edge_px": 51.928688049316406,
+          "confidence": 0.9990234375
+        },
+        {
+          "box_index": 2,
+          "count": 1,
+          "points_xy": [
+            [
+              710,
+              146
+            ]
+          ],
+          "distance_to_mask_or_box_edge_px": 38.187591552734375,
+          "confidence": 0.974609375
+        }
+      ]
+    },
+    "first_step_candidate_sets": [],
+    "candidate_sets": [
+      {
+        "object": 1,
+        "crop_xyxy": [
+          0,
+          0,
+          1024,
+          768
+        ],
+        "scores": [
+          0.9816679358482361,
+          0.9852859973907471,
+          0.9369642734527588
+        ],
+        "note": "Refine-stage multimask diagnostic."
+      },
+      {
+        "object": 2,
+        "crop_xyxy": [
+          376,
+          0,
+          977,
+          601
+        ],
+        "scores": [
+          0.9301477670669556,
+          0.8807706832885742,
+          0.9017833471298218
+        ],
+        "note": "Refine-stage multimask diagnostic."
+      }
+    ],
+    "initial_points_drawn": 22,
+    "active_points_drawn": 2,
+    "negative_points_inside_boxes_hidden": 0,
+    "point_decoder_audit": [
+      {
+        "box_index": 1,
+        "initial_points": 11,
+        "final_points": 12,
+        "decoder_calls": 2
+      },
+      {
+        "box_index": 2,
+        "initial_points": 11,
+        "final_points": 12,
+        "decoder_calls": 2
+      }
+    ],
+    "no_points_boxes": [],
+    "notes": [
+      "RGB_Boxes.png, RGB_PositivePoints.png, and RGB_NegativePoints.png are saved separately.",
+      "Cases are selected as a mixed set: ordinary plus optional small, off-center, and multi-object examples.",
+      "RGB_Boxes_MaskPoints.png uses one high-confidence interior Base_Mask positive per box and negatives only outside all annotation boxes. These are illustrative points, not necessarily SAM inputs.",
+      "FirstStep_Logits contains base-stage multimask diagnostic logits when available.",
+      "GT used only for post-hoc case ranking and correction visualization."
+    ]
+  },
+  {
+    "stem": "COD10K-CAM-2-Terrestrial-38-Lizard-2164",
+    "base_mae": 0.08441255128956623,
+    "refined_mae": 0.004675593493552169,
+    "refined_iou": 0.902600499875985,
+    "relative_gain": 0.944610209949547,
+    "gain": 0.07973695779601407,
+    "change": 0.08366427315357562,
+    "annotation_box_count": 1,
+    "case_stats": {
+      "box_count": 1,
+      "area_ratios": [
+        0.4593530187573271
+      ],
+      "max_area_ratio": 0.4593530187573271,
+      "mean_area_ratio": 0.4593530187573271,
+      "center_dists": [
+        0.12460734653407556
+      ],
+      "mean_center_dist": 0.12460734653407556,
+      "min_center_dist": 0.12460734653407556,
+      "max_center_dist": 0.12460734653407556
+    },
+    "is_small": false,
+    "is_offcenter": true,
+    "is_multi": false,
+    "is_normal": false,
+    "box_annotation_file": "data/Train/box_label/COD10K-CAM-2-Terrestrial-38-Lizard-2164.json",
+    "selection_category": "best_remaining",
+    "rank": 7,
+    "box_coordinates": [
+      [
+        89,
+        209,
+        869,
+        852
+      ]
+    ],
+    "boxes": 1,
+    "route_type": "NORMAL",
+    "mask_point_strategy": {
+      "positive_from": "One confidence-guided, interior Base_Mask foreground point per box",
+      "negative_from": "background outside all annotation boxes",
+      "positive_per_box": 1,
+      "pos_min_confidence": 0.85,
+      "pos_interior_margin": 0.08,
+      "mask_neg_total": 4,
+      "mask_positive_points": [
+        [
+          638,
+          403
+        ]
+      ],
+      "mask_negative_points": [
+        [
+          870,
+          336
+        ],
+        [
+          0,
+          852
+        ],
+        [
+          82,
+          0
+        ],
+        [
+          1279,
+          852
+        ]
+      ],
+      "per_box_positive_stats": [
+        {
+          "box_index": 1,
+          "count": 1,
+          "points_xy": [
+            [
+              638,
+              403
+            ]
+          ],
+          "distance_to_mask_or_box_edge_px": 44.7410888671875,
+          "confidence": 0.9912109375
+        }
+      ]
+    },
+    "first_step_candidate_sets": [],
+    "candidate_sets": [
+      {
+        "object": 1,
+        "crop_xyxy": [
+          0,
+          0,
+          1280,
+          853
+        ],
+        "scores": [
+          0.9281859993934631,
+          0.9251347780227661,
+          0.7852596044540405
+        ],
+        "note": "Refine-stage multimask diagnostic."
+      }
+    ],
+    "initial_points_drawn": 5,
+    "active_points_drawn": 0,
+    "negative_points_inside_boxes_hidden": 6,
+    "point_decoder_audit": [
+      {
+        "box_index": 1,
+        "initial_points": 10,
+        "final_points": 11,
+        "decoder_calls": 2
+      }
+    ],
+    "no_points_boxes": [],
+    "notes": [
+      "RGB_Boxes.png, RGB_PositivePoints.png, and RGB_NegativePoints.png are saved separately.",
+      "Cases are selected as a mixed set: ordinary plus optional small, off-center, and multi-object examples.",
+      "RGB_Boxes_MaskPoints.png uses one high-confidence interior Base_Mask positive per box and negatives only outside all annotation boxes. These are illustrative points, not necessarily SAM inputs.",
+      "FirstStep_Logits contains base-stage multimask diagnostic logits when available.",
+      "GT used only for post-hoc case ranking and correction visualization."
+    ]
+  },
+  {
+    "stem": "COD10K-CAM-2-Terrestrial-30-Duck-1863",
+    "base_mae": 0.0796826680501302,
+    "refined_mae": 0.006839752197265625,
+    "refined_iou": 0.955689737548808,
+    "relative_gain": 0.9141626107077316,
+    "gain": 0.07284291585286458,
+    "change": 0.07653045654296875,
+    "annotation_box_count": 2,
+    "case_stats": {
+      "box_count": 2,
+      "area_ratios": [
+        0.14979934692382812,
+        0.20043055216471353
+      ],
+      "max_area_ratio": 0.20043055216471353,
+      "mean_area_ratio": 0.17511494954427081,
+      "center_dists": [
+        0.26216089052246383,
+        0.13272170609787703
+      ],
+      "mean_center_dist": 0.19744129831017043,
+      "min_center_dist": 0.13272170609787703,
+      "max_center_dist": 0.26216089052246383
+    },
+    "is_small": false,
+    "is_offcenter": true,
+    "is_multi": true,
+    "is_normal": false,
+    "box_annotation_file": "data/Train/box_label/COD10K-CAM-2-Terrestrial-30-Duck-1863.json",
+    "selection_category": "best_remaining",
+    "rank": 8,
+    "box_coordinates": [
+      [
+        12,
+        112,
+        379,
+        433
+      ],
+      [
+        395,
+        336,
+        880,
+        661
+      ]
+    ],
+    "boxes": 2,
+    "route_type": "MO_PER_BOX",
+    "mask_point_strategy": {
+      "positive_from": "One confidence-guided, interior Base_Mask foreground point per box",
+      "negative_from": "background outside all annotation boxes",
+      "positive_per_box": 1,
+      "pos_min_confidence": 0.85,
+      "pos_interior_margin": 0.08,
+      "mask_neg_total": 4,
+      "mask_positive_points": [
+        [
+          232,
+          313
+        ],
+        [
+          758,
+          551
+        ]
+      ],
+      "mask_negative_points": [
+        [
+          563,
+          335
+        ],
+        [
+          0,
+          767
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1023,
+          767
+        ]
+      ],
+      "per_box_positive_stats": [
+        {
+          "box_index": 1,
+          "count": 1,
+          "points_xy": [
+            [
+              232,
+              313
+            ]
+          ],
+          "distance_to_mask_or_box_edge_px": 95.7410888671875,
+          "confidence": 0.9423828125
+        },
+        {
+          "box_index": 2,
+          "count": 1,
+          "points_xy": [
+            [
+              758,
+              551
+            ]
+          ],
+          "distance_to_mask_or_box_edge_px": 66.76899719238281,
+          "confidence": 0.9541015625
+        }
+      ]
+    },
+    "first_step_candidate_sets": [],
+    "candidate_sets": [
+      {
+        "object": 1,
+        "crop_xyxy": [
+          0,
+          0,
+          1024,
+          768
+        ],
+        "scores": [
+          0.9613104462623596,
+          1.0005130767822266,
+          0.9989848136901855
+        ],
+        "note": "Refine-stage multimask diagnostic."
+      },
+      {
+        "object": 2,
+        "crop_xyxy": [
+          0,
+          0,
+          1024,
+          768
+        ],
+        "scores": [
+          0.9720643162727356,
+          0.9792444705963135,
+          0.9511582851409912
+        ],
+        "note": "Refine-stage multimask diagnostic."
+      }
+    ],
+    "initial_points_drawn": 16,
+    "active_points_drawn": 1,
+    "negative_points_inside_boxes_hidden": 5,
+    "point_decoder_audit": [
+      {
+        "box_index": 1,
+        "initial_points": 10,
+        "final_points": 11,
+        "decoder_calls": 2
+      },
+      {
+        "box_index": 2,
+        "initial_points": 10,
+        "final_points": 11,
+        "decoder_calls": 2
+      }
+    ],
+    "no_points_boxes": [],
+    "notes": [
+      "RGB_Boxes.png, RGB_PositivePoints.png, and RGB_NegativePoints.png are saved separately.",
+      "Cases are selected as a mixed set: ordinary plus optional small, off-center, and multi-object examples.",
+      "RGB_Boxes_MaskPoints.png uses one high-confidence interior Base_Mask positive per box and negatives only outside all annotation boxes. These are illustrative points, not necessarily SAM inputs.",
+      "FirstStep_Logits contains base-stage multimask diagnostic logits when available.",
+      "GT used only for post-hoc case ranking and correction visualization."
+    ]
+  },
+  {
+    "stem": "COD10K-CAM-2-Terrestrial-34-Human-1974",
+    "base_mae": 0.07067228618421052,
+    "refined_mae": 0.010185375548245614,
+    "refined_iou": 0.915834926028173,
+    "relative_gain": 0.8558787878787879,
+    "gain": 0.06048691063596491,
+    "change": 0.06263135051169591,
+    "annotation_box_count": 3,
+    "case_stats": {
+      "box_count": 3,
+      "area_ratios": [
+        0.10466922514619884,
+        0.09593298839546784,
+        0.03102156432748538
+      ],
+      "max_area_ratio": 0.10466922514619884,
+      "mean_area_ratio": 0.07720792595638402,
+      "center_dists": [
+        0.21031746821734268,
+        0.08664539990507045,
+        0.15948054796663352
+      ],
+      "mean_center_dist": 0.15214780536301556,
+      "min_center_dist": 0.08664539990507045,
+      "max_center_dist": 0.21031746821734268
+    },
+    "is_small": true,
+    "is_offcenter": true,
+    "is_multi": true,
+    "is_normal": false,
+    "box_annotation_file": "data/Train/box_label/COD10K-CAM-2-Terrestrial-34-Human-1974.json",
+    "selection_category": "best_remaining",
+    "rank": 9,
+    "box_coordinates": [
+      [
+        187,
+        29,
+        345,
+        493
+      ],
+      [
+        404,
+        283,
+        607,
+        614
+      ],
+      [
+        643,
+        185,
+        755,
+        379
+      ]
+    ],
+    "boxes": 3,
+    "route_type": "MO_PER_BOX",
+    "mask_point_strategy": {
+      "positive_from": "One confidence-guided, interior Base_Mask foreground point per box",
+      "negative_from": "background outside all annotation boxes",
+      "positive_per_box": 1,
+      "pos_min_confidence": 0.85,
+      "pos_interior_margin": 0.08,
+      "mask_neg_total": 4,
+      "mask_positive_points": [
+        [
+          247,
+          294
+        ],
+        [
+          523,
+          422
+        ],
+        [
+          689,
+          270
+        ]
+      ],
+      "mask_negative_points": [
+        [
+          533,
+          282
+        ],
+        [
+          0,
+          683
+        ],
+        [
+          1023,
+          683
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "per_box_positive_stats": [
+        {
+          "box_index": 1,
+          "count": 1,
+          "points_xy": [
+            [
+              247,
+              294
+            ]
+          ],
+          "distance_to_mask_or_box_edge_px": 46.5906982421875,
+          "confidence": 0.99267578125
+        },
+        {
+          "box_index": 2,
+          "count": 1,
+          "points_xy": [
+            [
+              523,
+              422
+            ]
+          ],
+          "distance_to_mask_or_box_edge_px": 57.544189453125,
+          "confidence": 0.9736328125
+        },
+        {
+          "box_index": 3,
+          "count": 1,
+          "points_xy": [
+            [
+              689,
+              270
+            ]
+          ],
+          "distance_to_mask_or_box_edge_px": 38.9534912109375,
+          "confidence": 0.86474609375
+        }
+      ]
+    },
+    "first_step_candidate_sets": [],
+    "candidate_sets": [
+      {
+        "object": 1,
+        "crop_xyxy": [
+          0,
+          0,
+          1024,
+          684
+        ],
+        "scores": [
+          0.9483335614204407,
+          0.9862569570541382,
+          0.9807449579238892
+        ],
+        "note": "Refine-stage multimask diagnostic."
+      },
+      {
+        "object": 2,
+        "crop_xyxy": [
+          224,
+          121,
+          787,
+          684
+        ],
+        "scores": [
+          0.9670023322105408,
+          0.9791088104248047,
+          0.9793976545333862
+        ],
+        "note": "Refine-stage multimask diagnostic."
+      },
+      {
+        "object": 3,
+        "crop_xyxy": [
+          533,
+          117,
+          864,
+          448
+        ],
+        "scores": [
+          0.9248828291893005,
+          0.966591477394104,
+          0.9271824359893799
+        ],
+        "note": "Refine-stage multimask diagnostic."
+      }
+    ],
+    "initial_points_drawn": 34,
+    "active_points_drawn": 3,
+    "negative_points_inside_boxes_hidden": 1,
+    "point_decoder_audit": [
+      {
+        "box_index": 1,
+        "initial_points": 13,
+        "final_points": 14,
+        "decoder_calls": 2
+      },
+      {
+        "box_index": 2,
+        "initial_points": 14,
+        "final_points": 15,
+        "decoder_calls": 2
+      },
+      {
+        "box_index": 3,
+        "initial_points": 8,
+        "final_points": 9,
+        "decoder_calls": 2
+      }
+    ],
+    "no_points_boxes": [],
+    "notes": [
+      "RGB_Boxes.png, RGB_PositivePoints.png, and RGB_NegativePoints.png are saved separately.",
+      "Cases are selected as a mixed set: ordinary plus optional small, off-center, and multi-object examples.",
+      "RGB_Boxes_MaskPoints.png uses one high-confidence interior Base_Mask positive per box and negatives only outside all annotation boxes. These are illustrative points, not necessarily SAM inputs.",
+      "FirstStep_Logits contains base-stage multimask diagnostic logits when available.",
+      "GT used only for post-hoc case ranking and correction visualization."
+    ]
+  },
+  {
+    "stem": "camourflage_00125",
+    "base_mae": 0.04813515001376273,
+    "refined_mae": 0.01032778236535462,
+    "refined_iou": 0.97439906750629,
+    "relative_gain": 0.7854419823683583,
+    "gain": 0.037807367648408106,
+    "change": 0.03831200110101844,
+    "annotation_box_count": 1,
+    "case_stats": {
+      "box_count": 1,
+      "area_ratios": [
+        0.9048135150013763
+      ],
+      "max_area_ratio": 0.9048135150013763,
+      "mean_area_ratio": 0.9048135150013763,
+      "center_dists": [
+        0.037209403659009876
+      ],
+      "mean_center_dist": 0.037209403659009876,
+      "min_center_dist": 0.037209403659009876,
+      "max_center_dist": 0.037209403659009876
+    },
+    "is_small": false,
+    "is_offcenter": false,
+    "is_multi": false,
+    "is_normal": true,
+    "box_annotation_file": "data/Train/box_label/camourflage_00125.json",
+    "selection_category": "best_remaining",
+    "rank": 10,
+    "box_coordinates": [
+      [
+        47,
+        0,
+        518,
+        335
+      ]
+    ],
+    "boxes": 1,
+    "route_type": "NORMAL",
+    "mask_point_strategy": {
+      "positive_from": "One confidence-guided, interior Base_Mask foreground point per box",
+      "negative_from": "background outside all annotation boxes",
+      "positive_per_box": 1,
+      "pos_min_confidence": 0.85,
+      "pos_interior_margin": 0.08,
+      "mask_neg_total": 4,
+      "mask_positive_points": [
+        [
+          439,
+          124
+        ]
+      ],
+      "mask_negative_points": [
+        [
+          23,
+          167
+        ],
+        [
+          0,
+          335
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          46,
+          256
+        ]
+      ],
+      "per_box_positive_stats": [
+        {
+          "box_index": 1,
+          "count": 1,
+          "points_xy": [
+            [
+              439,
+              124
+            ]
+          ],
+          "distance_to_mask_or_box_edge_px": 80.0,
+          "confidence": 1.0
+        }
+      ]
+    },
+    "first_step_candidate_sets": [],
+    "candidate_sets": [
+      {
+        "object": 1,
+        "crop_xyxy": [
+          0,
+          0,
+          519,
+          336
+        ],
+        "scores": [
+          0.924464762210846,
+          0.9712204933166504,
+          0.9679397344589233
+        ],
+        "note": "Refine-stage multimask diagnostic."
+      }
+    ],
+    "initial_points_drawn": 6,
+    "active_points_drawn": 1,
+    "negative_points_inside_boxes_hidden": 7,
+    "point_decoder_audit": [
+      {
+        "box_index": 1,
+        "initial_points": 13,
+        "final_points": 14,
+        "decoder_calls": 2
+      }
+    ],
+    "no_points_boxes": [],
+    "notes": [
+      "RGB_Boxes.png, RGB_PositivePoints.png, and RGB_NegativePoints.png are saved separately.",
+      "Cases are selected as a mixed set: ordinary plus optional small, off-center, and multi-object examples.",
+      "RGB_Boxes_MaskPoints.png uses one high-confidence interior Base_Mask positive per box and negatives only outside all annotation boxes. These are illustrative points, not necessarily SAM inputs.",
+      "FirstStep_Logits contains base-stage multimask diagnostic logits when available.",
+      "GT used only for post-hoc case ranking and correction visualization."
+    ]
+  },
+  {
+    "stem": "camourflage_00048",
+    "base_mae": 0.04974719101123595,
+    "refined_mae": 0.01196629213483146,
+    "refined_iou": 0.9260202604920406,
+    "relative_gain": 0.7594579333709768,
+    "gain": 0.03778089887640449,
+    "change": 0.048586142322097375,
+    "annotation_box_count": 1,
+    "case_stats": {
+      "box_count": 1,
+      "area_ratios": [
+        0.5225468164794007
+      ],
+      "max_area_ratio": 0.5225468164794007,
+      "mean_area_ratio": 0.5225468164794007,
+      "center_dists": [
+        0.01897206622179071
+      ],
+      "mean_center_dist": 0.01897206622179071,
+      "min_center_dist": 0.01897206622179071,
+      "max_center_dist": 0.01897206622179071
+    },
+    "is_small": false,
+    "is_offcenter": false,
+    "is_multi": false,
+    "is_normal": true,
+    "box_annotation_file": "data/Train/box_label/camourflage_00048.json",
+    "selection_category": "best_remaining",
+    "rank": 11,
+    "box_coordinates": [
+      [
+        81,
+        26,
+        337,
+        244
+      ]
+    ],
+    "boxes": 1,
+    "route_type": "NORMAL",
+    "mask_point_strategy": {
+      "positive_from": "One confidence-guided, interior Base_Mask foreground point per box",
+      "negative_from": "background outside all annotation boxes",
+      "positive_per_box": 1,
+      "pos_min_confidence": 0.85,
+      "pos_interior_margin": 0.08,
+      "mask_neg_total": 4,
+      "mask_positive_points": [
+        [
+          172,
+          131
+        ]
+      ],
+      "mask_negative_points": [
+        [
+          187,
+          25
+        ],
+        [
+          399,
+          266
+        ],
+        [
+          0,
+          266
+        ],
+        [
+          399,
+          52
+        ]
+      ],
+      "per_box_positive_stats": [
+        {
+          "box_index": 1,
+          "count": 1,
+          "points_xy": [
+            [
+              172,
+              131
+            ]
+          ],
+          "distance_to_mask_or_box_edge_px": 48.396907806396484,
+          "confidence": 0.99853515625
+        }
+      ]
+    },
+    "first_step_candidate_sets": [],
+    "candidate_sets": [
+      {
+        "object": 1,
+        "crop_xyxy": [
+          0,
+          0,
+          400,
+          267
+        ],
+        "scores": [
+          0.9519363641738892,
+          0.9625842571258545,
+          0.8740191459655762
+        ],
+        "note": "Refine-stage multimask diagnostic."
+      }
+    ],
+    "initial_points_drawn": 11,
+    "active_points_drawn": 1,
+    "negative_points_inside_boxes_hidden": 0,
+    "point_decoder_audit": [
+      {
+        "box_index": 1,
+        "initial_points": 11,
+        "final_points": 12,
+        "decoder_calls": 2
+      }
+    ],
+    "no_points_boxes": [],
+    "notes": [
+      "RGB_Boxes.png, RGB_PositivePoints.png, and RGB_NegativePoints.png are saved separately.",
+      "Cases are selected as a mixed set: ordinary plus optional small, off-center, and multi-object examples.",
+      "RGB_Boxes_MaskPoints.png uses one high-confidence interior Base_Mask positive per box and negatives only outside all annotation boxes. These are illustrative points, not necessarily SAM inputs.",
+      "FirstStep_Logits contains base-stage multimask diagnostic logits when available.",
+      "GT used only for post-hoc case ranking and correction visualization."
+    ]
+  },
+  {
+    "stem": "COD10K-CAM-2-Terrestrial-45-Spider-2528",
+    "base_mae": 0.04692075402635432,
+    "refined_mae": 0.009988675878477305,
+    "refined_iou": 0.9195281812631748,
+    "relative_gain": 0.7871160409556314,
+    "gain": 0.03693207814787701,
+    "change": 0.04122437774524158,
+    "annotation_box_count": 1,
+    "case_stats": {
+      "box_count": 1,
+      "area_ratios": [
+        0.18947314238653
+      ],
+      "max_area_ratio": 0.18947314238653,
+      "mean_area_ratio": 0.18947314238653,
+      "center_dists": [
+        0.05220436393999625
+      ],
+      "mean_center_dist": 0.05220436393999625,
+      "min_center_dist": 0.05220436393999625,
+      "max_center_dist": 0.05220436393999625
+    },
+    "is_small": false,
+    "is_offcenter": false,
+    "is_multi": false,
+    "is_normal": true,
+    "box_annotation_file": "data/Train/box_label/COD10K-CAM-2-Terrestrial-45-Spider-2528.json",
+    "selection_category": "best_remaining",
+    "rank": 12,
+    "box_coordinates": [
+      [
+        160,
+        410,
+        569,
+        734
+      ]
+    ],
+    "boxes": 1,
+    "route_type": "NORMAL",
+    "mask_point_strategy": {
+      "positive_from": "One confidence-guided, interior Base_Mask foreground point per box",
+      "negative_from": "background outside all annotation boxes",
+      "positive_per_box": 1,
+      "pos_min_confidence": 0.85,
+      "pos_interior_margin": 0.08,
+      "mask_neg_total": 4,
+      "mask_positive_points": [
+        [
+          364,
+          490
+        ]
+      ],
+      "mask_negative_points": [
+        [
+          335,
+          409
+        ],
+        [
+          682,
+          1023
+        ],
+        [
+          0,
+          1004
+        ],
+        [
+          682,
+          0
+        ]
+      ],
+      "per_box_positive_stats": [
+        {
+          "box_index": 1,
+          "count": 1,
+          "points_xy": [
+            [
+              364,
+              490
+            ]
+          ],
+          "distance_to_mask_or_box_edge_px": 53.5596923828125,
+          "confidence": 0.99951171875
+        }
+      ]
+    },
+    "first_step_candidate_sets": [],
+    "candidate_sets": [
+      {
+        "object": 1,
+        "crop_xyxy": [
+          0,
+          0,
+          683,
+          1024
+        ],
+        "scores": [
+          0.8330628275871277,
+          0.8966212272644043,
+          0.9500555992126465
+        ],
+        "note": "Refine-stage multimask diagnostic."
+      }
+    ],
+    "initial_points_drawn": 13,
+    "active_points_drawn": 1,
+    "negative_points_inside_boxes_hidden": 0,
+    "point_decoder_audit": [
+      {
+        "box_index": 1,
+        "initial_points": 13,
+        "final_points": 14,
+        "decoder_calls": 2
+      }
+    ],
+    "no_points_boxes": [],
+    "notes": [
+      "RGB_Boxes.png, RGB_PositivePoints.png, and RGB_NegativePoints.png are saved separately.",
+      "Cases are selected as a mixed set: ordinary plus optional small, off-center, and multi-object examples.",
+      "RGB_Boxes_MaskPoints.png uses one high-confidence interior Base_Mask positive per box and negatives only outside all annotation boxes. These are illustrative points, not necessarily SAM inputs.",
+      "FirstStep_Logits contains base-stage multimask diagnostic logits when available.",
+      "GT used only for post-hoc case ranking and correction visualization."
+    ]
+  },
+  {
+    "stem": "COD10K-CAM-3-Flying-59-Grasshopper-3854",
+    "base_mae": 0.04304320931085044,
+    "refined_mae": 0.008777607221407625,
+    "refined_iou": 0.9242330605888315,
+    "relative_gain": 0.7960745176314039,
+    "gain": 0.03426560208944282,
+    "change": 0.03816612445014663,
+    "annotation_box_count": 1,
+    "case_stats": {
+      "box_count": 1,
+      "area_ratios": [
+        0.4653649651759531
+      ],
+      "max_area_ratio": 0.4653649651759531,
+      "mean_area_ratio": 0.4653649651759531,
+      "center_dists": [
+        0.051804014732381616
+      ],
+      "mean_center_dist": 0.051804014732381616,
+      "min_center_dist": 0.051804014732381616,
+      "max_center_dist": 0.051804014732381616
+    },
+    "is_small": false,
+    "is_offcenter": false,
+    "is_multi": false,
+    "is_normal": true,
+    "box_annotation_file": "data/Train/box_label/COD10K-CAM-3-Flying-59-Grasshopper-3854.json",
+    "selection_category": "best_remaining",
+    "rank": 13,
+    "box_coordinates": [
+      [
+        254,
+        107,
+        890,
+        618
+      ]
+    ],
+    "boxes": 1,
+    "route_type": "NORMAL",
+    "mask_point_strategy": {
+      "positive_from": "One confidence-guided, interior Base_Mask foreground point per box",
+      "negative_from": "background outside all annotation boxes",
+      "positive_per_box": 1,
+      "pos_min_confidence": 0.85,
+      "pos_interior_margin": 0.08,
+      "mask_neg_total": 4,
+      "mask_positive_points": [
+        [
+          545,
+          462
+        ]
+      ],
+      "mask_negative_points": [
+        [
+          253,
+          320
+        ],
+        [
+          1023,
+          681
+        ],
+        [
+          873,
+          0
+        ],
+        [
+          553,
+          681
+        ]
+      ],
+      "per_box_positive_stats": [
+        {
+          "box_index": 1,
+          "count": 1,
+          "points_xy": [
+            [
+              545,
+              462
+            ]
+          ],
+          "distance_to_mask_or_box_edge_px": 77.49458312988281,
+          "confidence": 0.99951171875
+        }
+      ]
+    },
+    "first_step_candidate_sets": [],
+    "candidate_sets": [
+      {
+        "object": 1,
+        "crop_xyxy": [
+          0,
+          0,
+          1024,
+          682
+        ],
+        "scores": [
+          0.9640413522720337,
+          0.9673128128051758,
+          0.8836150169372559
+        ],
+        "note": "Refine-stage multimask diagnostic."
+      }
+    ],
+    "initial_points_drawn": 8,
+    "active_points_drawn": 0,
+    "negative_points_inside_boxes_hidden": 5,
+    "point_decoder_audit": [
+      {
+        "box_index": 1,
+        "initial_points": 12,
+        "final_points": 13,
+        "decoder_calls": 2
+      }
+    ],
+    "no_points_boxes": [],
+    "notes": [
+      "RGB_Boxes.png, RGB_PositivePoints.png, and RGB_NegativePoints.png are saved separately.",
+      "Cases are selected as a mixed set: ordinary plus optional small, off-center, and multi-object examples.",
+      "RGB_Boxes_MaskPoints.png uses one high-confidence interior Base_Mask positive per box and negatives only outside all annotation boxes. These are illustrative points, not necessarily SAM inputs.",
+      "FirstStep_Logits contains base-stage multimask diagnostic logits when available.",
+      "GT used only for post-hoc case ranking and correction visualization."
+    ]
+  },
+  {
+    "stem": "COD10K-CAM-1-Aquatic-13-Pipefish-601",
+    "base_mae": 0.04325615605221519,
+    "refined_mae": 0.008380101199894515,
+    "refined_iou": 0.9044447576761341,
+    "relative_gain": 0.8062680098116264,
+    "gain": 0.034876054852320676,
+    "change": 0.03748228177742616,
+    "annotation_box_count": 2,
+    "case_stats": {
+      "box_count": 2,
+      "area_ratios": [
+        0.22187335179324894,
+        0.5224300336234177
+      ],
+      "max_area_ratio": 0.5224300336234177,
+      "mean_area_ratio": 0.3721516927083333,
+      "center_dists": [
+        0.1869430981625647,
+        0.13705200293975378
+      ],
+      "mean_center_dist": 0.16199755055115925,
+      "min_center_dist": 0.13705200293975378,
+      "max_center_dist": 0.1869430981625647
+    },
+    "is_small": false,
+    "is_offcenter": true,
+    "is_multi": true,
+    "is_normal": false,
+    "box_annotation_file": "data/Train/box_label/COD10K-CAM-1-Aquatic-13-Pipefish-601.json",
+    "selection_category": "best_remaining",
+    "rank": 14,
+    "box_coordinates": [
+      [
+        157,
+        5,
+        593,
+        499
+      ],
+      [
+        5,
+        366,
+        887,
+        941
+      ]
+    ],
+    "boxes": 2,
+    "route_type": "MO_PER_BOX",
+    "mask_point_strategy": {
+      "positive_from": "One confidence-guided, interior Base_Mask foreground point per box",
+      "negative_from": "background outside all annotation boxes",
+      "positive_per_box": 1,
+      "pos_min_confidence": 0.85,
+      "pos_interior_margin": 0.08,
+      "mask_neg_total": 4,
+      "mask_positive_points": [
+        [
+          352,
+          265
+        ],
+        [
+          115,
+          889
+        ]
+      ],
+      "mask_negative_points": [
+        [
+          686,
+          316
+        ],
+        [
+          0,
+          947
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          1023,
+          947
+        ]
+      ],
+      "per_box_positive_stats": [
+        {
+          "box_index": 1,
+          "count": 1,
+          "points_xy": [
+            [
+              352,
+              265
+            ]
+          ],
+          "distance_to_mask_or_box_edge_px": 28.77519416809082,
+          "confidence": 0.98388671875
+        },
+        {
+          "box_index": 2,
+          "count": 1,
+          "points_xy": [
+            [
+              115,
+              889
+            ]
+          ],
+          "distance_to_mask_or_box_edge_px": 32.19999313354492,
+          "confidence": 0.99951171875
+        }
+      ]
+    },
+    "first_step_candidate_sets": [],
+    "candidate_sets": [
+      {
+        "object": 1,
+        "crop_xyxy": [
+          0,
+          0,
+          1024,
+          948
+        ],
+        "scores": [
+          0.9874460101127625,
+          0.992529034614563,
+          0.9701813459396362
+        ],
+        "note": "Refine-stage multimask diagnostic."
+      },
+      {
+        "object": 2,
+        "crop_xyxy": [
+          0,
+          0,
+          1024,
+          948
+        ],
+        "scores": [
+          0.98298579454422,
+          0.9928072690963745,
+          0.9593689441680908
+        ],
+        "note": "Refine-stage multimask diagnostic."
+      }
+    ],
+    "initial_points_drawn": 15,
+    "active_points_drawn": 2,
+    "negative_points_inside_boxes_hidden": 6,
+    "point_decoder_audit": [
+      {
+        "box_index": 1,
+        "initial_points": 10,
+        "final_points": 11,
+        "decoder_calls": 2
+      },
+      {
+        "box_index": 2,
+        "initial_points": 11,
+        "final_points": 12,
+        "decoder_calls": 2
+      }
+    ],
+    "no_points_boxes": [],
+    "notes": [
+      "RGB_Boxes.png, RGB_PositivePoints.png, and RGB_NegativePoints.png are saved separately.",
+      "Cases are selected as a mixed set: ordinary plus optional small, off-center, and multi-object examples.",
+      "RGB_Boxes_MaskPoints.png uses one high-confidence interior Base_Mask positive per box and negatives only outside all annotation boxes. These are illustrative points, not necessarily SAM inputs.",
+      "FirstStep_Logits contains base-stage multimask diagnostic logits when available.",
+      "GT used only for post-hoc case ranking and correction visualization."
+    ]
+  },
+  {
+    "stem": "COD10K-CAM-3-Flying-51-Bee-2987",
+    "base_mae": 0.03823492309298441,
+    "refined_mae": 0.003913862402561247,
+    "refined_iou": 0.907916282877904,
+    "relative_gain": 0.8976364515486789,
+    "gain": 0.034321060690423164,
+    "change": 0.036380759326280626,
+    "annotation_box_count": 1,
+    "case_stats": {
+      "box_count": 1,
+      "area_ratios": [
+        0.2471507864699332
+      ],
+      "max_area_ratio": 0.2471507864699332,
+      "mean_area_ratio": 0.2471507864699332,
+      "center_dists": [
+        0.038327777575702826
+      ],
+      "mean_center_dist": 0.038327777575702826,
+      "min_center_dist": 0.038327777575702826,
+      "max_center_dist": 0.038327777575702826
+    },
+    "is_small": false,
+    "is_offcenter": false,
+    "is_multi": false,
+    "is_normal": true,
+    "box_annotation_file": "data/Train/box_label/COD10K-CAM-3-Flying-51-Bee-2987.json",
+    "selection_category": "best_remaining",
+    "rank": 15,
+    "box_coordinates": [
+      [
+        314,
+        160,
+        668,
+        802
+      ]
+    ],
+    "boxes": 1,
+    "route_type": "NORMAL",
+    "mask_point_strategy": {
+      "positive_from": "One confidence-guided, interior Base_Mask foreground point per box",
+      "negative_from": "background outside all annotation boxes",
+      "positive_per_box": 1,
+      "pos_min_confidence": 0.85,
+      "pos_interior_margin": 0.08,
+      "mask_neg_total": 4,
+      "mask_positive_points": [
+        [
+          471,
+          414
+        ]
+      ],
+      "mask_negative_points": [
+        [
+          313,
+          522
+        ],
+        [
+          897,
+          0
+        ],
+        [
+          897,
+          1023
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "per_box_positive_stats": [
+        {
+          "box_index": 1,
+          "count": 1,
+          "points_xy": [
+            [
+              471,
+              414
+            ]
+          ],
+          "distance_to_mask_or_box_edge_px": 70.79692840576172,
+          "confidence": 0.99951171875
+        }
+      ]
+    },
+    "first_step_candidate_sets": [],
+    "candidate_sets": [
+      {
+        "object": 1,
+        "crop_xyxy": [
+          0,
+          0,
+          898,
+          1024
+        ],
+        "scores": [
+          0.878897488117218,
+          0.885278582572937,
+          0.9113203287124634
+        ],
+        "note": "Refine-stage multimask diagnostic."
+      }
+    ],
+    "initial_points_drawn": 6,
+    "active_points_drawn": 0,
+    "negative_points_inside_boxes_hidden": 6,
+    "point_decoder_audit": [
+      {
+        "box_index": 1,
+        "initial_points": 11,
+        "final_points": 12,
+        "decoder_calls": 2
+      }
+    ],
+    "no_points_boxes": [],
+    "notes": [
+      "RGB_Boxes.png, RGB_PositivePoints.png, and RGB_NegativePoints.png are saved separately.",
+      "Cases are selected as a mixed set: ordinary plus optional small, off-center, and multi-object examples.",
+      "RGB_Boxes_MaskPoints.png uses one high-confidence interior Base_Mask positive per box and negatives only outside all annotation boxes. These are illustrative points, not necessarily SAM inputs.",
+      "FirstStep_Logits contains base-stage multimask diagnostic logits when available.",
+      "GT used only for post-hoc case ranking and correction visualization."
+    ]
+  },
+  {
+    "stem": "camourflage_00799",
+    "base_mae": 0.0425462962962963,
+    "refined_mae": 0.01,
+    "refined_iou": 0.9552841320774247,
+    "relative_gain": 0.764961915125136,
+    "gain": 0.032546296296296295,
+    "change": 0.03699074074074074,
+    "annotation_box_count": 1,
+    "case_stats": {
+      "box_count": 1,
+      "area_ratios": [
+        0.381712962962963
+      ],
+      "max_area_ratio": 0.381712962962963,
+      "mean_area_ratio": 0.381712962962963,
+      "center_dists": [
+        0.07690181330039551
+      ],
+      "mean_center_dist": 0.07690181330039551,
+      "min_center_dist": 0.07690181330039551,
+      "max_center_dist": 0.07690181330039551
+    },
+    "is_small": false,
+    "is_offcenter": false,
+    "is_multi": false,
+    "is_normal": true,
+    "box_annotation_file": "data/Train/box_label/camourflage_00799.json",
+    "selection_category": "best_remaining",
+    "rank": 16,
+    "box_coordinates": [
+      [
+        15,
+        53,
+        185,
+        150
+      ]
+    ],
+    "boxes": 1,
+    "route_type": "NORMAL",
+    "mask_point_strategy": {
+      "positive_from": "One confidence-guided, interior Base_Mask foreground point per box",
+      "negative_from": "background outside all annotation boxes",
+      "positive_per_box": 1,
+      "pos_min_confidence": 0.85,
+      "pos_interior_margin": 0.08,
+      "mask_neg_total": 4,
+      "mask_positive_points": [
+        [
+          127,
+          77
+        ]
+      ],
+      "mask_negative_points": [
+        [
+          132,
+          52
+        ],
+        [
+          0,
+          179
+        ],
+        [
+          239,
+          179
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "per_box_positive_stats": [
+        {
+          "box_index": 1,
+          "count": 1,
+          "points_xy": [
+            [
+              127,
+              77
+            ]
+          ],
+          "distance_to_mask_or_box_edge_px": 22.1968994140625,
+          "confidence": 0.9921875
+        }
+      ]
+    },
+    "first_step_candidate_sets": [],
+    "candidate_sets": [
+      {
+        "object": 1,
+        "crop_xyxy": [
+          0,
+          0,
+          240,
+          180
+        ],
+        "scores": [
+          0.9159318208694458,
+          0.980636715888977,
+          0.9830185174942017
+        ],
+        "note": "Refine-stage multimask diagnostic."
+      }
+    ],
+    "initial_points_drawn": 13,
+    "active_points_drawn": 1,
+    "negative_points_inside_boxes_hidden": 2,
+    "point_decoder_audit": [
+      {
+        "box_index": 1,
+        "initial_points": 15,
+        "final_points": 16,
+        "decoder_calls": 2
+      }
+    ],
+    "no_points_boxes": [],
+    "notes": [
+      "RGB_Boxes.png, RGB_PositivePoints.png, and RGB_NegativePoints.png are saved separately.",
+      "Cases are selected as a mixed set: ordinary plus optional small, off-center, and multi-object examples.",
+      "RGB_Boxes_MaskPoints.png uses one high-confidence interior Base_Mask positive per box and negatives only outside all annotation boxes. These are illustrative points, not necessarily SAM inputs.",
+      "FirstStep_Logits contains base-stage multimask diagnostic logits when available.",
+      "GT used only for post-hoc case ranking and correction visualization."
+    ]
+  }
+]

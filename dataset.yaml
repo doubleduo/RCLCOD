@@ -1,7 +1,14 @@
 
 # ICOD Datasets  python main_for_image.py --config configs/icod_train.py --pretrained --model-name PvtV2B4_ZoomNeXt
 
+GT:
+  {
+    root: ".",
+    image: { path: "./data/Train/Imgs", suffix: ".jpg" },
+    mask:   {path: './data/Train/GT', suffix: '.png'},
+    box_json: { path: "./data/Train/box_label", suffix: ".json" },
 
+  }
 combined_tr:
   {
     root: ".",
@@ -11,6 +18,33 @@ combined_tr:
     #mask:   {path: './data/Train/S1_GT', suffix: '.png'},
     # mask1: { path: "./SGT/SAM2_FinalRefine_OriginalPools/03_Refine_NoFlip", suffix: ".png" },
     #pseudo_mask: { path: "./data/Train/S2_GT", suffix: ".png" },
+    box_json: { path: "./data/Train/box_label", suffix: ".json" },
+
+  }
+
+combined_trs1:
+  {
+    root: ".",
+    image: { path: "./data/Train/Imgs", suffix: ".jpg" },
+    
+    mask:   {path: 'softresult/SAM1_BoxOnly/01_BoxBase', suffix: '.png'},
+    box_json: { path: "./data/Train/box_label", suffix: ".json" },
+
+  }
+
+combined_trs2:
+  {
+    root: ".",
+    image: { path: "./data/Train/Imgs", suffix: ".jpg" },    
+    mask:   {path: 'softresult/SAM1_Optimized3/02_SoftLogits_SO_MO', suffix: '.png'},
+    box_json: { path: "./data/Train/box_label", suffix: ".json" },
+
+  }
+combinedsam3:
+  {
+    root: ".",
+    image: { path: "./data/Train/Imgs", suffix: ".jpg" },    
+    mask:   {path: 'softresult/SAM3_Optimized/02_SoftLogits_SO_MO', suffix: '.png'},
     box_json: { path: "./data/Train/box_label", suffix: ".json" },
 
   }
@@ -37,4 +71,51 @@ nc4k:
     root: "data/Test/NC4K",
     image: { path: "Image", suffix: ".jpg" },
     mask: { path: "Mask", suffix: ".png" },
+  }
+
+
+
+
+train_tr:
+  {
+    root: ".",
+    image: { path: "./Dataset_Polyp/Train/image", suffix: ".png" },
+    # mask: { path: "./Dataset_Polyp/Train/mask", suffix: ".png" },
+
+    mask: { path: "./softresult/SAM1_Polyp_GTBox/02_Iter2", suffix: ".png" },
+
+  }
+cvc-300:
+  {
+    root: "./Dataset_Polyp/Test/CVC-300",
+    image: { path: "images", suffix: ".png" },
+    mask: { path: "masks", suffix: ".png" },
+  }
+cvc-clinicdb:
+  {
+    root: "./Dataset_Polyp/Test/CVC-ClinicDB",
+    image: { path: "images", suffix: ".png" },
+    mask: { path: "masks", suffix: ".png" },
+  }
+cvc-colondb:
+  {
+    root: "./Dataset_Polyp/Test/CVC-ColonDB",
+    image: { path: "images", suffix: ".png" },
+    mask: { path: "masks", suffix: ".png" },
+
+  }
+etis-laribpolypdb:
+  {
+    root: "./Dataset_Polyp/Test/ETIS-LaribPolypDB",
+    image: { path: "images", suffix: ".png" },
+    mask: { path: "masks", suffix: ".png" },
+
+  }
+
+kvasir:
+  {
+    root: "./Dataset_Polyp/Test/Kvasir",
+    image: { path: "images", suffix: ".png" },
+    mask: { path: "masks", suffix: ".png" },
+
   }

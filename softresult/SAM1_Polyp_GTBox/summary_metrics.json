@@ -1,0 +1,89 @@
+{
+  "Iter0_Box": {
+    "Smeasure": 0.8895540126800883,
+    "maxE": 0.9345019715459182,
+    "maxF": 0.8864330196126988,
+    "MAE": 0.04512772653095328,
+    "IoU": 0.8210548638742987
+  },
+  "Iter1_PointMemory": {
+    "Smeasure": 0.8876409033980199,
+    "maxE": 0.9346311216210497,
+    "maxF": 0.8859158832502516,
+    "MAE": 0.045918752005090935,
+    "IoU": 0.8194195212219604
+  },
+  "Iter2_PointMemory": {
+    "Smeasure": 0.8873538865432896,
+    "maxE": 0.9350982379245347,
+    "maxF": 0.8826888976211505,
+    "MAE": 0.04469936367806754,
+    "IoU": 0.8176604904191389
+  },
+  "Gain_IoU_0_to_1": {
+    "n": 1450,
+    "improved": 223,
+    "worsened": 113,
+    "unchanged": 1114,
+    "mean_gain": -0.0016353426523381448
+  },
+  "Gain_IoU_0_to_2": {
+    "n": 1450,
+    "improved": 253,
+    "worsened": 153,
+    "unchanged": 1044,
+    "mean_gain": -0.003394373455159895
+  },
+  "Gain_IoU_1_to_2": {
+    "n": 1450,
+    "improved": 82,
+    "worsened": 86,
+    "unchanged": 1282,
+    "mean_gain": -0.00175903080282175
+  },
+  "Diagnostics": {
+    "num_images": 1450,
+    "num_failed": 0,
+    "num_skipped": 0,
+    "route_counts": {
+      "NORMAL": 930,
+      "SO_CROP": 520
+    },
+    "cropped_boxes": 520,
+    "iter1_added_positive": 1283,
+    "iter1_added_negative": 1414,
+    "iter2_added_positive": 1396,
+    "iter2_added_negative": 1415,
+    "iter1_sam_calls": 1450,
+    "iter2_sam_calls": 1450
+  },
+  "Config": {
+    "sam_checkpoint": "./sam_mask/weights/sam_vit_h_4b8939.pth",
+    "sam_model_type": "vit_h",
+    "device": "cuda",
+    "img_dir": "./Dataset_Polyp/Train/image",
+    "gt_dir": "./Dataset_Polyp/Train/mask",
+    "min_component_area": 0,
+    "output_dir": "./softresult/SAM1_Polyp_GTBox",
+    "input_mode": "native",
+    "box_margin": 0.0,
+    "init": "three",
+    "no_crop": false,
+    "small_box_area_thr": 0.1,
+    "crop_context": 0.35,
+    "no_auto_points": false,
+    "no_memory": false,
+    "point_separation": 0.15,
+    "save_probs": false,
+    "save_vis": false,
+    "vis_min_gain": 0.01,
+    "limit": 0,
+    "allow_partial": false,
+    "self_test": false,
+    "auto_points": true,
+    "memory": true
+  },
+  "MetricNote": "Legacy maxE/maxF are E/F measured at binary 0.5, NOT maxima across thresholds.",
+  "GTNote": "GT converted to bounding boxes for SAM prompts and used for offline evaluation; GT masks never used as mask_input or for point sampling.",
+  "BaselineNote": "Iter0 uses GT-derived bounding boxes and native aspect ratio by default; this simulates box-supervised training from pixel masks."
+}

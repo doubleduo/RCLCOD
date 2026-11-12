@@ -1,0 +1,113 @@
+{
+  "Base": {
+    "Smeasure": 0.898019282954647,
+    "maxE": 0.9658175297782268,
+    "maxF": 0.9115514160441416,
+    "MAE": 0.018423784559953593
+  },
+  "Refine_NoFlip": {
+    "Smeasure": 0.9172295148851415,
+    "maxE": 0.9790947967605426,
+    "maxF": 0.9301380536239356,
+    "MAE": 0.013043784352476447
+  },
+  "Refine_FlipGate": {
+    "Smeasure": 0.9172295148851415,
+    "maxE": 0.9790947967605426,
+    "maxF": 0.9301380536239356,
+    "MAE": 0.013043784352476447
+  },
+  "RouteBreakdown": {
+    "NORMAL": {
+      "num_images": 2919,
+      "profile": {
+        "Smeasure": 0.9211656975854755,
+        "maxE": 0.9772660043824409,
+        "maxF": 0.934425379294087,
+        "MAE": 0.016422567270725198
+      }
+    },
+    "SO_CROP": {
+      "num_images": 969,
+      "profile": {
+        "Smeasure": 0.91381435827951,
+        "maxE": 0.9851914890902453,
+        "maxF": 0.923320590456677,
+        "MAE": 0.0031358120491639524
+      }
+    },
+    "MO_PER_BOX": {
+      "num_images": 152,
+      "profile": {
+        "Smeasure": 0.8634108928363379,
+        "maxE": 0.9753484157355208,
+        "maxF": 0.8912658047943417,
+        "MAE": 0.011321138454724477
+      }
+    }
+  },
+  "Diagnostics": {
+    "num_images": 4040,
+    "num_attempted": 4040,
+    "num_failures": 0,
+    "num_skipped_missing_inputs": 0,
+    "flip_accepted": 0,
+    "flip_rejected": 0,
+    "num_cropped_boxes": 1235,
+    "num_added_points": 8493
+  },
+  "MetricNote": "Legacy columns maxE/maxF mean binary E/F at threshold 0.5; not sweep max or adaptive E/F.",
+  "Config": {
+    "sam_checkpoint": "./sam_mask/weights/sam3.pt",
+    "sam3_package_root": "./third_party/sam3-main",
+    "device": "cuda",
+    "img_dir": "./data/Train/Imgs",
+    "scribble_dir": "./data/Train/Scribble",
+    "gt_dir": "./data/Train/GT",
+    "json_dir": "./data/Train/box_label",
+    "out_dir": "./softresult/SAM3_Optimized",
+    "size": 1024,
+    "seed": 0,
+    "refine_iters": 2,
+    "active_points": true,
+    "use_mask_memory": true,
+    "active_min_dist": 16,
+    "active_conflict_first": true,
+    "max_initial_per_class": 9,
+    "use_crop": true,
+    "small_box_area_thr": 0.1,
+    "crop_context": 0.35,
+    "crop_min_context": 16,
+    "crop_square": true,
+    "box_prompt_margin": 5,
+    "multi_box_merge_margin": 25,
+    "flip_gate": false,
+    "flip_mode": "gate",
+    "flip_min_iou": 0.75,
+    "flip_max_area_ratio": 1.5,
+    "flip_scribble_tol": 0.015,
+    "flip_boundary_radius": 7,
+    "flip_base_uncertainty": 0.22,
+    "flip_other_confidence": 0.2,
+    "flip_alpha": 0.6,
+    "save_probs": false,
+    "candidate_quality": true,
+    "vis_mae_thr": 0.03,
+    "vis_gain_thr": 0.003
+  },
+  "SAMVersion": "SAM3",
+  "PromptNote": "Box + human scribble; GT is evaluation only; NOT box-only supervision.",
+  "IterationNote": "refine_iters=N gives N extra SAM3 decoder calls after the initial call.",
+  "MaskMemory": true,
+  "CandidateQualityNote": "Extra SAM3 multimask_output=True call using EXACT last non-flip refinement points/box/input-mask-memory. Saved single-mask and FlipGate outputs are UNCHANGED; 3 diagnostic candidates may differ from the saved single-mask token. Multi-box image-level scores aggregate using per-box MIN (conservative). SAM3 iou_predictions are recorded as sam3_iou_pred_selected; their thresholds must be calibrated separately from SAM1/SAM2 quality scores.",
+  "CandidateQualitySummary": {
+    "candidate_iou_mean": 0.8829483783420949,
+    "candidate_ssim_mean": 0.9661355236207101,
+    "candidate_sim_mean": 0.9245931218998467,
+    "sam_score_selected": 0.9148545503176642,
+    "sam_stability_selected": 0.8591410007609163,
+    "sam3_iou_pred_selected": 0.9148545503176642
+  },
+  "Failures": [],
+  "Skipped": []
+}

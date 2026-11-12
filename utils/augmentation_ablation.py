@@ -50,7 +50,7 @@ def _read_augment_cfg(augment_cfg):
     return conf
 
 
-def build_train_augmentations(augment_cfg=None, use_box=False):
+def build_train_augmentations(augment_cfg=None, use_box=False, use_pkd_band=False):
     """Build Compose; every enabled augmentation has its OWN probability p.
 
     A0 / None reproduces the repository's original four transforms and params.
@@ -114,7 +114,7 @@ def build_train_augmentations(augment_cfg=None, use_box=False):
             A.GaussianBlur(blur_limit=(3, 3), p=p)
         )
 
-    return A.Compose(
-        transforms,
-        additional_targets={"box_mask": "mask"} if use_box else {},
-    )
+    additional_targets = {"box_mask": "mask"} if use_box else {}
+    if use_pkd_band:
+        additional_targets["pkd_band"] = "mask"
+    return A.Compose(transforms, additional_targets=additional_targets)

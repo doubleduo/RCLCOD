@@ -1,0 +1,225 @@
+base_seed = 112358
+config = 'configs/sam1/samcod_paper_zoomnext.py'
+data_cfg = './dataset.yaml'
+dataset_infos = dict({
+    'camo_te':
+    dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='data/Test/CAMO-TE'),
+    'chameleon':
+    dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='data/Test/CHAMELEON'),
+    'cod10k_te':
+    dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='data/Test/COD10K-TE'),
+    'combined_tr':
+    dict(
+        box_json=dict(path='./data/Train/box_label', suffix='.json'),
+        image=dict(path='./data/Train/Imgs', suffix='.jpg'),
+        mask=dict(
+            path='softresult/SAM1_Optimized3/03_Refine_NoFlip', suffix='.png'),
+        root='.'),
+    'combined_trs1':
+    dict(
+        box_json=dict(path='./data/Train/box_label', suffix='.json'),
+        image=dict(path='./data/Train/Imgs', suffix='.jpg'),
+        mask=dict(path='softresult/SAM1_BoxOnly/01_BoxBase', suffix='.png'),
+        root='.'),
+    'combined_trs2':
+    dict(
+        box_json=dict(path='./data/Train/box_label', suffix='.json'),
+        image=dict(path='./data/Train/Imgs', suffix='.jpg'),
+        mask=dict(
+            path='softresult/SAM1_Optimized3/02_SoftLogits_SO_MO',
+            suffix='.png'),
+        root='.'),
+    'combinedsam3':
+    dict(
+        box_json=dict(path='./data/Train/box_label', suffix='.json'),
+        image=dict(path='./data/Train/Imgs', suffix='.jpg'),
+        mask=dict(
+            path='softresult/SAM3_Optimized/02_SoftLogits_SO_MO',
+            suffix='.png'),
+        root='.'),
+    'cvc-300':
+    dict(
+        image=dict(path='images', suffix='.png'),
+        mask=dict(path='masks', suffix='.png'),
+        root='./Dataset_Polyp/Test/CVC-300'),
+    'cvc-clinicdb':
+    dict(
+        image=dict(path='images', suffix='.png'),
+        mask=dict(path='masks', suffix='.png'),
+        root='./Dataset_Polyp/Test/CVC-ClinicDB'),
+    'cvc-colondb':
+    dict(
+        image=dict(path='images', suffix='.png'),
+        mask=dict(path='masks', suffix='.png'),
+        root='./Dataset_Polyp/Test/CVC-ColonDB'),
+    'etis-laribpolypdb':
+    dict(
+        image=dict(path='images', suffix='.png'),
+        mask=dict(path='masks', suffix='.png'),
+        root='./Dataset_Polyp/Test/ETIS-LaribPolypDB'),
+    'kvasir':
+    dict(
+        image=dict(path='images', suffix='.png'),
+        mask=dict(path='masks', suffix='.png'),
+        root='./Dataset_Polyp/Test/Kvasir'),
+    'nc4k':
+    dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='data/Test/NC4K'),
+    'train_tr':
+    dict(
+        image=dict(path='./Dataset_Polyp/Train/image', suffix='.png'),
+        mask=dict(
+            path='./softresult/SAM1_Polyp_GTBox/02_Iter2', suffix='.png'),
+        root='.')
+})
+deterministic = True
+device = 'cuda:0'
+engine = dict(name='samcod_paper')
+evaluate = False
+exp_name = 'PvtV2B4_FPN_Baseline_BS8'
+has_test = True
+info = None
+load_from = None
+log_interval = 20
+metric_names = [
+    'sm',
+    'wfm',
+    'mae',
+    'em',
+]
+model = dict(
+    clean_only_highres=False,
+    hmu_groups=6,
+    siu_groups=4,
+    use_mhsiu=True,
+    use_rgpu=True)
+model_name = 'PvtV2B4_FPN_Baseline'
+objective = dict(
+    pkd=dict(enable=True, extra_weight=1.0),
+    skd=dict(
+        detach_view='augmented', enable=True, ignore_padding=True, weight=1.0))
+output_dir = '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/1sam1/zoom_pkd_skd'
+path = dict(
+    cfg_copy=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/1sam1/zoom_pkd_skd/PvtV2B4_FPN_Baseline_BS8/exp_0/config.py',
+    excel=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/1sam1/zoom_pkd_skd/PvtV2B4_FPN_Baseline_BS8/exp_0/results.xlsx',
+    final_full_net=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/1sam1/zoom_pkd_skd/PvtV2B4_FPN_Baseline_BS8/exp_0/pth/checkpoint_final.pth',
+    final_state_net=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/1sam1/zoom_pkd_skd/PvtV2B4_FPN_Baseline_BS8/exp_0/pth/state_final.pth',
+    log=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/1sam1/zoom_pkd_skd/PvtV2B4_FPN_Baseline_BS8/exp_0/log_2026-11-09.txt',
+    output_dir=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/1sam1/zoom_pkd_skd',
+    pth=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/1sam1/zoom_pkd_skd/PvtV2B4_FPN_Baseline_BS8/exp_0/pth',
+    pth_log=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/1sam1/zoom_pkd_skd/PvtV2B4_FPN_Baseline_BS8/exp_0',
+    save=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/1sam1/zoom_pkd_skd/PvtV2B4_FPN_Baseline_BS8/exp_0/pre',
+    tb=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/1sam1/zoom_pkd_skd/PvtV2B4_FPN_Baseline_BS8/exp_0/tb',
+    trainer_copy=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/1sam1/zoom_pkd_skd/PvtV2B4_FPN_Baseline_BS8/exp_0/trainer.txt'
+)
+pretrained = True
+proj_root = '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD'
+save_results = False
+skd_augment = dict(
+    align_corners=False,
+    blur=dict(enable=True, kernel_size=5, p=0.5, sigma=[
+        0.1,
+        2.0,
+    ]),
+    crop=dict(enable=False, p=0.5, ratio=0.7),
+    flip=dict(axes=[
+        'horizontal',
+        'vertical',
+    ], enable=True, p=0.5),
+    policy='one_of',
+    scale=dict(enable=True, factor=0.5),
+    translate=dict(enable=True, p=0.5, ratio=0.15))
+test = dict(
+    batch_size=8,
+    clip_range=None,
+    data=dict(
+        names=[
+            'chameleon',
+            'camo_te',
+            'cod10k_te',
+            'nc4k',
+        ],
+        shape=dict(h=384, w=384)),
+    num_workers=8)
+train = dict(
+    augment=dict(
+        affine=False,
+        blur=False,
+        brightness_contrast=False,
+        flip=True,
+        gamma=False,
+        hsv=False,
+        p=0.5,
+        rotate=False),
+    batch_size=8,
+    bn=dict(freeze_affine=True, freeze_encoder=False, freeze_status=True),
+    curriculum=dict(
+        clean_only_start_epoch=None,
+        clean_weight=1.0,
+        enable=True,
+        mode='continuous',
+        noisy=dict(
+            anneal_end_epoch=120,
+            anneal_start_epoch=61,
+            end_weight=0.4,
+            hold_end_epoch=60,
+            mode='cosine',
+            start_weight=1.0),
+        num_samples_per_epoch=4040,
+        pools=dict(
+            clean='./data/pseudo_pool/1sam1/IoU7090/clean.txt',
+            noisy='./data/pseudo_pool/1sam1/IoU7090/noisy.txt')),
+    data=dict(
+        box_prompt=dict(band_ratio=0.25, enable=True),
+        names=[
+            'combined_tr',
+        ],
+        shape=dict(h=384, w=384),
+        use_box=True),
+    ema_kd=dict(enable=False, lambda_kd=0.0),
+    epoch_based=True,
+    grad_acc_step=1,
+    lr=0.0001,
+    num_epochs=150,
+    num_iters=None,
+    num_workers=4,
+    optimizer=dict(
+        cfg=dict(diff_factor=0.1, weight_decay=0),
+        group_mode='finetune',
+        mode='adam',
+        set_to_none=False),
+    save_val_ckpt=True,
+    sche_usebatch=True,
+    scheduler=dict(
+        cfg=dict(gamma=0.1, milestones_epochs=[
+            120,
+        ]),
+        mode='step',
+        warmup=dict(initial_coef=0.01, mode='linear', num_iters=0)),
+    use_amp=True,
+    val_interval=5,
+    val_start_epoch=20)
+use_checkpoint = False
+use_custom_worker_init = True

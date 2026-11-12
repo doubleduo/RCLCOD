@@ -1,16 +1,25 @@
+
+
 from .zoomnext.zoomnext import (
 
     PvtV2B2_ZoomNeXt,
     PvtV2B3_ZoomNeXt,
     PvtV2B4_ZoomNeXt,
     PvtV2B5_ZoomNeXt,
+    RN50_ZoomNeXt,
     PvtV2B4_ZoomNeXt_NC_Curriculum,
     PvtV2B4_ZoomNeXt_Z3,
     Zoom_DeepNC,
     ConvNeXtB_ZoomNeXt,
     ConvNeXtB384_ZoomNeXt,
 )
-
+from .zoomnext.zoomnext_backbone_ablation import (
+    PvtV2B4_ZoomNeXt,
+    SwinB_ZoomNeXt,
+    SMTB_ZoomNeXt,
+    DINOv2B_ZoomNeXt,
+    ConvNeXtB_ZoomNeXt,
+)
 from .zoomnext.zoomnext_edge_residual import (
     PvtV2B4_Zoom_BCE_Control,
     PvtV2B4_Zoom_FullUAL_Control,

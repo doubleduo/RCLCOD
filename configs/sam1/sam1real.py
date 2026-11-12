@@ -49,7 +49,7 @@ train = dict(
 
     val_start_epoch=20,
     val_interval=5,
-    save_val_ckpt=True,
+    save_val_ckpt=False,
 
     ema_kd=dict(
         enable=False,
@@ -120,7 +120,7 @@ train = dict(
 
     data=dict(
         shape=dict(h=384, w=384),
-        names=["combined_tr"],
+        names=["GT"],
     ),
 )
 

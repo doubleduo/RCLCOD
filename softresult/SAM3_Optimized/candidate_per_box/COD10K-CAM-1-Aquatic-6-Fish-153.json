@@ -1,0 +1,32 @@
+[
+  {
+    "candidate_iou_12": 0.9077163005153241,
+    "candidate_ssim_12": 0.9774619340896606,
+    "candidate_sim_12": 0.9425891173024924,
+    "candidate_iou_13": 0.9372212109695357,
+    "candidate_ssim_13": 0.9813421368598938,
+    "candidate_sim_13": 0.9592816739147147,
+    "candidate_iou_23": 0.9663093118662435,
+    "candidate_ssim_23": 0.9879311323165894,
+    "candidate_sim_23": 0.9771202220914164,
+    "candidate_iou_mean": 0.9370822744503678,
+    "candidate_ssim_mean": 0.9822450677553812,
+    "candidate_sim_mean": 0.9596636711028745,
+    "candidate_consensus_s": 0.9596636711028745,
+    "candidate_sim_min": 0.9425891173024924,
+    "candidate_sim_max": 0.9771202220914164,
+    "candidate_sim_range": 0.03453110478892396,
+    "candidate_score_1": 0.9296875,
+    "candidate_score_2": 0.92578125,
+    "candidate_score_3": 0.94140625,
+    "selected_candidate_index": 2,
+    "sam_score_selected": 0.94140625,
+    "single_vs_candidate_iou_max": 0.9840565728096436,
+    "single_vs_candidate_iou_selected": 0.9840565728096436,
+    "sam_stability_selected": 0.9255718262132397,
+    "sam3_iou_pred_selected": 0.94140625,
+    "quality_source": "SAM3_last_refinement_prompts_and_input_memory",
+    "candidate_multimask": 1,
+    "quality_same_as_saved_mask": 0
+  }
+]

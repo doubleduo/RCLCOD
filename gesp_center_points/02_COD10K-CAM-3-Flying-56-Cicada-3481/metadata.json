@@ -1,0 +1,259 @@
+{
+  "stem": "COD10K-CAM-3-Flying-56-Cicada-3481",
+  "base_mae": 0.26783166904422256,
+  "refined_mae": 0.004094318384450785,
+  "refined_iou": 0.9021246836286133,
+  "relative_gain": 0.9847130908788282,
+  "gain": 0.2637373506597718,
+  "change": 0.26829278486091296,
+  "annotation_box_count": 4,
+  "case_stats": {
+    "box_count": 4,
+    "area_ratios": [
+      0.05456490727532097,
+      0.022710302246790298,
+      0.023019570256776034,
+      0.012914029065620542
+    ],
+    "max_area_ratio": 0.05456490727532097,
+    "mean_area_ratio": 0.02830220221112696,
+    "center_dists": [
+      0.16062195145716815,
+      0.17332068266609962,
+      0.2131726103524899,
+      0.36215042841827744
+    ],
+    "mean_center_dist": 0.2273164182235088,
+    "min_center_dist": 0.16062195145716815,
+    "max_center_dist": 0.36215042841827744
+  },
+  "is_small": true,
+  "is_offcenter": true,
+  "is_multi": true,
+  "is_normal": false,
+  "box_annotation_file": "data/Train/box_label/COD10K-CAM-3-Flying-56-Cicada-3481.json",
+  "selection_category": "small",
+  "rank": 2,
+  "box_coordinates": [
+    [
+      611,
+      128,
+      764,
+      384
+    ],
+    [
+      449,
+      494,
+      563,
+      637
+    ],
+    [
+      200,
+      417,
+      353,
+      525
+    ],
+    [
+      32,
+      170,
+      135,
+      260
+    ]
+  ],
+  "boxes": 4,
+  "route_type": "MO_PER_BOX",
+  "mask_point_strategy": {
+    "positive_from": "One confidence-guided, interior Base_Mask foreground point per box",
+    "negative_from": "background outside all annotation boxes",
+    "positive_per_box": 1,
+    "pos_min_confidence": 0.85,
+    "pos_interior_margin": 0.08,
+    "mask_neg_total": 4,
+    "mask_positive_points": [
+      [
+        652,
+        195
+      ],
+      [
+        508,
+        578
+      ],
+      [
+        242,
+        471
+      ],
+      [
+        85,
+        206
+      ]
+    ],
+    "mask_negative_points": [
+      [
+        576,
+        342
+      ],
+      [
+        0,
+        700
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        1023,
+        700
+      ]
+    ],
+    "per_box_positive_stats": [
+      {
+        "box_index": 1,
+        "count": 1,
+        "points_xy": [
+          [
+            652,
+            195
+          ]
+        ],
+        "distance_to_mask_or_box_edge_px": 22.18449592590332,
+        "confidence": 0.85205078125
+      },
+      {
+        "box_index": 2,
+        "count": 1,
+        "points_xy": [
+          [
+            508,
+            578
+          ]
+        ],
+        "distance_to_mask_or_box_edge_px": 19.9844970703125,
+        "confidence": 0.8515625
+      },
+      {
+        "box_index": 3,
+        "count": 1,
+        "points_xy": [
+          [
+            242,
+            471
+          ]
+        ],
+        "distance_to_mask_or_box_edge_px": 27.5906982421875,
+        "confidence": 0.90771484375
+      },
+      {
+        "box_index": 4,
+        "count": 1,
+        "points_xy": [
+          [
+            85,
+            206
+          ]
+        ],
+        "distance_to_mask_or_box_edge_px": 34.78759765625,
+        "confidence": 0.853515625
+      }
+    ]
+  },
+  "first_step_candidate_sets": [],
+  "candidate_sets": [
+    {
+      "object": 1,
+      "crop_xyxy": [
+        469,
+        38,
+        905,
+        474
+      ],
+      "scores": [
+        0.9534161686897278,
+        0.9873740673065186,
+        0.9706737995147705
+      ],
+      "note": "Refine-stage multimask diagnostic."
+    },
+    {
+      "object": 2,
+      "crop_xyxy": [
+        385,
+        444,
+        628,
+        687
+      ],
+      "scores": [
+        0.9545057415962219,
+        0.9898076057434082,
+        0.9706457853317261
+      ],
+      "note": "Refine-stage multimask diagnostic."
+    },
+    {
+      "object": 3,
+      "crop_xyxy": [
+        146,
+        341,
+        407,
+        602
+      ],
+      "scores": [
+        0.9312819242477417,
+        0.9425534009933472,
+        0.9243656396865845
+      ],
+      "note": "Refine-stage multimask diagnostic."
+    },
+    {
+      "object": 4,
+      "crop_xyxy": [
+        0,
+        128,
+        175,
+        303
+      ],
+      "scores": [
+        0.8710816502571106,
+        0.9001879692077637,
+        0.9101778268814087
+      ],
+      "note": "Refine-stage multimask diagnostic."
+    }
+  ],
+  "initial_points_drawn": 32,
+  "active_points_drawn": 4,
+  "negative_points_inside_boxes_hidden": 0,
+  "point_decoder_audit": [
+    {
+      "box_index": 1,
+      "initial_points": 11,
+      "final_points": 12,
+      "decoder_calls": 2
+    },
+    {
+      "box_index": 2,
+      "initial_points": 7,
+      "final_points": 8,
+      "decoder_calls": 2
+    },
+    {
+      "box_index": 3,
+      "initial_points": 7,
+      "final_points": 8,
+      "decoder_calls": 2
+    },
+    {
+      "box_index": 4,
+      "initial_points": 7,
+      "final_points": 8,
+      "decoder_calls": 2
+    }
+  ],
+  "no_points_boxes": [],
+  "notes": [
+    "RGB_Boxes.png, RGB_PositivePoints.png, and RGB_NegativePoints.png are saved separately.",
+    "Cases are selected as a mixed set: ordinary plus optional small, off-center, and multi-object examples.",
+    "RGB_Boxes_MaskPoints.png uses one high-confidence interior Base_Mask positive per box and negatives only outside all annotation boxes. These are illustrative points, not necessarily SAM inputs.",
+    "FirstStep_Logits contains base-stage multimask diagnostic logits when available.",
+    "GT used only for post-hoc case ranking and correction visualization."
+  ]
+}

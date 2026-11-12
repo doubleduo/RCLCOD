@@ -1,0 +1,428 @@
+=== log 2026-11-09 18:12:44.135498 ===
+[basemain.py] base_seed = 112358
+config = 'configs/sam1/samcod_paper_zoomnext.py'
+data_cfg = './dataset.yaml'
+dataset_infos = dict({
+    'camo_te':
+    dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='data/Test/CAMO-TE'),
+    'chameleon':
+    dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='data/Test/CHAMELEON'),
+    'cod10k_te':
+    dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='data/Test/COD10K-TE'),
+    'combined_tr':
+    dict(
+        box_json=dict(path='./data/Train/box_label', suffix='.json'),
+        image=dict(path='./data/Train/Imgs', suffix='.jpg'),
+        mask=dict(
+            path='softresult/SAM1_Optimized3/03_Refine_NoFlip', suffix='.png'),
+        root='.'),
+    'combined_trs1':
+    dict(
+        box_json=dict(path='./data/Train/box_label', suffix='.json'),
+        image=dict(path='./data/Train/Imgs', suffix='.jpg'),
+        mask=dict(path='softresult/SAM1_BoxOnly/01_BoxBase', suffix='.png'),
+        root='.'),
+    'combined_trs2':
+    dict(
+        box_json=dict(path='./data/Train/box_label', suffix='.json'),
+        image=dict(path='./data/Train/Imgs', suffix='.jpg'),
+        mask=dict(
+            path='softresult/SAM1_Optimized3/02_SoftLogits_SO_MO',
+            suffix='.png'),
+        root='.'),
+    'combinedsam3':
+    dict(
+        box_json=dict(path='./data/Train/box_label', suffix='.json'),
+        image=dict(path='./data/Train/Imgs', suffix='.jpg'),
+        mask=dict(
+            path='softresult/SAM3_Optimized/02_SoftLogits_SO_MO',
+            suffix='.png'),
+        root='.'),
+    'cvc-300':
+    dict(
+        image=dict(path='images', suffix='.png'),
+        mask=dict(path='masks', suffix='.png'),
+        root='./Dataset_Polyp/Test/CVC-300'),
+    'cvc-clinicdb':
+    dict(
+        image=dict(path='images', suffix='.png'),
+        mask=dict(path='masks', suffix='.png'),
+        root='./Dataset_Polyp/Test/CVC-ClinicDB'),
+    'cvc-colondb':
+    dict(
+        image=dict(path='images', suffix='.png'),
+        mask=dict(path='masks', suffix='.png'),
+        root='./Dataset_Polyp/Test/CVC-ColonDB'),
+    'etis-laribpolypdb':
+    dict(
+        image=dict(path='images', suffix='.png'),
+        mask=dict(path='masks', suffix='.png'),
+        root='./Dataset_Polyp/Test/ETIS-LaribPolypDB'),
+    'kvasir':
+    dict(
+        image=dict(path='images', suffix='.png'),
+        mask=dict(path='masks', suffix='.png'),
+        root='./Dataset_Polyp/Test/Kvasir'),
+    'nc4k':
+    dict(
+        image=dict(path='Image', suffix='.jpg'),
+        mask=dict(path='Mask', suffix='.png'),
+        root='data/Test/NC4K'),
+    'train_tr':
+    dict(
+        image=dict(path='./Dataset_Polyp/Train/image', suffix='.png'),
+        mask=dict(
+            path='./softresult/SAM1_Polyp_GTBox/02_Iter2', suffix='.png'),
+        root='.')
+})
+deterministic = True
+device = 'cuda:0'
+engine = dict(name='samcod_paper')
+evaluate = False
+exp_name = 'PvtV2B4_FPN_Baseline_BS8'
+has_test = True
+info = None
+load_from = None
+log_interval = 20
+metric_names = [
+    'sm',
+    'wfm',
+    'mae',
+    'em',
+]
+model = dict(
+    clean_only_highres=False,
+    hmu_groups=6,
+    siu_groups=4,
+    use_mhsiu=True,
+    use_rgpu=True)
+model_name = 'PvtV2B4_FPN_Baseline'
+objective = dict(
+    pkd=dict(enable=True, extra_weight=1.0),
+    skd=dict(
+        detach_view='augmented', enable=True, ignore_padding=True, weight=1.0))
+output_dir = '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/1sam1/pkd_sk'
+path = dict(
+    cfg_copy=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/1sam1/pkd_sk/PvtV2B4_FPN_Baseline_BS8/exp_0/config.py',
+    excel=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/1sam1/pkd_sk/PvtV2B4_FPN_Baseline_BS8/exp_0/results.xlsx',
+    final_full_net=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/1sam1/pkd_sk/PvtV2B4_FPN_Baseline_BS8/exp_0/pth/checkpoint_final.pth',
+    final_state_net=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/1sam1/pkd_sk/PvtV2B4_FPN_Baseline_BS8/exp_0/pth/state_final.pth',
+    log=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/1sam1/pkd_sk/PvtV2B4_FPN_Baseline_BS8/exp_0/log_2026-11-09.txt',
+    output_dir=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/1sam1/pkd_sk',
+    pth=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/1sam1/pkd_sk/PvtV2B4_FPN_Baseline_BS8/exp_0/pth',
+    pth_log=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/1sam1/pkd_sk/PvtV2B4_FPN_Baseline_BS8/exp_0',
+    save=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/1sam1/pkd_sk/PvtV2B4_FPN_Baseline_BS8/exp_0/pre',
+    tb=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/1sam1/pkd_sk/PvtV2B4_FPN_Baseline_BS8/exp_0/tb',
+    trainer_copy=
+    '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD/outputs/1sam1/pkd_sk/PvtV2B4_FPN_Baseline_BS8/exp_0/trainer.txt'
+)
+pretrained = True
+proj_root = '/media/cc/b5d7f4aa-fba2-44c6-9e72-aabbee8d6a73/AAA_base_hjw/usefulmodel/RCLCOD'
+save_results = False
+skd_augment = dict(
+    align_corners=False,
+    blur=dict(enable=True, kernel_size=5, p=0.5, sigma=[
+        0.1,
+        2.0,
+    ]),
+    crop=dict(enable=False, p=0.5, ratio=0.7),
+    flip=dict(axes=[
+        'horizontal',
+        'vertical',
+    ], enable=True, p=0.5),
+    policy='one_of',
+    scale=dict(enable=True, factor=0.5),
+    translate=dict(enable=True, p=0.5, ratio=0.15))
+test = dict(
+    batch_size=8,
+    clip_range=None,
+    data=dict(
+        names=[
+            'chameleon',
+            'camo_te',
+            'cod10k_te',
+            'nc4k',
+        ],
+        shape=dict(h=384, w=384)),
+    num_workers=8)
+train = dict(
+    augment=dict(
+        affine=False,
+        blur=False,
+        brightness_contrast=False,
+        flip=True,
+        gamma=False,
+        hsv=False,
+        p=0.5,
+        rotate=False),
+    batch_size=8,
+    bn=dict(freeze_affine=True, freeze_encoder=False, freeze_status=True),
+    curriculum=dict(
+        clean_only_start_epoch=None,
+        clean_weight=1.0,
+        enable=True,
+        mode='continuous',
+        noisy=dict(
+            anneal_end_epoch=120,
+            anneal_start_epoch=61,
+            end_weight=0.4,
+            hold_end_epoch=60,
+            mode='cosine',
+            start_weight=1.0),
+        num_samples_per_epoch=4040,
+        pools=dict(
+            clean='./data/pseudo_pool/1sam1/IoU7090/clean.txt',
+            noisy='./data/pseudo_pool/1sam1/IoU7090/noisy.txt')),
+    data=dict(
+        box_prompt=dict(band_ratio=0.25, enable=True),
+        names=[
+            'combined_tr',
+        ],
+        shape=dict(h=384, w=384),
+        use_box=True),
+    ema_kd=dict(enable=False, lambda_kd=0.0),
+    epoch_based=True,
+    grad_acc_step=1,
+    lr=0.0001,
+    num_epochs=150,
+    num_iters=None,
+    num_workers=4,
+    optimizer=dict(
+        cfg=dict(diff_factor=0.1, weight_decay=0),
+        group_mode='finetune',
+        mode='adam',
+        set_to_none=False),
+    save_val_ckpt=True,
+    sche_usebatch=True,
+    scheduler=dict(
+        cfg=dict(gamma=0.1, milestones_epochs=[
+            120,
+        ]),
+        mode='step',
+        warmup=dict(initial_coef=0.01, mode='linear', num_iters=0)),
+    use_amp=True,
+    val_interval=5,
+    val_start_epoch=20)
+use_checkpoint = False
+use_custom_worker_init = True
+
+[pt_utils.py] We will use a fixed seed 112358
+[pt_utils.py] We will not use `torch.backends.cudnn.benchmark`
+[basemain.py] class PvtV2B4_FPN_Baseline(nn.Module):
+    """Single-scale PVTv2-B4 encoder with a conventional top-down FPN."""
+
+    def __init__(
+        self,
+        pretrained=True,
+        input_norm=True,
+        fpn_dim=64,
+        use_checkpoint=False,
+        **kwargs,
+    ):
+        super().__init__()
+        del kwargs
+
+        self.encoder = pvt_v2_eff_b4(
+            pretrained=pretrained,
+            use_checkpoint=use_checkpoint,
+        )
+        self.embed_dims = list(self.encoder.embed_dims)
+        self.normalizer = (
+            PixelNormalizer()
+            if input_norm
+            else nn.Identity()
+        )
+
+        self.lateral_2 = nn.Conv2d(
+            self.embed_dims[0],
+            fpn_dim,
+            kernel_size=1,
+            bias=False,
+        )
+        self.lateral_3 = nn.Conv2d(
+            self.embed_dims[1],
+            fpn_dim,
+            kernel_size=1,
+            bias=False,
+        )
+        self.lateral_4 = nn.Conv2d(
+            self.embed_dims[2],
+            fpn_dim,
+            kernel_size=1,
+            bias=False,
+        )
+        self.lateral_5 = nn.Conv2d(
+            self.embed_dims[3],
+            fpn_dim,
+            kernel_size=1,
+            bias=False,
+        )
+
+        self.smooth_5 = ConvBNReLU(
+            fpn_dim,
+            fpn_dim,
+            3,
+            1,
+            1,
+        )
+        self.smooth_4 = ConvBNReLU(
+            fpn_dim,
+            fpn_dim,
+            3,
+            1,
+            1,
+        )
+        self.smooth_3 = ConvBNReLU(
+            fpn_dim,
+            fpn_dim,
+            3,
+            1,
+            1,
+        )
+        self.smooth_2 = ConvBNReLU(
+            fpn_dim,
+            fpn_dim,
+            3,
+            1,
+            1,
+        )
+
+        self.predictor = nn.Sequential(
+            ConvBNReLU(fpn_dim, 32, 3, 1, 1),
+            nn.Conv2d(32, 1, kernel_size=1),
+        )
+
+    def normalize_encoder(self, image):
+        image = self.normalizer(image)
+        features = self.encoder(image)
+        return (
+            features["reduction_2"],
+            features["reduction_3"],
+            features["reduction_4"],
+            features["reduction_5"],
+        )
+
+    @staticmethod
+    def _resize_like(source, target):
+        return F.interpolate(
+            source,
+            size=target.shape[-2:],
+            mode="bilinear",
+            align_corners=False,
+        )
+
+    def body(self, data):
+        image = data["image_m"]
+        c2, c3, c4, c5 = self.normalize_encoder(image)
+
+        p5 = self.smooth_5(self.lateral_5(c5))
+        p4 = self.smooth_4(
+            self.lateral_4(c4)
+            + self._resize_like(p5, c4)
+        )
+        p3 = self.smooth_3(
+            self.lateral_3(c3)
+            + self._resize_like(p4, c3)
+        )
+        p2 = self.smooth_2(
+            self.lateral_2(c2)
+            + self._resize_like(p3, c2)
+        )
+
+        logits = self.predictor(p2)
+        return F.interpolate(
+            logits,
+            size=image.shape[-2:],
+            mode="bilinear",
+            align_corners=False,
+        )
+
+    def forward(
+        self,
+        data,
+        iter_percentage=1,
+        **kwargs,
+    ):
+        del iter_percentage, kwargs
+        logits = self.body(data=data)
+
+        if not self.training:
+            return logits
+
+        mask = data["mask"].float()
+        if mask.shape[-2:] != logits.shape[-2:]:
+            mask = F.interpolate(
+                mask,
+                size=logits.shape[-2:],
+                mode="nearest",
+            )
+
+        bce_loss = F.binary_cross_entropy_with_logits(
+            logits,
+            mask,
+            reduction="mean",
+        )
+
+        return {
+            "logits": logits,
+            "vis": {"sal": logits.sigmoid()},
+            "loss": bce_loss,
+            "loss_items": {
+                "bce": bce_loss.detach(),
+                "total": bce_loss.detach(),
+            },
+            "loss_str": (
+                f"L:{bce_loss.detach().item():.4f} "
+                f"BCE:{bce_loss.detach().item():.4f}"
+            ),
+        }
+
+    def get_grouped_params(self):
+        param_groups = {
+            "pretrained": [],
+            "fixed": [],
+            "retrained": [],
+        }
+
+        for name, param in self.named_parameters():
+            if name.startswith(
+                "encoder.patch_embed1."
+            ):
+                param.requires_grad = False
+                param_groups["fixed"].append(param)
+            elif name.startswith("encoder."):
+                param_groups["pretrained"].append(param)
+            else:
+                param_groups["retrained"].append(param)
+
+        LOGGER.info(
+            "Parameter Groups:{"
+            f"Pretrained: "
+            f"{len(param_groups['pretrained'])}, "
+            f"Fixed: {len(param_groups['fixed'])}, "
+            f"ReTrained: "
+            f"{len(param_groups['retrained'])}"
+            "}"
+        )
+        return param_groups
+
+[basemain.py] Number of Parameters: 62275105
